@@ -1,0 +1,11 @@
+
+NumPy is the fundamental Python package for scientific computing. It adds the capa- bilities of N-dimensional arrays, element-by-element operations (broadcasting), core mathematical operations like linear algebra, and the ability to wrap C/C++/Fortran code
+ 
+The Python list object can store nearly any type of Python object as an element. But operating on the elements in a list can only be done through iterative loops, which is computationally inefficient in Python. The NumPy package enables users to overcome the shortcomings of the Python lists by providing a data storage object called ndarray.
+
+.Key take-aways
+. The `ndarray` is similar to lists, but can only store elements of the same type
+
+.Interesting features
+. recarray: record arrays can also store information other than numeric
+.

@@ -1,0 +1,6 @@
+.idea
+
+**/target
+**/.coverage
+__pycache__
+**/__pycache__
