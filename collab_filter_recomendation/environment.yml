@@ -1,0 +1,14 @@
+name: DS
+channels:
+  - defaults
+dependencies:
+  - numpy
+  - scipy
+  - pandas
+  - scikit-learn
+  - matplotlib
+  - seaborn
+  - statsmodels
+  - nb_conda_kernels
+  - jupyter
+
