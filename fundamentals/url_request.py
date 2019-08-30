@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-
-
+import sys
 from urllib.request import urlopen
+
 
 def fetch_words(url):
     with urlopen(url) as story:
@@ -11,6 +11,7 @@ def fetch_words(url):
             for word in line_words:
                 story_words.append(word)
     return story_words
+
 
 def print_items(items):
     for item in items:
@@ -25,7 +26,3 @@ def main(url):
 if __name__ == '__main__':
     main(sys.argv[1])
     # test url: http://sixty-north.com/c/t.txt
-
-    
-
-

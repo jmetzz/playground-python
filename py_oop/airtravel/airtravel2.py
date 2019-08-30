@@ -1,7 +1,7 @@
 """Model for aircraft flights"""
 
-class Flight:
 
+class Flight:
 
     def __init__(self, number, aircraft):
         if not number[:2].isalpha():
@@ -54,7 +54,6 @@ class Flight:
 
         return row, letter
 
-
     def allocate_seat(self, seat, passenger):
         """Allocate a seat to a passenger.
 
@@ -71,7 +70,6 @@ class Flight:
             raise ValueError("Seat {} already occupied".format(seat))
 
         self._seating[row][letter] = passenger
-
 
     def relocate_passenger(self, from_seat, to_seat):
         """Relocate a passenger to a different seat
@@ -109,6 +107,7 @@ class Flight:
                 if passenger is not None:
                     yield (passenger, "{}{}".format(row, letter))
 
+
 class Aircraft:
 
     def __init__(self, registration):
@@ -130,6 +129,7 @@ class AirbusA319(Aircraft):
     def seating_plan(self):
         return range(1, 23), "ABCDEF"
 
+
 class Boeing777(Aircraft):
 
     def model(self):
@@ -137,6 +137,7 @@ class Boeing777(Aircraft):
 
     def seating_plan(self):
         return range(1, 56), "ABCDEFGHJK"
+
 
 def make_flight():
     f = Flight("BA758", AirbusA319("G-EFJT"))
@@ -154,14 +155,15 @@ def make_flight():
     g.allocate_seat('1D', "Richard Hickey")
     return f, g
 
+
 def console_card_printer(passenger, seat, flight_number, aircraft):
-    output = "| Name: {0}"          \
-             "  Flight: {1}"        \
-             "  Seat: {2}"          \
-             "  Aircraft: {3}"      \
+    output = "| Name: {0}" \
+             "  Flight: {1}" \
+             "  Seat: {2}" \
+             "  Aircraft: {3}" \
              "  |".format(passenger, flight_number, seat, aircraft)
-    banner = '+' + '-' *  (len(output) - 2) + '+'
-    border = '|' + ' ' *  (len(output) - 2) + '|'
+    banner = '+' + '-' * (len(output) - 2) + '+'
+    border = '|' + ' ' * (len(output) - 2) + '|'
     lines = [banner, border, output, border, banner]
     card = '\n'.join(lines)
     print(card)
