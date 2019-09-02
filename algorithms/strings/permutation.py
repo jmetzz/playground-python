@@ -174,6 +174,19 @@ def is_permut_of_palindrome_3(input: str) -> bool :
         return bit_vector
 
     def check_exactly_one_bit_set(bit_vector: list) -> bool:
+        """Check that at most ont bit in the integer is set to 1
+
+        A very elegant way to check that an integer has exactly one bit set to 1.
+
+        Picture an integer like 00010000. Subtract 1 from the number, we'll get 00001111.
+        Note that there is no overlap between the bits in these numbers.
+        So, we can check to see that a number has exactly one 1 because
+        if we subtract 1 from it and then apply the AND operator between the two numbers,
+        we should get 0.
+
+        :param bit_vector:
+        :return: bool
+        """
         return (bit_vector & (bit_vector - 1)) == 0
 
     bits = craete_bit_vector(input)
