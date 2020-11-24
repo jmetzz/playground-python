@@ -1,5 +1,6 @@
 # headlines.py
 
+
 def headline(text: str, align: bool = True) -> str:
     if align:
         return f"{text.title()}\n{'-' * len(text)}"

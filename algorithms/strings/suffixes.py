@@ -39,6 +39,7 @@ class RadixTrie:
     less memory requirement and less node accesses.
 
     """
+
     pass
 
 
@@ -57,11 +58,11 @@ class PatriciaTree:
     https://stackoverflow.com/questions/14708134/what-is-the-difference-between-trie-and-radix-trie-data-structures
 
     """
+
     pass
 
 
 class SiString:
-
     def __init__(self, text):
         pass
 
@@ -103,6 +104,7 @@ class PATTree:
 
 
     """
+
     pass
 
 
@@ -254,8 +256,10 @@ class SuffixArray:
             second_half_start = current + shift_length
             previous = new_order[i - 1]
             previous_second_half_start = (previous + shift_length) % n
-            if classes[current] != classes[previous] or \
-                    classes[second_half_start] != classes[previous_second_half_start]:
+            if (
+                classes[current] != classes[previous]
+                or classes[second_half_start] != classes[previous_second_half_start]
+            ):
                 new_classes[current] = new_classes[previous] + 1
             else:
                 new_classes[current] = new_classes[previous]
@@ -273,7 +277,7 @@ if __name__ == "__main__":
     sa = SuffixArray(["a", "b"])
     indexes = sa.build(text)
     for i in indexes:
-        print(text[i:size - 1])
+        print(text[i : size - 1])
 
     print("----")
     text = "ababaacabc$"
@@ -281,4 +285,4 @@ if __name__ == "__main__":
     sa = SuffixArray(["a", "b", "c"])
     indexes = sa.build(text)
     for i in indexes:
-        print(text[i:size - 1])
+        print(text[i : size - 1])

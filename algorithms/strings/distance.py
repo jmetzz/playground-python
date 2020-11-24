@@ -44,4 +44,4 @@ def one_insert_away(first: str, second: str) -> bool:
 
 
 if __name__ == "__main__":
-    print(one_away('pale', 'ple'))
+    print(one_away("pale", "ple"))

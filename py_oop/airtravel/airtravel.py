@@ -2,7 +2,6 @@
 
 
 class Flight:
-
     def __init__(self, number, aircraft):
         if not number[:2].isalpha():
             raise ValueError("No airline code in '{}'".format(number))
@@ -11,7 +10,7 @@ class Flight:
             raise ValueError("Invalid airline code '{}'".format(number))
 
         if not number[2:].isdigit() and int(number[2:]) <= 9999:
-            raise ValueError("Invalid route number '{}'".format(number))
+            raise ValueError("Invalid roøute number '{}'".format(number))
 
         self._number = number
         self._aircraft = aircraft
@@ -91,8 +90,7 @@ class Flight:
         self._seating[from_row][from_letter] = None
 
     def num_available_seats(self):
-        return sum(sum(1 for seat in row.values() if seat is None)
-                   for row in self._seating if row is not None)
+        return sum(sum(1 for seat in row.values() if seat is None) for row in self._seating if row is not None)
 
     def make_boarding_cards(self, card_printer):
         for passenger, seat in sorted(self._passenger_seats()):
@@ -109,7 +107,6 @@ class Flight:
 
 
 class Aircraft:
-
     def __init__(self, registration, model, num_rows, num_seats_per_row):
         self._registration = registration
         self._model = model
@@ -123,31 +120,30 @@ class Aircraft:
         return self._model
 
     def seating_plan(self):
-        return (
-            range(1, self._num_rows + 1),
-            "ABCDEFGHJK"[:self._num_seats_per_row]
-        )
+        return (range(1, self._num_rows + 1), "ABCDEFGHJK"[: self._num_seats_per_row])
 
 
 def make_flight():
     f = Flight("BA758", Aircraft("G-EFJT", "Airbus A320", num_rows=22, num_seats_per_row=6))
-    f.allocate_seat('12A', "John Doe")
-    f.allocate_seat('15F', "Isaac Newton")
-    f.allocate_seat('15E', "Pablo Picasso")
-    f.allocate_seat('1C', "John McCarthy")
-    f.allocate_seat('1D', "Richard Hickey")
+    f.allocate_seat("12A", "John Doe")
+    f.allocate_seat("15F", "Isaac Newton")
+    f.allocate_seat("15E", "Pablo Picasso")
+    f.allocate_seat("1C", "John McCarthy")
+    f.allocate_seat("1D", "Richard Hickey")
     return f
 
 
 def console_card_printer(passenger, seat, flight_number, aircraft):
-    output = "| Name: {0}" \
-             "  Flight: {1}" \
-             "  Seat: {2}" \
-             "  Aircraft: {3}" \
-             "  |".format(passenger, flight_number, seat, aircraft)
-    banner = '+' + '-' * (len(output) - 2) + '+'
-    border = '|' + ' ' * (len(output) - 2) + '|'
+    output = (
+        "| Name: {0}"
+        "  Flight: {1}"
+        "  Seat: {2}"
+        "  Aircraft: {3}"
+        "  |".format(passenger, flight_number, seat, aircraft)
+    )
+    banner = "+" + "-" * (len(output) - 2) + "+"
+    border = "|" + " " * (len(output) - 2) + "|"
     lines = [banner, border, output, border, banner]
-    card = '\n'.join(lines)
+    card = "\n".join(lines)
     print(card)
     print()

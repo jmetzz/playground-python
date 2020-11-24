@@ -2,7 +2,7 @@
 
 
 from itertools import islice, count
-from math import factorial, sqrt
+from math import factorial
 
 from algorithms.primes import is_prime
 

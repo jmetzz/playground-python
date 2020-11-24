@@ -12,7 +12,7 @@ def internal_permut(string, prefix, level):
         print(f"{s}{prefix}")
     else:
         for i in range(len(string)):
-            rem = string[:i] + string[i + 1:]
+            rem = string[:i] + string[i + 1 :]
             # print(f"\t(rem={rem}, prefix={prefix + string[i]})")
             internal_permut(rem, prefix + string[i], level + 1)
 
@@ -29,7 +29,7 @@ def is_permutation_by_sorting(input, other):
 
         :return bool
     """
-    if (len(input) != len(other)):
+    if len(input) != len(other):
         return False
     return sorted(input) == sorted(other)
 
@@ -47,7 +47,7 @@ def is_permutation_by_counting(input, other):
 
         :return bool
     """
-    if (len(input) != len(other)):
+    if len(input) != len(other):
         return False
 
     # b) count char appearance in both, using a index vector
@@ -62,16 +62,17 @@ def is_permutation_by_counting(input, other):
             return False
     return True
 
-def to_index(character) -> int :
-        a, z = ord('a'), ord('z') 
-        value = ord(character)
-        if a <= value <= z:
-            return value - a
-        else: 
-            return -1
-    
 
-def is_permut_of_palindrome(input: str) -> bool :
+def to_index(character) -> int:
+    a, z = ord("a"), ord("z")
+    value = ord(character)
+    if a <= value <= z:
+        return value - a
+    else:
+        return -1
+
+
+def is_permut_of_palindrome(input: str) -> bool:
     """Checks if a string is a permutation a palindrome
 
         :param input string
@@ -83,24 +84,25 @@ def is_permut_of_palindrome(input: str) -> bool :
             - string of an odd lenght, must have exactly one character with
             an odd count
     """
-    
+
     def histogram_table(input: str) -> list:
         """Maps each character in input to a number
         
         Non letter character maps to -1
         """
-        table = [0] * (ord('z') - ord('a') + 1)
+        table = [0] * (ord("z") - ord("a") + 1)
         for c in input:
             idx = to_index(c)
             if idx != -1:
                 table[idx] += 1
         return table
 
-    def has_max_one_odd(table: list)-> bool:
+    def has_max_one_odd(table: list) -> bool:
         found_odd = False
         for count in table:
             if count % 2 == 1:
-                if found_odd: return False
+                if found_odd:
+                    return False
                 found_odd = True
         return True
 
@@ -108,7 +110,7 @@ def is_permut_of_palindrome(input: str) -> bool :
     return has_max_one_odd(alphabet_table)
 
 
-def is_permut_of_palindrome_2(input: str) -> bool :
+def is_permut_of_palindrome_2(input: str) -> bool:
     """Checks if a string is a permutation a palindrome
 
         :param input string
@@ -122,8 +124,8 @@ def is_permut_of_palindrome_2(input: str) -> bool :
         
         Change: checks the number of odd number as we go
     """
-    
-    table = [0] * (ord('z') - ord('a') + 1)
+
+    table = [0] * (ord("z") - ord("a") + 1)
     odd_count = 0
     for c in input:
         idx = to_index(c)
@@ -133,11 +135,11 @@ def is_permut_of_palindrome_2(input: str) -> bool :
                 odd_count += 1
             else:
                 odd_count -= 1
-        
+
     return odd_count <= 1
 
 
-def is_permut_of_palindrome_3(input: str) -> bool :
+def is_permut_of_palindrome_3(input: str) -> bool:
     """Checks if a string is a permutation a palindrome
 
         :param input string
@@ -152,25 +154,26 @@ def is_permut_of_palindrome_3(input: str) -> bool :
         Change: uses bit vector and ignore the frequency. We only need to know
         if the number of odd letter is more than one
     """
+
     def craete_bit_vector(input: str) -> int:
         bit_vector = 0
         for c in input:
-            bit_vector = toggle(bit_vector,  to_index(c))
+            bit_vector = toggle(bit_vector, to_index(c))
         return bit_vector
 
-    def toggle(bit_vector: int, index: int ) -> int:
+    def toggle(bit_vector: int, index: int) -> int:
         """Toggle the i-th bit in the integer
         """
         if index < 0:
             return bit_vector
-        
+
         # mask keeps the i-th bit set as 1 and all other as 0
-        mask = 1 << index 
-        
+        mask = 1 << index
+
         if (bit_vector & mask) == 0:
-            bit_vector |= mask # set the bit
+            bit_vector |= mask  # set the bit
         else:
-            bit_vector &= ~mask # clear the bit
+            bit_vector &= ~mask  # clear the bit
         return bit_vector
 
     def check_exactly_one_bit_set(bit_vector: list) -> bool:
@@ -213,19 +216,19 @@ if __name__ == "__main__":
     #       f"{is_permutation_by_counting('abcc', 'cba')}")
 
     print("\nsolution 1")
-    print(is_permut_of_palindrome('adciicda'))
-    print(is_permut_of_palindrome('adcidca'))
-    print(is_permut_of_palindrome('adciicdaa'))
-    print(is_permut_of_palindrome('addciicdaa'))
+    print(is_permut_of_palindrome("adciicda"))
+    print(is_permut_of_palindrome("adcidca"))
+    print(is_permut_of_palindrome("adciicdaa"))
+    print(is_permut_of_palindrome("addciicdaa"))
 
     print("\nsolution 2")
-    print(is_permut_of_palindrome_2('adciicda'))
-    print(is_permut_of_palindrome_2('adcidca'))
-    print(is_permut_of_palindrome_2('adciicdaa'))
-    print(is_permut_of_palindrome_2('addciicdaa'))
-    
+    print(is_permut_of_palindrome_2("adciicda"))
+    print(is_permut_of_palindrome_2("adcidca"))
+    print(is_permut_of_palindrome_2("adciicdaa"))
+    print(is_permut_of_palindrome_2("addciicdaa"))
+
     print("\nsolution 3")
-    print(is_permut_of_palindrome_3('adciicda'))
-    print(is_permut_of_palindrome_3('adcidca'))
-    print(is_permut_of_palindrome_3('adciicdaa'))
-    print(is_permut_of_palindrome_3('addciicdaa'))
+    print(is_permut_of_palindrome_3("adciicda"))
+    print(is_permut_of_palindrome_3("adcidca"))
+    print(is_permut_of_palindrome_3("adciicdaa"))
+    print(is_permut_of_palindrome_3("addciicdaa"))

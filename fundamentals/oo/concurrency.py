@@ -11,8 +11,8 @@ class X(Base):
 
 
 if __name__ == "__main__":
-    y = type('Y', (X,), dict())()
-    z = type('Z', (X,), dict())()
+    y = type("Y", (X,), dict())()
+    z = type("Z", (X,), dict())()
 
     y.inc()
     print(y.counter)

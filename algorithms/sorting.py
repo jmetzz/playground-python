@@ -1,4 +1,4 @@
-from typing import Sequence, List
+from typing import List
 
 
 def counting_sort(elements: List[int]) -> None:
@@ -73,6 +73,7 @@ def counting_sort(elements: List[int]) -> None:
     # overwrite the input array
     for i in range(0, size):
         elements[i] = output[i]
+
 
 if __name__ == "__main__":
     data = [4, 2, 2, 8, 3, 3, 1]

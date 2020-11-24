@@ -32,7 +32,7 @@ def all_unique_chars_bit_op(input) -> bool:
         if (checker & (1 << val)) > 0:
             return False
         else:
-            checker |= (1 << val)
+            checker |= 1 << val
     return True
 
 

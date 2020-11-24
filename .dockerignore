@@ -1,0 +1,10 @@
+data-load
+.data
+.DS_Store
+.coverage
+.mypy_cache
+.pytest_cache/
+.tox
+.venv/
+.env
+*.ipynb_checkpoints

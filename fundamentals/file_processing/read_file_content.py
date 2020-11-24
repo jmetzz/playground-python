@@ -2,12 +2,12 @@ import sys
 
 
 def load(filename):
-    with open(filename, mode='rt', encoding='utf-8') as f:
+    with open(filename, mode="rt", encoding="utf-8") as f:
         return [int(line.strip()) for line in f]
 
 
 def cat(filename):
-    f = open(filename, mode='rt', encoding='utf-8')
+    f = open(filename, mode="rt", encoding="utf-8")
     for line in f:
         sys.stdout.write(line)
         # print(line)
@@ -24,5 +24,5 @@ def main(filename):
     cat(filename)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main(sys.argv[1])

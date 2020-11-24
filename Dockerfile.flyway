@@ -1,0 +1,10 @@
+FROM adoptopenjdk/openjdk11:jre-11.0.8_10-alpine
+
+COPY gradle/ gradle/
+COPY *gradle* ./
+COPY schema/ schema
+
+# Ensure we have downloaded gradle
+RUN ./gradlew -v
+
+CMD ["./gradlew", "tasks"]
