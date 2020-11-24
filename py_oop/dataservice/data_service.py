@@ -28,7 +28,7 @@ from py_oop.dataservice.utils import (
 
 logger = logging.getLogger(__name__)
 
-DATA_CACHE = {}
+DATA_CACHE: Dict[Any, Any] = dict()
 
 
 class AbstractDataService(ABC):
@@ -292,23 +292,6 @@ class FileSystemDataService(AbstractDataService):
 
         return df
 
-    def get_moc_thresholds(
-        self, group: Optional[str] = None, country: Optional[str] = None, period: Optional[int] = None, db_id: int = 0,
-    ) -> pd.DataFrame:
-
-        filename = os.path.join("/tmp", "ce_cache", str(db_id), "thresholds.parquet")
-        if not os.path.exists(filename):
-            return pd.DataFrame(columns=self.THRESHOLDS_COLUMNS)
-
-        df = pd.read_parquet(filename)
-        if group:
-            df = df.query(f"item_group_code == '{group}'")
-
-        if country:
-            df = df.query(f"country_code == '{country}'")
-
-        return df
-
     def startup(self, db_id: Optional[int] = None):
         """
         Prime the cache if we are running locally, otherwise, let liveness.py do it offline
@@ -407,17 +390,6 @@ class FileSystemDataService(AbstractDataService):
             df.to_parquet(fp, compression="gzip", engine="pyarrow", index=False)
 
         logger.info("CELL_LOAD_END", extra=params)
-
-    def list_cells(self) -> List[Tuple[str, str, str]]:
-        cache_dir = os.path.join("/tmp", "ce_cache")
-        cells = []
-        for file in glob.glob(cache_dir + "/**/*.parquet", recursive=True):
-            parts = file.split("/")
-            if len(parts) == 8:
-                cell, country, period = parts[4:7]
-                cells.append((cell, country, period))
-
-        return cells
 
 
 def get_data_service() -> AbstractDataService:

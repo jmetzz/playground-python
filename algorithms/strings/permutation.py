@@ -1,3 +1,6 @@
+from typing import List
+
+
 def permut(string, level):
     return internal_permut(string, "", level)
 
@@ -176,7 +179,7 @@ def is_permut_of_palindrome_3(input: str) -> bool:
             bit_vector &= ~mask  # clear the bit
         return bit_vector
 
-    def check_exactly_one_bit_set(bit_vector: list) -> bool:
+    def check_exactly_one_bit_set(bit_vector) -> bool:
         """Check that at most ont bit in the integer is set to 1
 
         A very elegant way to check that an integer has exactly one bit set to 1.

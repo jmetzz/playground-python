@@ -61,6 +61,10 @@ test:
 	@printf "$(CYAN)Running test suite$(COFF)\n"
 	poetry run pytest
 
+## Run unit tests with python debugger enabled
+test-pdb:
+	docker-compose exec app pytest --pdb -s
+
 ## Remove temporary files created during build and all compiled Python files
 clean:
 	@printf "$(CYAN)Cleaning EVERYTHING!$(COFF)\n"

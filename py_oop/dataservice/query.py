@@ -28,6 +28,13 @@ WHERE country_code = %(country_code)s
 AND item_group_code = %(item_group_code)s
 """
 
+get_last_period_seq_per_cell = """
+select item_group_code, country_code, max(period_seq) as period_seq
+from sales.market_sales
+group by item_group_code, country_code;
+"""
+
+
 get_base_facts: str = """
 SELECT
     s.item_id,
