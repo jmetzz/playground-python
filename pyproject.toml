@@ -14,6 +14,16 @@ python-json-logger = "^2.0.1"    # A python library adding a json log formatter
 fuzzywuzzy = "^0.18.0"
 "ruamel.yaml" = "^0.16.12"
 PyInquirer = "^1.0.3"
+jupyterlab = {version="^2.2.9", optional=true}
+psutil = {version="^x5.7.3", optional=true}
+line-profiler = {version="^3.0.2", optional=true}
+memory-profiler = {version="^0.58.0", optional=true}
+pyinstrument = {version="^3.2.0", optional=true}
+pandas-profiling = {version="^2.9.0", optional=true}
+graphviz = {version="^0.14.2", optional=true}
+snakeviz = {version="^2.1.0", optional=true}
+py-heat-magic = {version="^0.0.2", optional=true}
+
 
 [tool.poetry.dev-dependencies]
 black = "^19.10b0"               # The uncompromising code formatter.
@@ -25,6 +35,10 @@ responses = "^0.12.0"            # A utility library for mocking out the `reques
 pip-licenses = "^3.0.0"          # Generate licenses for all 3rd party packages
 ipdb = "^0.13.4"                 # ipython debugger
 pytest-sugar = "^0.9.4"          # pytest-sugar is a plugin for pytest that changes the default look and feel of pytest (e.g. progressbar, show tests that fail instantly).
+
+[tool.poetry.extras]
+jupyter = ["jupyterlab"]
+profiling = ["psutil", "line-profiler", "memory-profiler", "pyinstrument", "pandas-profiling", "graphviz", "snakeviz", "py-heat-magic"]
 
 [tool.flake8]
 max-line-length = 120
