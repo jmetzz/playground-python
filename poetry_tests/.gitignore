@@ -1,13 +1,8 @@
 .DS_Store
 
 .idea
-resources/data/
 **/target
 **/.coverage
-
-.profile_data
-.pytest_cache
-
 
 .vscode
 
@@ -50,13 +45,14 @@ ipython_config.py
 
 
 # Environments
+poetry_tests/.env
 .venv
 env/
 venv/
 ENV/
 env.bak/
 venv.bak/
-
+.env
 
 # mypy
 .mypy_cache/
