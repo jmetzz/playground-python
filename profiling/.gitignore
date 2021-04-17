@@ -31,6 +31,10 @@ build
 dist
 MANIFEST
 
+# cython
+*.so
+
+
 # python test
 .coverage
 .mypy_cache
