@@ -98,4 +98,3 @@ if __name__ == "__main__":
     # reasonable defaults for a laptop
     calc_pure_python(desired_width=1000, max_iterations=300)
     # calc_pure_python_wo_prints(desired_width=1000, max_iterations=300)
-    

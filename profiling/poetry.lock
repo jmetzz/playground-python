@@ -296,6 +296,20 @@ apipkg = ">=1.4"
 testing = ["pre-commit"]
 
 [[package]]
+name = "filprofiler"
+version = "2021.5.0"
+description = "A memory profiler for data batch processing applications."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+threadpoolctl = "*"
+
+[package.extras]
+dev = ["pytest", "pampy", "numpy", "cython", "black", "towncrier (==19.9.0rc1)", "wheel", "auditwheel", "twine", "ipython", "ipykernel", "nbconvert (<6)", "numexpr", "blosc", "psutil", "flake8"]
+
+[[package]]
 name = "flake9"
 version = "3.8.3.post2"
 description = "the modular source code checker: pep8 pyflakes and co"
@@ -1742,6 +1756,14 @@ python-versions = "*"
 test = ["pathlib2"]
 
 [[package]]
+name = "threadpoolctl"
+version = "2.1.0"
+description = "threadpoolctl"
+category = "main"
+optional = false
+python-versions = ">=3.5"
+
+[[package]]
 name = "toml"
 version = "0.10.2"
 description = "Python Library for Tom's Obvious, Minimal Language"
@@ -1879,7 +1901,7 @@ jupyter = ["ipykernel", "jupyterlab", "py-heat-magic"]
 [metadata]
 lock-version = "1.1"
 python-versions = "3.8.2"
-content-hash = "077651adf9e5fc967c1fe1eaae836abb9242b3509f2c0f6471e0771f7e31cce0"
+content-hash = "cf8b42d6854140988608df406ac30024cb3382a27de3ccb23360983ac8d86a3c"
 
 [metadata.files]
 anyio = [
@@ -2120,6 +2142,16 @@ environs = [
 execnet = [
     {file = "execnet-1.8.0-py2.py3-none-any.whl", hash = "sha256:7a13113028b1e1cc4c6492b28098b3c6576c9dccc7973bfe47b342afadafb2ac"},
     {file = "execnet-1.8.0.tar.gz", hash = "sha256:b73c5565e517f24b62dea8a5ceac178c661c4309d3aa0c3e420856c072c411b4"},
+]
+filprofiler = [
+    {file = "filprofiler-2021.5.0-cp36-cp36m-macosx_10_14_x86_64.whl", hash = "sha256:0e6a4680124b6f75db0f1b2bc8fe6c149e68aaed800b36f3cce1ea091337c277"},
+    {file = "filprofiler-2021.5.0-cp36-cp36m-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:3b42020728d424524a22cf4eede2cc3023de0f20ad3cbf067ec43e6d1838e976"},
+    {file = "filprofiler-2021.5.0-cp37-cp37m-macosx_10_14_x86_64.whl", hash = "sha256:c5f3b4200139f1dc14da39bd09056761c6ae377cd77cf620441857736cc0ffeb"},
+    {file = "filprofiler-2021.5.0-cp37-cp37m-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:a66c1d471e8b8240a2ab413a520f7594713e7867d27a9237fdfc380603be74ed"},
+    {file = "filprofiler-2021.5.0-cp38-cp38-macosx_10_14_x86_64.whl", hash = "sha256:4e2d37b4d8160761800165dc304fe0931e37b52d6da2da1562723b554293daed"},
+    {file = "filprofiler-2021.5.0-cp38-cp38-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:3cb8f8982df9a1c50d8a3ab2fadb56ed0330836f9f7202e11e42f053b342fcc5"},
+    {file = "filprofiler-2021.5.0-cp39-cp39-macosx_10_14_x86_64.whl", hash = "sha256:0bc2dc04c270408ff6502332a01dc1b07a89b20b23405a1e142d9d05139ad937"},
+    {file = "filprofiler-2021.5.0-cp39-cp39-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:18c1d5083bee532fb7ae063f6264cebb6851a558e4d6d57eeeb9f64b521627a4"},
 ]
 flake9 = [
     {file = "flake9-3.8.3.post2-py3-none-any.whl", hash = "sha256:47dced969a802a8892740bcaa35ae07232709b2ade803c45f48dd03ccb7f825f"},
@@ -2998,6 +3030,10 @@ terminado = [
 testpath = [
     {file = "testpath-0.4.4-py2.py3-none-any.whl", hash = "sha256:bfcf9411ef4bf3db7579063e0546938b1edda3d69f4e1fb8756991f5951f85d4"},
     {file = "testpath-0.4.4.tar.gz", hash = "sha256:60e0a3261c149755f4399a1fff7d37523179a70fdc3abdf78de9fc2604aeec7e"},
+]
+threadpoolctl = [
+    {file = "threadpoolctl-2.1.0-py3-none-any.whl", hash = "sha256:38b74ca20ff3bb42caca8b00055111d74159ee95c4370882bbff2b93d24da725"},
+    {file = "threadpoolctl-2.1.0.tar.gz", hash = "sha256:ddc57c96a38beb63db45d6c159b5ab07b6bced12c45a1f07b2b92f272aebfa6b"},
 ]
 toml = [
     {file = "toml-0.10.2-py2.py3-none-any.whl", hash = "sha256:806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b"},

@@ -102,7 +102,7 @@ cli.py cpu --save --vis --pretty
 
 ### Line-by-line cpu usage
 
-`cProfile` only times explicit function calls, but not special methods called because of language syntax. So, many expensive computations are not considered by `cProfile` simply because there is not explicity function call.
+`cProfile` only times explicit function calls, but not special methods called because of language syntax. So, many expensive computations are not considered by `cProfile` simply because there is not explicit function call.
 
 `LineProfiler` can be given **specific functions** to evaluate, and it will time the execution of each individual line inside those functions.
 

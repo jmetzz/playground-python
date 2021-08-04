@@ -2,9 +2,10 @@
 to collect profiling information (CPU and memory)
 about the ml module.
 """
-
+import gc
 import logging.config
 import pstats
+import resource
 import shutil
 import subprocess
 import timeit
@@ -12,8 +13,12 @@ from cProfile import Profile
 from pathlib import Path
 from string import Template
 from tempfile import NamedTemporaryFile
+from time import sleep
+
+import numpy as np
 
 import click
+import psutil
 import pyinstrument
 import pyinstrument_flame
 
@@ -167,6 +172,68 @@ def mem(width: int, iterations: int, save: bool) -> None:
     print(
         "\t$ python -m mprof plot -t 'Your title' <width-iterations.dot> --backend MacOSX"
     )
+
+
+@main.command()
+@click.option("--rcm-dir", type=str, default="", help="Path the RCM models directory")
+@click.option(
+    "--batch",
+    is_flag=True,
+    help="Triggers the execution of MM 20 times, increasing the size of the input data by" " 5% at each iteration.",
+)
+@click.option(
+    "--fast",
+    is_flag=True,
+    help="Triggers the execution using a known small cell (TW, WASHING_MACHINES, period 2677),"
+    " When not set, the big cell (FR, HOT_BEV, 2655) is used.",
+)
+def trace_mem(rcm_dir, batch, fast):
+
+    if fast:
+        # small data config
+        width = 5
+        iterations = 1
+    else:
+        # big data config
+        width = 10
+        iterations = 100
+
+    schedule = np.linspace(1.0, 2.0, 20) if batch else [1.]
+
+    summary_info = {}
+    for it, sampling_ratio in enumerate(schedule):
+        logger.debug("===================== STARTING TRACE MEMORY USAGE PROFILING =====================")
+        logger.debug("[Start] Iteration '%d'", it)
+        logger.debug("Oversampling percentage '%.2f'", sampling_ratio)
+        # psutil express values in bytes.
+        # see https://psutil.readthedocs.io/en/latest/#psutil.Process.memory_info
+        psutil_memory_info = psutil.Process().memory_info()
+        rss_start, vms_start = (psutil_memory_info.rss / 1024 ** 2, psutil_memory_info.vms / 1024 ** 2)
+
+        calc_pure_python_with_tracemalloc_wrapper(desired_width=width, max_iterations=iterations)
+        psutil_memory_info = psutil.Process().memory_info()
+        rss_end, vms_end = (psutil_memory_info.rss / 1024 ** 2, psutil_memory_info.vms / 1024 ** 2)
+
+        # resource ru_maxrss is expressed in kilobytes.
+        # see https://docs.python.org/3/library/resource.html#resource.getrusage
+        #     ru_maxrss: maximum resident set size
+        peak_rss = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024
+        summary_info[sampling_ratio] = {
+            "init_rss": rss_start,
+            "final_rss": rss_end,
+            "init_vms": vms_start,
+            "final_vms": vms_end,
+            "peak_rss": peak_rss
+        }
+        logger.debug("Initial Resident Set Size & Virtual Memory Size  '(%d, %d)' MB", rss_start, vms_start)
+        logger.debug("Final Resident Set Size & Virtual Memory Size '(%d, %d)' MB", rss_end, vms_end)
+        logger.debug("Peak Resident Set Size '%d' MB", peak_rss)
+        logger.debug("[End] Iteration '%d' ------------------------------------------------------------", it)
+        gc.collect()
+        # give some time to the Garbage collector do it's thing
+        sleep(5)
+
+    print(summary_info)
 
 
 @main.command()

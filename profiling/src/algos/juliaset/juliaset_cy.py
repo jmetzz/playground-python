@@ -1,10 +1,12 @@
 """Cython compiled Julia set generator"""
 import time
+
 import cythonfn  # as defined in setup.py
 
 # area of complex space to investigate
 x1, x2, y1, y2 = -1.8, 1.8, -1.8, 1.8
 c_real, c_imag = -0.62772, -0.42193
+
 
 def calc_pure_python(desired_width, max_iterations):
     """Create a list of complex coordinates (zs) and complex parameters (cs),
@@ -50,4 +52,3 @@ if __name__ == "__main__":
     # Calculate the Julia set using a pure Python solution with
     # reasonable defaults for a laptop
     calc_pure_python(desired_width=1000, max_iterations=300)
-    
