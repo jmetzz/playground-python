@@ -1,7 +1,8 @@
 import copy
-import yaml
 import logging
 from collections import namedtuple
+
+import yaml
 
 
 class Config:
@@ -10,14 +11,16 @@ class Config:
     @staticmethod
     def load_from_file(filename):
         try:
-            with open(filename, 'r') as stream:
+            with open(filename, "r") as stream:
                 try:
                     config = yaml.load(stream)
                     return Config._convert(config)
                 except yaml.YAMLError as exc:
-                    Config.logger.fatal('config: Cannot load config: {}'.format(filename), exc)
+                    Config.logger.fatal(
+                        "config: Cannot load config: {}".format(filename), exc
+                    )
         except Exception as e:
-            Config.logger.error('config: File not found: {}'.format(filename))
+            Config.logger.error("config: File not found: {}".format(filename))
             raise e
 
     @staticmethod
@@ -27,7 +30,7 @@ class Config:
     @staticmethod
     def from_dict(dictionary):
         if not isinstance(dictionary, dict):
-            raise ValueError('Given argument is not a dictionary')
+            raise ValueError("Given argument is not a dictionary")
         return Config._convert(copy.deepcopy(dictionary))
 
     @staticmethod
@@ -51,40 +54,15 @@ if __name__ == "__main__":
     original_dict = {
         "X": {
             "GB": {
-                "ERR_SV": {
-                    "MIN_CASES": 1,
-                    "MAN_CASES": 5,
-                    "THRESHOLD": 2
-                },
-                "ERR_PR": {
-                    "MIN_CASES": 1,
-                    "MAN_CASES": 5,
-                    "THRESHOLD": 2
-                },
-                "ERR_TO": {
-                    "MIN_CASES": 1,
-                    "MAN_CASES": 5,
-                    "THRESHOLD": 2
-                },
+                "ERR_SV": {"MIN_CASES": 1, "MAN_CASES": 5, "THRESHOLD": 2},
+                "ERR_PR": {"MIN_CASES": 1, "MAN_CASES": 5, "THRESHOLD": 2},
+                "ERR_TO": {"MIN_CASES": 1, "MAN_CASES": 5, "THRESHOLD": 2},
             },
             "DE": {
-                "ERR_SV": {
-                    "MIN_CASES": 1,
-                    "MAN_CASES": 5,
-                    "THRESHOLD": 2
-                },
-                "ERR_PR": {
-                    "MIN_CASES": 1,
-                    "MAN_CASES": 5,
-                    "THRESHOLD": 2
-                },
-                "ERR_TO": {
-                    "MIN_CASES": 1,
-                    "MAN_CASES": 5,
-                    "THRESHOLD": 2
-                },
-            }
-
+                "ERR_SV": {"MIN_CASES": 1, "MAN_CASES": 5, "THRESHOLD": 2},
+                "ERR_PR": {"MIN_CASES": 1, "MAN_CASES": 5, "THRESHOLD": 2},
+                "ERR_TO": {"MIN_CASES": 1, "MAN_CASES": 5, "THRESHOLD": 2},
+            },
         }
     }
     knee_config = Config.from_dict(original_dict)
@@ -96,5 +74,3 @@ if __name__ == "__main__":
 
     # print(knee_config.X.GB)
     print(getattr(getattr(knee_config, "X"), "GB"))
-
-
