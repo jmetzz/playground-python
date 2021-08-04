@@ -69,11 +69,11 @@ docker-run:
 check:
 	@printf "$(CYAN)Running static code analysis and license generation$(COFF)\n"
 	@printf " >>> $(YELLOW)isort$(COFF)\n"
-	poetry run isort --check --color src tests
+	poetry run isort --check --color src
 	@printf " >>> $(YELLOW)black$(COFF)\n"
-	poetry run black --check src tests
+	poetry run black --check src
 	@printf " >>> $(YELLOW)flake8$(COFF)\n"
-	poetry run flake8 src tests
+	poetry run flake8 src
 	@printf " >>> Generating $(CYAN)licenses.md$(COFF) file\n"
 	poetry run pip-licenses --with-authors -f markdown --output-file ./licenses.md
 	@printf "All $(GREEN)done$(COFF)\n"
