@@ -1,4 +1,4 @@
-.PHONY: check clean deps interpreter lint test
+.PHONY: $(MAKECMDGOALS)
 .EXPORT_ALL_VARIABLES:
 SHELL := /bin/bash -euo pipefail
 
@@ -61,26 +61,36 @@ test:
 ## Run static code checkers and linters
 check:
 	@printf "$(CYAN)Running static code analysis and license generation$(COFF)\n"
+	@printf " >>> $(YELLOW)isort$(COFF)\n"
 	poetry run isort --check --color src tests
-	poetry run black --check *.py src tests
+	@printf " >>> $(YELLOW)black$(COFF)\n"
+	poetry run black --check src tests
+	@printf " >>> $(YELLOW)flake8$(COFF)\n"
 	poetry run flake8 src tests
-	poetry run mypy *.py src tests --ignore-missing-imports
+	@printf " >>> $(YELLOW)mypy$(COFF)\n"
+	poetry run mypy src tests --ignore-missing-imports
+	@printf " >>> Generating $(CYAN)licenses.md$(COFF) file\n"
 	poetry run pip-licenses --with-authors -f markdown --output-file ./licenses.md
+	@printf "All $(GREEN)done$(COFF)\n"
 
 ## Runs black formatter
 lint:
 	@printf "$(CYAN)Auto-formatting with black$(COFF)\n"
 	poetry run isort src tests
-	poetry run black *.py src tests
+	poetry run black src tests
 
-## Remove temporary files created during build and all compiled Python files
+## Removed the build, dist directories, pycache, pyo or pyc and swap files
 clean:
 	@printf "$(CYAN)Cleaning EVERYTHING!$(COFF)\n"
-	@find . -type f -name "*.py[co]" -delete
-	@find . -type f -name ".DS_Store" -delete
-	@find . -type d -name "__pycache__" -delete
-	@find . -name '*~' -delete
-	@printf "$(CYAN)>>> Done$(COFF)\n"
+	@rm -rf build/
+	@rm -rf dist/
+	@rm -rf *.egg-info
+	@find . -type d -name '__pycache__' -exec rm -rf {} +
+	@find . -type f -name '*.py[co]' -exec rm -f {} +
+	@find . -name '*~' -exec rm -f {} +
+	@find . -type f -name '.DS_Store' -delete
+	@printf "$(GREEN)>>> Removed$(COFF) pycache, .pyc, .pyo, .DS_Store files and files with ~\n"
+
 
 #################################################################################
 # Self Documenting Commands                                                     #
