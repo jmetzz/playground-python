@@ -17,7 +17,7 @@ python = "3.9.2"
 scipy = "^1.6.0"
 tqdm = "^4.56.0"
 ipykernel = {version = "^5.4.3", optional = true}
-jupyterlab = {version = "^3.0.12", optional = true}
+jupyterlab = {version = "^3.0.17", optional = true}
 psycopg2-binary = "^2.8.6"
 
 [tool.poetry.dev-dependencies]
