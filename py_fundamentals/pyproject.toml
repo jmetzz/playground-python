@@ -20,8 +20,9 @@ ipykernel = {version = "^5.4.3", optional = true}
 jupyterlab = {version = "^3.0.17", optional = true}
 psycopg2-binary = "^2.8.6"
 
+
 [tool.poetry.dev-dependencies]
-black = "^20.8b1"
+black = "22.3.0"
 colorama = "^0.4.4"
 coverage = "^5.4"
 ipdb = "^0.13.4"

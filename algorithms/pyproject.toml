@@ -7,20 +7,20 @@ readme = "README.md"
 version = "0.0.1"
 
 [tool.poetry.dependencies]
-Pillow = "^8.1.0"
-environs = "^9.3.0"
-ipython = "^7.20.0"
-numpy = "1.20.0"
-pip = "^21.0.1"
-pydantic = "^1.8.2"
 python = "3.9.2"
-scipy = "^1.6.0"
-tqdm = "^4.56.0"
-ipykernel = {version = "^5.4.3", optional = true}
-jupyterlab = {version = "^3.0.12", optional = true}
+numpy = "^1.22.3"
+Pillow = "^9.0.1"
+scipy = "^1.8.0"
+ipython = "^8.2.0"
+environs = "^9.5.0"
+pip = "^22.0.4"
+pydantic = "^1.9.0"
+tqdm = "^4.63.1"
+jupyterlab = {version = "^3.3.2", optional = true}
+ipykernel = {version = "^6.10.0", optional = true}
 
 [tool.poetry.dev-dependencies]
-black = "^20.8b1"
+black = "22.3.0"
 colorama = "^0.4.4"
 coverage = "^5.4"
 ipdb = "^0.13.4"
@@ -38,6 +38,7 @@ pytest-mock = "^3.5.1"
 pytest-sugar = "^0.9.4"
 pytest-xdist = "^2.2.0"
 toml = "0.10.2"
+
 
 [tool.poetry.extras]
 jupyter = ["ipykernel", "jupyterlab"]
