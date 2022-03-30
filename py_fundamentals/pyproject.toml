@@ -9,7 +9,7 @@ version = "0.0.1"
 [tool.poetry.dependencies]
 Pillow = "^9.0.1"
 environs = "^9.3.0"
-ipython = "^7.20.0"
+ipython = "^7.31.1"
 numpy = "1.20.0"
 pip = "^21.0.1"
 pydantic = "^1.7.3"
