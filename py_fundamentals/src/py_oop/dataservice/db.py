@@ -182,7 +182,7 @@ class DataAccess:
             as the default to be reused on subsequent instantiations.
     """
 
-    configuration = None
+    configuration: dict = None
 
     def __init__(self, connection_pool: pool.AbstractConnectionPool = None):
         global default_connection_pool
