@@ -4,8 +4,7 @@ def insert(s: str, idx: int, c) -> str:
 
     if idx == 0:
         return c + s
-    else:
-        return s[: idx - 1] + c + s[idx:]
+    return s[: idx - 1] + c + s[idx:]
 
 
 def remove(s: str, idx: int) -> str:

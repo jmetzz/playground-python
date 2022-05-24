@@ -11,10 +11,9 @@ def one_away(firsts: str, second: str) -> bool:
     """
     if len(firsts) == len(second):
         return one_replace_away(firsts, second)
-    elif len(firsts) + 1 == len(second):
+    if len(firsts) + 1 == len(second):
         return one_insert_away(firsts, second)
-    else:
-        return one_insert_away(second, firsts)
+    return one_insert_away(second, firsts)
     return False
 
 

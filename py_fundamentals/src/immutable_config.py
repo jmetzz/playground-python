@@ -44,10 +44,9 @@ class Config:
             for key, value in dictionary.items():
                 dictionary[key] = Config._convert(value)
             return namedtuple("CONFIG", dictionary.keys())(**dictionary)
-        elif isinstance(dictionary, list):
+        if isinstance(dictionary, list):
             return [Config._convert(item) for item in dictionary]
-        else:
-            return dictionary
+        return dictionary
 
 
 if __name__ == "__main__":

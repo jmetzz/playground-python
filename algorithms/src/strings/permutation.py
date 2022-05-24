@@ -68,8 +68,7 @@ def to_index(character) -> int:
     value = ord(character)
     if a <= value <= z:
         return value - a
-    else:
-        return -1
+    return -1
 
 
 def is_permut_of_palindrome(input: str) -> bool:

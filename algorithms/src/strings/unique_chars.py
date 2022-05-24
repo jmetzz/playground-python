@@ -14,8 +14,7 @@ def all_unique_chars(input) -> bool:
         idx = ord(c)
         if alphabet[idx]:
             return False
-        else:
-            alphabet[idx] = True
+        alphabet[idx] = True
     return True
 
 
@@ -31,8 +30,7 @@ def all_unique_chars_bit_op(input) -> bool:
         val = ord(input[i])
         if (checker & (1 << val)) > 0:
             return False
-        else:
-            checker |= 1 << val
+        checker |= 1 << val
     return True
 
 

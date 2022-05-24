@@ -242,8 +242,7 @@ class DataAccess:
                 if return_all is not None:
                     if return_all:
                         return cursor.fetchall()
-                    else:
-                        return cursor.fetchone()
+                    return cursor.fetchone()
         return None
 
     def execute_sql_query(self, sql_query: str, params=None):
