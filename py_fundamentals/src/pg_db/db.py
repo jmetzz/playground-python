@@ -95,8 +95,7 @@ def get_db_connection():
             # when any pg_db error happens
             pool.reset()
             raise db_error
-        else:
-            pool.put_conn(conn)
+        pool.put_conn(conn)
 
 
 def run_query(query: str, params: Dict = None) -> pd.DataFrame:
