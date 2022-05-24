@@ -30,7 +30,6 @@ class Trie:
     def all_prefixes(self):
         """All strings in the trie can be recovered by
         a depth-first scan of the tree."""
-        pass
 
 
 class RadixTrie:
@@ -40,8 +39,6 @@ class RadixTrie:
     less memory requirement and less node accesses.
 
     """
-
-    pass
 
 
 class PatriciaTree:
@@ -61,8 +58,6 @@ class PatriciaTree:
     https://stackoverflow.com/questions/14708134/what-is-the-difference-between-trie-and-radix-trie-data-structures
 
     """
-
-    pass
 
 
 class SiString:
@@ -119,8 +114,6 @@ class PATTree:
     Technical Report OED-88-02, Centre for the New OED., University of Waterloo.
 
     """
-
-    pass
 
 
 class SuffixTree:

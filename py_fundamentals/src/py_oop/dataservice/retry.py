@@ -30,7 +30,6 @@ def retry(max_tries=3, delay=0, exceptions=()):
                             max_tries,
                             exception,
                         )
-                    pass
             raise exception
 
         return wrapper
