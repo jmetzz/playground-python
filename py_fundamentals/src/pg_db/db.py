@@ -40,7 +40,8 @@ class ConnectionPool:
 
         return self._conn_pool
 
-    def init_conn_pool(self):
+    @staticmethod
+    def init_conn_pool():
         return ThreadedConnectionPool(
             minconn=config.MIN_CONN_COUNT,
             maxconn=config.MAX_CONN_COUNT,
