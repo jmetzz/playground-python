@@ -2,10 +2,8 @@
 to collect profiling information (CPU and memory)
 about the ml module.
 """
-import gc
 import logging.config
 import pstats
-import resource
 import shutil
 import subprocess
 import timeit
@@ -13,11 +11,8 @@ from cProfile import Profile
 from pathlib import Path
 from string import Template
 from tempfile import NamedTemporaryFile
-from time import sleep
 
 import click
-import numpy as np
-import psutil
 import pyinstrument
 import pyinstrument_flame
 
