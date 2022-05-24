@@ -13,46 +13,12 @@ GRAY ?= \033[0;37m
 COFF ?= \033[0m
 
 # variables
-PYTHON_VERSION = 3.9.2
-PYTHON_INTERPRETER = python3
-PROFILE = default
 PROJECT_NAME = python_fundamentals
 PROJECT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
 #################################################################################
 # COMMANDS                                                                      #
 #################################################################################
-
-ifeq (,$(shell which pyenv))
-HAS_PYENV=False
-else
-HAS_PYENV=True
-endif
-
-
-install_pyenv:
-ifeq (,$(shell which pyenv))
-	@printf "$(CYAN)>>> Installing pyenv ...$(COFF)\n"
-	curl https://pyenv.run | bash
-else
-	@printf "$(CYAN)>>> pyenv is already installed$(COFF)\n"
-endif
-
-
-## Install the necessary python version
-interpreter: install_pyenv
-	@printf "$(CYAN)>>> Intalling required python version, if not available yet...$(COFF)\n"
-	@pyenv install -s $(PYTHON_VERSION)
-	@pyenv local $(PYTHON_VERSION)
-	pip3 install --user -U pip poetry
-	@printf "$(CYAN)>>> Done$(COFF)\n"
-
-
-## Install Dev & Test Dependencies
-deps:
-	@printf "$(CYAN)>>> Creating environment for project...$(COFF)\n"
-	poetry install
-
 ## Run unit tests
 test:
 	@printf "$(CYAN)Running test suite$(COFF)\n"
