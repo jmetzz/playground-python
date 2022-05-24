@@ -28,6 +28,7 @@ from cli_config import (
 )
 from algos.juliaset import calc_pure_python
 
+
 logging.config.dictConfig(LOGGING_CONFIG)
 
 logger = logging.getLogger(__name__)
@@ -38,6 +39,7 @@ SETUP_TEMPLATE = """
 STMT_TEMPLATE = """
 """
 
+PROFILE_DATA_FILE = ".profile_data"
 
 @click.group()
 def main():
@@ -73,12 +75,12 @@ def use_cprofiler(
     with NamedTemporaryFile(delete=False) as tmp_file:
         filename = tmp_file.name
         if save:
-            Path(THIS_DIR, ".profile_data").mkdir(parents=True, exist_ok=True)
+            Path(THIS_DIR, PROFILE_DATA_FILE).mkdir(parents=True, exist_ok=True)
             c_profiler.dump_stats(
-                str(Path(THIS_DIR, ".profile_data", f"{width}-{iterations}-cprof.prof"))
+                str(Path(THIS_DIR, PROFILE_DATA_FILE, f"{width}-{iterations}-cprof.prof"))
             )
             print(
-                f"Output file written: '{THIS_DIR}/.profile_data/{width}-{iterations}-cprof.prof'"
+                f"Output file written: '{THIS_DIR}/{PROFILE_DATA_FILE}/{width}-{iterations}-cprof.prof'"
             )
         if visualize:
             c_profiler.dump_stats(filename)
@@ -104,8 +106,8 @@ def use_pyinstrument(
     print(inst_profiler.output_text(unicode=True, color=True))
 
     if save:
-        Path(THIS_DIR, ".profile_data").mkdir(parents=True, exist_ok=True)
-        filename = str(Path(THIS_DIR, ".profile_data", f"{width}-{iterations}"))
+        Path(THIS_DIR, PROFILE_DATA_FILE).mkdir(parents=True, exist_ok=True)
+        filename = str(Path(THIS_DIR, PROFILE_DATA_FILE, f"{width}-{iterations}"))
         with open(f"{filename}-pyinst.html", "w") as file:
             file.write(inst_profiler.output_html())
 
@@ -165,75 +167,13 @@ def mem(width: int, iterations: int, save: bool) -> None:
     )
 
     if save:
-        Path(THIS_DIR, ".profile_data").mkdir(parents=True, exist_ok=True)
-        filename = str(Path(THIS_DIR, ".profile_data", f"{width}-{iterations}.dot"))
+        Path(THIS_DIR, PROFILE_DATA_FILE).mkdir(parents=True, exist_ok=True)
+        filename = str(Path(THIS_DIR, PROFILE_DATA_FILE, f"{width}-{iterations}.dot"))
         shutil.move(tmp_file.name, filename)
     print("You can plot the chart again with:")
     print(
         "\t$ python -m mprof plot -t 'Your title' <width-iterations.dot> --backend MacOSX"
     )
-
-
-@main.command()
-@click.option("--rcm-dir", type=str, default="", help="Path the RCM models directory")
-@click.option(
-    "--batch",
-    is_flag=True,
-    help="Triggers the execution of MM 20 times, increasing the size of the input data by" " 5% at each iteration.",
-)
-@click.option(
-    "--fast",
-    is_flag=True,
-    help="Triggers the execution using a known small cell (TW, WASHING_MACHINES, period 2677),"
-    " When not set, the big cell (FR, HOT_BEV, 2655) is used.",
-)
-def trace_mem(rcm_dir, batch, fast):
-
-    if fast:
-        # small data config
-        width = 5
-        iterations = 1
-    else:
-        # big data config
-        width = 10
-        iterations = 100
-
-    schedule = np.linspace(1.0, 2.0, 20) if batch else [1.]
-
-    summary_info = {}
-    for it, sampling_ratio in enumerate(schedule):
-        logger.debug("===================== STARTING TRACE MEMORY USAGE PROFILING =====================")
-        logger.debug("[Start] Iteration '%d'", it)
-        logger.debug("Oversampling percentage '%.2f'", sampling_ratio)
-        # psutil express values in bytes.
-        # see https://psutil.readthedocs.io/en/latest/#psutil.Process.memory_info
-        psutil_memory_info = psutil.Process().memory_info()
-        rss_start, vms_start = (psutil_memory_info.rss / 1024 ** 2, psutil_memory_info.vms / 1024 ** 2)
-
-        calc_pure_python_with_tracemalloc_wrapper(desired_width=width, max_iterations=iterations)
-        psutil_memory_info = psutil.Process().memory_info()
-        rss_end, vms_end = (psutil_memory_info.rss / 1024 ** 2, psutil_memory_info.vms / 1024 ** 2)
-
-        # resource ru_maxrss is expressed in kilobytes.
-        # see https://docs.python.org/3/library/resource.html#resource.getrusage
-        #     ru_maxrss: maximum resident set size
-        peak_rss = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024
-        summary_info[sampling_ratio] = {
-            "init_rss": rss_start,
-            "final_rss": rss_end,
-            "init_vms": vms_start,
-            "final_vms": vms_end,
-            "peak_rss": peak_rss
-        }
-        logger.debug("Initial Resident Set Size & Virtual Memory Size  '(%d, %d)' MB", rss_start, vms_start)
-        logger.debug("Final Resident Set Size & Virtual Memory Size '(%d, %d)' MB", rss_end, vms_end)
-        logger.debug("Peak Resident Set Size '%d' MB", peak_rss)
-        logger.debug("[End] Iteration '%d' ------------------------------------------------------------", it)
-        gc.collect()
-        # give some time to the Garbage collector do it's thing
-        sleep(5)
-
-    print(summary_info)
 
 
 @main.command()
