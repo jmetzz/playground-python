@@ -123,7 +123,6 @@ def is_permut_of_palindrome_2(input_sequence: str) -> bool:
 
     Change: checks the number of odd number as we go
     """
-
     table = [0] * (ord("z") - ord("a") + 1)
     odd_count = 0
     for c in input_sequence:

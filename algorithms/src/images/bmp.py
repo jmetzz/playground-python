@@ -96,7 +96,6 @@ def dimensions(filename):
         ValueError: If the file is not a BMP file.
         OSError: If there was a problem while reading the file.
     """
-
     with (open(filename, "rb")) as f:
         magic = f.read(2)
         if magic != b"BM":

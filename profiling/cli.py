@@ -84,7 +84,6 @@ def use_pyinstrument(
     flame: bool = False,
 ) -> None:
     """Run pyinstrument to measure CPU performance"""
-
     inst_profiler = pyinstrument.Profiler()
     inst_profiler.start()
     calc_pure_python(desired_width=width, max_iterations=iterations)
@@ -138,7 +137,6 @@ def mem(width: int, iterations: int, save: bool) -> None:
     python -m mprof plot -t "Memory usage over time" <output-file> --backend MacOSX
     ```
     """
-
     from memory_profiler import memory_usage
 
     with NamedTemporaryFile(delete=False, mode="w+") as tmp_file:
@@ -162,7 +160,6 @@ def mem(width: int, iterations: int, save: bool) -> None:
 @click.option("--reps", type=click.INT, default=1)
 def timeit_cli(loops, reps) -> None:
     """Utility function to calculate the time to run a code statement"""
-
     setup_code = Template(SETUP_TEMPLATE).substitute()
 
     stmt_code = Template(STMT_TEMPLATE).substitute()
