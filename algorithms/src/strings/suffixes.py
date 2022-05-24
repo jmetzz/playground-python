@@ -162,9 +162,7 @@ class SuffixArray:
     def __init__(self, alphabet: List[Any], mark="$"):
         self.alphabet = [mark] + alphabet
         self.alphabet_size = len(self.alphabet)
-        self.alphabet_index = {
-            k: v for k, v in zip(self.alphabet, range(len(self.alphabet)))
-        }
+        self.alphabet_index = dict(zip(self.alphabet, range(len(self.alphabet))))
 
     def build(self, text: str):
         """Builds the suffix array from the input string.
