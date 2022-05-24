@@ -176,10 +176,10 @@ class TracemallocWrapper:
         :param msg: Extra massage/info to print.
         """
         if not TRACEMALLOC_ENABLED:
-            return
+            return None
 
         if not logger.isEnabledFor(logging.DEBUG):
-            return
+            return None
 
         logger.debug("[START OF MEMORY TRACKING BLOCK]")
         curr_snapshot = TracemallocWrapper.take_snapshot(filters)
@@ -205,7 +205,7 @@ class TracemallocWrapper:
         :return: Current snapshot.
         """
         if not TRACEMALLOC_ENABLED:
-            return
+            return None
         curr_snapshot = tracemalloc.take_snapshot()
         curr_snapshot = TracemallocWrapper._filter_traces(curr_snapshot, filters)
         return curr_snapshot

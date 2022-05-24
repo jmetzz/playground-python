@@ -244,6 +244,7 @@ class DataAccess:
                         return cursor.fetchall()
                     else:
                         return cursor.fetchone()
+        return None
 
     def execute_sql_query(self, sql_query: str, params=None):
         """Execute an SQL query optionally with parameters.
