@@ -82,7 +82,7 @@ def get_conn_pool(
     max_conn_count: int = 10,
     min_conn_count: int = 1,
 ):
-    """Context manager that sets up a connection pool, the pool will closed when
+    """Context manager that sets up a connection pool, the pool will close when
     exiting the context.
 
     Usage:
@@ -178,7 +178,7 @@ class DataAccess:
 
     Args:
         connection_pool (AbstractConnectionPool): Optional connection pool to
-            be used. If none is supplied a new one will be created and and set
+            be used. If none is supplied a new one will be created and set
             as the default to be reused on subsequent instantiations.
     """
 
@@ -215,7 +215,7 @@ class DataAccess:
         application_name: str = "data_access",
     ):
         """Set the configuration for the default connection pool."""
-        cls.configuration = {
+        cls.configuration: dict = {
             "postgres_host": postgres_host,
             "postgres_port": postgres_port,
             "postgres_db": postgres_db,
@@ -228,7 +228,7 @@ class DataAccess:
         }
 
     def recreate_pool(self):
-        """Close the connection pool an create a new one based on the configuration."""
+        """Close the connection pool and create a new one based on the configuration."""
         self.connection_pool.closeall()
         self.connection_pool = make_conn_pool(**self.configuration)
 
