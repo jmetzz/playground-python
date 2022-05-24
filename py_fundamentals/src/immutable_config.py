@@ -13,7 +13,7 @@ class Config:
         try:
             with open(filename, "r") as stream:
                 try:
-                    config = yaml.load(stream)
+                    config = yaml.safe_load(stream)
                     return Config._convert(config)
                 except yaml.YAMLError as exc:
                     Config.logger.fatal(
