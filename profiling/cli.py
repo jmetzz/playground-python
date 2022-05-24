@@ -41,6 +41,7 @@ STMT_TEMPLATE = """
 
 PROFILE_DATA_FILE = ".profile_data"
 
+
 @click.group()
 def main():
     """Just a simple click group to manage commands."""
