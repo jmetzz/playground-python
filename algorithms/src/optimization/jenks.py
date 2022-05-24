@@ -56,7 +56,7 @@ def get_jenks_breaks(data_list, number_class):
     kclass = []
     for i in range(number_class + 1):
         kclass.append(min(data_list))
-    kclass[number_class] = float(data_list[len(data_list) - 1])
+    kclass[number_class] = float(data_list[-1])
     count_num = number_class
     while count_num >= 2:  # print "rank = " + str(mat1[k][count_num])
         idx = int((mat1[k][count_num]) - 2)
