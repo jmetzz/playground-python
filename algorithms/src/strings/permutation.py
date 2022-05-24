@@ -12,7 +12,7 @@ def internal_permut(input_sequence, prefix, level):
         print(f"{s}{prefix}")
     else:
         for i in range(len(input_sequence)):
-            rem = input_sequence[:i] + input_sequence[i + 1:]
+            rem = input_sequence[:i] + input_sequence[i + 1 :]
             # print(f"\t(rem={rem}, prefix={prefix + string[i]})")
             internal_permut(rem, prefix + input_sequence[i], level + 1)
 
