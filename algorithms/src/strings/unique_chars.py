@@ -1,16 +1,16 @@
-def all_unique_chars(input) -> bool:
+def all_unique_chars(input_sequence) -> bool:
     """Checks if all the characters are unique
 
     Assuming extended ascii string and alphabet of up to 256 characters
-    :param input the ascii string
+    :param input_sequence the ascii string
     :return bool
     """
-    if len(input) > 256:
+    if len(input_sequence) > 256:
         return False
 
     alphabet = [False] * 256
 
-    for c in input:
+    for c in input_sequence:
         idx = ord(c)
         if alphabet[idx]:
             return False
@@ -18,16 +18,16 @@ def all_unique_chars(input) -> bool:
     return True
 
 
-def all_unique_chars_bit_op(input) -> bool:
+def all_unique_chars_bit_op(input_sequence) -> bool:
     """Checks if all the characters are unique
 
     Assuming extended ascii string and alphabet of up to 256 characters
-    :param input the ascii string
+    :param input_sequence the ascii string
     :return bool
     """
     checker = 0
-    for i in range(len(input)):
-        val = ord(input[i])
+    for i in range(len(input_sequence)):
+        val = ord(input_sequence[i])
         if (checker & (1 << val)) > 0:
             return False
         checker |= 1 << val

@@ -2,19 +2,19 @@ from typing import List
 
 
 def counting_sort(elements: List[int]) -> None:
-    # find the max element
-    # Example: [4, 2, 2, 8, 3, 3, 1]; max = 8
-    max = 0
+    # find the max_idx element
+    # Example: [4, 2, 2, 8, 3, 3, 1]; max_idx = 8
+    max_idx = 0
     size = len(elements)
     for index in range(0, size):
-        if elements[index] > elements[max]:
-            max = index
+        if elements[index] > elements[max_idx]:
+            max_idx = index
 
-    # initialize and 0-array of size max + 1, which is used to store
+    # initialize and 0-array of size max_idx + 1, which is used to store
     # the count of the elements present in the input array
     # at it's respective index in the count array.
     # Example: [4, 2, 2, 8, 3, 3, 1] -> [0, 1, 2, 2, 1, 0, 0, 0, 1]
-    count = [0] * (elements[max] + 1)
+    count = [0] * (elements[max_idx] + 1)
     for index in range(0, size):
         count[elements[index]] += 1
 

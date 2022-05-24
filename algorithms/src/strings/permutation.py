@@ -1,40 +1,40 @@
-def permut(string, level):
-    return internal_permut(string, "", level)
+def permut(input_sequence, level):
+    return internal_permut(input_sequence, "", level)
 
 
-def internal_permut(string, prefix, level):
+def internal_permut(input_sequence, prefix, level):
     s = ""
     for _ in range(level):
         s += "\t"
     # print(f"{s}(string={string}, prefix={prefix})")
 
-    if len(string) == 0:
+    if len(input_sequence) == 0:
         print(f"{s}{prefix}")
     else:
-        for i in range(len(string)):
-            rem = string[:i] + string[i + 1 :]
+        for i in range(len(input_sequence)):
+            rem = input_sequence[:i] + input_sequence[i + 1:]
             # print(f"\t(rem={rem}, prefix={prefix + string[i]})")
-            internal_permut(rem, prefix + string[i], level + 1)
+            internal_permut(rem, prefix + input_sequence[i], level + 1)
 
 
-def is_permutation_by_sorting(input, other):
+def is_permutation_by_sorting(input_sequence, other):
     """Checks if other is a valid permutation of the input
 
     Assumptions:
        - the method case sensitive
        - whitespaces are significant
 
-    :param input the base string
+    :param input_sequence the base string
     :param other the possible permutation of input
 
     :return bool
     """
-    if len(input) != len(other):
+    if len(input_sequence) != len(other):
         return False
-    return sorted(input) == sorted(other)
+    return sorted(input_sequence) == sorted(other)
 
 
-def is_permutation_by_counting(input, other):
+def is_permutation_by_counting(input_sequence, other):
     """Checks if other is a valid permutation of the input
 
     Assumptions:
@@ -42,17 +42,17 @@ def is_permutation_by_counting(input, other):
        - the method case sensitive
        - whitespaces are significant
 
-    :param input the base string
+    :param input_sequence the base string
     :param other the possible permutation of input
 
     :return bool
     """
-    if len(input) != len(other):
+    if len(input_sequence) != len(other):
         return False
 
     # b) count char appearance in both, using a index vector
     letters = [0] * 256
-    for c in input:
+    for c in input_sequence:
         letters[ord(c)] += 1
 
     for i in range(len(other)):
@@ -71,10 +71,10 @@ def to_index(character) -> int:
     return -1
 
 
-def is_permut_of_palindrome(input: str) -> bool:
+def is_permut_of_palindrome(input_sequence: str) -> bool:
     """Checks if a string is a permutation a palindrome
 
-    :param input string
+    :param input_sequence string
     :return bool
 
     Definitions:
@@ -84,13 +84,13 @@ def is_permut_of_palindrome(input: str) -> bool:
         an odd count
     """
 
-    def histogram_table(input: str) -> list:
+    def histogram_table(input_sequence: str) -> list:
         """Maps each character in input to a number
 
         Non letter character maps to -1
         """
         table = [0] * (ord("z") - ord("a") + 1)
-        for c in input:
+        for c in input_sequence:
             idx = to_index(c)
             if idx != -1:
                 table[idx] += 1
@@ -105,14 +105,14 @@ def is_permut_of_palindrome(input: str) -> bool:
                 found_odd = True
         return True
 
-    alphabet_table = histogram_table(input)
+    alphabet_table = histogram_table(input_sequence)
     return has_max_one_odd(alphabet_table)
 
 
-def is_permut_of_palindrome_2(input: str) -> bool:
+def is_permut_of_palindrome_2(input_sequence: str) -> bool:
     """Checks if a string is a permutation a palindrome
 
-    :param input string
+    :param input_sequence string
     :return bool
 
     Definitions:
@@ -126,7 +126,7 @@ def is_permut_of_palindrome_2(input: str) -> bool:
 
     table = [0] * (ord("z") - ord("a") + 1)
     odd_count = 0
-    for c in input:
+    for c in input_sequence:
         idx = to_index(c)
         if idx != -1:
             table[idx] += 1
@@ -138,10 +138,10 @@ def is_permut_of_palindrome_2(input: str) -> bool:
     return odd_count <= 1
 
 
-def is_permut_of_palindrome_3(input: str) -> bool:
+def is_permut_of_palindrome_3(input_sequence: str) -> bool:
     """Checks if a string is a permutation a palindrome
 
-    :param input string
+    :param input_sequence string
     :return bool
 
     Definitions:
@@ -154,9 +154,9 @@ def is_permut_of_palindrome_3(input: str) -> bool:
     if the number of odd letter is more than one
     """
 
-    def craete_bit_vector(input: str) -> int:
+    def craete_bit_vector(input_sequence: str) -> int:
         bit_vector = 0
-        for c in input:
+        for c in input_sequence:
             bit_vector = toggle(bit_vector, to_index(c))
         return bit_vector
 
@@ -190,7 +190,7 @@ def is_permut_of_palindrome_3(input: str) -> bool:
         """
         return (bit_vector & (bit_vector - 1)) == 0
 
-    bits = craete_bit_vector(input)
+    bits = craete_bit_vector(input_sequence)
     return bits == 0 or check_exactly_one_bit_set(bits)
 
 
