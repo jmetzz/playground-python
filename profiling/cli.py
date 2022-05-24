@@ -15,19 +15,13 @@ from string import Template
 from tempfile import NamedTemporaryFile
 from time import sleep
 
-import numpy as np
-
 import click
+import numpy as np
 import psutil
 import pyinstrument
 import pyinstrument_flame
-
-from cli_config import (
-    THIS_DIR,
-    LOGGING_CONFIG,
-)
 from algos.juliaset import calc_pure_python
-
+from cli_config import LOGGING_CONFIG, THIS_DIR
 
 logging.config.dictConfig(LOGGING_CONFIG)
 
@@ -78,7 +72,11 @@ def use_cprofiler(
         if save:
             Path(THIS_DIR, PROFILE_DATA_FILE).mkdir(parents=True, exist_ok=True)
             c_profiler.dump_stats(
-                str(Path(THIS_DIR, PROFILE_DATA_FILE, f"{width}-{iterations}-cprof.prof"))
+                str(
+                    Path(
+                        THIS_DIR, PROFILE_DATA_FILE, f"{width}-{iterations}-cprof.prof"
+                    )
+                )
             )
             print(
                 f"Output file written: '{THIS_DIR}/{PROFILE_DATA_FILE}/{width}-{iterations}-cprof.prof'"
