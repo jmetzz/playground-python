@@ -196,17 +196,17 @@ class SuffixArray:
         count = [0] * self.alphabet_size
 
         # count the number of each chat in the string
-        for i in range(input_size):
-            count[self.alphabet_index[text[i]]] += 1
+        for idx in range(input_size):
+            count[self.alphabet_index[text[idx]]] += 1
         # computes the partial sums of the count array
         for j in range(1, self.alphabet_size):
             count[j] += count[j - 1]
 
         # from right to left, build up the order
-        for i in range(input_size - 1, -1, -1):
-            character = text[i]
+        for idx in range(input_size - 1, -1, -1):
+            character = text[idx]
             count[self.alphabet_index[character]] -= 1
-            order[count[self.alphabet_index[character]]] = i
+            order[count[self.alphabet_index[character]]] = idx
         return order
 
     @staticmethod
@@ -219,12 +219,12 @@ class SuffixArray:
         """
         classes = [0] * len(text)
         classes[order[0]] = 0
-        for i in range(1, len(text)):
-            previous_class = classes[order[i - 1]]
-            if text[order[i]] == text[order[i - 1]]:
-                classes[order[i]] = previous_class
+        for idx in range(1, len(text)):
+            previous_class = classes[order[idx - 1]]
+            if text[order[idx]] == text[order[idx - 1]]:
+                classes[order[idx]] = previous_class
             else:
-                classes[order[i]] = previous_class + 1
+                classes[order[idx]] = previous_class + 1
 
         return classes
 
@@ -244,17 +244,17 @@ class SuffixArray:
         """
         input_size = len(text)
         count = [0] * input_size
-        for i in range(input_size):
-            count[classes[i]] = count[classes[i]] + 1
+        for idx in range(input_size):
+            count[classes[idx]] = count[classes[idx]] + 1
 
         for j in range(1, input_size):
             count[j] = count[j] + count[j - 1]
 
         new_order = [0] * input_size
         # reverse order loop guarantees the sorting stability
-        for i in range(input_size - 1, -1, -1):
+        for idx in range(input_size - 1, -1, -1):
             # circle indexing
-            start = (order[i] - shift_length + input_size) % input_size
+            start = (order[idx] - shift_length + input_size) % input_size
             cl = classes[start]
             count[cl] -= 1
             new_order[count[cl]] = start
@@ -275,11 +275,11 @@ class SuffixArray:
         """
         n = len(new_order)
         new_classes = [0] * n
-        # new_classes[new_order[0]] = 0
-        for i in range(1, n):
-            current = new_order[i]
+
+        for idx in range(1, n):
+            current = new_order[idx]
             second_half_start = current + shift_length
-            previous = new_order[i - 1]
+            previous = new_order[idx - 1]
             previous_second_half_start = (previous + shift_length) % n
             if (
                 classes[current] != classes[previous]
@@ -297,17 +297,17 @@ class BurrowsWheelerTransform:
 
 
 if __name__ == "__main__":
-    text = "ababaa$"
-    size = len(text)
+    input_text = "ababaa$"
+    size = len(input_text)
     sa = SuffixArray(["a", "b"])
-    indexes = sa.build(text)
+    indexes = sa.build(input_text)
     for i in indexes:
-        print(text[i : size - 1])
+        print(input_text[i: size - 1])
 
     print("----")
-    text = "ababaacabc$"
-    size = len(text)
+    input_text = "ababaacabc$"
+    size = len(input_text)
     sa = SuffixArray(["a", "b", "c"])
-    indexes = sa.build(text)
+    indexes = sa.build(input_text)
     for i in indexes:
-        print(text[i : size - 1])
+        print(input_text[i: size - 1])

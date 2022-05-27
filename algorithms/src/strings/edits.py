@@ -1,31 +1,31 @@
-def insert(s: str, idx: int, c) -> str:
+def insert(sequence: str, idx: int, element) -> str:
     if idx < 0:
         raise ValueError("Only positive indices are valid")
 
     if idx == 0:
-        return c + s
-    return s[: idx - 1] + c + s[idx:]
+        return element + sequence
+    return sequence[: idx - 1] + element + sequence[idx:]
 
 
-def remove(s: str, idx: int) -> str:
-    return s[:idx] + s[idx + 1 :]
+def remove(sequence: str, idx: int) -> str:
+    return sequence[:idx] + sequence[idx + 1:]
 
 
-def replace(s: str, idx: int, c) -> str:
+def replace(sequence: str, idx: int, element) -> str:
     # there is also a builtin function to accomplish
     # string modification: s.replace('b', 'x')
     # but this function is not index based.
-    return s[:idx] + c + s[idx + 1 :]
+    return sequence[:idx] + element + sequence[idx + 1:]
 
 
 if __name__ == "__main__":
     print("Original: pale")
-    s = "pale"
-    s = insert(s, 0, "p")
-    print(f"After insertion of p at 2: {s}")
+    input_sequence = "pale"
+    input_sequence = insert(input_sequence, 0, "p")
+    print(f"After insertion of p at 2: {input_sequence}")
 
-    s = remove(s, 0)
-    print(f"After removing element at 0: {s}")
+    input_sequence = remove(input_sequence, 0)
+    print(f"After removing element at 0: {input_sequence}")
 
-    s = replace(s, 2, "t")
-    print(f"After replacing element 2 by 't': {s}")
+    input_sequence = replace(input_sequence, 2, "t")
+    print(f"After replacing element 2 by 't': {input_sequence}")
