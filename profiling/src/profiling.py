@@ -19,7 +19,9 @@ logger.setLevel(logging.DEBUG)
 env = Env()
 env.read_env()
 
-TRACEMALLOC_ENABLED = env.bool("TRACEMALLOC_ENABLED", os.getenv("TRACEMALLOC_ENABLED") == 1)
+TRACEMALLOC_ENABLED = env.bool(
+    "TRACEMALLOC_ENABLED", os.getenv("TRACEMALLOC_ENABLED") == 1
+)
 MB_MODIFIER = 1024**2
 
 
@@ -41,7 +43,9 @@ def timed(log_level=logging.DEBUG):
             start = datetime.now()
             result = func(*args, **kwargs)
             end = datetime.now()
-            logger.log(log_level, "ELAPSED TIME: func:%s in '%s'", func.__name__, end - start)
+            logger.log(
+                log_level, "ELAPSED TIME: func:%s in '%s'", func.__name__, end - start
+            )
             return result
 
         return wrapper
@@ -233,7 +237,9 @@ class TracemallocWrapper:
             return
         logger.debug("[START OF MEMORY SNAPSHOT COMPARISON BLOCK]")
         top_stats = snapshot_2.compare_to(snapshot_1, key_type)
-        TracemallocWrapper._display_top_stats(top_stats, limit, show_line, show_traceback)
+        TracemallocWrapper._display_top_stats(
+            top_stats, limit, show_line, show_traceback
+        )
         logger.debug("[END OF MEMORY SNAPSHOT COMPARISON BLOCK]")
 
     @staticmethod
@@ -246,9 +252,13 @@ class TracemallocWrapper:
         TracemallocWrapper.log_traceback(obj_traceback)
 
     @staticmethod
-    def _display_snapshot_stats(snapshot, key_type="lineno", limit=10, show_line=False, show_traceback=False):
+    def _display_snapshot_stats(
+        snapshot, key_type="lineno", limit=10, show_line=False, show_traceback=False
+    ):
         top_stats = snapshot.statistics(key_type)
-        TracemallocWrapper._display_top_stats(top_stats, limit, show_line, show_traceback)
+        TracemallocWrapper._display_top_stats(
+            top_stats, limit, show_line, show_traceback
+        )
 
     @staticmethod
     def _display_top_stats(
@@ -278,7 +288,9 @@ class TracemallocWrapper:
             logger.debug(
                 "%s other lines: cummulative size=%s",
                 len(other),
-                tracemalloc._format_size(size, False),  # pylint: disable=protected-access
+                tracemalloc._format_size(
+                    size, False
+                ),  # pylint: disable=protected-access
             )
         total = sum(stat.size for stat in top_stats)
         logger.debug(
