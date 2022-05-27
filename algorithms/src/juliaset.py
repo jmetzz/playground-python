@@ -7,8 +7,10 @@ c_real, c_imag = -0.62772, -0.42193
 
 
 def calc_pure_python(desired_width, max_iterations):
-    """Create a list of complex coordinates (zs) and complex parameters (cs),
-    build Julia set"""
+    """
+    Create a list of complex coordinates (zs) and complex parameters (cs),
+    build Julia set
+    """
     x_step = (x2 - x1) / desired_width
     y_step = (y1 - y2) / desired_width
     x = []
@@ -47,8 +49,10 @@ def calc_pure_python(desired_width, max_iterations):
 
 
 def calc_pure_python_wo_prints(desired_width, max_iterations):
-    """Create a list of complex coordinates (zs) and complex parameters (cs),
-    build Julia set"""
+    """
+    Create a list of complex coordinates (zs) and complex parameters (cs),
+    build Julia set
+    """
     x_step = (x2 - x1) / desired_width
     y_step = (y1 - y2) / desired_width
     x = []
@@ -82,7 +86,9 @@ def calc_pure_python_wo_prints(desired_width, max_iterations):
 
 # @profile
 def calculate_z_serial_purepython(maxiter, zs, cs):
-    """Calculate output list using Julia update rule"""
+    """
+    Calculate output list using Julia update rule
+    """
     output = [0] * len(zs)
     for i in range(len(zs)):
         n = 0

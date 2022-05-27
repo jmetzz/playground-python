@@ -4,7 +4,8 @@ import math
 
 
 def mandel(real, imag):
-    """Compute a point in the Mandelbrot.
+    """
+    Compute a point in the Mandelbrot.
 
     The logarithm of number of iterations needed to determine
     whether a complex point is in the Mandelbrot set.
@@ -28,7 +29,8 @@ def mandel(real, imag):
 
 
 def mandelbrot(size_x, size_y):
-    """Make an Mandelbrot set image
+    """
+    Make a Mandelbrot set image
 
     Args:
         size_x: Image width

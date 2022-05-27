@@ -7,7 +7,8 @@ class Alphabet:
 
 
 class Trie:
-    """A multi-way tree structure useful for storing strings over an alphabet.
+    """
+    A multi-way tree structure useful for storing strings over an alphabet.
 
     Trie describes a tree data structure suitable for use as an associative array,
     where branches or edges correspond to parts of a key.
@@ -28,21 +29,24 @@ class Trie:
         pass
 
     def all_prefixes(self):
-        """All strings in the trie can be recovered by
-        a depth-first scan of the tree."""
+        """
+        All strings in the trie can be recovered by
+        a depth-first scan of the tree.
+        """
 
 
 class RadixTrie:
-    """A compressed representation of a trie.
+    """
+    A compressed representation of a trie.
 
     Describe a form of trie that condenses common prefix parts, resulting in
     less memory requirement and less node accesses.
-
     """
 
 
 class PatriciaTree:
-    """A compact representation of a trie.
+    """
+    A compact representation of a trie.
 
     Also known as radix tree [https://xlinux.nist.gov/dads/HTML/patriciatree.html]
     Actually, Patricia tries are radix trees with radix equal to 2.
@@ -69,7 +73,8 @@ class SiString:
 
 
 class PATTree:
-    """A PAT tree is a Patricia tree constructed over all the possible
+    """
+    A PAT tree is a Patricia tree constructed over all the possible
     sistrings of a text.
 
     A Patricia tree (Morrison 1968; Knuth 1973; Flajolet and Sedgewick 1986;
@@ -117,7 +122,8 @@ class PATTree:
 
 
 class SuffixTree:
-    """A Trie-like tree that represents the suffixes of a given text.
+    """
+    A Trie-like tree that represents the suffixes of a given text.
 
     A Suffix Tree is a data-structure that allows many problems on strings
     (sequences of characters) to be solved quickly. If txt=t1t2...ti...tn is a string,
@@ -143,7 +149,6 @@ class SuffixTree:
 
 class SuffixArray:
     """
-
     store only the order of the suffixes, not the suffixes themselves.
 
     1- create the cyclic shifts
@@ -159,7 +164,8 @@ class SuffixArray:
         self.alphabet_index = dict(zip(self.alphabet, range(len(self.alphabet))))
 
     def build(self, text: str):
-        """Builds the suffix array from the input string.
+        """
+        Builds the suffix array from the input string.
 
         Assumes last character is $.
 
@@ -177,7 +183,8 @@ class SuffixArray:
         return order
 
     def counting_sort_characters(self, text: str) -> List[int]:
-        """Uses counting sort to sort the characters in the input text.
+        """
+        Uses counting sort to sort the characters in the input text.
 
         Complexity time: (|text| + |alphabet|)
         :param text:
@@ -225,7 +232,8 @@ class SuffixArray:
     def stable_sort_cyclic_shifts(
         text: str, shift_length, order: List[int], classes: List[int]
     ) -> List[int]:
-        """Uses counting sort to stable sort the cyclic shifts with the given length.
+        """
+        Uses counting sort to stable sort the cyclic shifts with the given length.
 
         O(|text|) time complexity
         :param text:

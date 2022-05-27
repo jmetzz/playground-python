@@ -13,7 +13,9 @@ import pandas as pd
 
 
 def get_jenks_breaks(data_list, number_class):
-    """source: http://danieljlewis.org/files/2010/06/Jenks.pdf"""
+    """
+    source: http://danieljlewis.org/files/2010/06/Jenks.pdf
+    """
     data_list.sort()
     mat1 = []
     for i in range(len(data_list) + 1):

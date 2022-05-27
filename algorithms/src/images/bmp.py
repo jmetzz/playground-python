@@ -2,7 +2,8 @@
 
 
 def write_grayscale(filename, pixels):
-    """Creates and writes a grayscale BMP file
+    """
+    Creates and writes a grayscale BMP file
 
     Args:
         filename: The name of the BMP file to be created.
@@ -73,17 +74,22 @@ def write_grayscale(filename, pixels):
 
 
 def _int32_to_bytes(i):
-    """Convert an integer to four bytes in little-endian format."""
+    """
+    Convert an integer to four bytes in little-endian format.
+    """
     return bytes((i & 0xFF, i >> 8 & 0xFF, i >> 16 & 0xFF, i >> 24 & 0xFF))
 
 
 def _bytes_to_int32(b):
-    """Convert a byte object containing four bytes into an integer."""
+    """
+    Convert a byte object containing four bytes into an integer.
+    """
     return b[0] | (b[1] << 8) | (b[2] << 16) | (b[3] << 24)
 
 
 def dimensions(filename):
-    """Determina the dimensions in pixels of a BMP image\
+    """
+    Determines the dimensions in pixels of a BMP image
 
     Args:
         filename: The filename of a BMP file.

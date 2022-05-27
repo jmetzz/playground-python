@@ -22,7 +22,9 @@ from numpy import roll
 
 
 class DiffusionNumpy:
-    """Reduced the CPU burden by using numpy vectorized operations"""
+    """
+    Reduced the CPU burden by using numpy vectorized operations
+    """
 
     def __init__(self, grid_shape):
         self._grid_shape = grid_shape
@@ -70,7 +72,7 @@ class DiffusionNumpyInPlace:
 class DiffusionNumpyInPlaceLessAllocation:
     """
     This version optmizes the code even further by reducing the number of
-     allocations necessary to solve the diffusion problem.
+    allocations necessary to solve the diffusion problem.
     """
 
     def __init__(self, grid_shape):

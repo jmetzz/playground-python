@@ -1,12 +1,15 @@
 def one_away(firsts: str, second: str) -> bool:
-    """Given two strings, write a function to check if they are one edit
+    """
+    Given two strings, write a function to check if they are one edit
      (or zero edits) operation away.
-        There are three types of edits that can be performed on strings:
+
+     There are three types of edits that can be performed on strings:
         - insert a character,
         - remove a character, or
         - replace a character.
-    :param a string
-    :param b string
+
+    :param firsts: string
+    :param second: string
     :return bool
     """
     if len(firsts) == len(second):
@@ -14,7 +17,6 @@ def one_away(firsts: str, second: str) -> bool:
     if len(firsts) + 1 == len(second):
         return one_insert_away(firsts, second)
     return one_insert_away(second, firsts)
-    return False
 
 
 def one_replace_away(first: str, second: str) -> bool:

@@ -1,5 +1,6 @@
 def all_unique_chars(input_sequence) -> bool:
-    """Checks if all the characters are unique
+    """
+    Checks if all the characters are unique
 
     Assuming extended ascii string and alphabet of up to 256 characters
     :param input_sequence the ascii string
@@ -19,7 +20,8 @@ def all_unique_chars(input_sequence) -> bool:
 
 
 def all_unique_chars_bit_op(input_sequence) -> bool:
-    """Checks if all the characters are unique
+    """
+    Checks if all the characters are unique
 
     Assuming extended ascii string and alphabet of up to 256 characters
     :param input_sequence the ascii string

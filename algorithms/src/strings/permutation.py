@@ -6,19 +6,18 @@ def internal_permut(input_sequence, prefix, level):
     s = ""
     for _ in range(level):
         s += "\t"
-    # print(f"{s}(string={string}, prefix={prefix})")
 
     if len(input_sequence) == 0:
         print(f"{s}{prefix}")
     else:
         for i in range(len(input_sequence)):
             rem = input_sequence[:i] + input_sequence[i + 1 :]
-            # print(f"\t(rem={rem}, prefix={prefix + string[i]})")
             internal_permut(rem, prefix + input_sequence[i], level + 1)
 
 
 def is_permutation_by_sorting(input_sequence, other):
-    """Checks if other is a valid permutation of the input
+    """
+    Checks if other is a valid permutation of the input
 
     Assumptions:
        - the method case sensitive
@@ -35,7 +34,8 @@ def is_permutation_by_sorting(input_sequence, other):
 
 
 def is_permutation_by_counting(input_sequence, other):
-    """Checks if other is a valid permutation of the input
+    """
+    Checks if other is a valid permutation of the input
 
     Assumptions:
        - only ascii characters allowed
@@ -72,7 +72,8 @@ def to_index(character) -> int:
 
 
 def is_permut_of_palindrome(input_sequence: str) -> bool:
-    """Checks if a string is a permutation a palindrome
+    """
+    Checks if a string is a permutation a palindrome
 
     :param input_sequence string
     :return bool
@@ -80,12 +81,13 @@ def is_permut_of_palindrome(input_sequence: str) -> bool:
     Definitions:
         - strings of even length should have even number of individual
         characters.
-        - string of an odd lenght, must have exactly one character with
+        - string of an odd length, must have exactly one character with
         an odd count
     """
 
     def histogram_table(input_sequence: str) -> list:
-        """Maps each character in input to a number
+        """
+        Maps each character in input to a number
 
         Non letter character maps to -1
         """
@@ -110,7 +112,8 @@ def is_permut_of_palindrome(input_sequence: str) -> bool:
 
 
 def is_permut_of_palindrome_2(input_sequence: str) -> bool:
-    """Checks if a string is a permutation a palindrome
+    """
+    Checks if a string is a permutation a palindrome
 
     :param input_sequence string
     :return bool
@@ -118,7 +121,7 @@ def is_permut_of_palindrome_2(input_sequence: str) -> bool:
     Definitions:
         - strings of even length should have even number of individual
         characters.
-        - string of an odd lenght, must have exactly one character with
+        - string of an odd length, must have exactly one character with
         an odd count
 
     Change: checks the number of odd number as we go
@@ -138,7 +141,8 @@ def is_permut_of_palindrome_2(input_sequence: str) -> bool:
 
 
 def is_permut_of_palindrome_3(input_sequence: str) -> bool:
-    """Checks if a string is a permutation a palindrome
+    """
+    Checks if a string is a permutation a palindrome
 
     :param input_sequence string
     :return bool
@@ -146,7 +150,7 @@ def is_permut_of_palindrome_3(input_sequence: str) -> bool:
     Definitions:
         - strings of even length should have even number of individual
         characters.
-        - string of an odd lenght, must have exactly one character with
+        - string of an odd length, must have exactly one character with
         an odd count
 
     Change: uses bit vector and ignore the frequency. We only need to know
@@ -160,7 +164,9 @@ def is_permut_of_palindrome_3(input_sequence: str) -> bool:
         return bit_vector
 
     def toggle(bit_vector: int, index: int) -> int:
-        """Toggle the i-th bit in the integer"""
+        """
+        Toggle the i-th bit in the integer
+        """
         if index < 0:
             return bit_vector
 
@@ -174,7 +180,8 @@ def is_permut_of_palindrome_3(input_sequence: str) -> bool:
         return bit_vector
 
     def check_exactly_one_bit_set(bit_vector) -> bool:
-        """Check that at most ont bit in the integer is set to 1
+        """
+        Check that at most ont bit in the integer is set to 1
 
         A very elegant way to check that an integer has exactly one bit set to 1.
 

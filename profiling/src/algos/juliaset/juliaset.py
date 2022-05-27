@@ -7,8 +7,10 @@ c_real, c_imag = -0.62772, -0.42193
 
 
 def calc_pure_python(desired_width, max_iterations):
-    """Create a list of complex coordinates (zs) and complex parameters (cs),
-    build Julia set"""
+    """
+    Create a list of complex coordinates (zs) and complex parameters (cs),
+    build Julia set
+    """
     x_step = (x2 - x1) / desired_width
     y_step = (y1 - y2) / desired_width
     x = []
