@@ -157,7 +157,7 @@ def is_permut_of_palindrome_3(input_sequence: str) -> bool:
     if the number of odd letter is more than one
     """
 
-    def craete_bit_vector(input_sequence: str) -> int:
+    def create_bit_vector(input_sequence: str) -> int:
         bit_vector = 0
         for c in input_sequence:
             bit_vector = toggle(bit_vector, to_index(c))
@@ -194,7 +194,7 @@ def is_permut_of_palindrome_3(input_sequence: str) -> bool:
         """
         return (bit_vector & (bit_vector - 1)) == 0
 
-    bits = craete_bit_vector(input_sequence)
+    bits = create_bit_vector(input_sequence)
     return bits == 0 or check_exactly_one_bit_set(bits)
 
 

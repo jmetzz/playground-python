@@ -7,13 +7,11 @@ We start by writing the code that will read the file, line by line,
 and output each line’s value as a Python object.
 We will also create a read_fake_data generator to generate fake data
 that we can test our algorithms with. For this function we still
-take the argument filename, so as to have the same function signature
+take the argument filename, so to have the same function signature
 as read_data; however, we will simply disregard it.
 These two functions are indeed lazily evaluated—we read the next
 line in the file, or generate new fake data, only when the next()
 function is called.
-
-
 """
 from datetime import datetime
 from itertools import count, filterfalse, groupby, islice
@@ -53,11 +51,11 @@ def groupby_day(iterable):
     def key(row):
         return row[0].day
 
-    for day, data_group in groupby(iterable, key):
+    for _, data_group in groupby(iterable, key):
         # Cast data_group into a list because
-        # the normaltest function requires an array-like object.
+        # the normal test function requires an array-like object.
         # Can be avoided by implementing an on-line version
-        # of Welford’s online averaging algorithm to calculate
+        # of Welford’s on-line averaging algorithm to calculate
         # the skew and kurtosis of the numbers
         yield list(data_group)
 
@@ -72,7 +70,7 @@ def groupby_window(data, window_size=3600):
 def is_normal(data, threshold=1e-3):
     """Given one group of data, returns whether it follows the normal distribution"""
     _, values = zip(*data)
-    k2, p_value = normaltest(values)
+    _, p_value = normaltest(values)
     if p_value < threshold:
         return False
     return True
@@ -94,8 +92,8 @@ if __name__ == "__main__":
     # without having to load the entire dataset. Only enough data is read
     # to generate the first five anomalies. Additionally, the anomaly_generator
     # object can be read further to continue retrieving anomalous data
-    data = read_fake_data()
-    anomaly_generator = filter_anomalous_data(data)
+    input_data = read_fake_data()
+    anomaly_generator = filter_anomalous_data(input_data)
     first_five_anomalies = islice(anomaly_generator, 5)
 
     for data_anomaly in first_five_anomalies:
