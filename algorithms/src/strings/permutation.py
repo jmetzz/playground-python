@@ -55,7 +55,7 @@ def is_permutation_by_counting(input_sequence, other):
     for c in input_sequence:
         letters[ord(c)] += 1
 
-    for idx, element in enumerate(other):
+    for _, element in enumerate(other):
         c = ord(element)
         letters[c] -= 1
         if letters[c] < 0:
