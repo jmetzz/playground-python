@@ -99,7 +99,8 @@ def get_conn_pool(
         max_conn_count,
         min_conn_count,
     )
-    assert connection_pool is not None
+    if connection_pool is None:
+        raise RuntimeError("Could not create the connection pool")
     try:
         yield connection_pool
     finally:
@@ -122,7 +123,8 @@ def get_db_connection(connection_pool: pool.AbstractConnectionPool):
     with get_db_connection(my_pool) as conn:
         ...
     """
-    assert connection_pool is not None
+    if connection_pool is None:
+        raise RuntimeError("Connection pool is None")
     db_error = None
     conn = None
     try:

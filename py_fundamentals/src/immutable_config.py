@@ -17,10 +17,10 @@ class Config:
                     return Config._convert(config)
                 except yaml.YAMLError as exc:
                     Config.logger.fatal(
-                        "config: Cannot load config: {}".format(filename), exc
+                        "config: Cannot load config: %s", filename, exc
                     )
         except Exception as e:
-            Config.logger.error("config: File not found: {}".format(filename))
+            Config.logger.error("config: File not found: %s", filename)
             raise e
 
     @staticmethod

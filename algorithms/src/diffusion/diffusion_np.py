@@ -15,10 +15,10 @@ See [Wikipedia page on the diffusion](https://en.wikipedia.org/wiki/Diffusion_eq
 equation and Chapter 7 of Numerical Methods for Complex Systems
 by S. V. Gurevich, for details.
 """
-import time
+from timeit import timeit
 
 import numpy as np
-from numpy import roll, zeros
+from numpy import roll
 
 
 class DiffusionNumpy:
@@ -40,17 +40,6 @@ class DiffusionNumpy:
     @classmethod
     def evolve(cls, grid, dt, D=1):
         return grid + dt * D * cls.laplacian(grid)
-
-    def run_experiment(self, num_iterations, dt=0.1, low_factor=0.4, high_factor=0.5):
-        grid = zeros(self._grid_shape)
-
-        block_low = int(self._grid_shape[0] * low_factor)
-        block_high = int(self._grid_shape[0] * high_factor)
-        grid[block_low:block_high, block_low:block_high] = 0.005
-
-        for i in range(num_iterations):
-            grid = self.evolve(grid, dt)
-        return grid
 
 
 class DiffusionNumpyInPlace:
@@ -76,19 +65,6 @@ class DiffusionNumpyInPlace:
         cls.laplacian(grid, out)
         out *= D * dt
         out += grid
-
-    def run_experiment(self, num_iterations, dt=0.1, low_factor=0.4, high_factor=0.5):
-        next_grid = np.zeros(self._grid_shape)
-        grid = np.zeros(self._grid_shape)
-
-        block_low = int(self._grid_shape[0] * low_factor)
-        block_high = int(self._grid_shape[0] * high_factor)
-        grid[block_low:block_high, block_low:block_high] = 0.005
-
-        for i in range(num_iterations):
-            self.evolve(grid, dt, next_grid)
-            grid, next_grid = next_grid, grid
-        return grid
 
 
 class DiffusionNumpyInPlaceLessAllocation:
@@ -145,19 +121,6 @@ class DiffusionNumpyInPlaceLessAllocation:
         out *= D * dt
         out += grid
 
-    def run_experiment(self, num_iterations, dt=0.1, low_factor=0.4, high_factor=0.5):
-        next_grid = np.zeros(self._grid_shape)
-        grid = np.zeros(self._grid_shape)
-
-        block_low = int(self._grid_shape[0] * low_factor)
-        block_high = int(self._grid_shape[0] * high_factor)
-        grid[block_low:block_high, block_low:block_high] = 0.005
-
-        for i in range(num_iterations):
-            self.evolve(grid, dt, next_grid)
-            grid, next_grid = next_grid, grid
-        return grid
-
     @staticmethod
     def _test_roll_add():
         rollee = np.asarray([[1, 2], [3, 4]])
@@ -169,10 +132,34 @@ class DiffusionNumpyInPlaceLessAllocation:
                 assert np.all(expected_result == out)
 
 
+class Runner:
+    @staticmethod
+    def run_experiment(
+        diffuser, num_iterations, dt=0.1, low_factor=0.4, high_factor=0.5
+    ):
+        next_grid = np.zeros(diffuser._grid_shape)
+        grid = np.zeros(diffuser._grid_shape)
+
+        block_low = int(diffuser._grid_shape[0] * low_factor)
+        block_high = int(diffuser._grid_shape[0] * high_factor)
+        grid[block_low:block_high, block_low:block_high] = 0.005
+
+        for _ in range(num_iterations):
+            diffuser.evolve(grid, dt, next_grid)
+            grid, next_grid = next_grid, grid
+        return grid
+
+
+def measure_time(diffuser, num_iterations=500, num_executions=10):
+    return timeit(
+        lambda: Runner.run_experiment(diffuser, num_iterations),
+        number=num_executions,
+    )
+
+
 if __name__ == "__main__":
     grid_shape = (640, 640)
-    diffuser = DiffusionNumpy(grid_shape)
-    start = time.time()
-    grid = diffuser.run_experiment(500)
-    end = time.time() - start
-    print(end - start)
+
+    print(measure_time(DiffusionNumpy(grid_shape)))
+    print(measure_time(DiffusionNumpyInPlace(grid_shape)))
+    print(measure_time(DiffusionNumpyInPlaceLessAllocation(grid_shape)))

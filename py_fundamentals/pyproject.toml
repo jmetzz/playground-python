@@ -15,6 +15,7 @@ numpy = "^1.22.4"
 tqdm = "^4.64.0"
 pandas = "^1.4.2"
 psycopg2-binary = "^2.9.3"   # wrapper for postgresql. Requirement `brew install postgresql`
+PyYAML = "^6.0"
 
 
 [tool.poetry.dev-dependencies]
