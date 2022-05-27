@@ -86,9 +86,7 @@ def calc_pure_python_wo_prints(desired_width, max_iterations):
 
 # @profile
 def calculate_z_serial_purepython(maxiter, zs, cs):
-    """
-    Calculate output list using Julia update rule
-    """
+    """Calculate output list using Julia update rule"""
     output = [0] * len(zs)
     for i in range(len(zs)):
         n = 0

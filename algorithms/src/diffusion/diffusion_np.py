@@ -22,9 +22,7 @@ from numpy import roll
 
 
 class DiffusionNumpy:
-    """
-    Reduced the CPU burden by using numpy vectorized operations
-    """
+    """Reduced the CPU burden by using numpy vectorized operations"""
 
     def __init__(self, grid_shape):
         self._grid_shape = grid_shape

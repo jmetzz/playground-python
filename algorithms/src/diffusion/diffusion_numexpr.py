@@ -21,9 +21,7 @@ import numpy as np
 
 
 class DiffusionNumexpr:
-    """
-    This version uses numexpr to further optimize large matrix operations
-    """
+    """This version uses numexpr to further optimize large matrix operations"""
 
     def __init__(self, grid_shape):
         self._grid_shape = grid_shape

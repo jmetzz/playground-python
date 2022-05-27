@@ -134,9 +134,7 @@ def mem_audited(log_level=logging.DEBUG):
 
 
 def audit(func):
-    """
-    Decorate a function to time it and log it out (also captures args/kwargs)
-    """
+    """Decorate a function to time it and log it out (also captures args/kwargs)"""
 
     @wraps(func)
     def wrapper(*args, **kwargs):
@@ -321,18 +319,14 @@ class TracemallocWrapper:
 
     @staticmethod
     def start(nframe: int = 1):
-        """
-        Start memory profiling.
-        """
+        """Start memory profiling."""
         if not TRACEMALLOC_ENABLED:
             return
         tracemalloc.start(nframe)
 
     @staticmethod
     def stop():
-        """
-        Start memory profiling.
-        """
+        """Start memory profiling."""
         tracemalloc.stop()
 
     @staticmethod

@@ -164,9 +164,7 @@ def is_permut_of_palindrome_3(input_sequence: str) -> bool:
         return bit_vector
 
     def toggle(bit_vector: int, index: int) -> int:
-        """
-        Toggle the i-th bit in the integer
-        """
+        """Toggle the i-th bit in the integer"""
         if index < 0:
             return bit_vector
 

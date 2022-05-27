@@ -3,9 +3,7 @@ from itertools import count, islice
 
 
 def recaman_sequence():
-    """
-    Generate Recaman's sequence.
-    """
+    """Generate Recaman's sequence."""
     seen = set()
     a = 0
     for n in count(1):
@@ -18,9 +16,7 @@ def recaman_sequence():
 
 
 def write_sequence(filename, num):
-    """
-    Write Recaman's sequence to a text file.
-    """
+    """Write Recaman's sequence to a text file."""
     with open(filename, mode="wt", encoding="utf-8") as f:
         f.writelines("{0}\n".format(r) for r in islice(recaman_sequence(), num + 1))
 

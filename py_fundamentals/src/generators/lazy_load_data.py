@@ -70,9 +70,7 @@ def groupby_window(data, window_size=3600):
 
 
 def is_normal(data, threshold=1e-3):
-    """
-    Given one group of data, returns whether it follows the normal distribution
-    """
+    """Given one group of data, returns whether it follows the normal distribution"""
     _, values = zip(*data)
     k2, p_value = normaltest(values)
     if p_value < threshold:
@@ -81,9 +79,7 @@ def is_normal(data, threshold=1e-3):
 
 
 def filter_anomalous_groups(data):
-    """
-    Filter down the full dataset only to inputs that don’t pass the test
-    """
+    """Filter down the full dataset only to inputs that don’t pass the test"""
     yield from filterfalse(is_normal, data)
 
 
