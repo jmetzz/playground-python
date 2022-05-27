@@ -15,11 +15,11 @@ class Runner:
     def run_experiment(
         diffuser, num_iterations, dt=0.1, low_factor=0.4, high_factor=0.5
     ):
-        next_grid = np.zeros(diffuser._grid_shape)
-        grid = np.zeros(diffuser._grid_shape)
+        next_grid = np.zeros(diffuser.grid_shape)
+        grid = np.zeros(diffuser.grid_shape)
 
-        block_low = int(diffuser._grid_shape[0] * low_factor)
-        block_high = int(diffuser._grid_shape[0] * high_factor)
+        block_low = int(diffuser.grid_shape[0] * low_factor)
+        block_high = int(diffuser.grid_shape[0] * high_factor)
         grid[block_low:block_high, block_low:block_high] = 0.005
 
         for _ in range(num_iterations):
