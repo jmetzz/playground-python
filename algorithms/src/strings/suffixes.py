@@ -137,7 +137,7 @@ class SuffixTree:
     """
 
     def _lcp(self, text, suffix_array):
-        return [self._common_prefix_length(text, i, i + 1) for i in range(suffix_array)]
+        return [self._common_prefix_length(text, idx, idx + 1) for idx in range(suffix_array)]
 
     @staticmethod
     def _common_prefix_length(text: str, i: int, j: int) -> int:
