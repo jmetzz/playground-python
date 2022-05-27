@@ -1,4 +1,5 @@
 import pandas as pd
+
 from algos.dummy_algo import (
     filter_data,
     form_output,
@@ -18,9 +19,7 @@ def test_generate_data():
 
 
 def test_filter_data():
-    test_df = pd.DataFrame(
-        data={"id": [1, 2], "price": [50, 50], "price_constant": [0, 5]}
-    )
+    test_df = pd.DataFrame(data={"id": [1, 2], "price": [50, 50], "price_constant": [0, 5]})
 
     result_df = filter_data(test_df)
     assert result_df.shape[0] == 1
