@@ -28,8 +28,8 @@ def all_unique_chars_bit_op(input_sequence) -> bool:
     :return bool
     """
     checker = 0
-    for i in range(len(input_sequence)):
-        val = ord(input_sequence[i])
+    for _, element in enumerate(input_sequence):
+        val = ord(element)
         if (checker & (1 << val)) > 0:
             return False
         checker |= 1 << val

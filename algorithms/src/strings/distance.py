@@ -21,7 +21,7 @@ def one_away(firsts: str, second: str) -> bool:
 
 def one_replace_away(first: str, second: str) -> bool:
     found_diff = False
-    for idx in range(len(first)):
+    for idx, _ in enumerate(first):
         if first[idx] != second[idx]:
             if found_diff:
                 return False

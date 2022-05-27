@@ -10,9 +10,9 @@ def internal_permut(input_sequence, prefix, level):
     if len(input_sequence) == 0:
         print(f"{s}{prefix}")
     else:
-        for i in range(len(input_sequence)):
-            rem = input_sequence[:i] + input_sequence[i + 1 :]
-            internal_permut(rem, prefix + input_sequence[i], level + 1)
+        for idx, _ in enumerate(input_sequence):
+            rem = input_sequence[:idx] + input_sequence[idx + 1:]
+            internal_permut(rem, prefix + input_sequence[idx], level + 1)
 
 
 def is_permutation_by_sorting(input_sequence, other):
@@ -55,8 +55,8 @@ def is_permutation_by_counting(input_sequence, other):
     for c in input_sequence:
         letters[ord(c)] += 1
 
-    for i in range(len(other)):
-        c = ord(other[i])
+    for idx, element in enumerate(other):
+        c = ord(element)
         letters[c] -= 1
         if letters[c] < 0:
             return False
