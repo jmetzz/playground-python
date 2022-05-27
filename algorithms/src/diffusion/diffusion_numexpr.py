@@ -16,8 +16,6 @@ equation and Chapter 7 of Numerical Methods for Complex Systems
 by S. V. Gurevich, for details.
 """
 
-import time
-
 import numexpr
 import numpy as np
 
@@ -80,36 +78,3 @@ class DiffusionNumexpr:
         """
         cls.laplacian(grid, next_grid)
         numexpr.evaluate("next_grid * D * dt + grid", out=next_grid)
-
-    def run_experiment(self, num_iterations, dt=0.1, low_factor=0.4, high_factor=0.5):
-        next_grid = np.zeros(self._grid_shape)
-        grid = np.zeros(self._grid_shape)
-
-        block_low = int(self._grid_shape[0] * low_factor)
-        block_high = int(self._grid_shape[0] * high_factor)
-        grid[block_low:block_high, block_low:block_high] = 0.005
-
-        for i in range(num_iterations):
-            self.evolve(grid, dt, next_grid)
-            grid, next_grid = next_grid, grid
-        return grid
-
-    @staticmethod
-    def _test_roll_add():
-        # fixme: move to test file and implement unit tests
-        rollee = np.asarray([[1, 2], [3, 4]])
-        for shift in (-1, +1):
-            for axis in (0, 1):
-                out = np.asarray([[6, 3], [9, 2]])
-                expected_result = np.roll(rollee, shift, axis=axis) + out
-                DiffusionNumexpr.roll_add(rollee, shift, axis, out)
-                assert np.all(expected_result == out)
-
-
-if __name__ == "__main__":
-    grid_shape = (640, 640)
-    diffuser = DiffusionNumexpr(grid_shape)
-    start = time.time()
-    grid = diffuser.run_experiment(500)
-    end = time.time() - start
-    print(end - start)
