@@ -5,7 +5,6 @@ from threading import Semaphore
 from typing import Any, Dict, Optional
 
 import pandas as pd
-from gfk.data_access.retry import retry
 from psycopg2 import (
     DatabaseError,
     InterfaceError,
@@ -215,7 +214,7 @@ class DataAccess:
         application_name: str = "data_access",
     ):
         """Set the configuration for the default connection pool."""
-        cls.configuration: dict = {
+        cls.configuration = {
             "postgres_host": postgres_host,
             "postgres_port": postgres_port,
             "postgres_db": postgres_db,
@@ -232,7 +231,6 @@ class DataAccess:
         self.connection_pool.closeall()
         self.connection_pool = make_conn_pool(**self.configuration)
 
-    @retry(exceptions=EXCEPTIONS, max_tries=2)
     def _execute_sql_query(
         self, sql_query: str, params: Dict[str, Any], return_all: Optional[bool] = None
     ):
@@ -268,7 +266,6 @@ class DataAccess:
         # TODO: this should be named more generically or force and UPDATE query
         self.execute(sql_query, params)
 
-    @retry(exceptions=EXCEPTIONS, max_tries=2)
     def read_sql_query(self, sql_query, params=None):
         """
         Run a query with optional parameters and recursive trying to overcome
@@ -285,7 +282,6 @@ class DataAccess:
         with get_db_connection(self.connection_pool) as conn:
             return pd.read_sql_query(sql=sql_query, con=conn, params=params)
 
-    @retry(exceptions=EXCEPTIONS, max_tries=2)
     def read_psql_with_copy_command(self, sql_query, params=None, *args, **kwargs):
         """
         Read and build a DF using the copy_expert psycopg2 command.

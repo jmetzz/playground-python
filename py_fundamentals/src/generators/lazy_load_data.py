@@ -30,7 +30,7 @@ def read_data(filename):
             yield datetime.fromtimestamp(timestamp), value
 
 
-def read_fake_data(filename):
+def read_fake_data():
     for timestamp in count():
         #  We insert an anomalous data point approximately once a week
         if randint(0, 7 * 60 * 60 * 24 - 1) == 1:
@@ -98,7 +98,7 @@ if __name__ == "__main__":
     # without having to load the entire dataset. Only enough data is read
     # to generate the first five anomalies. Additionally, the anomaly_generator
     # object can be read further to continue retrieving anomalous data
-    data = read_fake_data("filename")
+    data = read_fake_data()
     anomaly_generator = filter_anomalous_data(data)
     first_five_anomalies = islice(anomaly_generator, 5)
 

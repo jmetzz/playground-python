@@ -7,18 +7,14 @@ readme = "README.md"
 version = "0.0.1"
 
 [tool.poetry.dependencies]
-Pillow = "^9.0.1"
+python = ">=3.9.2,<3.11"
+pip = "*"
 environs = "^9.3.0"
-ipython = "^7.31.1"
-numpy = "1.21.0"
-pip = "^21.0.1"
-pydantic = "^1.8.2"
-python = "3.9.2"
-scipy = "^1.6.0"
-tqdm = "^4.56.0"
-ipykernel = {version = "^5.4.3", optional = true}
-jupyterlab = {version = "^3.0.17", optional = true}
-psycopg2-binary = "^2.8.6"
+scipy = "^1.8.1"
+numpy = "^1.22.4"
+tqdm = "^4.64.0"
+pandas = "^1.4.2"
+psycopg2-binary = "^2.9.3"   # wrapper for postgresql. Requirement `brew install postgresql`
 
 
 [tool.poetry.dev-dependencies]
@@ -40,6 +36,7 @@ pytest-mock = "^3.5.1"
 pytest-sugar = "^0.9.4"
 pytest-xdist = "^2.2.0"
 toml = "0.10.2"
+ipython = "^8.3.0"
 
 [tool.poetry.extras]
 jupyter = ["ipykernel", "jupyterlab"]

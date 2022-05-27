@@ -10,7 +10,6 @@ def cat(filename):
     f = open(filename, mode="rt", encoding="utf-8")
     for line in f:
         sys.stdout.write(line)
-        # print(line)
     f.close()
 
 

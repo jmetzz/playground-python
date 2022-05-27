@@ -58,7 +58,6 @@ class ConnectionPool:
         try:
             self.conn_pool.closeall()
         except PoolError:
-            # assert str(e) == 'connection pool is closed'
             pass
         self._conn_pool = self.init_conn_pool()
 
