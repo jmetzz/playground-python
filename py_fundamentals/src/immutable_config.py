@@ -16,9 +16,7 @@ class Config:
                     config = yaml.safe_load(stream)
                     return Config._convert(config)
                 except yaml.YAMLError as exc:
-                    Config.logger.fatal(
-                        "config: Cannot load config: %s", filename, exc
-                    )
+                    Config.logger.fatal("config: Cannot load config: %s", filename, exc)
         except Exception as e:
             Config.logger.error("config: File not found: %s", filename)
             raise e
