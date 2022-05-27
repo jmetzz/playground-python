@@ -8,14 +8,14 @@ def insert(sequence: str, idx: int, element) -> str:
 
 
 def remove(sequence: str, idx: int) -> str:
-    return sequence[:idx] + sequence[idx + 1:]
+    return sequence[:idx] + sequence[idx + 1 :]
 
 
 def replace(sequence: str, idx: int, element) -> str:
     # there is also a builtin function to accomplish
     # string modification: s.replace('b', 'x')
     # but this function is not index based.
-    return sequence[:idx] + element + sequence[idx + 1:]
+    return sequence[:idx] + element + sequence[idx + 1 :]
 
 
 if __name__ == "__main__":

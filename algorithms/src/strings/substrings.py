@@ -1,14 +1,14 @@
 def longest_repeated_substring():
-    pass
+    raise NotImplementedError("No time yet :)")
 
 
 def longest_common_substring():
-    pass
+    raise NotImplementedError("Also, no time yet")
 
 
 def longest_common_prefix(s1, s2):
-    pass
+    raise NotImplementedError("Again, no time yet :)")
 
 
 def least_common_ancestor():
-    pass
+    raise NotImplementedError("this one too, no time")

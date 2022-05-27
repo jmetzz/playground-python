@@ -7,7 +7,7 @@ from src.primes import prime_check
 
 @click.group()
 def main():
-    pass
+    pass  # click template. Leave it empy
 
 
 @main.command()

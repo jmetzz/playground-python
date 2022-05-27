@@ -25,9 +25,6 @@ class Trie:
 
     """
 
-    def __init__(self):
-        pass
-
     def all_prefixes(self):
         """
         All strings in the trie can be recovered by
@@ -65,11 +62,8 @@ class PatriciaTree:
 
 
 class SiString:
-    def __init__(self, text):
-        pass
-
     def compare(self, other):
-        pass
+        raise NotImplementedError("Function not implemented yet")
 
 
 class PATTree:
@@ -137,7 +131,10 @@ class SuffixTree:
     """
 
     def _lcp(self, text, suffix_array):
-        return [self._common_prefix_length(text, idx, idx + 1) for idx in range(suffix_array)]
+        return [
+            self._common_prefix_length(text, idx, idx + 1)
+            for idx in range(suffix_array)
+        ]
 
     @staticmethod
     def _common_prefix_length(text: str, i: int, j: int) -> int:
@@ -292,8 +289,7 @@ class SuffixArray:
 
 
 class BurrowsWheelerTransform:
-    pass
-    # http://www.allisons.org/ll/AlgDS/Strings/BWT/
+    """see: http://www.allisons.org/ll/AlgDS/Strings/BWT/"""
 
 
 if __name__ == "__main__":
@@ -302,7 +298,7 @@ if __name__ == "__main__":
     sa = SuffixArray(["a", "b"])
     indexes = sa.build(input_text)
     for i in indexes:
-        print(input_text[i: size - 1])
+        print(input_text[i : size - 1])
 
     print("----")
     input_text = "ababaacabc$"
@@ -310,4 +306,4 @@ if __name__ == "__main__":
     sa = SuffixArray(["a", "b", "c"])
     indexes = sa.build(input_text)
     for i in indexes:
-        print(input_text[i: size - 1])
+        print(input_text[i : size - 1])
