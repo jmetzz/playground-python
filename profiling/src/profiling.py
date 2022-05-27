@@ -1,4 +1,4 @@
-""" Profiling wrappers and helpers. """
+"""Profiling wrappers and helpers."""
 import linecache
 import logging
 import os

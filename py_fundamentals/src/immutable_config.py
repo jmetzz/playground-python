@@ -64,10 +64,6 @@ if __name__ == "__main__":
     }
     knee_config = Config.from_dict(original_dict)
 
-    # print(type(original_dict))
-    # print(original_dict)
-    # print(type(knee_config))
-    # print(knee_config)
-
-    # print(knee_config.X.GB)
-    print(getattr(getattr(knee_config, "X"), "GB"))
+    print(f"type(knee_config): {type(knee_config)}")
+    print(knee_config)
+    print(knee_config.X.GB)
