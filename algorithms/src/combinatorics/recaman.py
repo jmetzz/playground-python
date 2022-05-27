@@ -16,6 +16,7 @@ def recaman_sequence():
             c = a + n
         a = c
 
+
 def write_sequence(filename, num):
     """
     Write Recaman's sequence to a text file.
