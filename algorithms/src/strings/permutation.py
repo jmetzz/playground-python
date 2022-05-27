@@ -11,7 +11,7 @@ def internal_permut(input_sequence, prefix, level):
         print(f"{s}{prefix}")
     else:
         for idx, _ in enumerate(input_sequence):
-            rem = input_sequence[:idx] + input_sequence[idx + 1:]
+            rem = input_sequence[:idx] + input_sequence[idx + 1 :]
             internal_permut(rem, prefix + input_sequence[idx], level + 1)
 
 
