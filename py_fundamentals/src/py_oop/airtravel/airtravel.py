@@ -4,13 +4,13 @@
 class Flight:
     def __init__(self, number, aircraft):
         if not number[:2].isalpha():
-            raise ValueError("No airline code in '{}'".format(number))
+            raise ValueError(f"No airline code in '{number}'")
 
         if not number[:2].isupper():
-            raise ValueError("Invalid airline code '{}'".format(number))
+            raise ValueError(f"Invalid airline code '{number}'")
 
         if not number[2:].isdigit() and int(number[2:]) <= 9999:
-            raise ValueError("Invalid roøute number '{}'".format(number))
+            raise ValueError(f"Invalid roøute number '{number}'")
 
         self._number = number
         self._aircraft = aircraft
@@ -40,16 +40,16 @@ class Flight:
 
         letter = seat[-1]
         if letter not in seat_letters:
-            raise ValueError("Invalid seat letter {}", format(letter))
+            raise ValueError(f"Invalid seat letter {letter}")
 
         row_text = seat[:-1]
         try:
             row = int(row_text)
         except ValueError:
-            raise ValueError("Invalid seat row {}".format(row_text))
+            raise ValueError(f"Invalid seat row {row_text}")
 
         if row not in row_numbers:
-            raise ValueError("Invalid row number {}".format(row_numbers))
+            raise ValueError(f"Invalid row number {row_numbers}")
 
         return row, letter
 
@@ -66,7 +66,7 @@ class Flight:
         row, letter = self._parse_seat(seat)
 
         if self._seating[row][letter] is not None:
-            raise ValueError("Seat {} already occupied".format(seat))
+            raise ValueError(f"Seat {seat} already occupied")
 
         self._seating[row][letter] = passenger
 
@@ -80,11 +80,11 @@ class Flight:
         """
         from_row, from_letter = self._parse_seat(from_seat)
         if self._seating[from_row][from_letter] is None:
-            raise ValueError("No passenger to relocate in seat {}".format(from_seat))
+            raise ValueError(f"No passenger to relocate in seat {from_seat}")
 
         to_row, to_letter = self._parse_seat(to_seat)
         if self._seating[to_row][to_letter] is not None:
-            raise ValueError("Seat {} already occupied".format(to_seat))
+            raise ValueError(f"Seat {to_seat} already occupied")
 
         self._seating[to_row][to_letter] = self._seating[from_row][from_letter]
         self._seating[from_row][from_letter] = None
@@ -107,7 +107,7 @@ class Flight:
             for letter in seat_letters:
                 passenger = self._seating[row][letter]
                 if passenger is not None:
-                    yield (passenger, "{}{}".format(row, letter))
+                    yield passenger, "{row}{letter}"
 
 
 class Aircraft:
@@ -124,7 +124,7 @@ class Aircraft:
         return self._model
 
     def seating_plan(self):
-        return (range(1, self._num_rows + 1), "ABCDEFGHJK"[: self._num_seats_per_row])
+        return range(1, self._num_rows + 1), "ABCDEFGHJK"[: self._num_seats_per_row]
 
 
 def make_flight():
