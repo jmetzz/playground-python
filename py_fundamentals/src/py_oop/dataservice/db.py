@@ -236,13 +236,12 @@ class DataAccess:
     def _execute_sql_query(
         self, sql_query: str, params: Dict[str, Any], return_all: Optional[bool] = None
     ):
-        with get_db_connection(self.connection_pool) as conn:
-            with conn.cursor() as cursor:
-                cursor.execute(sql_query, params or {})
-                if return_all is not None:
-                    if return_all:
-                        return cursor.fetchall()
-                    return cursor.fetchone()
+        with get_db_connection(self.connection_pool) as conn, conn.cursor() as cursor:
+            cursor.execute(sql_query, params or {})
+            if return_all is not None:
+                if return_all:
+                    return cursor.fetchall()
+                return cursor.fetchone()
         return None
 
     def execute_sql_query(self, sql_query: str, params=None):
@@ -311,16 +310,15 @@ class DataAccess:
         if params:
             sql_query = sql_query % params
 
-        with get_db_connection(self.connection_pool) as conn:
-            with conn.cursor() as cursor:
-                # TODO: consider using StringIO objects to avoid writing to disk
-                with TemporaryFile() as temp_file:
-                    copy_sql = "COPY ({query}) TO STDOUT WITH CSV HEADER".format(
-                        query=sql_query
-                    )
-                    cursor.copy_expert(copy_sql, temp_file)
-                    temp_file.seek(0)
-                    df = pd.read_csv(
-                        temp_file, *args, **kwargs, float_precision="round_trip"
-                    )
+        with get_db_connection(self.connection_pool) as conn, conn.cursor() as cursor:
+            # TODO: consider using StringIO objects to avoid writing to disk
+            with TemporaryFile() as temp_file:
+                copy_sql = "COPY ({query}) TO STDOUT WITH CSV HEADER".format(
+                    query=sql_query
+                )
+                cursor.copy_expert(copy_sql, temp_file)
+                temp_file.seek(0)
+                df = pd.read_csv(
+                    temp_file, *args, **kwargs, float_precision="round_trip"
+                )
         return df
