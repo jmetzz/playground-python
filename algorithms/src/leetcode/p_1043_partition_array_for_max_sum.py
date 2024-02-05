@@ -109,37 +109,115 @@ Also, the stack space needed for recursion is equal to the
 maximum number of active function calls which will be N,
 one for each index. Hence, the space complexity will equal O(N).
 """
-from typing import List
+from typing import List, Dict
 
 
+class PartitionArrayForMaxSum:
+    def solve_dfs(self, arr: List[int], k: int) -> int:
+        def _dfs(start_idx: int) -> int:
+            if start_idx >= len(arr):
+                # base case -- which is made redundant because of the
+                # min(n, i + k) in the loop control
+                return 0
 
-def solve_memo(arr: List[int], k: int) -> int:
-    table = [-1] * len(arr)  # -1 indicates the answer is not calculated yet
-    return max_sum(arr, k, 0, table)
+            cur_max = 0
+            answer = 0
+            end_idx = min(len(arr), start_idx + k)
+            for j in range(start_idx, end_idx):
+                cur_max = max(cur_max, arr[j])
+                win_size = j - start_idx + 1
+                answer = max(answer, _dfs(j + 1) + cur_max * win_size)
+            return answer
 
+        return _dfs(0)
 
-def max_sum(arr: List[int], k: int, start_idx: int, memo: List[int]) -> int:
-    if start_idx >= len(arr):
-        return 0
+    def solve_dfs_dict_memo(self, arr: List[int], k: int) -> int:
+        cache = {}
 
-    if memo[start_idx] != -1:
-        return memo[start_idx]
+        def _dfs(start_idx: int) -> int:
+            if start_idx >= len(arr):
+                # base case -- which is made redundant because of the
+                # min(n, i + k) in the loop control
+                return 0
 
-    curr_max = 0
-    answer = 0
-    end_idx = min(start_idx + k, len(arr))
-    for idx in range(start_idx, end_idx):
-        curr_max = max(curr_max, arr[idx])
-        answer = (
-            max(answer,
-                curr_max * (idx - start_idx + 1)
-                + max_sum(arr, k, idx + 1, memo))
-        )
-    memo[start_idx] = answer
-    return answer
+            if start_idx in cache:
+                return cache[start_idx]
 
+            cur_max = 0
+            answer = 0
+            end_idx = min(len(arr), start_idx + k)
+            for j in range(start_idx, end_idx):
+                cur_max = max(cur_max, arr[j])
+                win_size = j - start_idx + 1
+                answer = max(answer, _dfs(j + 1) + cur_max * win_size)
+            cache[start_idx] = answer
+            return answer
 
-if __name__ == '__main__':
-    print(solve_memo([1, 15, 7, 9, 2, 5, 10], 3))  # --> 84
-    print(solve_memo([1, 4, 1, 5, 7, 3, 6, 1, 9, 9, 3], 4))  # --> 83
-    print(solve_memo([1], 1))  # --> 1
+        return _dfs(0)
+
+    def solve_dfs_list_memo(self, arr: List[int], k: int) -> int:
+        table = [-1] * len(arr)  # -1 indicates the answer is not calculated yet
+
+        def _dfs(start_idx: int) -> int:
+            if start_idx >= len(arr):
+                # base case -- which is made redundant because of the
+                # min(n, i + k) in the loop control
+                return 0
+
+            if table[start_idx] != -1:
+                return table[start_idx]
+
+            curr_max = 0
+            answer = 0
+            end_idx = min(start_idx + k, len(arr))
+            for idx in range(start_idx, end_idx):
+                curr_max = max(curr_max, arr[idx])
+                answer = max(answer, curr_max * (idx - start_idx + 1) + _dfs(idx + 1))
+
+            table[start_idx] = answer
+            return answer
+
+        return _dfs(0)
+
+    def solve_tabulation_top_down(self, arr: List[int], k: int) -> int:
+        n = len(arr)
+        dp = [0] * n
+        dp[0] = 0  # base case
+        for i in range(1, n):
+            cur_max = 0
+            max_value_at_i = 0
+            for j in range(i, i - k, -1):
+                if j < 0:
+                    break
+                cur_max = max(cur_max, arr[j])
+                win_size = i - j + 1
+                cur_sum = cur_max * win_size
+                # dp[j - 1] represents the sub-problem
+                max_value_at_i = max(max_value_at_i, cur_sum + dp[j - 1])
+            dp[i] = max_value_at_i
+        return dp[-1]
+
+    def solve_tabulation_top_down_circular_list(self, arr: List[int], k: int) -> int:
+        n = len(arr)
+        dp = [0] * k
+        dp[0] = arr[0]  # base case
+
+        for i in range(1, n):
+            # i pointer represents the end of the window
+            cur_max = 0
+            max_value_at_i = 0
+            for j in range(i, i - k, -1):
+                # j pointer represents the beginning of the window (looking left approach)
+                if j < 0:
+                    break
+                cur_max = max(cur_max, arr[j])
+                window_size = i - j + 1
+                cur_sum = cur_max * window_size
+                # get the result of the sub-problem
+                # sub_sum = dp[j - 1] if j > 0 else 0
+                # using a circular array:
+                sub_sum = dp[(j - 1) % k] if j > 0 else dp[-1]
+                max_value_at_i = max(max_value_at_i, cur_sum + sub_sum)
+            dp[i % k] = max_value_at_i
+
+        return dp[(n - 1) % k]
