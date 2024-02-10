@@ -14,7 +14,6 @@ Example:
     how_sum(8, [2, 3, 5]) -> [3, 5] or [2, 2, 2, 2] or [3, 3, 2] ...
     how_sum(0, [2, 3, 5]) -> []
 
-
 """
 
 from typing import List, Dict, Optional

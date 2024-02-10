@@ -19,10 +19,9 @@ Examples:
     best_sum(100, [1, 3, 5, 25]) -> [25, 25, 25, 25]
     best_sum(0, [2, 3, 5]) -> []
 
-
 """
 
-from typing import List, Dict, Optional
+from typing import List, Optional
 
 
 def solve_dfs_recursive(target: int, arr: List[int]) -> Optional[List[int]]:
