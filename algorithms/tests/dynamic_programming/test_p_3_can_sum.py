@@ -12,7 +12,7 @@ from dynamic_programming import p_3_can_sum as can_sum
                          ])
 
 def test_can_sum_recursive(test_input_target, test_input_arr, expected):
-    assert can_sum.solve_dfs_recursive(test_input_target, test_input_arr) == expected
+    assert can_sum.solve_recursive(test_input_target, test_input_arr) == expected
 
 
 @pytest.mark.parametrize("test_input_target, test_input_arr, expected",

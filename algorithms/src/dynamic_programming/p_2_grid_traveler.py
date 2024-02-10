@@ -8,7 +8,7 @@ The only actions allowed are:
 from typing import Tuple, Dict
 
 
-def grid_traveler(m: int, n: int) -> int:
+def solve_recursive(m: int, n: int) -> int:
     # base
     if m == 0 or n == 0:
         # invalid grid
@@ -16,10 +16,10 @@ def grid_traveler(m: int, n: int) -> int:
     if m == 1 and n == 1:
         # arrived
         return 1
-    return grid_traveler(m - 1, n) + grid_traveler(m, n - 1)
+    return solve_recursive(m - 1, n) + solve_recursive(m, n - 1)
 
 
-def grid_traveler_memoization(m: int, n: int, cache: Dict) -> int:
+def solve_memoization(m: int, n: int, cache: Dict) -> int:
     # cache check
     key = (m, n)
     if key in cache:
@@ -33,15 +33,15 @@ def grid_traveler_memoization(m: int, n: int, cache: Dict) -> int:
     if m == 1 and n == 1:
         return 1
 
-    cache[key] = grid_traveler_memoization(m - 1, n, cache) + grid_traveler_memoization(m, n - 1, cache)
+    cache[key] = solve_memoization(m - 1, n, cache) + solve_memoization(m, n - 1, cache)
     return cache[key]
 
 
 if __name__ == '__main__':
     memo = dict()
-    value = grid_traveler_memoization(2, 3, memo)
+    value = solve_memoization(2, 3, memo)
     print(value)
     print(memo)
 
-    value = grid_traveler_memoization(18, 18, memo)  # 2333606220
+    value = solve_memoization(18, 18, memo)  # 2333606220
     print(value)

@@ -19,7 +19,7 @@ Example:
 from typing import List, Dict, Optional
 
 
-def solve_dfs_recursive(target: int, arr: List[int]) -> Optional[List[int]]:
+def solve_recursive(target: int, arr: List[int]) -> Optional[List[int]]:
     """Solution using brute force recursion
 
     O(n^m * m) time
@@ -31,7 +31,7 @@ def solve_dfs_recursive(target: int, arr: List[int]) -> Optional[List[int]]:
         return None
 
     for _, value in enumerate(arr):
-        solution = solve_dfs_recursive(target - value, arr)
+        solution = solve_recursive(target - value, arr)
         if solution is not None:
             return [value] + solution
     return None
@@ -60,10 +60,10 @@ def solve_memoization(target: int, arr: List[int], cache: Dict[int, List[int]]) 
 
 
 if __name__ == '__main__':
-    print(solve_dfs_recursive(7, [2, 3]))
-    print(solve_dfs_recursive(7, [5, 3, 4, 7]))
-    print(solve_dfs_recursive(7, [2, 4]))
-    print(solve_dfs_recursive(8, [2, 3, 5]))
+    print(solve_recursive(7, [2, 3]))
+    print(solve_recursive(7, [5, 3, 4, 7]))
+    print(solve_recursive(7, [2, 4]))
+    print(solve_recursive(8, [2, 3, 5]))
     print("---")
     print(solve_memoization(7, [2, 3], {}))
     print(solve_memoization(7, [5, 3, 4, 7], {}))

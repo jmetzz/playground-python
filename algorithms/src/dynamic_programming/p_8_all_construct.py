@@ -11,5 +11,9 @@ You may reuse elements of the word_bank as many times as needed.
 from typing import List
 
 
+def solve_recursive(target: str, word_bank: List[str]) -> List[List[str]]:
+    pass
+
+
 def solve_memorization(target: str, word_bank: List[str]) -> List[List[str]]:
     pass

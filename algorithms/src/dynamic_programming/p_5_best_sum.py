@@ -24,7 +24,7 @@ Examples:
 from typing import List, Optional
 
 
-def solve_dfs_recursive(target: int, arr: List[int]) -> Optional[List[int]]:
+def solve_recursive(target: int, arr: List[int]) -> Optional[List[int]]:
     """Solution using brute force recursion
         Exhaustive search exploring the full recursion tree
 
@@ -38,7 +38,7 @@ def solve_dfs_recursive(target: int, arr: List[int]) -> Optional[List[int]]:
 
     curr_best = None
     for value in arr:
-        candidate = solve_dfs_recursive(target - value, arr)
+        candidate = solve_recursive(target - value, arr)
         if candidate is None:
             continue
         if curr_best is None or len(candidate) + 1 < len(curr_best):
@@ -75,10 +75,10 @@ def solve_memoization(target: int, arr: List[int], cache) -> Optional[List[int]]
 
 
 if __name__ == '__main__':
-    print(solve_dfs_recursive(7, [5, 3, 4, 7]))
-    print(solve_dfs_recursive(8, [2, 3, 5]))
-    print(solve_dfs_recursive(8, [1, 4, 5]))
-    print(solve_dfs_recursive(70, [1, 2, 5, 25]))
+    print(solve_recursive(7, [5, 3, 4, 7]))
+    print(solve_recursive(8, [2, 3, 5]))
+    print(solve_recursive(8, [1, 4, 5]))
+    print(solve_recursive(70, [1, 2, 5, 25]))
     print("---")
 
     print(solve_memoization(7, [5, 3, 4, 7], {}))

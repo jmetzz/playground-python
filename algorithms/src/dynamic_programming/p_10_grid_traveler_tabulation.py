@@ -7,15 +7,15 @@ The only actions allowed are:
 """
 
 
-def grid_traveler_tabulation(m: int, n: int) -> int:
+def solve_tabulation(m: int, n: int) -> int:
     pass
 
 
 if __name__ == '__main__':
     memo = dict()
-    value = grid_traveler_tabulation(2, 3)
+    value = solve_tabulation(2, 3)
     print(value)
     print(memo)
 
-    value = grid_traveler_tabulation(18, 18)  # 2333606220
+    value = solve_tabulation(18, 18)  # 2333606220
     print(value)

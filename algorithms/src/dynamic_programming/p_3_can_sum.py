@@ -12,7 +12,7 @@ You may assume that all input numbers are non-negative.
 from typing import List, Dict
 
 
-def solve_dfs_recursive(target: int, arr: List[int]) -> bool:
+def solve_recursive(target: int, arr: List[int]) -> bool:
     """Solution using brute force recursion
 
     O(n^m) time
@@ -23,7 +23,7 @@ def solve_dfs_recursive(target: int, arr: List[int]) -> bool:
     if target < 0:
         return False
     for _, value in enumerate(arr):
-        solution = solve_dfs_recursive(target - value, arr)
+        solution = solve_recursive(target - value, arr)
         if solution is True:
             return True
     return False

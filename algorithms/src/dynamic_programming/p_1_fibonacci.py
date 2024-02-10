@@ -5,7 +5,7 @@ with initial conditions F(0) = 0 and F(1) = 1.
 from typing import Dict, List
 
 
-def fib_recursive(n: int) -> int:
+def solve_recursive(n: int) -> int:
     """Classic recursive implementation of fibonacci sequence.
 
     Time and space complexity are O(2^n).
@@ -14,10 +14,10 @@ def fib_recursive(n: int) -> int:
         return 0
     if n == 1:
         return 1
-    return fib_recursive(n - 1) + fib_recursive(n - 2)
+    return solve_recursive(n - 1) + solve_recursive(n - 2)
 
 
-def fib_memoization(n: int, cache: Dict[int, int]) -> int:
+def solve_memoization(n: int, cache: Dict[int, int]) -> int:
     """Classic recursive implementation of fibonacci sequence.
 
     Time and space complexity are O(2^n).
@@ -27,7 +27,7 @@ def fib_memoization(n: int, cache: Dict[int, int]) -> int:
     if n == 0 or n == 1:
         cache[n] = n
         return n
-    solution = fib_memoization(n - 1, cache) + fib_memoization(n - 2, cache)
+    solution = solve_memoization(n - 1, cache) + solve_memoization(n - 2, cache)
     cache[n] = solution
     return solution
 
@@ -35,7 +35,7 @@ def fib_memoization(n: int, cache: Dict[int, int]) -> int:
 def fib_sequence(n: int) -> List[int]:
     """Generate the entire fibonacci sequence from 1 to n."""
     memo = {0: 0}
-    _ = fib_memoization(n, memo)
+    _ = solve_memoization(n, memo)
 
     return sorted([value for _, value in memo.items()])
 
