@@ -50,25 +50,35 @@ from typing import List
 
 class MaxLengthStrWithUniqueChars:
     def solve(self, arr: List[str]) -> int:
-        max_len = [0]
-        self._back_track(self._clean_up(arr), "", 0, max_len)
-        return max_len[0]
+        return self._back_track(self._clean_up(arr), "", 0, 0)
 
     def _back_track(self, arr, current, start, max_len):
-        if max_len[0] < len(current):
-            max_len[0] = len(current)
-
         for i in range(start, len(arr)):
             if self._invalid(current, arr[i]):
                 continue
-
-            self._back_track(arr, current + arr[i], i + 1, max_len)
+            max_len = max(max_len, self._back_track(arr, current + arr[i], i + 1, max_len))
+        return max(max_len, len(current))
 
     def _clean_up(self, arr: List) -> List:
         return [v for v in arr if len(set(v)) == len(v)]
 
     def _invalid(self, current, new_string):
         return len(set(current) & set(new_string)) != 0
+
+
+class MaxLengthStrWithUniqueChars_dfs:
+    def solve(self, arr: List[str]) -> int:
+        pass
+
+    # def dfs(path, idx, result):
+    #     if hasUniqueChars(path):
+    #         result[0] = max(result[0], len(path))
+    #
+    #     if idx == len(arr) or not hasUniqueChars(path):
+    #         return
+    #
+    #     for i in range(idx, len(arr)):
+    #         dfs(path + arr[i], i + 1, result)
 
 
 if __name__ == '__main__':
