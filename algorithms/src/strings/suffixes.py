@@ -227,7 +227,7 @@ class SuffixArray:
 
     @staticmethod
     def stable_sort_cyclic_shifts(
-        text: str, shift_length, order: List[int], classes: List[int]
+            text: str, shift_length, order: List[int], classes: List[int]
     ) -> List[int]:
         """
         Uses counting sort to stable sort the cyclic shifts with the given length.
@@ -260,7 +260,7 @@ class SuffixArray:
 
     @staticmethod
     def update_classes(
-        new_order: List[int], classes: List[int], shift_length: int
+            new_order: List[int], classes: List[int], shift_length: int
     ) -> List[int]:
         """
         Complexity time is linear.
@@ -279,8 +279,8 @@ class SuffixArray:
             previous = new_order[idx - 1]
             previous_second_half_start = (previous + shift_length) % n
             if (
-                classes[current] != classes[previous]
-                or classes[second_half_start] != classes[previous_second_half_start]
+                    classes[current] != classes[previous]
+                    or classes[second_half_start] != classes[previous_second_half_start]
             ):
                 new_classes[current] = new_classes[previous] + 1
             else:
@@ -298,7 +298,7 @@ if __name__ == "__main__":
     sa = SuffixArray(["a", "b"])
     indexes = sa.build(input_text)
     for i in indexes:
-        print(input_text[i : size - 1])
+        print(input_text[i: size - 1])
 
     print("----")
     input_text = "ababaacabc$"
@@ -306,4 +306,4 @@ if __name__ == "__main__":
     sa = SuffixArray(["a", "b", "c"])
     indexes = sa.build(input_text)
     for i in indexes:
-        print(input_text[i : size - 1])
+        print(input_text[i: size - 1])
