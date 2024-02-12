@@ -46,24 +46,6 @@ from functools import cache
 from typing import List
 
 
-def cherryPickup_one_robot_dp_full_table(grid: List[List[int]]) -> int:
-    rows, cols = len(grid), len(grid[0])
-    dp = [[0] * cols for i in range(rows)]
-    dp[0] = grid[0]
-    r, c = 0, 0  # the answer indices
-
-    for i in range(1, rows):
-        for j in range(cols):
-            parent_value = dp[i - 1][j]
-            for k in range(j - 1, j + 2):  # remember range second argument is not inclusive
-                if k < 0 or k >= cols:
-                    continue  # skip invalid positions
-                dp[i][k] = max(dp[i][k], parent_value + grid[i][k])
-                if dp[i][k] > dp[r][c]:
-                    r, c = i, k
-    return dp[r][c]
-
-
 def cherryPickup_two_robots_dfs(grid: List[List[int]]) -> int:
     rows = len(grid)
     if rows == 0:
@@ -153,8 +135,6 @@ if __name__ == '__main__':
               [2, 0, 9, 0, 0, 0, 0],
               [0, 3, 0, 5, 4, 0, 0],
               [1, 0, 2, 3, 0, 0, 6]]
-    print(cherryPickup_one_robot_dp_full_table(grid_1))
-    print(cherryPickup_one_robot_dp_full_table(grid_2))
 
     print(cherryPickup_two_robots_dfs_memoization(grid_2))
     grid_3 = [[8, 8, 10, 9, 1, 7], [8, 8, 1, 8, 4, 7], [8, 6, 10, 3, 7, 7], [3, 0, 9, 3, 2, 7], [6, 8, 9, 4, 2, 5],
