@@ -34,16 +34,22 @@ import numpy
 
 class PowerOfTwo:
 
-    def solve_mathematically(self, n: int) -> bool:
-        return float.is_integer(numpy.log2(n))
-
     def solve_loop(self, n) -> bool:
-        if n == 0:
+        if n <= 0:
             return False
 
         while n % 2 == 0:
             n /= 2
         return n == 1
+
+    def solve_loop_2(self, n) -> bool:
+        x = 1
+        while x < n:
+            x *= 2
+        return x == n
+
+    def solve_mathematically(self, n: int) -> bool:
+        return float.is_integer(numpy.log2(n))
 
     def solve_bitwise(self, n: int) -> bool:
         """
@@ -70,3 +76,11 @@ class PowerOfTwo:
         if n <= 0:
             return False
         return (n & (n - 1)) == 0
+
+    def solve_bitwise2(self, n: int) -> bool:
+        """
+        Mod by the largest exponent we can get (given the constraints)
+        which is 2**30.
+        """
+
+        return n > 0 and ((1 << 30) % n) == 0
