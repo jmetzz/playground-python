@@ -1,0 +1,130 @@
+[tool.poetry]
+authors = ["Jean Metz"]
+description = "My python sandbox and playground"
+license = "MIT"
+name = "sandbox-python"
+readme = "README.md"
+version = "0.0.101"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+ipython = "^8.20.0"
+pip = "^23.3.2"
+numpy = "^1.26.3"
+pandas = "^2.1.4"
+pandas-profiling = "*"
+environs = "^10.3.0"
+Pillow = "^9.0.1"
+scipy = "*"
+pydantic = "^1.7.3"
+psycopg2-binary = "^2.9.3"   # wrapper for postgresql. Requirement `brew install postgresql`
+pyarrow = "^15.0.0"
+typer = "^0.9.0"
+
+
+[tool.poetry.group.dev.dependencies]
+ipdb = "^0.13.13"
+pytest = "^7.4.4"
+pytest-cov = "^4.1.0"
+pytest-sugar = "^0.9.7"
+ruff = "^0.2.2"
+pre-commit = "^3.6.2"
+pipdeptree = "^2.14.0"
+pip-licenses = "^4.3.4"
+prettytable = "^3.10.0"
+
+[tool.poetry.group.notebook.dependencies]
+jupyterlab = "^4.1"
+tqdm = "^4.66.2"
+tabulate = "^0.9.0"
+ipykernel = "^6.29.2"
+perfplot = "^0.10.2"
+
+[tool.poetry.group.profiling.dependencies]
+memory-profiler = "^0.61.0"
+line-profiler = "^4.1.2"
+psutil = "^5.9.8"
+llvmlite = "^0.42.0"
+cython = "^3.0.8"
+pyinstrument = "^4.6.2"
+pyinstrument-flame = "^1.0.2"
+snakeviz = "^2.2.0"
+py-spy = "^0.3.14"
+numba = "^0.59.0"
+
+
+[tool.pytest.ini_options]
+markers = [
+    "unit: marks tests as unit tests (deselect with '-m \"not integration\"')",
+]
+
+[tool.coverage.report]
+omit = [
+    "**/__init__.py",
+    ".mypy_cache",
+    ".reports",
+    ".git",
+    "**/tests/*",
+]
+show_missing = true
+
+[tool.coverage.run]
+omit = ["*/__init__.py", ".mypy_cache", ".reports", ".git"]
+
+
+[tool.ruff]
+line-length = 120
+indent-width = 4
+target-version = "py38"
+extend-include = ["*.ipynb"]
+
+
+[tool.ruff.lint]
+select = [# Enable
+    # pycodestyle
+    "E",
+    # Pyflakes
+    "F",
+    # pyupgrade
+    "UP",
+    # flake8-bugbear
+    "B",
+    # flake8-simplify
+    "SIM",
+    # isort
+    "I",
+]
+ignore = []
+# Allow fix for all enabled rules (when `--fix`) is provided.
+fixable = ["ALL"]
+unfixable = []
+
+[tool.ruff.format]
+# Like Black, use double quotes for strings.
+quote-style = "double"
+# Like Black, indent with spaces, rather than tabs.
+indent-style = "space"
+# Like Black, respect magic trailing commas.
+skip-magic-trailing-comma = false
+# Like Black, automatically detect the appropriate line ending.
+line-ending = "auto"
+
+# Enable auto-formatting of code examples in docstrings. Markdown,
+# reStructuredText code/literal blocks and doctests are all supported.
+#
+# This is currently disabled by default, but it is planned for this
+# to be opt-out in the future.
+docstring-code-format = true
+
+# Set the line length limit used when formatting code snippets in
+# docstrings.
+#
+# This only has an effect when the `docstring-code-format` setting is
+# enabled.
+docstring-code-line-length = 92
+
+
+
+[build-system]
+requires = ["poetry_core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
