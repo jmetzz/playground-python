@@ -49,14 +49,39 @@ class FindTownJudge:
         if len(trust) == 0:
             return 1 if n == 1 else -1
 
-        trust_map = defaultdict(int)
+        trusting = defaultdict(int)
         trusted = defaultdict(int)
         candidate = -1
         for [a, b] in trust:
-            trust_map[a] += 1
+            trusting[a] += 1
             trusted[b] += 1
             if candidate == -1 or trusted[b] > trusted[candidate]:
                 candidate = b
 
-        judge = candidate if candidate not in trust_map and trusted[candidate] == n - 1 else -1
+        judge = candidate if candidate not in trusting and trusted[candidate] == n - 1 else -1
         return judge
+
+    def solve_graph(self, n: int, trust: List[List[int]]) -> int:
+        """
+        1. Initialization: Initialize two vectors, in and out, to store the in-degree and out-degree of each person.
+
+        2. Counting Trust Relationships: Iterate through each trust relationship, incrementing the out count
+        for the truster and the in count for the trustee.
+
+        3. Finding the Judge: Iterate through each person, checking if they have an in-degree of N - 1 and
+        an out-degree of 0, indicating they are trusted by everyone and trust no one.
+
+        4. Return Value: Return the index of the judge if found, otherwise return -1.
+
+        5. Overall Functionality: The function identifies the judge within a community based on trust relationships,
+        leveraging counts of in-degree and out-degree.
+        """
+        in_degree = [0] * (n + 1)
+        out_degree = [0] * (n + 1)
+        for [a, b] in trust:
+            out_degree[a] += 1
+            in_degree[b] += 1
+        for i in range(1, n + 1):
+            if in_degree[i] == n - 1 and out_degree[i] == 0:
+                return i
+        return -1
