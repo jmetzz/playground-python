@@ -1,5 +1,5 @@
 import pytest
-from leetcode.p_026_remove_duplicates import DuplicatesRemover
+from leetcode.p_026_remove_duplicates import duplicates_remover
 
 
 @pytest.mark.parametrize(
@@ -13,7 +13,7 @@ from leetcode.p_026_remove_duplicates import DuplicatesRemover
     ],
 )
 def test_remove_duplicates(test_input, expected_arr):
-    actual_k = DuplicatesRemover().solve(test_input)
+    actual_k = duplicates_remover(test_input)
 
     assert actual_k == len(expected_arr)
     assert test_input[:actual_k] == expected_arr

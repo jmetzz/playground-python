@@ -44,12 +44,10 @@ Explanation:
 from typing import List
 
 
-class HouseRobber:
-    @staticmethod
-    def rob(nums: List[int]) -> int:
-        curr, prev = 0, 0
-        for value in nums:
-            temp = prev
-            prev = curr
-            curr = max(value + temp, prev)
-        return curr
+def house_robber(nums: List[int]) -> int:
+    curr, prev = 0, 0
+    for value in nums:
+        temp = prev
+        prev = curr
+        curr = max(value + temp, prev)
+    return curr

@@ -54,17 +54,17 @@ def _my_div(a, b):
     return value
 
 
-class EvaluateReversePolishNotation:
-    OPERATIONS = {"+": operator.add, "-": operator.sub, "*": operator.mul, "/": _my_div}
+OPERATIONS = {"+": operator.add, "-": operator.sub, "*": operator.mul, "/": _my_div}
 
-    def solve(self, tokens: List[str]) -> int:
-        stack = []
-        for token in tokens:
-            if token in self.OPERATIONS:
-                op2 = stack.pop()
-                op1 = stack.pop()
-                value = self.OPERATIONS[token](op1, op2)
-                stack.append(int(value))
-            else:
-                stack.append(int(token))
-        return stack.pop()
+
+def eval_reverse_polish_notation(tokens: List[str]) -> int:
+    stack = []
+    for token in tokens:
+        if token in OPERATIONS:
+            op2 = stack.pop()
+            op1 = stack.pop()
+            value = OPERATIONS[token](op1, op2)
+            stack.append(int(value))
+        else:
+            stack.append(int(token))
+    return stack.pop()

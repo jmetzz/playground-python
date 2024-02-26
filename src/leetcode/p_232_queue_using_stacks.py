@@ -54,7 +54,7 @@ class QueueUsingStacks:
 
     def push(self, x: int) -> None:
         """
-        Time complexity : O(1). Аppending an element to a stack is an O(1) operation.
+        Time complexity : O(1). Appending an element to a stack is an O(1) operation.
         """
         self._stack.append(x)
 

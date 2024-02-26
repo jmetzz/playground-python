@@ -44,73 +44,76 @@ Follow up: Could you implement a solution using only O(1) extra space complexity
 from typing import List
 
 
-class MissingNumber:
-    def solve_set(self, nums: List[int]) -> int:
-        n = len(nums)
-        diff = set(range(n + 1)) - set(nums)
-        return diff.pop()
+def missing_number_solve_set(nums: List[int]) -> int:
+    n = len(nums)
+    diff = set(range(n + 1)) - set(nums)
+    return diff.pop()
 
-    def solve_naive_loops(self, nums: List[int]) -> int:
-        n = len(nums)
-        v = [-1] * (n + 1)
-        for num in nums:
-            v[num] = num
-        for i in range(len(v)):
-            if v[i] == -1:
-                return i
+
+def missing_number_solve_naive_loops(nums: List[int]) -> int:
+    n = len(nums)
+    v = [-1] * (n + 1)
+    for num in nums:
+        v[num] = num
+    for i in range(len(v)):
+        if v[i] == -1:
+            return i
+    return 0
+
+
+def missing_number_solve_xor(nums: List[int]) -> int:
+    """
+
+    XOR operations reminder:
+        0 XOR 5 = 5
+        5 XOR 0 = 5
+        5 XOR 5 = 0
+        4 XOR 5 = 4 XOR 5
+
+    input size n: 3
+    XOR mask: [0, 1, 2, 3]
+        -->    0^1: 1
+        -->         1^2: 3
+        -->              3^3: 0
+        ----------------------^
+    input:   [3, 0, 1]
+        -->   3^0: 3
+        -->        3^0: 3
+        -->             3^1: 2
+    ans: 2 ------------------^
+    """
+    n = len(nums)
+    ans = 0
+    for i in range(1, n + 1):
+        ans ^= i
+    for num in nums:
+        ans ^= num
+    return ans
+
+
+def missing_number_solve_sum(nums: List[int]) -> int:
+    """
+    1. sum all the elements in the interval [0, n]
+        sum[0, n] = n * (n + 1) / 2
+    2. sum all elements in nums
+    3. take the difference
+    """
+    n = len(nums)
+    expected_total = int((n * (n + 1)) / 2)
+    return expected_total - sum(nums)
+
+
+def missing_number_solve_sorting(nums: List[int]) -> int:
+    nums.sort()
+    n = len(nums)
+    if nums[0] != 0:
         return 0
 
-    def solve_xor(self, nums: List[int]) -> int:
-        """
+    if nums[-1] != n:
+        return n
 
-        XOR operations reminder:
-            0 XOR 5 = 5
-            5 XOR 0 = 5
-            5 XOR 5 = 0
-            4 XOR 5 = 4 XOR 5
+    for i in range(1, len(nums)):
+        if nums[i] != i:
+            return i
 
-        input size n: 3
-        XOR mask: [0, 1, 2, 3]
-            -->    0^1: 1
-            -->         1^2: 3
-            -->              3^3: 0
-            ----------------------^
-        input:   [3, 0, 1]
-            -->   3^0: 3
-            -->        3^0: 3
-            -->             3^1: 2
-        ans: 2 ------------------^
-        """
-        n = len(nums)
-        ans = 0
-        for i in range(1, n + 1):
-            ans ^= i
-        for num in nums:
-            ans ^= num
-        return ans
-
-    def solve_sum(self, nums: List[int]) -> int:
-        """
-        1. sum all the elements in the interval [0, n]
-            sum[0, n] = n * (n + 1) / 2
-        2. sum all elements in nums
-        3. take the difference
-        """
-        n = len(nums)
-        expected_total = int((n * (n + 1)) / 2)
-        return expected_total - sum(nums)
-
-    def solve_sorting(self, nums: List[int]) -> int:
-        nums.sort()
-        n = len(nums)
-        if nums[0] != 0:
-            return 0
-
-        if nums[-1] != n:
-            return n
-
-        for i in range(1, len(nums)):
-            if nums[i] != i:
-                return i
-
-        return 0
+    return 0

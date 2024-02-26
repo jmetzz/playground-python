@@ -32,54 +32,57 @@ Follow up: Could you solve it without loops/recursion?
 import numpy
 
 
-class PowerOfTwo:
-    def solve_loop(self, n) -> bool:
-        if n <= 0:
-            return False
+def power_of_two__solve_loop(n) -> bool:
+    if n <= 0:
+        return False
 
-        while n % 2 == 0:
-            n /= 2
-        return n == 1
+    while n % 2 == 0:
+        n /= 2
+    return n == 1
 
-    def solve_loop_2(self, n) -> bool:
-        x = 1
-        while x < n:
-            x *= 2
-        return x == n
 
-    def solve_mathematically(self, n: int) -> bool:
-        return float.is_integer(numpy.log2(n))
+def power_of_two__solve_loop_2(n) -> bool:
+    x = 1
+    while x < n:
+        x *= 2
+    return x == n
 
-    def solve_bitwise(self, n: int) -> bool:
-        """
-        Examples
-            3->0000 0011 --> False
-            2->0000 0010 --> True
-            4->0000 0100 --> True
-            5->0000 0101 --> False
-            6->0000 0110 --> False
-            7->0000 0111 --> False
-            8->0000 1000 --> True
 
-            For all True cases, only one active bit exists:
-                4->0000 0100
-                8->0000 1000
+def power_of_two__solve_mathematically(n: int) -> bool:
+    return float.is_integer(numpy.log2(n))
 
-            bit(7) -> 0111
-            bit(8) -> 1000
-            bit(7 & 8) -> 0000
 
-        Time Complexity : O(1)
-        Space Complexity : O(1)
-        """
-        if n <= 0:
-            return False
-        return (n & (n - 1)) == 0
+def power_of_two__solve_bitwise(n: int) -> bool:
+    """
+    Examples
+        3->0000 0011 --> False
+        2->0000 0010 --> True
+        4->0000 0100 --> True
+        5->0000 0101 --> False
+        6->0000 0110 --> False
+        7->0000 0111 --> False
+        8->0000 1000 --> True
 
-    def solve_bitwise2(self, n: int) -> bool:
-        """
-        Mod by the largest exponent we can get (given the constraints)
-        which is 2**30.
-        """
+        For all True cases, only one active bit exists:
+            4->0000 0100
+            8->0000 1000
 
-        return n > 0 and ((1 << 30) % n) == 0
+        bit(7) -> 0111
+        bit(8) -> 1000
+        bit(7 & 8) -> 0000
+
+    Time Complexity : O(1)
+    Space Complexity : O(1)
+    """
+    if n <= 0:
+        return False
+    return (n & (n - 1)) == 0
+
+
+def power_of_two__solve_bitwise2(n: int) -> bool:
+    """
+    Mod by the largest exponent we can get (given the constraints)
+    which is 2**30.
+    """
+
+    return n > 0 and ((1 << 30) % n) == 0

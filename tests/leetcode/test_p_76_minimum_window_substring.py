@@ -1,5 +1,5 @@
 import pytest
-from leetcode.p_76_minimum_window_substring import MinWindow
+from leetcode.p_76_minimum_window_substring import min_window_solve
 
 
 @pytest.mark.parametrize(
@@ -11,4 +11,4 @@ from leetcode.p_76_minimum_window_substring import MinWindow
     ],
 )
 def test_k_inverse_pairs_array_memo(test_input_s, test_input_t, expected):
-    assert MinWindow().solve(test_input_s, test_input_t) == expected
+    assert min_window_solve(test_input_s, test_input_t) == expected

@@ -32,24 +32,24 @@ from collections import Counter, defaultdict
 from typing import List
 
 
-class GroupAnagrams:
-    def solve(self, strs: List[str]) -> List[List[str]]:
-        anagrams_map = defaultdict(list)
-        for word in strs:
-            key = "".join(sorted(word))
-            anagrams_map[key].append(word)
-        return [group for _, group in anagrams_map.items()]
+def group_anagrams_solve(strings: List[str]) -> List[List[str]]:
+    anagrams_map = defaultdict(list)
+    for word in strings:
+        key = "".join(sorted(word))
+        anagrams_map[key].append(word)
+    return [group for _, group in anagrams_map.items()]
 
-    def solve_with_custom_signature(self, strs: List[str]) -> List[List[str]]:
-        anagrams_map = defaultdict(list)
-        for word in strs:
-            key = self._create_signature(word)
-            anagrams_map[key].append(word)
-        return [group for _, group in anagrams_map.items()]
 
-    @classmethod
-    def _create_signature(cls, s: str):
-        # signature is made of the concatenation of char+count
-        counter = Counter(s)
-        keys = sorted([k for k in counter])
-        return "".join([f"{k}{counter[k]}" for k in keys])
+def group_anagrams_solve_with_custom_signature(strigs: List[str]) -> List[List[str]]:
+    anagrams_map = defaultdict(list)
+    for word in strigs:
+        key = _create_signature(word)
+        anagrams_map[key].append(word)
+    return [group for _, group in anagrams_map.items()]
+
+
+def _create_signature(s: str):
+    # signature is made of the concatenation of char+count
+    counter = Counter(s)
+    keys = sorted([k for k in counter])
+    return "".join([f"{k}{counter[k]}" for k in keys])

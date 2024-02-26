@@ -1,5 +1,5 @@
 import pytest
-from leetcode.p_150_eval_reverse_polish_notation import EvaluateReversePolishNotation
+from leetcode.p_150_eval_reverse_polish_notation import eval_reverse_polish_notation
 
 
 @pytest.mark.parametrize(
@@ -11,4 +11,4 @@ from leetcode.p_150_eval_reverse_polish_notation import EvaluateReversePolishNot
     ],
 )
 def test_eval_rvn(test_input, expected):
-    assert EvaluateReversePolishNotation().solve(test_input) == expected
+    assert eval_reverse_polish_notation(test_input) == expected

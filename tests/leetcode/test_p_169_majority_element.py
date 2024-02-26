@@ -1,5 +1,9 @@
 import pytest
-from leetcode.p_169_majority_element import MajorityElement
+from leetcode.p_169_majority_element import (
+    majority_element_solve_boyer_moore_majority_alg,
+    majority_element_solve_counter,
+    majority_element_solve_heap,
+)
 
 INPUT_1 = []  # --> None
 INPUT_2 = [1]  # --> 1
@@ -25,7 +29,7 @@ INPUT_8 = [1, 2, 3, 4, 5, 5, 5]  # --> None
     ],
 )
 def test_majority_element_solve_counter(test_input, expected):
-    assert MajorityElement().solve_counter(test_input) == expected
+    assert majority_element_solve_counter(test_input) == expected
 
 
 @pytest.mark.parametrize(
@@ -42,7 +46,7 @@ def test_majority_element_solve_counter(test_input, expected):
     ],
 )
 def test_majority_element_solve_heap(test_input, expected):
-    assert MajorityElement().solve_heap(test_input) == expected
+    assert majority_element_solve_heap(test_input) == expected
 
 
 @pytest.mark.parametrize(
@@ -59,4 +63,4 @@ def test_majority_element_solve_heap(test_input, expected):
     ],
 )
 def test_majority_element_solve_boyer_moore(test_input, expected):
-    assert MajorityElement().solve_boyer_moore_majority_alg(test_input) == expected
+    assert majority_element_solve_boyer_moore_majority_alg(test_input) == expected
