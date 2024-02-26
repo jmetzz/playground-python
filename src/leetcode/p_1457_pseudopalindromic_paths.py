@@ -40,23 +40,7 @@ The number of nodes in the tree is in the range [1, 105].
 """
 from typing import List
 
-
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
-
-    @staticmethod
-    def build(arr: List[int], root: int = 0):
-        if root >= len(arr) or arr[root] is None:
-            return None
-
-        return TreeNode(
-            arr[root],
-            TreeNode.build(arr, root * 2 + 1),
-            TreeNode.build(arr, root * 2 + 2),
-        )
+from common import TreeNode
 
 
 class PseudoPalindromicPaths_iterative:

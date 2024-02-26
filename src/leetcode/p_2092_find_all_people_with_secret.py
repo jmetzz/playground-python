@@ -70,7 +70,7 @@ from heapq import heappop, heappush
 from math import inf
 from typing import List
 
-from algorithms.graphs import UnionFind
+from common import UnionFind
 
 
 class FindAllPeopleWitSecret:
