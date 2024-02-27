@@ -1,3 +1,17 @@
+from data_structures import BinaryTreeNode
+
+TREE_0_VALUES = [1, 2, 3, 4, 5]
+TREE_1_VALUES = [4, 2, 7, 1, 3, 6, 9]
+TREE_2_VALUES = [1, 2, None, 3, 4, None, None, 5, None, None, 6]
+TREE_0 = BinaryTreeNode.build(TREE_0_VALUES)
+TREE_1 = BinaryTreeNode.build(TREE_1_VALUES)
+TREE_2 = BinaryTreeNode.build(TREE_2_VALUES)
+
+TREE_3_INDICES = [0, 1, 2, 5, 6, 11, 13, 14, 23, 24, 29]
+TREE_4_INDICES = [0, 1, 2, 5, 6, 11, 12, 13, 23, 25, 26, 47, 51, 53, 95, 96, 107, 192, 193]
+TREE_3 = BinaryTreeNode.from_indices(TREE_3_INDICES)
+TREE_4 = BinaryTreeNode.from_indices(TREE_4_INDICES)
+
 HUGE_MATRIX = [
     [
         100,

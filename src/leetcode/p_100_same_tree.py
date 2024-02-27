@@ -30,10 +30,10 @@ The number of nodes in both trees is in the range [0, 100].
 """
 from typing import Optional
 
-from common import TreeNode
+from data_structures import BinaryTreeNode
 
 
-def is_same_tree(p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+def is_same_tree(p: Optional[BinaryTreeNode], q: Optional[BinaryTreeNode]) -> bool:
     if p is None and q is None:
         return True
 
@@ -44,4 +44,4 @@ def is_same_tree(p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
 
 
 if __name__ == "__main__":
-    print(is_same_tree(TreeNode.build([1, 2, 3]), TreeNode.build([1, 2, 3])))
+    print(is_same_tree(BinaryTreeNode.build([1, 2, 3]), BinaryTreeNode.build([1, 2, 3])))

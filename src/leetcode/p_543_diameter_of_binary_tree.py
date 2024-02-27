@@ -29,7 +29,7 @@ The number of nodes in the tree is in the range [1, 104].
 from collections import deque
 from typing import Optional
 
-from common import TreeNode
+from data_structures import BinaryTreeNode
 
 
 def dfs_height(r):
@@ -54,7 +54,7 @@ def dfs_height_memo(r, memo_cache: dict):
     return memo_cache[r]
 
 
-def diameter_of_bin_tree_recursive(root: Optional[TreeNode], debug: bool = False) -> int:
+def diameter_of_bin_tree_recursive(root: Optional[BinaryTreeNode], debug: bool = False) -> int:
     q = deque()
     q.append(root)
     max_path = 0
@@ -78,7 +78,7 @@ def diameter_of_bin_tree_recursive(root: Optional[TreeNode], debug: bool = False
     return max_path
 
 
-def diameter_of_bin_tree_memoization(root: Optional[TreeNode], debug: bool = False) -> int:
+def diameter_of_bin_tree_memoization(root: Optional[BinaryTreeNode], debug: bool = False) -> int:
     memo = {}
     q = deque()
     q.append(root)
@@ -103,12 +103,12 @@ def diameter_of_bin_tree_memoization(root: Optional[TreeNode], debug: bool = Fal
     return max_path
 
 
-def diameter_of_bin_tree_bottom_up(root: Optional[TreeNode]) -> int:
+def diameter_of_bin_tree_bottom_up(root: Optional[BinaryTreeNode]) -> int:
     # Initialize a list to hold the maximum diameter encountered
     # Make this an object to be able to modify inside the inner function
     _diameter = [0]
 
-    def _dfs(node: TreeNode) -> int:
+    def _dfs(node: BinaryTreeNode) -> int:
         """Calculates the height of the node and
         modify the diameter as a side effect
         """
@@ -131,7 +131,7 @@ def diameter_of_bin_tree_bottom_up(root: Optional[TreeNode]) -> int:
 
 
 if __name__ == "__main__":
-    tree = TreeNode.build([1, 2, 3, 4, 5])  # expect: 3
+    tree = BinaryTreeNode.build([1, 2, 3, 4, 5])  # expect: 3
     # tree = TreeNode.build([1, 2, None, 3, 4, None, None, 5, None, None, 6])  # expect: 4
     # arr = [None] * 194
     # notes = [0, 1, 2, 5, 6, 11, 12, 13, 23, 25, 26, 47, 51, 53, 95, 96, 107, 192, 193]  # expected: 9

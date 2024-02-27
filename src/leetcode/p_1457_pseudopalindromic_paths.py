@@ -40,11 +40,11 @@ The number of nodes in the tree is in the range [1, 105].
 """
 from typing import List
 
-from common import TreeNode
+from data_structures import BinaryTreeNode
 
 
 class PseudoPalindromicPaths_iterative:
-    def solve(self, root: TreeNode) -> int:
+    def solve(self, root: BinaryTreeNode) -> int:
         count = 0
         stack = [(root, 0)]
         while stack:
@@ -62,10 +62,10 @@ class PseudoPalindromicPaths_iterative:
 
 
 class PseudoPalindromicPaths_recursive:
-    def solve(self, root: TreeNode) -> int:
+    def solve(self, root: BinaryTreeNode) -> int:
         return self._count_solutions(root, 0)
 
-    def _count_solutions(self, node: TreeNode, path) -> int:
+    def _count_solutions(self, node: BinaryTreeNode, path) -> int:
         if not node:
             return 0
 
@@ -76,11 +76,11 @@ class PseudoPalindromicPaths_recursive:
         return self._count_solutions(node.left, path) + self._count_solutions(node.right, path)
 
 
-def df_traverse(node: TreeNode) -> List:
+def df_traverse(node: BinaryTreeNode) -> List:
     return [node.val] + df_traverse(node.left) + df_traverse(node.right) if node else []
 
 
 if __name__ == "__main__":
-    tree = TreeNode.build([2, 3, 1, 3, 1, None, 1], 0)
+    tree = BinaryTreeNode.build([2, 3, 1, 3, 1, None, 1], 0)
     print(PseudoPalindromicPaths_iterative().solve(tree))
     print(PseudoPalindromicPaths_recursive().solve(tree))
