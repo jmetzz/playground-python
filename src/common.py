@@ -1,4 +1,6 @@
-from typing import List
+from typing import List, Optional
+
+import numpy as np
 
 
 class TreeNode:
@@ -8,7 +10,7 @@ class TreeNode:
         self.right = right
 
     @staticmethod
-    def build(arr: List[int], root: int = 0):
+    def build(arr: List[Optional[int]], root: int = 0):
         if root >= len(arr) or arr[root] is None:
             return None
 
@@ -17,6 +19,13 @@ class TreeNode:
             TreeNode.build(arr, root * 2 + 1),
             TreeNode.build(arr, root * 2 + 2),
         )
+
+    @staticmethod
+    def from_indices(indices: List[int]):
+        size = max(indices) + 1
+        arr = np.full(size, None)
+        arr[indices] = indices
+        return TreeNode.build(arr.tolist())
 
 
 class UnionFind:
