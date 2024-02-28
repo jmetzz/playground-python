@@ -12,6 +12,9 @@ TREE_4_INDICES = [0, 1, 2, 5, 6, 11, 12, 13, 23, 25, 26, 47, 51, 53, 95, 96, 107
 TREE_3 = BinaryTreeNode.from_indices(TREE_3_INDICES)
 TREE_4 = BinaryTreeNode.from_indices(TREE_4_INDICES)
 
+TREE_5 = BinaryTreeNode.build([0, 1, 2, 3, None, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14])
+TREE_6 = BinaryTreeNode.build([0, 1, 2, 3, None, 5, 6, None, None, None, None, 11])
+
 HUGE_MATRIX = [
     [
         100,
