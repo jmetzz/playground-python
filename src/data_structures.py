@@ -1,5 +1,5 @@
 from collections import deque
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Self
 
 import numpy as np
 
@@ -111,6 +111,16 @@ class BinaryTreeNode:
         cls.invert_recursive(root.left)
         cls.invert_recursive(root.right)
         return root
+
+    @classmethod
+    def is_equal(cls, one: Self, other: Self) -> bool:
+        if one is None and one is None:
+            return True
+
+        if one is not None and other is not None and one.val == other.val:
+            return cls.is_equal(one.left, other.left) and cls.is_equal(one.right, other.right)
+        else:
+            return False
 
 
 class UnionFind:

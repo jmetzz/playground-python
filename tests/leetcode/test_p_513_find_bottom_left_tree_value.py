@@ -9,9 +9,9 @@ from leetcode.p_513_find_bottom_left_tree_value import (
 @pytest.mark.parametrize(
     "input_tree, expected",
     [
-        (TREE_0, 4),
-        (TREE_1, 1),
-        (TREE_2, 5),
+        (TREE_0, 3),
+        (TREE_1, 3),
+        (TREE_2, 7),
         (TREE_3, 23),
         (TREE_4, 192),
         (TREE_5, 7),
@@ -24,7 +24,15 @@ def test_find_bottom_left_value_iterative(input_tree, expected):
 
 @pytest.mark.parametrize(
     "input_tree, expected",
-    [(TREE_0, 4), (TREE_1, 1), (TREE_2, 5), (TREE_3, 23), (TREE_4, 192), (TREE_5, 7), (TREE_6, 11)],
+    [
+        (TREE_0, 3),
+        (TREE_1, 3),
+        (TREE_2, 7),
+        (TREE_3, 23),
+        (TREE_4, 192),
+        (TREE_5, 7),
+        (TREE_6, 11),
+    ],
 )
 def test_find_bottom_left_value_recursive(input_tree, expected):
     assert find_bottom_left_value_recursive(input_tree) == expected

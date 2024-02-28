@@ -64,6 +64,5 @@ def find_bottom_left_value_recursive(root: Optional[BinaryTreeNode]) -> Optional
 
 if __name__ == "__main__":
     trees = [TREE_0, TREE_1, TREE_2, TREE_3, TREE_4, TREE_5, TREE_6]
-
     print([find_bottom_left_value_iterative(t) for t in trees])
     print([find_bottom_left_value_recursive(t) for t in trees])

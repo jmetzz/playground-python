@@ -1,15 +1,18 @@
 import pytest
 from conftest import TREE_0_VALUES, TREE_1_VALUES, TREE_2_VALUES
 from data_structures import BinaryTreeNode
-from pytest import fail
 
 
-def test_binary_tree_build():
-    fail("Test case not implemented yet")
-
-
-def test_from_indices():
-    fail("Test case not implemented yet")
+@pytest.mark.parametrize(
+    "tree_values, tree_indices",
+    [
+        ([0, 1, 2, 3, 4, 5, 6], [0, 1, 2, 3, 4, 5, 6]),
+    ],
+)
+def test_binary_tree_creation(tree_values, tree_indices):
+    t1 = BinaryTreeNode.build(tree_values)
+    t2 = BinaryTreeNode.from_indices(tree_indices)
+    assert BinaryTreeNode.is_equal(t1, t2)
 
 
 def test_binary_tree_traverse_preorder():
@@ -30,9 +33,9 @@ def test_binary_tree_traverse_postorder():
 @pytest.mark.parametrize(
     "input_tree_values, expected",
     [
-        (TREE_0_VALUES, [1, 2, 3, 4, 5]),
-        (TREE_1_VALUES, [4, 2, 7, 1, 3, 6, 9]),
-        (TREE_2_VALUES, [1, 2, 3, 4, 5, 6]),
+        (TREE_0_VALUES, [0, 1, 2, 3, 4]),
+        (TREE_1_VALUES, [0, 1, 2, 3, 4, 5, 6]),
+        (TREE_2_VALUES, [0, 1, 3, 4, 7, 10]),
     ],
 )
 def test_bfs_apply(input_tree_values, expected):
@@ -44,9 +47,9 @@ def test_bfs_apply(input_tree_values, expected):
 @pytest.mark.parametrize(
     "input_tree_values, expected",
     [
-        (TREE_0_VALUES, [1, 2, 3, 4, 5]),
-        (TREE_1_VALUES, [4, 2, 7, 1, 3, 6, 9]),
-        (TREE_2_VALUES, [1, 2, 3, 4, 5, 6]),
+        (TREE_0_VALUES, [0, 1, 2, 3, 4]),
+        (TREE_1_VALUES, [0, 1, 2, 3, 4, 5, 6]),
+        (TREE_2_VALUES, [0, 1, 3, 4, 7, 10]),
     ],
 )
 def test_binary_tree_bfs(input_tree_values, expected):
@@ -54,14 +57,14 @@ def test_binary_tree_bfs(input_tree_values, expected):
 
 
 def test_binary_tree_invert():
-    expected = [4, 7, 2, 9, 6, 3, 1]
+    expected = [0, 2, 1, 6, 5, 4, 3]
     tree = BinaryTreeNode.build(TREE_1_VALUES)
     actual = tree.invert().bfs()
     assert actual == expected
 
 
 def test_binary_tree_invert_recursive():
-    expected = [4, 7, 2, 9, 6, 3, 1]
+    expected = [0, 2, 1, 6, 5, 4, 3]
     tree = BinaryTreeNode.build(TREE_1_VALUES)
     actual = BinaryTreeNode.invert_recursive(tree).bfs()
     assert actual == expected

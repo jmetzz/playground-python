@@ -1,19 +1,63 @@
 from data_structures import BinaryTreeNode
 
-TREE_0_VALUES = [1, 2, 3, 4, 5]
-TREE_1_VALUES = [4, 2, 7, 1, 3, 6, 9]
-TREE_2_VALUES = [1, 2, None, 3, 4, None, None, 5, None, None, 6]
+TREE_0_VALUES = [0, 1, 2, 3, 4]
+TREE_0_INDICES = [0, 1, 2, 3, 4]
+
+TREE_1_VALUES = [0, 1, 2, 3, 4, 5, 6]
+TREE_1_INDICES = [0, 1, 2, 3, 4, 5, 6]
+
+TREE_2_VALUES = [0, 1, None, 3, 4, None, None, 7, None, None, 10]
+TREE_2_INDICES = [0, 1, 3, 4, 7, 10]
+
+TREE_3_INDICES = [0, 1, 2, 5, 6, 11, 13, 14, 23, 24, 29]
+TREE_3_VALUES = [
+    0,
+    1,
+    2,
+    None,
+    None,
+    5,
+    6,
+    None,
+    None,
+    None,
+    None,
+    11,
+    None,
+    13,
+    14,
+    None,
+    None,
+    None,
+    None,
+    None,
+    None,
+    None,
+    None,
+    23,
+    24,
+    None,
+    None,
+    None,
+    None,
+    29,
+]
+
+TREE_4_INDICES = [0, 1, 2, 5, 6, 11, 12, 13, 23, 25, 26, 47, 51, 53, 95, 96, 107, 192, 193]
+
+TREE_5_VALUES = [0, 1, 2, 3, None, 5, 6, 7, None, None, 10, 11, 12, 13, 14]
+TREE_5_INDICES = [0, 1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+
+TREE_6_VALUES = [0, 1, 2, 3, None, 5, 6, None, None, None, None, 11]
+TREE_6_INDICES = [0, 1, 2, 3, 5, 6, 11]
+
 TREE_0 = BinaryTreeNode.build(TREE_0_VALUES)
 TREE_1 = BinaryTreeNode.build(TREE_1_VALUES)
 TREE_2 = BinaryTreeNode.build(TREE_2_VALUES)
-
-TREE_3_INDICES = [0, 1, 2, 5, 6, 11, 13, 14, 23, 24, 29]
-TREE_4_INDICES = [0, 1, 2, 5, 6, 11, 12, 13, 23, 25, 26, 47, 51, 53, 95, 96, 107, 192, 193]
 TREE_3 = BinaryTreeNode.from_indices(TREE_3_INDICES)
 TREE_4 = BinaryTreeNode.from_indices(TREE_4_INDICES)
-
-TREE_5 = BinaryTreeNode.build([0, 1, 2, 3, None, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14])
-TREE_6 = BinaryTreeNode.build([0, 1, 2, 3, None, 5, 6, None, None, None, None, 11])
+TREE_5 = BinaryTreeNode.build(TREE_5_VALUES)
+TREE_6 = BinaryTreeNode.build(TREE_6_VALUES)
 
 HUGE_MATRIX = [
     [
