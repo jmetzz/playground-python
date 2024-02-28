@@ -1,5 +1,5 @@
 from collections import deque
-from typing import Dict, List, Optional, Self
+from typing import Any, Dict, List, Optional, Self
 
 import numpy as np
 
@@ -121,6 +121,12 @@ class BinaryTreeNode:
             return cls.is_equal(one.left, other.left) and cls.is_equal(one.right, other.right)
         else:
             return False
+
+
+class SingleLinkListNode:
+    def __init__(self, val: Any = None, adjacent: Self = None):
+        self.val = val
+        self.adjacent = adjacent
 
 
 class UnionFind:
