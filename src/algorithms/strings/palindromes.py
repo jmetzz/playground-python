@@ -24,7 +24,7 @@ def is_palindrome_with_stack(sequence: str, cache: Dict[str, bool]) -> bool:
     return cache[sequence]
 
 
-def is_palindrome(sequence: str) -> bool:
+def is_palindrome_expanding_window(sequence: str) -> bool:
     n = len(sequence)
     if n == 1:
         return True
@@ -35,6 +35,12 @@ def is_palindrome(sequence: str) -> bool:
         left, right = left - 1, right + 1
 
     return right >= len(sequence)
+
+
+def is_palindrome_1(sequence: str) -> bool:
+    n = len(sequence)
+    mid = n // 2
+    return sequence[:mid] == (sequence[mid:] if n % 2 == 0 else sequence[mid + 1 :])[::-1]
 
 
 def is_palindrome_2(sequence: str) -> bool:
