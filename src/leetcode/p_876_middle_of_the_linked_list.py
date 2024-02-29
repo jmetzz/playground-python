@@ -36,3 +36,8 @@ def middle_node(head: Optional[SingleLinkListNode]) -> Optional[SingleLinkListNo
         pointer = pointer.adjacent
     mid = len(stack) // 2
     return stack[mid]
+
+
+if __name__ == "__main__":
+    print(middle_node(SingleLinkListNode.from_array([1, 2, 3, 4, 5])).val)
+    print(middle_node(SingleLinkListNode.from_array([1, 2, 3, 4, 5, 6])).val)

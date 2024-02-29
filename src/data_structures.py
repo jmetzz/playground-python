@@ -158,6 +158,15 @@ class SingleLinkListNode:
         self.val = val
         self.adjacent = adjacent
 
+    @classmethod
+    def from_array(cls, arr: List[Any]) -> Self:
+        if not arr:
+            return None
+
+        root = SingleLinkListNode(arr[0])
+        root.adjacent = cls.from_array(arr[1:])
+        return root
+
 
 class UnionFind:
     def __init__(self, nodes: int):
