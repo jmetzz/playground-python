@@ -68,7 +68,11 @@ def is_even_odd_tree(root: Optional[BinaryTreeNode]) -> bool:
         prev_value = None
 
         for _ in range(level_length):
+            # visit the node:
+            # 1. check the constraints, and
+            # 2. add their children to the queue
             node = q.popleft()
+            # 1 >>>>
             if is_even_level:
                 # even-indexed level: all nodes must have ODD values
                 # in strictly INCREASING order (from left to right).
@@ -80,10 +84,12 @@ def is_even_odd_tree(root: Optional[BinaryTreeNode]) -> bool:
                 if node.val % 2 != 0 or (prev_value is not None and prev_value <= node.val):
                     return False
             prev_value = node.val
+            # 2 >>>>
             if node.left:
                 q.append(node.left)
             if node.right:
                 q.append(node.right)
+
         is_even_level = not is_even_level
     return True
 
