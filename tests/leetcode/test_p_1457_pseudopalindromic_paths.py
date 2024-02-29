@@ -15,7 +15,7 @@ from leetcode.p_1457_pseudopalindromic_paths import (
     ],
 )
 def test_pseudo_palindromic_paths_recursive(test_input, expected):
-    tree = BinaryTreeNode.build(test_input, 0)
+    tree = BinaryTreeNode.deserialize(test_input, 0)
     assert PseudoPalindromicPaths_recursive().solve(tree) == expected
 
 
@@ -28,5 +28,5 @@ def test_pseudo_palindromic_paths_recursive(test_input, expected):
     ],
 )
 def test_pseudo_palindromic_paths_iterative(test_input, expected):
-    tree = BinaryTreeNode.build(test_input, 0)
+    tree = BinaryTreeNode.deserialize(test_input, 0)
     assert PseudoPalindromicPaths_iterative().solve(tree) == expected

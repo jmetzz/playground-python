@@ -11,14 +11,25 @@ class BinaryTreeNode:
         self.right = right
 
     @staticmethod
-    def build(arr: List[Optional[int]], root: int = 0):
+    def deserialize(arr: List[Optional[int]], root: int = 0):
+        """
+        Recursively constructs the tree based on the array representation,
+        handling None values to skip creating nodes for missing children.
+
+        Args:
+            arr:
+            root:
+
+        Returns:
+
+        """
         if root >= len(arr) or arr[root] is None:
             return None
 
         return BinaryTreeNode(
             arr[root],
-            BinaryTreeNode.build(arr, root * 2 + 1),
-            BinaryTreeNode.build(arr, root * 2 + 2),
+            BinaryTreeNode.deserialize(arr, root * 2 + 1),
+            BinaryTreeNode.deserialize(arr, root * 2 + 2),
         )
 
     @staticmethod
@@ -26,7 +37,7 @@ class BinaryTreeNode:
         size = max(indices) + 1
         arr = np.full(size, None)
         arr[indices] = indices
-        return BinaryTreeNode.build(arr.tolist())
+        return BinaryTreeNode.deserialize(arr.tolist())
 
     @staticmethod
     def from_map(mapping: Dict[int, int]):
@@ -90,6 +101,25 @@ class BinaryTreeNode:
 
     def to_map(self) -> Dict[int, int]:
         raise NotImplementedError
+
+    def serialize(self, prefix: str = "", is_left=True) -> str:
+        """Generate a string representation of a binary tree"""
+        # if node is None:
+        #     return "Null\n"
+        result = prefix
+        if prefix == "":
+            result += "── "
+        else:
+            result += "├── " if is_left else "└── "
+
+        result += str(self.val) + "\n"
+        if self.left is not None:
+            result += self.left.serialize(prefix + ("   " if not is_left or self.right is not None else "    "), True)
+
+        if self.right is not None:
+            result += self.right.serialize(prefix + ("   " if not is_left or self.left is not None else "    "), False)
+
+        return result
 
     def invert(self):
         q = deque()
@@ -169,7 +199,7 @@ class UnionFind:
 
 
 if __name__ == "__main__":
-    tree = BinaryTreeNode.build([4, 2, 7, 1, 3, 6, 9])
+    tree = BinaryTreeNode.deserialize([4, 2, 7, 1, 3, 6, 9])
     accumulator = []
 
     def swap_children(node):
@@ -184,9 +214,9 @@ if __name__ == "__main__":
     tree.bfs_apply(lambda x: accumulator.append(x.val))
     print(f"tree elements (swap): {accumulator}")
 
-    inverted = BinaryTreeNode.build([4, 2, 7, 1, 3, 6, 9]).invert().bfs()
+    inverted = BinaryTreeNode.deserialize([4, 2, 7, 1, 3, 6, 9]).invert().bfs()
     print(f"tree elements (invert): {inverted}")
 
-    t2 = BinaryTreeNode.build([4, 2, 7, 1, 3, 6, 9])
+    t2 = BinaryTreeNode.deserialize([4, 2, 7, 1, 3, 6, 9])
     inverted = BinaryTreeNode.invert_recursive(t2).bfs()
     print(f"tree elements (invert_recursive): {inverted}")

@@ -10,23 +10,23 @@ from data_structures import BinaryTreeNode
     ],
 )
 def test_binary_tree_creation(tree_values, tree_indices):
-    t1 = BinaryTreeNode.build(tree_values)
+    t1 = BinaryTreeNode.deserialize(tree_values)
     t2 = BinaryTreeNode.from_indices(tree_indices)
     assert BinaryTreeNode.is_equal(t1, t2)
 
 
 def test_binary_tree_traverse_preorder():
-    tree = BinaryTreeNode.build([4, 2, 7, 1, 3, 6, 9])
+    tree = BinaryTreeNode.deserialize([4, 2, 7, 1, 3, 6, 9])
     assert BinaryTreeNode.preorder(tree) == [4, 2, 1, 3, 7, 6, 9]
 
 
 def test_binary_tree_traverse_inorder():
-    tree = BinaryTreeNode.build([4, 2, 7, 1, 3, 6, 9])
+    tree = BinaryTreeNode.deserialize([4, 2, 7, 1, 3, 6, 9])
     assert BinaryTreeNode.inorder(tree) == [1, 2, 3, 4, 6, 7, 9]
 
 
 def test_binary_tree_traverse_postorder():
-    tree = BinaryTreeNode.build([4, 2, 7, 1, 3, 6, 9])
+    tree = BinaryTreeNode.deserialize([4, 2, 7, 1, 3, 6, 9])
     assert BinaryTreeNode.postorder(tree) == [1, 3, 2, 6, 9, 7, 4]
 
 
@@ -40,7 +40,7 @@ def test_binary_tree_traverse_postorder():
 )
 def test_bfs_apply(input_tree_values, expected):
     accumulator = []
-    BinaryTreeNode.build(input_tree_values).bfs_apply(lambda x: accumulator.append(x.val))
+    BinaryTreeNode.deserialize(input_tree_values).bfs_apply(lambda x: accumulator.append(x.val))
     assert accumulator == expected
 
 
@@ -53,18 +53,18 @@ def test_bfs_apply(input_tree_values, expected):
     ],
 )
 def test_binary_tree_bfs(input_tree_values, expected):
-    assert BinaryTreeNode.build(input_tree_values).bfs() == expected
+    assert BinaryTreeNode.deserialize(input_tree_values).bfs() == expected
 
 
 def test_binary_tree_invert():
     expected = [0, 2, 1, 6, 5, 4, 3]
-    tree = BinaryTreeNode.build(TREE_1_VALUES)
+    tree = BinaryTreeNode.deserialize(TREE_1_VALUES)
     actual = tree.invert().bfs()
     assert actual == expected
 
 
 def test_binary_tree_invert_recursive():
     expected = [0, 2, 1, 6, 5, 4, 3]
-    tree = BinaryTreeNode.build(TREE_1_VALUES)
+    tree = BinaryTreeNode.deserialize(TREE_1_VALUES)
     actual = BinaryTreeNode.invert_recursive(tree).bfs()
     assert actual == expected

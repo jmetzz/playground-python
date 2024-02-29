@@ -81,6 +81,6 @@ def df_traverse(node: BinaryTreeNode) -> List:
 
 
 if __name__ == "__main__":
-    tree = BinaryTreeNode.build([2, 3, 1, 3, 1, None, 1], 0)
+    tree = BinaryTreeNode.deserialize([2, 3, 1, 3, 1, None, 1], 0)
     print(PseudoPalindromicPaths_iterative().solve(tree))
     print(PseudoPalindromicPaths_recursive().solve(tree))

@@ -131,7 +131,7 @@ def diameter_of_bin_tree_bottom_up(root: Optional[BinaryTreeNode]) -> int:
 
 
 if __name__ == "__main__":
-    tree = BinaryTreeNode.build([1, 2, 3, 4, 5])  # expect: 3
+    tree = BinaryTreeNode.deserialize([1, 2, 3, 4, 5])  # expect: 3
     # tree = TreeNode.build([1, 2, None, 3, 4, None, None, 5, None, None, 6])  # expect: 4
     # arr = [None] * 194
     # notes = [0, 1, 2, 5, 6, 11, 12, 13, 23, 25, 26, 47, 51, 53, 95, 96, 107, 192, 193]  # expected: 9

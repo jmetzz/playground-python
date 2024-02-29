@@ -44,4 +44,4 @@ def is_same_tree(p: Optional[BinaryTreeNode], q: Optional[BinaryTreeNode]) -> bo
 
 
 if __name__ == "__main__":
-    print(is_same_tree(BinaryTreeNode.build([1, 2, 3]), BinaryTreeNode.build([1, 2, 3])))
+    print(is_same_tree(BinaryTreeNode.deserialize([1, 2, 3]), BinaryTreeNode.deserialize([1, 2, 3])))

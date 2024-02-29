@@ -8,8 +8,8 @@ from leetcode.p_543_diameter_of_binary_tree import (
     diameter_of_bin_tree_recursive,
 )
 
-TREE_1 = BinaryTreeNode.build([1, 2, 3, 4, 5])
-TREE_2 = BinaryTreeNode.build([1, 2, None, 3, 4, None, None, 5, None, None, 6])
+TREE_1 = BinaryTreeNode.deserialize([1, 2, 3, 4, 5])
+TREE_2 = BinaryTreeNode.deserialize([1, 2, None, 3, 4, None, None, 5, None, None, 6])
 TREE_3 = BinaryTreeNode.from_indices([0, 1, 2, 5, 6, 11, 13, 14, 23, 24, 29])
 TREE_4 = BinaryTreeNode.from_indices([0, 1, 2, 5, 6, 11, 12, 13, 23, 25, 26, 47, 51, 53, 95, 96, 107, 192, 193])
 
