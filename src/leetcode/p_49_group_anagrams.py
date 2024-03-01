@@ -32,24 +32,24 @@ from collections import Counter, defaultdict
 from typing import List
 
 
-def group_anagrams_solve(strings: List[str]) -> List[List[str]]:
+def group_anagrams_solve(sequences: List[str]) -> List[List[str]]:
     anagrams_map = defaultdict(list)
-    for word in strings:
+    for word in sequences:
         key = "".join(sorted(word))
         anagrams_map[key].append(word)
     return [group for _, group in anagrams_map.items()]
 
 
-def group_anagrams_solve_with_custom_signature(strigs: List[str]) -> List[List[str]]:
+def group_anagrams_solve_with_custom_signature(sequences: List[str]) -> List[List[str]]:
     anagrams_map = defaultdict(list)
-    for word in strigs:
+    for word in sequences:
         key = _create_signature(word)
         anagrams_map[key].append(word)
     return [group for _, group in anagrams_map.items()]
 
 
-def _create_signature(s: str):
+def _create_signature(sequence: str):
     # signature is made of the concatenation of char+count
-    counter = Counter(s)
+    counter = Counter(sequence)
     keys = sorted([k for k in counter])
     return "".join([f"{k}{counter[k]}" for k in keys])

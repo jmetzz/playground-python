@@ -25,13 +25,13 @@ s[i] is a printable ascii character.
 from typing import List
 
 
-def reverse_inplace(arr: List[str]) -> None:
+def reverse_inplace(sequence: List[str]) -> None:
     """
     Do not return anything, modify s in-place instead.
     """
-    left, right = 0, len(arr) - 1
+    left, right = 0, len(sequence) - 1
     while left < right:
-        arr[left], arr[right] = arr[right], arr[left]
+        sequence[left], sequence[right] = sequence[right], sequence[left]
         left += 1
         right -= 1
 

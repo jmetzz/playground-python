@@ -36,11 +36,11 @@ s consists of parentheses only '()[]{}'.
 """
 
 
-def is_valid_parenthesis(s: str) -> bool:
+def is_valid_parenthesis(sequence: str) -> bool:
     pair_of = {")": "(", "]": "[", "}": "{"}
     stack = []
 
-    for ch in s:
+    for ch in sequence:
         if ch in ("(", "[", "{"):
             stack.append(ch)
         else:

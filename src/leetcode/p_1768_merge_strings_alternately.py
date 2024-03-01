@@ -43,16 +43,16 @@ word1 and word2 consist of lowercase English letters.
 """
 
 
-def merge_alternately(word1: str, word2: str) -> str:
-    n1 = len(word1)
-    n2 = len(word2)
+def merge_alternately(sequence1: str, sequence2: str) -> str:
+    n1 = len(sequence1)
+    n2 = len(sequence2)
     ans = ""
     i = 0
     for i in range(min(n1, n2)):
-        ans += word1[i] + word2[i]
+        ans += sequence1[i] + sequence2[i]
 
     if n1 < n2:
-        ans += word2[i + 1 :]
+        ans += sequence2[i + 1 :]
     else:
-        ans += word1[i + 1 :]
+        ans += sequence1[i + 1 :]
     return ans

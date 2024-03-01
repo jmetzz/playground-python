@@ -42,7 +42,7 @@ text1 and text2 consist of only lowercase English characters.
 
 
 class LongestCommonSubsequence:
-    def solve(self, text1: str, text2: str) -> int:
+    def solve(self, sequence1: str, sequence2: str) -> int:
         """
 
         O(n*m) time
@@ -62,8 +62,8 @@ class LongestCommonSubsequence:
         dp has 1 extra column and 1 extra line.
 
         """
-        n = len(text1)
-        m = len(text2)
+        n = len(sequence1)
+        m = len(sequence2)
         dp = [[0 for _ in range(m + 1)] for _ in range(n + 1)]
 
         # Using a bottom up approach, we start the right lower corner of the matrix,
@@ -72,7 +72,7 @@ class LongestCommonSubsequence:
         # first position [0][0], which will result in the final solution.
         for i in range(n - 1, -1, -1):
             for j in range(m - 1, -1, -1):
-                if text1[i] == text2[j]:  # move diagonal
+                if sequence1[i] == sequence2[j]:  # move diagonal
                     dp[i][j] = 1 + dp[i + 1][j + 1]
                 else:
                     # checking down and right solutions, keeping the max value

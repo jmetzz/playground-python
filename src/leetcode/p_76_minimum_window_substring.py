@@ -77,8 +77,8 @@ Technique: Sliding Window
 from collections import Counter, defaultdict
 
 
-def min_window_solve(src_string: str, target: str) -> str:
-    if not src_string or not target:
+def min_window_solve(source: str, target: str) -> str:
+    if not source or not target:
         return ""
 
     t_counter_map = Counter(target)
@@ -92,8 +92,8 @@ def min_window_solve(src_string: str, target: str) -> str:
     win_counts = defaultdict(int)  # represent the num of occurrences of char in the window {c: int}
 
     left, right = 0, 0  # window control pointers
-    while right < len(src_string):  # expand the window iterating over all elements in s
-        curr_char = src_string[right]  # the character from s we are evaluating
+    while right < len(source):  # expand the window iterating over all elements in s
+        curr_char = source[right]  # the character from s we are evaluating
         win_counts[curr_char] += 1  # while expanding the window, we add 1 for each char we encounter
 
         if curr_char in t_counter_map and win_counts[curr_char] == t_counter_map[curr_char]:
@@ -101,7 +101,7 @@ def min_window_solve(src_string: str, target: str) -> str:
 
         # shrink the window while the window satisfy the constraint: all chars from target consumed
         while left <= right and num_chars_used_from_target == required_count:
-            curr_char = src_string[left]
+            curr_char = source[left]
 
             if win_size == -1 or right - left + 1 < win_size:
                 win_size = right - left + 1  # length of the answer
@@ -116,4 +116,4 @@ def min_window_solve(src_string: str, target: str) -> str:
 
         right += 1
 
-    return "" if win_size == -1 else src_string[win_left : win_right + 1]
+    return "" if win_size == -1 else source[win_left : win_right + 1]

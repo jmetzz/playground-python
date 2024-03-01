@@ -38,11 +38,11 @@ from heapq import heapify, heappop
 
 
 class FrequencySort:
-    def solve_with_counter(self, s: str) -> str:
+    def solve_with_counter(self, sequence: str) -> str:
         """
         Beats 36.99% of users with Python3
         """
-        counter = Counter(s)
+        counter = Counter(sequence)
         answer = ""
         while counter:
             key, qtt = counter.most_common(1)[0]
@@ -50,11 +50,11 @@ class FrequencySort:
             del counter[key]
         return answer
 
-    def solve_with_array(self, s: str) -> str:
+    def solve_with_array(self, sequence: str) -> str:
         """
         Beats 53.32% of users with Python3
         """
-        counter = Counter(s)
+        counter = Counter(sequence)
 
         elements = sorted([(qtt, char) for char, qtt in counter.items()], reverse=True)
 
@@ -64,8 +64,8 @@ class FrequencySort:
 
         return answer
 
-    def solve_with_heap(self, s: str) -> str:
-        counter = Counter(s)
+    def solve_with_heap(self, sequence: str) -> str:
+        counter = Counter(sequence)
         min_heap = [(-qtt, sub_sequence * qtt) for sub_sequence, qtt in counter.items()]
         heapify(min_heap)
         answer = ""
