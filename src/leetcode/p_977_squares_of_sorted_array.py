@@ -63,6 +63,8 @@ def sorted_squares_expanding_window(nums: List[int]) -> List[int]:
 def sorted_squares_shrinking_window(nums: List[int]) -> List[int]:
     answer = [0] * len(nums)
     left, right = 0, len(nums) - 1
+    # iterate backward (right to left) identifying the largest squared value
+    # and adding it to the correct position in the answer array
     for i in range(len(nums) - 1, -1, -1):
         if abs(nums[left]) <= abs(nums[right]):
             square = nums[right] * nums[right]
