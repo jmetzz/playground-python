@@ -37,7 +37,7 @@ def group_anagrams_solve(sequences: List[str]) -> List[List[str]]:
     for word in sequences:
         key = "".join(sorted(word))
         anagrams_map[key].append(word)
-    return [group for _, group in anagrams_map.items()]
+    return list(anagrams_map.values())
 
 
 def group_anagrams_solve_with_custom_signature(sequences: List[str]) -> List[List[str]]:
@@ -45,7 +45,8 @@ def group_anagrams_solve_with_custom_signature(sequences: List[str]) -> List[Lis
     for word in sequences:
         key = _create_signature(word)
         anagrams_map[key].append(word)
-    return [group for _, group in anagrams_map.items()]
+    # return [group for group in anagrams_map.values()]
+    return list(anagrams_map.values())
 
 
 def _create_signature(sequence: str):
