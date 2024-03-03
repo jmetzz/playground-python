@@ -154,9 +154,9 @@ class BinaryTreeNode:
 
 
 class SingleLinkListNode:
-    def __init__(self, val: Any = None, adjacent: Self = None):
+    def __init__(self, val: Any = None, next_node: Self = None):
         self.val = val
-        self.adjacent = adjacent
+        self.next = next_node
 
     @classmethod
     def from_array(cls, arr: List[Any]) -> Self:
@@ -164,8 +164,19 @@ class SingleLinkListNode:
             return None
 
         root = SingleLinkListNode(arr[0])
-        root.adjacent = cls.from_array(arr[1:])
+        root.next = cls.from_array(arr[1:])
         return root
+
+    def serialize(self) -> str:
+        return str(self.asarray())
+
+    def asarray(self) -> List[Any]:
+        arr = []
+        visitor = self
+        while visitor:
+            arr.append(visitor.val)
+            visitor = visitor.next
+        return arr
 
 
 class UnionFind:

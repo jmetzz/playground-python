@@ -33,7 +33,7 @@ def middle_node(head: Optional[SingleLinkListNode]) -> Optional[SingleLinkListNo
     pointer = head
     while pointer:
         stack.append(pointer)
-        pointer = pointer.adjacent
+        pointer = pointer.next
     mid = len(stack) // 2
     return stack[mid]
 
