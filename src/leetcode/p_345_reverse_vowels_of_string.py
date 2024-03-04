@@ -61,10 +61,26 @@ def reverse_vowels_stack(sequence: str) -> str:
     return "".join(chars)
 
 
+def reverse_vowels_2(sequence: str) -> str:
+    vowels = "aeiouAEIOU"
+    chars, indices = [], []
+    for i, char in enumerate(sequence):
+        if char in vowels:
+            chars.append(char)
+            indices.append(i)
+
+    chars.reverse()
+    answer = list(sequence)
+    for i, ch in zip(indices, chars):
+        answer[i] = ch
+    return "".join(answer)
+
+
 if __name__ == "__main__":
     inputs = ["hello", "leetcode", "race car"]
 
     for word in inputs:
         print(reverse_vowels(word))
+        print(reverse_vowels_2(word))
         print(reverse_vowels_stack(word))
         print()
