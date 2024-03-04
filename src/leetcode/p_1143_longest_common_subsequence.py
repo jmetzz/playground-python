@@ -60,22 +60,29 @@ class LongestCommonSubsequence:
             ]
 
         dp has 1 extra column and 1 extra line.
-
         """
         n = len(sequence1)
         m = len(sequence2)
-        dp = [[0 for _ in range(m + 1)] for _ in range(n + 1)]
+        dp = [[0] * (m + 1) for _ in range(n + 1)]
 
         # Using a bottom up approach, we start the right lower corner of the matrix,
         # (not counting the extra column and row) which corresponds to
         # the last character in each input sequences, and iterate upwards to the
         # first position [0][0], which will result in the final solution.
-        for i in range(n - 1, -1, -1):
-            for j in range(m - 1, -1, -1):
-                if sequence1[i] == sequence2[j]:  # move diagonal
+        for i in reversed(range(n)):
+            for j in reversed(range(m)):
+                if sequence1[i] == sequence2[j]:
+                    # move diagonal and add 1
+                    # this means the first char in the current sub-problem match
                     dp[i][j] = 1 + dp[i + 1][j + 1]
                 else:
-                    # checking down and right solutions, keeping the max value
+                    # since the first char in the current sub-problem does not match,
+                    # we need to pick the solution of the sub-problem that maximizes the global solution:
+                    # max(sub_problem_1, sub_problem_2)
+                    # a) sub_problem_1 (aka down): text1[i+1: ] & text2[j:]
+                    # b) sub_problem_1 (aka right): text1[i: ] & text2[j+1:]
+                    # this is equivalent to checking the down and right solutions
+                    # while picking the max value
                     dp[i][j] = max(dp[i + 1][j], dp[i][j + 1])
 
         return dp[0][0]
