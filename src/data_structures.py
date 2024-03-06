@@ -1,5 +1,5 @@
 from collections import deque
-from typing import Any, Dict, List, Optional, Self
+from typing import Any, Dict, Iterable, List, Optional, Self
 
 import numpy as np
 
@@ -216,6 +216,153 @@ class UnionFind:
         self.parent[x] = x
         self.rank[x] = 0
         self.components_count += 1
+
+
+class SymbolTable:
+    def __init__(self):
+        pass
+
+    def put(self, key: Any, value: Any) -> None:
+        raise NotImplementedError
+
+    def get(self, key: Any) -> Any:
+        raise NotImplementedError
+
+    def delete(self, key: Any) -> None:
+        raise NotImplementedError
+
+    def contains(self, key: Any) -> bool:
+        raise NotImplementedError
+
+    def empty(self) -> bool:
+        raise NotImplementedError
+
+    def size(self) -> int:
+        raise NotImplementedError
+
+    def keys(self) -> Iterable[Any]:
+        raise NotImplementedError
+
+
+class OrderedSymbolTable:
+    def __init__(self):
+        pass
+
+    def put(self, key: Any, value: Any) -> None:
+        raise NotImplementedError
+
+    def get(self, key: Any) -> Any:
+        raise NotImplementedError
+
+    def delete(self, key: Any) -> None:
+        raise NotImplementedError
+
+    def contains(self, key: Any) -> bool:
+        raise NotImplementedError
+
+    def empty(self) -> bool:
+        raise NotImplementedError
+
+    def size(self) -> int:
+        raise NotImplementedError
+
+    def keys(self) -> Iterable[Any]:
+        raise NotImplementedError
+
+    def range_keys(self, low_key: Any, high_key: Any) -> Iterable[Any]:
+        raise NotImplementedError
+
+    def min(self) -> Any:
+        raise NotImplementedError
+
+    def max(self) -> Any:
+        raise NotImplementedError
+
+    def floor(self, key: Any) -> Any:
+        raise NotImplementedError
+
+    def ceiling(self, key: Any) -> Any:
+        raise NotImplementedError
+
+    def rank(self, key: Any) -> int:
+        raise NotImplementedError
+
+    def select(self, k: int) -> Iterable[Any]:
+        """Return the key of rank k"""
+        raise NotImplementedError
+
+    def delete_min(self) -> None:
+        raise NotImplementedError
+
+    def delete_max(self) -> None:
+        raise NotImplementedError
+
+
+class StringSymbolTable:
+    def __init__(self):
+        pass
+
+    def put(self, key: str, value: Any) -> None:
+        raise NotImplementedError
+
+    def get(self, key: str) -> Any:
+        raise NotImplementedError
+
+    def delete(self, key: str) -> None:
+        raise NotImplementedError
+
+    def contains(self, key: str) -> bool:
+        raise NotImplementedError
+
+    def empty(self) -> bool:
+        raise NotImplementedError
+
+    def longest_prefix_of(self, sequence: str) -> str:
+        raise NotImplementedError
+
+    def matching_keys(self, value: str) -> Iterable[str]:
+        raise NotImplementedError
+
+    def size(self) -> int:
+        raise NotImplementedError
+
+    def keys(self) -> Iterable[str]:
+        raise NotImplementedError
+
+
+class TrieSymbolTable:
+    class TrieNode:
+        def __init__(self, val: Any = None, next_node: List[Self] = None):
+            self.val = val
+            self.next = next_node
+
+    def __init__(self):
+        self._R = 256
+        self._root = TrieSymbolTable.TrieNode(None, [TrieSymbolTable.TrieNode()] * self._R)
+
+    def get(self, key: str) -> Any:
+        node = self._get(self._root, key, 0)
+        return node.val if node else None
+
+    def _get(self, node: TrieNode, key: str, depth: int) -> Any:
+        if not node or depth == len(key):
+            return node
+        sub_tree_idx = ord(key[depth])
+        return self._get(node.next[sub_tree_idx], key, depth + 1)
+
+    def put(self, key: str, value: Any) -> None:
+        self._root = self._put(self._root, key, value, 0)
+
+    def _put(self, node: TrieNode, key: str, value: Any, depth: int) -> TrieNode:
+        if node is None:
+            node = TrieSymbolTable.TrieNode()
+        if depth == len(key):
+            node.val = value
+            return node
+
+        sub_tree_idx = ord(key[depth])
+        node.next[sub_tree_idx] = self._put(node.next[sub_tree_idx], key, value, depth + 1)
+        return node
 
 
 if __name__ == "__main__":
