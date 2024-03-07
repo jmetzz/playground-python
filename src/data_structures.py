@@ -336,33 +336,103 @@ class TrieSymbolTable:
             self.val = val
             self.next = next_node
 
-    def __init__(self):
-        self._R = 256
-        self._root = TrieSymbolTable.TrieNode(None, [TrieSymbolTable.TrieNode()] * self._R)
+    def __init__(self, r: int = 256):
+        self._R = r
+        self._root = TrieSymbolTable.TrieNode(None, [TrieSymbolTable.TrieNode()] * r)
+        self._size = 0
 
     def get(self, key: str) -> Any:
-        node = self._get(self._root, key, 0)
-        return node.val if node else None
+        target = self._get(self._root, key, 0)
+        return target.val if target else None
 
-    def _get(self, node: TrieNode, key: str, depth: int) -> Any:
-        if not node or depth == len(key):
+    @classmethod
+    def _get(cls, node: TrieNode, key: str, curr_idx: int) -> Any:
+        if not node or curr_idx == len(key):
             return node
-        sub_tree_idx = ord(key[depth])
-        return self._get(node.next[sub_tree_idx], key, depth + 1)
+        sub_tree_idx = ord(key[curr_idx])
+        return cls._get(node.next[sub_tree_idx], key, curr_idx + 1)
 
     def put(self, key: str, value: Any) -> None:
-        self._root = self._put(self._root, key, value, 0)
+        def _put(node: TrieSymbolTable.TrieNode, depth: int) -> TrieSymbolTable.TrieNode:
+            if node is None:
+                node = TrieSymbolTable.TrieNode()
+            if depth == len(key):
+                node.val = value
+                return node
 
-    def _put(self, node: TrieNode, key: str, value: Any, depth: int) -> TrieNode:
-        if node is None:
-            node = TrieSymbolTable.TrieNode()
-        if depth == len(key):
-            node.val = value
+            sub_tree_idx = ord(key[depth])
+            node.next[sub_tree_idx] = _put(node.next[sub_tree_idx], depth + 1)
             return node
 
-        sub_tree_idx = ord(key[depth])
-        node.next[sub_tree_idx] = self._put(node.next[sub_tree_idx], key, value, depth + 1)
-        return node
+        self._root = _put(self._root, 0)
+        self._size += 1
+
+    def size(self) -> int:
+        raise self._size
+
+    def lazy_size(self) -> int:
+        """Calculates the number of keys in the Trie recursively
+
+        This function is for learning purposes and should not be used for real applications,
+        since it might be too slow for clients.
+        """
+
+        def _lazy_size(node) -> int:
+            if node is None:
+                return 0
+            counter = 1 if node.val else 0
+            for sub_tree in range(self._R):
+                counter += _lazy_size(node.next[sub_tree])
+            return counter
+
+        return _lazy_size(self._root)
+
+    def keys(self) -> Iterable[str]:
+        return self.keys_with_prefix("")
+
+    def keys_with_prefix(self, prefix: str) -> Iterable[str]:
+        queue = []
+        start_node = self.get(prefix)  # the root node with this prefix
+        self._collect(start_node, prefix, queue)  # all keys from this node onwards
+        return queue
+
+    def _collect(self, node: TrieNode, prefix: str, accumulating_queue: List[str]):
+        if node is None:
+            return
+        if node.val:
+            # found a key
+            accumulating_queue.append(prefix)
+        for idx in range(self._R):
+            self._collect(node.next[idx], prefix + chr(idx), accumulating_queue)
+
+    def contains(self, key: str) -> bool:
+        return self.get(key) is not None
+
+    def delete(self, key: str) -> None:
+        return self._del(self._root, key, 0)
+
+    def _del(self, node: TrieNode, key: str, curr_idx: int) -> Optional[TrieNode]:
+        if node is None:
+            return None
+        if curr_idx == len(key) and node.val:
+            node.val = None  # removing the key
+            self._size -= 1
+        else:
+            # recursively follows the next subtree
+            sub_tree_idx = ord(key[curr_idx])
+            node.next[sub_tree_idx] = self._del(node.next[sub_tree_idx], key, curr_idx + 1)
+
+        # remove empty subtrees if necessary
+        return node if node.val or any(node.next) else None
+
+    def empty(self) -> bool:
+        return self._size == 0
+
+    def longest_prefix_of(self, sequence: str) -> str:
+        raise NotImplementedError
+
+    def matching_keys(self, value: str) -> Iterable[str]:
+        raise NotImplementedError
 
 
 if __name__ == "__main__":
