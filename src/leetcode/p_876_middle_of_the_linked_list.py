@@ -29,6 +29,8 @@ from data_structures import SingleLinkListNode
 
 
 def middle_node(head: Optional[SingleLinkListNode]) -> Optional[SingleLinkListNode]:
+    if not head:
+        return None
     stack = []
     pointer = head
     while pointer:
@@ -38,6 +40,21 @@ def middle_node(head: Optional[SingleLinkListNode]) -> Optional[SingleLinkListNo
     return stack[mid]
 
 
+def middle_node_two_pointers(head: Optional[SingleLinkListNode]) -> Optional[SingleLinkListNode]:
+    if not head:
+        return None
+
+    fast, slow = head, head
+    while fast and fast.next:
+        fast = fast.next.next
+        slow = slow.next
+
+    return slow
+
+
 if __name__ == "__main__":
     print(middle_node(SingleLinkListNode.from_array([1, 2, 3, 4, 5])).val)
     print(middle_node(SingleLinkListNode.from_array([1, 2, 3, 4, 5, 6])).val)
+
+    print(middle_node_two_pointers(SingleLinkListNode.from_array([1, 2, 3, 4, 5])).val)
+    print(middle_node_two_pointers(SingleLinkListNode.from_array([1, 2, 3, 4, 5, 6])).val)
