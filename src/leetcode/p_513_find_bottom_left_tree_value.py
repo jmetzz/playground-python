@@ -24,7 +24,7 @@ from math import inf
 from typing import Optional
 
 from conftest import TREE_0, TREE_1, TREE_2, TREE_3, TREE_4, TREE_5, TREE_6
-from data_structures import BinaryTreeNode
+from trees import BinaryTreeNode
 
 
 def find_bottom_left_value_iterative(root: Optional[BinaryTreeNode]) -> int:

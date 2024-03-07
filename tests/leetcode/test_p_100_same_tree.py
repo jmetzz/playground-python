@@ -1,6 +1,6 @@
 import pytest
-from data_structures import BinaryTreeNode
 from leetcode.p_100_same_tree import is_same_tree
+from trees import BinaryTreeNode
 
 
 @pytest.mark.parametrize(

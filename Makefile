@@ -45,7 +45,7 @@ check:
 
 ## Runs black formatter
 lint:
-	@printf "$(CYAN)Auto-formatting with black$(COFF)\n"
+	@printf "$(CYAN)Auto-formatting with ruff$(COFF)\n"
 	poetry run ruff check src tests --fix
 	poetry run ruff format src tests notebooks
 	@printf " >>> Generating $(CYAN)licenses.md$(COFF) file\n"

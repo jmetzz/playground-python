@@ -1,4 +1,4 @@
-from data_structures import BinaryTreeNode
+from trees import BinaryTreeNode
 
 TREE_0_VALUES = [0, 1, 2, 3, 4]
 TREE_0_INDICES = [0, 1, 2, 3, 4]

@@ -42,7 +42,7 @@ Constraints:
 """
 from typing import List
 
-from algorithms.graphs import UnionFind
+from graphs import UnionFind
 
 
 class GreatestCommonDivisor:
