@@ -153,7 +153,7 @@ class BinaryTreeNode:
             return False
 
 
-class SingleLinkListNode:
+class SingleLinkNode:
     def __init__(self, val: Any = None, next_node: Self = None):
         self.val = val
         self.next = next_node
@@ -163,7 +163,7 @@ class SingleLinkListNode:
         if not arr:
             return None
 
-        root = SingleLinkListNode(arr[0])
+        root = SingleLinkNode(arr[0])
         root.next = cls.from_array(arr[1:])
         return root
 

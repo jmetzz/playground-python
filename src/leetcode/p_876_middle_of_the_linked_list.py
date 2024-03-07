@@ -25,10 +25,10 @@ The number of nodes in the list is in the range [1, 100].
 """
 from typing import Optional
 
-from data_structures import SingleLinkListNode
+from data_structures import SingleLinkNode
 
 
-def middle_node(head: Optional[SingleLinkListNode]) -> Optional[SingleLinkListNode]:
+def middle_node(head: Optional[SingleLinkNode]) -> Optional[SingleLinkNode]:
     if not head:
         return None
     stack = []
@@ -40,7 +40,7 @@ def middle_node(head: Optional[SingleLinkListNode]) -> Optional[SingleLinkListNo
     return stack[mid]
 
 
-def middle_node_two_pointers(head: Optional[SingleLinkListNode]) -> Optional[SingleLinkListNode]:
+def middle_node_two_pointers(head: Optional[SingleLinkNode]) -> Optional[SingleLinkNode]:
     if not head:
         return None
 
@@ -53,8 +53,8 @@ def middle_node_two_pointers(head: Optional[SingleLinkListNode]) -> Optional[Sin
 
 
 if __name__ == "__main__":
-    print(middle_node(SingleLinkListNode.from_array([1, 2, 3, 4, 5])).val)
-    print(middle_node(SingleLinkListNode.from_array([1, 2, 3, 4, 5, 6])).val)
+    print(middle_node(SingleLinkNode.from_array([1, 2, 3, 4, 5])).val)
+    print(middle_node(SingleLinkNode.from_array([1, 2, 3, 4, 5, 6])).val)
 
-    print(middle_node_two_pointers(SingleLinkListNode.from_array([1, 2, 3, 4, 5])).val)
-    print(middle_node_two_pointers(SingleLinkListNode.from_array([1, 2, 3, 4, 5, 6])).val)
+    print(middle_node_two_pointers(SingleLinkNode.from_array([1, 2, 3, 4, 5])).val)
+    print(middle_node_two_pointers(SingleLinkNode.from_array([1, 2, 3, 4, 5, 6])).val)

@@ -1,12 +1,12 @@
 import pytest
-from data_structures import SingleLinkListNode
+from data_structures import SingleLinkNode
 from leetcode.p_876_middle_of_the_linked_list import middle_node, middle_node_two_pointers
 
 INPUTS = [
-    # (SingleLinkListNode.from_array([1]), 1),
-    (SingleLinkListNode.from_array([]), None),
-    # (SingleLinkListNode.from_array([1, 2, 3, 4, 5]), 3),
-    # (SingleLinkListNode.from_array([1, 2, 3, 4, 5, 6]), 4),
+    (SingleLinkNode.from_array([1]), 1),
+    (SingleLinkNode.from_array([]), None),
+    (SingleLinkNode.from_array([1, 2, 3, 4, 5]), 3),
+    (SingleLinkNode.from_array([1, 2, 3, 4, 5, 6]), 4),
 ]
 
 

@@ -1,3 +1,6 @@
+from typing import Any, Self, Set
+
+
 class UnionFind:
     def __init__(self, nodes: int):
         # Initialize parent and rank arrays.
@@ -35,3 +38,32 @@ class UnionFind:
         self.parent[x] = x
         self.rank[x] = 0
         self.components_count += 1
+
+
+class MultiLinkNode:
+    def __init__(self, val: Any = None):
+        self.val = val
+        self.neighbors = set()
+
+    def connect(self, other: Self) -> None:
+        self.neighbors.add(other)
+
+    def disconnect(self, other: Self) -> None:
+        if other in self.neighbors:
+            self.neighbors.remove(other)
+
+
+def dfs(node: MultiLinkNode, target: Any, visited: Set[MultiLinkNode]) -> bool:
+    if node is None:
+        return False
+
+    if node.val == target:
+        return True
+
+    for n in node.neighbors:
+        if n in visited:
+            continue  # skip already visited nodes to avoid cycles
+        visited.add(n)
+        if dfs(n, target, visited):
+            return True
+    return False

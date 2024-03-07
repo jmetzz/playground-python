@@ -31,10 +31,10 @@ Follow up: Could you do this in one pass?
 """
 from typing import Optional
 
-from data_structures import SingleLinkListNode
+from data_structures import SingleLinkNode
 
 
-def remove_nth_from_end(head: Optional[SingleLinkListNode], n: int) -> Optional[SingleLinkListNode]:
+def remove_nth_from_end(head: Optional[SingleLinkNode], n: int) -> Optional[SingleLinkNode]:
     pointer = head
     stack = []
     while pointer:
@@ -56,7 +56,7 @@ def remove_nth_from_end(head: Optional[SingleLinkListNode], n: int) -> Optional[
         return head
 
 
-def remove_nth_from_end_two_pointers(head: Optional[SingleLinkListNode], n: int) -> Optional[SingleLinkListNode]:
+def remove_nth_from_end_two_pointers(head: Optional[SingleLinkNode], n: int) -> Optional[SingleLinkNode]:
     """
     Use the two pointers and dummy node technique.
 
@@ -83,7 +83,7 @@ def remove_nth_from_end_two_pointers(head: Optional[SingleLinkListNode], n: int)
     # insert a dummy node at start of the list to guarantee the left pointer
     # stop at the node preceding the target node for removal
 
-    dummy_node = SingleLinkListNode(None, head)
+    dummy_node = SingleLinkNode(None, head)
     # advance the right pointer n steps
     right_p = head
     steps = 0
@@ -116,7 +116,7 @@ if __name__ == "__main__":
         ([1, 2], 2),
     ]
     for arr, m in inputs:
-        h = SingleLinkListNode.from_array(arr)
+        h = SingleLinkNode.from_array(arr)
         print(h.serialize() if h else [])
         # h = remove_nth_from_end(h, m)
         h = remove_nth_from_end_two_pointers(h, m)

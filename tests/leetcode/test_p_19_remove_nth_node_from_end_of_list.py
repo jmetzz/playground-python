@@ -1,5 +1,5 @@
 import pytest
-from data_structures import SingleLinkListNode
+from data_structures import SingleLinkNode
 from leetcode.p_19_remove_nth_node_from_end_of_list import remove_nth_from_end, remove_nth_from_end_two_pointers
 
 
@@ -13,7 +13,7 @@ from leetcode.p_19_remove_nth_node_from_end_of_list import remove_nth_from_end, 
     ],
 )
 def test_remove_nth_from_end(input_arr, input_n, expected):
-    head_node = SingleLinkListNode.from_array(input_arr)
+    head_node = SingleLinkNode.from_array(input_arr)
     actual = remove_nth_from_end(head_node, input_n)
 
     if expected:
@@ -32,7 +32,7 @@ def test_remove_nth_from_end(input_arr, input_n, expected):
     ],
 )
 def test_remove_nth_from_end_with_two_pointers(input_arr, input_n, expected):
-    head_node = SingleLinkListNode.from_array(input_arr)
+    head_node = SingleLinkNode.from_array(input_arr)
     actual = remove_nth_from_end_two_pointers(head_node, input_n)
     if expected:
         assert actual.asarray() == expected
