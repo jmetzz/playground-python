@@ -36,6 +36,12 @@ test:
 	@printf "$(CYAN)Running test suite$(COFF)\n"
 	export PYTHONPATH="./src" && poetry run pytest --cov=src
 
+## Run unit tests only for changed files and new files
+testchanges:
+	@printf "$(CYAN)Running tests for changed and new files$(COFF)\n"
+	export PYTHONPATH="./src" && poetry run pytest $(git diff --name-only | grep -E 'src/.*\.py$$'; git ls-files --others --exclude-standard | grep -E 'src/.*\.py$$' | sed 's/src\//tests\//g; s/\.py$$/_test.py/')
+
+
 ## Run static code checkers and linters
 check:
 	@printf "$(CYAN)Running static code analysis and license generation$(COFF)\n"
