@@ -1,5 +1,9 @@
 import pytest
-from conftest import TREE_0_VALUES, TREE_1_VALUES, TREE_2_VALUES
+from conftest import (
+    TREE_0_VALUES,
+    TREE_1_VALUES,
+    TREE_2_VALUES,
+)
 from trees import BinaryTreeNode
 
 

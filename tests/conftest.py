@@ -1,4 +1,26 @@
-from trees import BinaryTreeNode
+import pytest
+from trees import BinaryTreeNode, TrieSymbolTableDict, TrieSymbolTableRecursive
+
+TRIE_ELEMENTS = [("hello", 1), ("hell", 2), ("he", 3), ("heat", 4), ("app", "📱"), ("apple", "🍎")]
+
+
+@pytest.fixture
+def recursive_trie():
+    t = TrieSymbolTableRecursive()
+    for key, val in TRIE_ELEMENTS:
+        t.insert(key, val)
+
+    return t
+
+
+@pytest.fixture
+def dict_trie():
+    t = TrieSymbolTableDict()
+    for key, _ in TRIE_ELEMENTS:
+        t.insert(key)
+
+    return t
+
 
 TREE_0_VALUES = [0, 1, 2, 3, 4]
 TREE_0_INDICES = [0, 1, 2, 3, 4]
@@ -51,6 +73,7 @@ TREE_5_INDICES = [0, 1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 TREE_6_VALUES = [0, 1, 2, 3, None, 5, 6, None, None, None, None, 11]
 TREE_6_INDICES = [0, 1, 2, 3, 5, 6, 11]
 
+
 TREE_0 = BinaryTreeNode.deserialize(TREE_0_VALUES)
 TREE_1 = BinaryTreeNode.deserialize(TREE_1_VALUES)
 TREE_2 = BinaryTreeNode.deserialize(TREE_2_VALUES)
@@ -58,6 +81,7 @@ TREE_3 = BinaryTreeNode.from_indices(TREE_3_INDICES)
 TREE_4 = BinaryTreeNode.from_indices(TREE_4_INDICES)
 TREE_5 = BinaryTreeNode.deserialize(TREE_5_VALUES)
 TREE_6 = BinaryTreeNode.deserialize(TREE_6_VALUES)
+
 
 HUGE_MATRIX = [
     [

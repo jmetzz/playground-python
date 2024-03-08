@@ -1,26 +1,6 @@
 import pytest
 from trees import TrieSymbolTableDict, TrieSymbolTableRecursive
 
-ELEMENTS = [("hello", 1), ("hell", 2), ("he", 3), ("heat", 4), ("app", "📱"), ("apple", "🍎")]
-
-
-@pytest.fixture
-def recursive_trie():
-    t = TrieSymbolTableRecursive()
-    for key, val in ELEMENTS:
-        t.insert(key, val)
-
-    return t
-
-
-@pytest.fixture
-def dict_trie():
-    t = TrieSymbolTableDict()
-    for key, _ in ELEMENTS:
-        t.insert(key)
-
-    return t
-
 
 def test_recursive_trie_insert_and_get(recursive_trie):
     assert recursive_trie.get("hello") == 1

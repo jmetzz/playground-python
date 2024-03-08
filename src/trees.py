@@ -295,7 +295,7 @@ class TrieSymbolTableDict:
     }
     """
 
-    EOW_TOKEN = "<EndOfWord>"
+    EOW_TOKEN = "#"
 
     def __init__(self):
         self._root = {}
