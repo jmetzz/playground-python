@@ -34,6 +34,7 @@ pipdeptree = "^2.14.0"
 pip-licenses = "^4.3.4"
 prettytable = "^3.10.0"
 pytest-xdist = "^3.5.0"
+hypothesis = "^6.98.18"
 
 [tool.poetry.group.notebook.dependencies]
 jupyterlab = "^4.1"
