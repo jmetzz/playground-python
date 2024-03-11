@@ -1,4 +1,5 @@
 import pytest
+from data_structures.trees import BinaryTreeNode
 from leetcode.p_543_diameter_of_binary_tree import (
     dfs_height,
     dfs_height_memo,
@@ -6,7 +7,6 @@ from leetcode.p_543_diameter_of_binary_tree import (
     diameter_of_bin_tree_memoization,
     diameter_of_bin_tree_recursive,
 )
-from trees import BinaryTreeNode
 
 TREE_1 = BinaryTreeNode.deserialize([1, 2, 3, 4, 5])
 TREE_2 = BinaryTreeNode.deserialize([1, 2, None, 3, 4, None, None, 5, None, None, 6])

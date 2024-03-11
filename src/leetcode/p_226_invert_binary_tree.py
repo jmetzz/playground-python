@@ -25,7 +25,7 @@ The number of nodes in the tree is in the range [0, 100].
 from collections import deque
 from typing import Optional
 
-from trees import BinaryTreeNode
+from data_structures.trees import BinaryTreeNode
 
 
 def invert_tree(root: Optional[BinaryTreeNode]) -> Optional[BinaryTreeNode]:

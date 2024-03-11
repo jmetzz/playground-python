@@ -1,5 +1,5 @@
 import pytest
-from scratch_file import equal_pairs
+from leetcode.p_2352_equal_row_and_column_pairs import equal_pairs
 
 
 @pytest.mark.parametrize(

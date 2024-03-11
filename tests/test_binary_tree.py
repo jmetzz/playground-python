@@ -4,7 +4,7 @@ from conftest import (
     TREE_1_VALUES,
     TREE_2_VALUES,
 )
-from trees import BinaryTreeNode
+from data_structures.trees import BinaryTreeNode
 
 
 @pytest.mark.parametrize(

@@ -1,5 +1,5 @@
 import pytest
-from trees import TrieSymbolTableDict, TrieSymbolTableRecursive
+from data_structures.trees import TrieSymbolTableDict, TrieSymbolTableRecursive
 
 
 def test_recursive_trie_insert_and_get(recursive_trie):

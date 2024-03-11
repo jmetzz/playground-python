@@ -40,7 +40,7 @@ The number of nodes in the tree is in the range [1, 105].
 """
 from typing import List
 
-from trees import BinaryTreeNode
+from data_structures.trees import BinaryTreeNode
 
 
 class PseudoPalindromicPaths_iterative:

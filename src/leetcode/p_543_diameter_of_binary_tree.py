@@ -29,7 +29,7 @@ The number of nodes in the tree is in the range [1, 104].
 from collections import deque
 from typing import Optional
 
-from trees import BinaryTreeNode
+from data_structures.trees import BinaryTreeNode
 
 
 def dfs_height(r):

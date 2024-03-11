@@ -31,7 +31,7 @@ Follow up: Could you do this in one pass?
 """
 from typing import Optional
 
-from data_structures import SingleLinkNode
+from data_structures.lists import SingleLinkNode
 
 
 def remove_nth_from_end(head: Optional[SingleLinkNode], n: int) -> Optional[SingleLinkNode]:

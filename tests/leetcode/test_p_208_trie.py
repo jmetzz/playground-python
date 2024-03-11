@@ -1,5 +1,5 @@
 import pytest
-from trees import TrieSymbolTableDict
+from data_structures.trees import TrieSymbolTableDict
 
 
 def test_trie_insert_and_get(dict_trie):

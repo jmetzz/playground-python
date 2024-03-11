@@ -38,7 +38,7 @@ Follow up: Can you solve it using O(1) (i.e. constant) memory?
 """
 from typing import Optional
 
-from data_structures import SingleLinkNode
+from data_structures.lists import SingleLinkNode
 
 
 def has_cycle(head: Optional[SingleLinkNode]) -> bool:

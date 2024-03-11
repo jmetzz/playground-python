@@ -1,5 +1,5 @@
 import pytest
-from trees import BinaryTreeNode, TrieSymbolTableDict, TrieSymbolTableRecursive
+from data_structures.trees import BinaryTreeNode, TrieSymbolTableDict, TrieSymbolTableRecursive
 
 TRIE_ELEMENTS = [("hello", 1), ("hell", 2), ("he", 3), ("heat", 4), ("app", "📱"), ("apple", "🍎")]
 

@@ -25,7 +25,7 @@ The number of nodes in the list is in the range [1, 100].
 """
 from typing import Optional
 
-from data_structures import SingleLinkNode
+from data_structures.lists import SingleLinkNode
 
 
 def middle_node(head: Optional[SingleLinkNode]) -> Optional[SingleLinkNode]:
