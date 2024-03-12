@@ -17,7 +17,7 @@ def test_remove_nth_from_end(input_arr, input_n, expected):
     actual = remove_nth_from_end(head_node, input_n)
 
     if expected:
-        assert actual.asarray() == expected
+        assert actual.as_array() == expected
     else:
         assert actual is None
 
@@ -35,6 +35,6 @@ def test_remove_nth_from_end_with_two_pointers(input_arr, input_n, expected):
     head_node = SingleLinkNode.from_array(input_arr)
     actual = remove_nth_from_end_two_pointers(head_node, input_n)
     if expected:
-        assert actual.asarray() == expected
+        assert actual.as_array() == expected
     else:
         assert actual is None

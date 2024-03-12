@@ -17,6 +17,6 @@ from leetcode.p_2095_delete_middle_node_linked_list import delete_middle
 def test_delete_middle(input_list, expected):
     h = delete_middle(ListNode.from_array(input_list))
     if expected:
-        assert h.asarray() == expected
+        assert h.as_array() == expected
     else:
         assert h is None
