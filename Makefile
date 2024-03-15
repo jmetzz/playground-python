@@ -69,8 +69,11 @@ clean:
 	@find . -type f -name '.DS_Store' -delete
 	@printf "$(GREEN)>>> Removed$(COFF) pycache, .pyc, .pyo, .DS_Store files and files with ~\n"
 
+
 all: clean, lint, test
 	@printf "$(GREEN)>>> Done$(COFF) ~\n"
+
+
 ## Connect to the dev db with a port FWD (Broadcasts on local 12.0.0.1:5432)
 bastion:
 	@printf "$(GREEN)Postgres will be listening on 127.0.0.1:5432$(COFF)\n"
