@@ -153,6 +153,19 @@ class BinaryTreeNode:
         else:
             return False
 
+    def is_symetric(self) -> bool:
+        return self.are_symmetric(self.left, self.right)
+
+    @classmethod
+    def are_symmetric(cls, root1, root2) -> bool:
+        if root1 is None and root2 is None:
+            return True
+        elif (root1 is None) != (root2 is None) or root1.val != root2.val:
+            return False
+        else:
+            # both root nodes are valid nodes
+            return cls.are_symmetric(root1.left, root2.right) and cls.are_symmetric(root1.right, root2.left)
+
 
 class TrieSymbolTableRecursive:
     class TrieNode:
