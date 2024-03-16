@@ -1,13 +1,12 @@
 from timeit import timeit
 
 import numpy as np
-
-from src.algorithms.diffusion.diffusion_np import (
+from algorithms.diffusion.diffusion_np import (
     DiffusionNumpy,
     DiffusionNumpyInPlace,
     DiffusionNumpyInPlaceLessAllocation,
 )
-from src.algorithms.diffusion.diffusion_numexpr import DiffusionNumexpr
+from algorithms.diffusion.diffusion_numexpr import DiffusionNumexpr
 
 
 class Runner:
