@@ -37,6 +37,7 @@ n == grid[i].length
 grid[i][j] is '0' or '1'.
 """
 
+from math import inf
 from typing import List
 
 
@@ -114,9 +115,82 @@ def size_of_islands(grid: List[List[str]]) -> List[int]:
     return sorted(islands_size)
 
 
+def min_island_size(grid: List[List[str]]) -> int:
+    ROWS = len(grid)
+    COLUMNS = len(grid[0])
+    visited = set()
+
+    def _traverse(r: int, c: int) -> int:
+        # check for position boundary
+        # - is row inbounds?
+        # - is col inbounds?
+        if not (0 <= r < ROWS and 0 <= c < COLUMNS):
+            return 0
+
+        if (r, c) in visited or grid[r][c] == "0":
+            return 0
+
+        visited.add((r, c))
+        size = 1  # accounts for the current land cell
+        size += _traverse(r - 1, c)
+        size += _traverse(r + 1, c)
+        size += _traverse(r, c - 1)
+        size += _traverse(r, c + 1)
+        return size
+
+    min_size = inf
+    for row in range(ROWS):
+        for col in range(COLUMNS):
+            curr_size = _traverse(row, col)
+            if curr_size > 0 and curr_size < min_size:
+                min_size = curr_size
+    return min_size if min_size != inf else 0
+
+
+def max_island_size(grid: List[List[str]]) -> int:
+    ROWS = len(grid)
+    COLUMNS = len(grid[0])
+    visited = set()
+
+    def _traverse(r: int, c: int) -> int:
+        # check for position boundary
+        # - is row inbounds?
+        # - is col inbounds?
+        if not (0 <= r < ROWS and 0 <= c < COLUMNS):
+            return 0
+
+        if (r, c) in visited or grid[r][c] == "0":
+            return 0
+
+        visited.add((r, c))
+        size = 1  # accounts for the current land cell
+        size += _traverse(r - 1, c)
+        size += _traverse(r + 1, c)
+        size += _traverse(r, c - 1)
+        size += _traverse(r, c + 1)
+        return size
+
+    max_size = -inf
+    for row in range(ROWS):
+        for col in range(COLUMNS):
+            curr_size = _traverse(row, col)
+            if curr_size > max_size:
+                max_size = curr_size
+    return max_size
+
+
 if __name__ == "__main__":
     grid = [["1", "1", "1", "1", "0"], ["1", "1", "0", "1", "0"], ["1", "1", "0", "0", "0"], ["0", "0", "0", "0", "0"]]
     print(f"#num islands: {num_islands(grid)}, with sizes {size_of_islands(grid)}")
+    print(f"#smalles island: {min_island_size(grid)}")
+    print(f"#biggest island: {max_island_size(grid)}")
 
     grid = [["1", "1", "0", "0", "0"], ["1", "1", "0", "0", "0"], ["0", "0", "1", "0", "0"], ["0", "0", "0", "1", "1"]]
     print(f"#num islands: {num_islands(grid)}, with sizes {size_of_islands(grid)}")
+    print(f"#smalles island: {min_island_size(grid)}")
+    print(f"#biggest island: {max_island_size(grid)}")
+
+    grid = [["0", "0", "0", "0"], ["0", "0", "0", "0"], ["0", "0", "0", "0"]]
+    print(f"#num islands: {num_islands(grid)}, with sizes {size_of_islands(grid)}")
+    print(f"#smalles island: {min_island_size(grid)}")
+    print(f"#biggest island: {max_island_size(grid)}")
