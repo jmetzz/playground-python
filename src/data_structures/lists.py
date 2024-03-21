@@ -1,4 +1,4 @@
-from typing import Any, List, Self
+from typing import Any, List, Optional, Self
 
 
 class SingleLinkNode:
@@ -48,7 +48,9 @@ class SingleLinkNode:
         return head
 
     @classmethod
-    def deserialize(cls, arr: List[Any], size_threshold: int = 500) -> Self:
+    def deserialize(cls, arr: List[Any], size_threshold: int = 500) -> Optional[Self]:
+        if not arr:
+            return None
         if len(arr) > size_threshold:
             return cls._create_iterative(arr)
         return cls.from_array(arr)
