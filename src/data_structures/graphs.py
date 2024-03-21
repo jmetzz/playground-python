@@ -1,8 +1,15 @@
 from collections import deque
-from typing import Any, Dict, List, Optional, Self, Set, Tuple
+from heapq import heappop, heappush
+from math import inf
+from typing import Any, Dict, List, Optional, Self, Set, Tuple, TypeAlias
 
-import matplotlib.pyplot as plt
-import networkx as nx
+from data_structures.graph_utils import build_digraph, plot_digraph
+
+# Alias for an undirected graph
+Graph: TypeAlias = Dict[int, Set[int]]
+
+# Alias for a directed graph
+WeightedGraph: TypeAlias = Dict[int, Set[Tuple[int, int]]]
 
 
 class UnionFind:
@@ -73,64 +80,7 @@ def dfs(node: MultiLinkNode, target: Any, visited: Set[MultiLinkNode]) -> bool:
     return False
 
 
-def build_ugraph(num_vertices: int, edges: List[List[int]]) -> Dict[int, Set[int]]:
-    """
-    Builds an undirected graph represented as an adjacency list.
-
-    Args:
-        num_vertices (int): The number of vertices in the graph.
-        edges (List[List[int]]): A list of edges where each edge is
-        represented as a list [src, neighbor].
-
-    Returns:
-        Dict[int, List[int]]: A dictionary representing the undirected graph.
-        Each key is a vertex, and each value is a list of adjacent vertices (neighbors).
-
-    Example:
-        >>> build_ugraph(3, [[0, 1], [1, 2], [2, 0]])
-        {0: [1, 2], 1: [0, 2], 2: [1, 0]}
-    """
-    graph = {vertex: set() for vertex in range(num_vertices)}
-    for src, neighbor in edges:
-        graph[src].add(neighbor)
-        graph[neighbor].add(src)
-    return graph
-
-
-def build_digraph(
-    num_vertices: int, edges: List[List[int]], calc_indegree: bool = False
-) -> Tuple[Dict[int, Set[int]], Optional[Dict[int, int]]]:
-    """
-    Builds a directed graph represented as an adjacency list,
-    with the option to calculate indegrees.
-
-    Args:
-        num_vertices (int): The number of vertices in the graph.
-        edges (List[List[int]]): A list of directed edges where each edge is
-        represented as a list [src, destination].
-        calc_indegree (bool, optional): If True, also calculates and returns the
-        indegree for each vertex. Defaults to False.
-
-    Returns:
-        Tuple[Dict[int, List[int]], Optional[Dict[int, int]]]: A tuple containing the graph as a dictionary
-        and optionally a dictionary of indegrees for each vertex.
-        If calc_indegree is False, the second element of the tuple is None.
-
-    Example:
-        >>> build_digraph(3, [[0, 1], [1, 2]], True)
-        ({0: [1], 1: [2], 2: []}, {1: 1, 2: 1})
-    """
-    graph = {vertex: set() for vertex in range(num_vertices)}
-    indegree = {vertex: 0 for vertex in range(num_vertices)} if calc_indegree else None
-
-    for src, neighbor in edges:
-        graph[src].add(neighbor)
-        if calc_indegree:
-            indegree[neighbor] += 1
-    return (graph, indegree) if calc_indegree else (graph, None)
-
-
-def dfs_graph_traversal_iterative(graph: Dict[int, Set[int]], source: int) -> List[int]:
+def traversal_dfs_iterative(graph: Graph, source: int) -> List[int]:
     stack = []
     visited = set()
     stack.append(source)
@@ -146,7 +96,7 @@ def dfs_graph_traversal_iterative(graph: Dict[int, Set[int]], source: int) -> Li
     return traversal
 
 
-def dfs_graph_traversal_recursive(graph: Dict[int, Set[int]], source: int) -> List[int]:
+def traversal_dfs_recursive(graph: Graph, source: int) -> List[int]:
     traversal = []
     visited = set()
 
@@ -163,7 +113,7 @@ def dfs_graph_traversal_recursive(graph: Dict[int, Set[int]], source: int) -> Li
     return traversal
 
 
-def bfs_graph_traversal(graph: Dict[int, Set[int]], source: int) -> List[int]:
+def traversal_bfs(graph: Graph, source: int) -> List[int]:
     traversal = []
     visited = set()
 
@@ -180,7 +130,7 @@ def bfs_graph_traversal(graph: Dict[int, Set[int]], source: int) -> List[int]:
     return traversal
 
 
-def has_path_bfs_recursive(graph: Dict[int, Set[int]], source: int, target: int) -> bool:
+def has_path_bfs_recursive(graph: Graph, source: int, target: int) -> bool:
     if len(graph) == 0:
         return False
     visited = set()
@@ -202,7 +152,7 @@ def has_path_bfs_recursive(graph: Dict[int, Set[int]], source: int, target: int)
     return _dfs(source)
 
 
-def has_path_bfs_iterative(graph: Dict[int, Set[int]], source: int, target: int) -> bool:
+def has_path_bfs_iterative(graph: Graph, source: int, target: int) -> bool:
     if len(graph) == 0:
         return False
     visited = set()
@@ -220,7 +170,7 @@ def has_path_bfs_iterative(graph: Dict[int, Set[int]], source: int, target: int)
     return False
 
 
-def undirected_path(graph: Dict[int, Set[int]], source: int, target: int) -> Optional[List[int]]:
+def path_undirected(graph: Graph, source: int, target: int) -> Optional[List[int]]:
     """Traverse from source to target collecting all nodes along the way
 
     To correctly find a path (if one exists) from the source to the target,
@@ -249,7 +199,7 @@ def undirected_path(graph: Dict[int, Set[int]], source: int, target: int) -> Opt
     return _dfs(source, [])
 
 
-def count_components_iterative(graph: Dict[int, Set[int]]) -> int:
+def count_components_iterative(graph: Graph) -> int:
     def _dfs_traverse_from(node):
         stack = [node]
         while stack:
@@ -268,7 +218,7 @@ def count_components_iterative(graph: Dict[int, Set[int]]) -> int:
     return count
 
 
-def count_components_recursive(graph: Dict[int, Set[int]]) -> int:
+def count_components_recursive(graph: Graph) -> int:
     def _dfs_traverse_from(node):
         if node in visited:
             return False
@@ -286,7 +236,7 @@ def count_components_recursive(graph: Dict[int, Set[int]]) -> int:
     return count
 
 
-def largest_component_size(graph: Dict[int, Set[int]]) -> int:
+def largest_component_size(graph: Graph) -> int:
     def _dfs_traverse_from(node):
         if node in visited:
             return 0
@@ -306,7 +256,7 @@ def largest_component_size(graph: Dict[int, Set[int]]) -> int:
     return max_size
 
 
-def largest_component_recursive(graph: Dict[int, Set[int]]) -> List[int]:
+def largest_component_recursive(graph: Graph) -> List[int]:
     def _dfs_traverse_from(node):
         if node in visited:
             return []
@@ -326,7 +276,7 @@ def largest_component_recursive(graph: Dict[int, Set[int]]) -> List[int]:
     return largest_component
 
 
-def largest_component_iterative(graph: Dict[int, Set[int]]) -> List[int]:
+def largest_component_iterative(graph: Graph) -> List[int]:
     visited = set()
     largest_component = []
 
@@ -349,7 +299,7 @@ def largest_component_iterative(graph: Dict[int, Set[int]]) -> List[int]:
     return largest_component
 
 
-def lenght_shortest_path(graph: Dict[int, Set[int]], source: int, target: int) -> int:
+def shortest_path_lenght(graph: Graph, source: int, target: int) -> int:
     visited = set()
     queue = deque([(source, 1)])  # store the node and the path lenght from source
     while queue:
@@ -363,7 +313,7 @@ def lenght_shortest_path(graph: Dict[int, Set[int]], source: int, target: int) -
     return 0
 
 
-def shortest_path(graph: Dict[int, Set[int]], source: int, target: int) -> Optional[Tuple[List[int], int]]:
+def shortest_path(graph: Graph, source: int, target: int) -> Optional[Tuple[List[int], int]]:
     visited = set([source])
     parent = {source: None}  # Track the parent of each node for path reconstruction
 
@@ -387,83 +337,197 @@ def shortest_path(graph: Dict[int, Set[int]], source: int, target: int) -> Optio
     return None, 0  # Return None if no path exists
 
 
-def plot_graph(graph: Dict[int, Set[int]]) -> None:
-    """
-    Visualizes the given graph
+def shortest_path_cost_dijkstra(graph: WeightedGraph, source: int, target: int) -> int:
+    distances = {vertex: inf for vertex in graph}
+    distances[source] = 0
+    visited = set()
+    min_heap = [(0, source)]
+    while min_heap:
+        curr_dist, curr = heappop(min_heap)
+        visited(curr)
+        if curr == target:
+            return curr_dist
 
-    Each key is a node and its value is a set of connected nodes.
+        for neighbor, w in graph[curr]:
+            if neighbor in visited:
+                continue
+            dist = distances[neighbor]
+            if curr_dist + w < dist:
+                distances[neighbor] = curr_dist + w
+            # remove the neighbor entry from the min_heap
+            heappush(min_heap, (distances[neighbor], neighbor))
+    return -1
 
-    Args:
-    - graph_dict: A dictionary representing the graph's adjacency list,
-                  where each key is a node and the value is a set of nodes
-                  to which it is connected.
-    """
-    G = nx.Graph()
 
-    # Add nodes and edges from the graph_dict
+def vertex_degree(graph: Graph, vertex: int) -> int:
+    if vertex not in graph:
+        raise ValueError(f"Invalid vertex {vertex}")
+    return len(graph[vertex])
+
+
+def max_degree(graph: Graph) -> int:
+    max_val = 0
+    for neighbors in graph.values():
+        max_val = max(len(neighbors), max_val)
+    return max_val
+
+
+def avg_degree(graph: Graph) -> float:
+    return sum([len(neighbors) for _, neighbors in graph.items()]) / len(graph)
+
+
+def number_self_loops(graph: Graph) -> int:
+    value = 0
     for node, neighbors in graph.items():
-        G.add_node(node)  # Ensure the node is added even if it has no neighbors
-        for neighbor in neighbors:
-            G.add_edge(node, neighbor)
+        if node in neighbors:
+            value += 1
+    return value
 
-    nx.draw(
-        G,
-        with_labels=True,
-        node_color="skyblue",
-        node_size=700,
-        edge_color="k",
-        linewidths=1,
-        font_size=15,
-        pos=nx.spring_layout(G, seed=42),
-    )
 
-    plt.show()
+def is_bipartite_dfs(graph: Graph) -> bool:
+    """Can the vertices of the given graph be assigned one of two colors
+    in such a way that no edge connects vertices of the same color?
+    """
+
+    def _dfs_traverse(node, color):
+        """
+        traverse the graph, attempting to assign alternating colors
+        to neighboring vertices. If at any point it finds two adjacent
+        vertices with the same color, it concludes the graph is not bipartite.
+        """
+        if node in color_map:
+            return color_map[node] == color
+        color_map[node] = color
+        return all(_dfs_traverse(neighbor, not color) for neighbor in graph[node])
+
+    color_map = {}
+
+    for node in graph:
+        if node not in color_map:  # noqa: SIM102
+            # it's critical to ensure that the first node in each disconnected component
+            # of the graph is explicitly assigned a starting color when the traversal begins.
+            # Assume False as starting "color".
+            if not _dfs_traverse(node, False):
+                return False  # Early stop if a component is not bipartite
+    return True
+
+
+def is_bipartite_bfs(graph: Graph) -> bool:
+    """ "
+    Do a BFS starting from any arbitrary node.
+    Assign it to group 1. Assign each neighbor to group 2.
+    Return False if any of our neighbor is already assigned to group 1.
+    Otherwise continue the bfs with group = other group
+    """
+
+    def _bfs_traverse(start_node):
+        queue = deque([start_node])
+        color_map[start_node] = False
+        while queue:
+            node = queue.popleft()
+            for neighbor in graph[node]:
+                if neighbor in color_map:
+                    if color_map[neighbor] == color_map[node]:
+                        return False
+                else:
+                    queue.append(neighbor)
+                    color_map[neighbor] = not color_map[node]
+        return True
+
+    color_map = {}
+    for node in graph:  # noqa: SIM110
+        if node not in color_map and not _bfs_traverse(node):
+            return False
+    return True
+
+
+def topological_order(digraph: Graph) -> List[int]:
+    raise NotImplementedError()
+
+
+def has_cycle_recursive(digraph: Graph) -> bool:
+    """In the context of detecting cycles in directed graphs,
+    distinguishing between global visitation and path-specific
+    visitation is crucial. The visited set alone might not suffice
+    for accurately detecting cycles, especially in directed graphs,
+    because:
+
+    * Visited Set: A globally maintained visited set helps avoid
+    re-exploring nodes already encountered in any traversal,
+    optimizing the algorithm by preventing redundant checks.
+    However, it does not provide information about the traversal path
+    that led to each node, which is essential for detecting cycles.
+
+    * Ancestors Tracking (Path-Specific Visitation): To detect cycles,
+    you need to know whether a node has been visited during the
+    current traversal path. If you encounter a node that has already
+    been visited in the current path, it indicates a cycle
+    (a back edge in DFS terms). This cycle detection is not possible
+    with just a global visited set because it cannot differentiate
+    between visiting a node in the current path versus having visited it
+    in a separate, earlier traversal.
+    """
+
+    def _dfs(node, ancestors):
+        if node in visited:
+            # Node has already been visited, no need to traverse again,
+            # but doesn't indicate a cycle by itself.
+            return False
+        if node in ancestors:
+            # Node is in the current path, cycled detected
+            return True
+
+        ancestors.add(node)
+        for neighbor in digraph.get(node, []):
+            # return default empty list to safe guard for node with no neighbors
+            if _dfs(neighbor, ancestors):
+                # cycle detected, propagate back
+                return True
+        ancestors.remove(node)
+        visited.add(node)
+        return False
+
+    visited = set()
+    for node in digraph:
+        if node not in visited:  # noqa: SIM102
+            if _dfs(node, set()):
+                return True  # cycle detected
+    return False
+
+
+def has_cycle_iterative(digraph: Graph) -> bool:
+    WHITE, GRAY, BLACK = 0, 1, 2  # Node states: unvisited, visiting, visited
+    state = {node: WHITE for node in digraph}  # Initialize all nodes as unvisited
+
+    def _dfs_seach_cycle(node):
+        # every node in the same component should be GRAY,
+        # which represent visiting
+        state[node] = GRAY  # Mark node as being visited (in the current path)
+        for neighbor in digraph.get(node, []):
+            if state[neighbor] == GRAY:  # Back edge found, indicating a cycle
+                return True
+            if state[neighbor] == WHITE and _dfs_seach_cycle(neighbor):
+                return True
+        state[node] = BLACK  # Mark node as fully visited (exited the path)
+        return False
+
+    for node in digraph:
+        if state[node] == WHITE:  # noqa: SIM102
+            # Unvisited node
+            if _dfs_seach_cycle(node):
+                return True
+    return False
+
+
+def is_dag(digraph: Graph) -> bool:
+    return not has_cycle_recursive(digraph)
+
+
+def get_any_cycle_path(digraph: Graph) -> List[int]:
+    raise NotImplementedError()
 
 
 if __name__ == "__main__":
-    # g = build_ugraph(6, [[0, 1], [0, 2], [1, 4], [2, 4], [1, 3], [3, 5]])
-    # print(dfs_graph_traversal_recursive(g, 0))
-    # print(dfs_graph_traversal_iterative(g, 0))
-    # print(bfs_graph_traversal(g, 0))
-    # print("-----")
-    # dg, _ = build_digraph(6, [[0, 1], [0, 2], [1, 4], [2, 4], [1, 3], [3, 5]])
-    # print(dfs_graph_traversal_recursive(dg, 0))
-    # print(dfs_graph_traversal_iterative(dg, 0))
-    # print(bfs_graph_traversal(dg, 0))
-    # print(bfs_graph_traversal(dg, 3))
-
-    # graph = build_ugraph(10, [[0, 7], [0, 8], [6, 1], [2, 0], [0, 4], [5, 8], [4, 7], [1, 3], [3, 5], [6, 5]])
-    # print(has_path_bfs_recursive(graph, 7, 5))
-    # print(has_path_bfs_iterative(graph, 7, 5))
-
-    # plot_graph(graph)
-    # graph = build_ugraph(7, [[0, 1], [0,2], [1,2], [2, 3], [2, 4], [5, 6]])
-    # plot_graph(graph)
-
-    # print(undirected_path(graph, 1, 3))
-
-    graph = build_ugraph(8, [[0, 1], [3, 5], [4, 5], [5, 6], [5, 7]])
-
-    print(count_components_iterative(graph))
-    print(count_components_recursive(graph))
-    print(largest_component_size(graph))
-    print(largest_component_recursive(graph))
-    print(largest_component_iterative(graph))
-    print("shortest path")
-    print(lenght_shortest_path(graph, 3, 6))
-    print(lenght_shortest_path(graph, 0, 1))
-    print(lenght_shortest_path(graph, 0, 6))
-    # plot_graph(graph)
-
-    # plot_graph({0: {1}, 1: {2, 3, 4}, 2: {1, 5}, 3: {1}, 4: {1, 5}, 5: {2, 4}} )
-    # plot_graph({0: {1}, 1: {0}, 2: {3}, 3: {2}} )
-
-    GRAPH_SIMPLE = {0: {1, 2}, 1: {0, 3}, 2: {0}, 3: {1}}  # Simple connected graph
-    GRAPH_CYCLIC = {0: {1}, 1: {2}, 2: {0}}  # Cyclic graph (triangle)
-    GRAPH_COMPLEX = {0: {1}, 1: {2, 3, 4}, 2: {1, 5}, 3: {1}, 4: {1, 5}, 5: {2, 4}}  # More complex graph
-    GRAPH_SMALL_DISCONNECTED = {0: {1}, 1: {0}, 2: {3}, 3: {2}}  # Disconnected graph (two components)
-    GRAPH_BIG_DISCONNECTED = {0: {1}, 1: {0}, 2: {}, 3: {5}, 4: {5}, 5: {3, 4, 6, 7}, 6: {5}, 7: {5}}
-
-    GRAPHS = [GRAPH_SIMPLE, GRAPH_CYCLIC, GRAPH_COMPLEX, GRAPH_SMALL_DISCONNECTED, GRAPH_BIG_DISCONNECTED]
-    for graph in GRAPHS:
-        plot_graph(graph)
+    graph, _ = build_digraph(5, [[0, 1], [2, 3], [3, 4], [4, 2]])
+    plot_digraph(graph)
+    print(has_cycle_recursive(graph))
