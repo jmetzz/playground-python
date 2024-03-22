@@ -1,72 +1,77 @@
 import re
 from pathlib import Path
-from typing import List, Set
+from typing import List, Tuple
 
 # Compile the regular expression once and use it globally
 leetcode_url_pattern = re.compile(r"https://leetcode\.\w+/problems/[\w-]+/")
 
 
-def extract_leetcode_links(file_path: Path) -> Set[str]:
+def extract_leetcode_links(file_path: Path) -> Tuple[str, str]:
     """
-    Extracts LeetCode URLs from the initial docstring of a Python file.
-
-    This function searches for URLs that match the LeetCode problem URL pattern
-    within the initial docstring of the specified Python file, assuming the
-    docstring appears before any imports.
+    Extracts the first LeetCode URL from the initial docstring of a Python file and
+    generates a tuple containing the URL and a descriptive name based on the file naming
+    convention.
 
     Args:
         file_path (Path): The path to the Python file to be scanned.
 
     Returns:
-        Set[str]: A set of unique LeetCode URLs found in the file's initial docstring.
+        Tuple[str, str]: A tuple containing the LeetCode URL and a descriptive name
+        derived from the filename, or an empty tuple if no URL is found.
     """
-    links = set()
+    # Extract problem number and title from filename
+    file_name_parts = file_path.stem.split("_")  # p, <problem number>, <problem title parts>...
+    if len(file_name_parts) < 3 or file_name_parts[0] != "p":
+        return ("", "")  # Return empty if file doesn't match the naming convention
+
+    problem_number = file_name_parts[1]
+    problem_title = " ".join(file_name_parts[2:]).title()
 
     with open(file_path, encoding="utf-8") as file:
-        content = []
-        for line in file:
-            if line.startswith('"""'):  # Start of docstring
-                content.append(line)
-                break
-        for line in file:
-            content.append(line)
-            if line.startswith('"""'):  # End of docstring
-                break
-        docstring = "\n".join(content)
-        links.update(leetcode_url_pattern.findall(docstring))
+        content = file.read()
+        match = leetcode_url_pattern.search(content)
+        if match:
+            url = match.group(0)
+            descriptive_name = f"Problem {problem_number}: {problem_title}"
+            return (url, descriptive_name)
 
-    return links
+    return ("", "")  # Return empty if no URL is found
 
 
-def scan_directory_for_links(directory: Path) -> List[str]:
+def scan_directory_for_links(directory: Path) -> List[Tuple[str, str]]:
     """
-    Scans a directory recursively for Python files and extracts LeetCode URLs from
-    their initial docstrings.
+    Scans a directory recursively for Python files, extracting the first LeetCode URL
+    from their initial docstrings, along with generating a descriptive name based on the
+    file's naming convention.
 
     Args:
         directory (Path): The root directory to start scanning from.
 
     Returns:
-        List[str]: A sorted list of unique LeetCode URLs found.
+        List[Tuple[str, str]]: A sorted list of tuples containing LeetCode URLs and
+        their descriptive names. Empty tuples are filtered out.
     """
-    links = set()
-    for file in directory.rglob("*.py"):
-        links.update(extract_leetcode_links(file))
-    return sorted(links)
+    links = []
+    for file in directory.rglob("p_*.py"):  # Only include files matching the naming convention
+        link = extract_leetcode_links(file)
+        if link[0]:  # Add link if it's not empty
+            links.append(link)
+    return sorted(links, key=lambda x: x[1])  # Sort by descriptive name
 
 
-def write_links_to_markdown(links: List[str], output_file: Path) -> None:
+def write_links_to_markdown(links: List[Tuple[str, str]], output_file: Path) -> None:
     """
-    Writes a list of LeetCode URLs to a Markdown file, formatted as a list.
+    Writes a list of LeetCode URLs and their descriptive names to a Markdown file,
+    formatted as a list.
 
     Args:
-        links (List[str]): The list of LeetCode URLs to write.
-        output_file (Path): The path to the Markdown file to write the URLs to.
+        links (List[Tuple[str, str]]): The list of LeetCode URLs and their descriptive names.
+        output_file (Path): The path to the Markdown file to write the links to.
     """
     with open(output_file, "w", encoding="utf-8") as md_file:
         md_file.write("# LeetCode Links\n\n")
-        for link in links:
-            md_file.write(f"- [{link}]({link})\n")
+        for url, name in links:
+            md_file.write(f"- [{name}]({url})\n")
 
 
 if __name__ == "__main__":
