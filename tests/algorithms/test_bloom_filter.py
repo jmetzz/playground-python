@@ -1,4 +1,7 @@
+import pytest
 from algorithms.bloom_filter import BloomFilter, SimpleCache
+
+pytestmark = pytest.mark.nondeterministic
 
 
 def test_add_check_item():
