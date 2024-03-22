@@ -1,0 +1,26 @@
+name: Update LeetCode Links Markdown
+
+on:
+  push:
+    branches:
+      - feature/test-workflow  # Run workflow on pushes to this branch
+
+jobs:
+  update-md:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.8
+      - name: Generate LeetCode Links Markdown
+        run: python scripts/generate_leetcode_links_md.py
+      - name: Commit and push if changed
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+          git add LeetCode_Links.md
+          git commit -m "Update LeetCode Links Markdown" || exit 0
+          git push
