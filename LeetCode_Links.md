@@ -63,6 +63,7 @@
 - [Problem 450: Delete Node Binary Search Tree](https://leetcode.com/problems/delete-node-in-a-bst/)
 - [Problem 451: Sort Characteres By Frequency](https://leetcode.com/problems/sort-characters-by-frequency/)
 - [Problem 452: Minimum Number Arrows To Burst Balloons](https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/)
+- [Problem 498: Diagonal Traverse](https://leetcode.com/problems/diagonal-traverse/)
 - [Problem 49: Group Anagrams](https://leetcode.com/problems/group-anagrams/)
 - [Problem 513: Find Bottom Left Tree Value](https://leetcode.com/problems/find-bottom-left-tree-value/)
 - [Problem 525: Contiguous Array](https://leetcode.com/problems/contiguous-array/)
