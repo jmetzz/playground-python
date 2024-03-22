@@ -7,7 +7,7 @@ readme = "README.md"
 version = "0.0.101"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.12"
 ipython = "^8.20.0"
 pip = "^23.3.2"
 numpy = "^1.26.3"
