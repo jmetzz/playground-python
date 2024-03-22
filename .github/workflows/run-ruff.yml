@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  pre-commit-hooks:
+  ruff-analysis:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
@@ -20,8 +20,8 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Install Poetry
+      - name: Install Ruff
         run: pip install ruff
 
-      - name: Run ruff
+      - name: Run ruff for static code analysis
         run: ruff check src tests
