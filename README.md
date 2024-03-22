@@ -1,5 +1,8 @@
 # sandbox-python
 
+[![Run Tests](https://github.com/jmetzz/playground-python/actions/workflows/run-tests.yml/badge.svg)](https://github.com/jmetzz/playground-python/actions/workflows/run-tests.yml)
+[![Static Code Analysis](https://github.com/jmetzz/playground-python/actions/workflows/run-ruff.yml/badge.svg)](https://github.com/jmetzz/playground-python/actions/workflows/run-ruff.yml)
+
 My sandbox and playground for python tests/experiments.
 
 Be aware that most of the code is not complete and probably doesn't work properly.
