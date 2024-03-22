@@ -30,6 +30,7 @@ deps: initialize ## Install dependencies, including dev & test dependencies
 	@printf "$(CYAN)>>> Creating environment for project...$(COFF)\n"
 	poetry install --no-root --without profiling --sync
 	poetry run pre-commit install
+	poetry run pre-commit install --hook-type pre-push
 
 
 test: ## Run unit tests
