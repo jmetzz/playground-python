@@ -21,9 +21,19 @@ repos:
     hooks:
       - id: pytest
         name: Run pytest
-        entry: poetry run pytest
+        entry: poetry run pytest -m "not nondeterministic"
         language: system
         types: [python]
         pass_filenames: false
         always_run: true
         stages: [push]
+      - id: generate-licenses
+        name: Generate licenses file
+        entry: poetry run pip-licenses --with-authors -f markdown --output-file ./licenses.md
+        language: system
+        # This hook doesn't need to pass any filenames.
+        pass_filenames: false
+        # Assuming you want this to always run when triggered, not just when files are changed.
+        always_run: true
+        # Specify the stages you want this hook to run. For example, let's make it run on commit.
+        stages: [commit]

@@ -64,6 +64,7 @@ pythonpath = [
 markers = [
     "unit: marks tests as unit tests",
     "functional: marks tests as functional tests",
+    "nondeterministic: mark a test as non-deterministic"
 ]
 addopts="-n 4"
 

@@ -32,6 +32,7 @@ def test_majority_element_solve_counter(test_input, expected):
     assert majority_element_solve_counter(test_input) == expected
 
 
+@pytest.mark.nondeterministic
 @pytest.mark.parametrize(
     "test_input, expected",
     [

@@ -32,13 +32,15 @@ deps: initialize ## Install dependencies, including dev & test dependencies
 	poetry run pre-commit install
 	poetry run pre-commit install --hook-type pre-push
 
-
 test: ## Run unit tests
 	@printf "$(CYAN)Running test suite$(COFF)\n"
-	export PYTHONPATH="./src" && poetry run pytest --cov=src
+	export PYTHONPATH="./src" && poetry run pytest -m "not nondeterministic" --cov=src
 
+test-flaky: ## Run non-deterministic unit tests
+	@printf "$(CYAN)Running test suite$(COFF)\n"
+	export PYTHONPATH="./src" && poetry run pytest -m "nondeterministic"
 
-testchanges:  ## Run unit tests only for changed files and new files
+test-changes:  ## Run unit tests only for changed files and new files
 	@printf "$(CYAN)Running tests for changed and new files$(COFF)\n"
 	$(eval CHANGED_FILES := $(shell git diff --name-only | grep -E '^src/.*\.py$$' | sed 's/src\//tests\//g; s/\.py$$/_test.py/'))
 	$(eval NEW_TEST_FILES := $(shell git ls-files --others --exclude-standard | grep -E '^tests/.*_test\.py$$'))
@@ -49,13 +51,10 @@ testchanges:  ## Run unit tests only for changed files and new files
 		echo $(NEW_TEST_FILES) | xargs -n 1 poetry run pytest; \
 	fi
 
-
 check: ## Run static code checkers and linters
 	@printf "$(CYAN)Running static code analysis and license generation$(COFF)\n"
 	poetry run ruff check src tests
 	@printf "All $(GREEN)done$(COFF)\n"
-
-
 
 lint: ## Runs ruff formatter
 	@printf "$(CYAN)Auto-formatting with ruff$(COFF)\n"
@@ -65,7 +64,6 @@ lint: ## Runs ruff formatter
 license: ## Generated the licenses.md file based on the project's dependencies
 	@printf " >>> Generating $(CYAN)licenses.md$(COFF) file\n"
 	poetry run pip-licenses --with-authors -f markdown --output-file ./licenses.md
-
 
 clean: ## Removed the build, dist directories, pycache, pyo or pyc and swap files
 	@printf "$(CYAN)Cleaning EVERYTHING!$(COFF)\n"
@@ -78,10 +76,8 @@ clean: ## Removed the build, dist directories, pycache, pyo or pyc and swap file
 	@find . -type f -name '.DS_Store' -delete
 	@printf "$(GREEN)>>> Removed$(COFF) pycache, .pyc, .pyo, .DS_Store files and files with ~\n"
 
-
-all: clean lint test ## Runs clean, lint, and test target commands
+all: clean lint test license ## Runs clean, lint, test and license targets
 	@printf "$(GREEN)>>> Done$(COFF) ~\n"
-
 
 bastion: ## Connect to the dev db with a port FWD (Broadcasts on local 12.0.0.1:5432)
 	@printf "$(GREEN)Postgres will be listening on 127.0.0.1:5432$(COFF)\n"

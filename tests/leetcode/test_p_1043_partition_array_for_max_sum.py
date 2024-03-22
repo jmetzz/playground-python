@@ -41,6 +41,7 @@ def test_solve_dfs_dict_memo(test_input_arr, test_input_k, expected):
     assert PartitionArrayForMaxSum().solve_dfs_dict_memo(test_input_arr, test_input_k) == expected
 
 
+@pytest.mark.nondeterministic
 @pytest.mark.parametrize(
     "test_input_arr, test_input_k, expected",
     [
