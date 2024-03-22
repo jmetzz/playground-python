@@ -3,7 +3,7 @@ name: Update LeetCode Links Markdown
 on:
   push:
     branches:
-      - feature/test-workflow  # Run workflow on pushes to this branch
+      - feature/test-leetcode-workflow  # Run workflow on pushes to this branch
 
 jobs:
   update-md:
