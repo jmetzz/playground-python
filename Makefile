@@ -40,17 +40,6 @@ test-flaky: ## Run non-deterministic unit tests
 	@printf "$(CYAN)Running test suite$(COFF)\n"
 	export PYTHONPATH="./src" && poetry run pytest -m "nondeterministic"
 
-test-changes:  ## Run unit tests only for changed files and new files
-	@printf "$(CYAN)Running tests for changed and new files$(COFF)\n"
-	$(eval CHANGED_FILES := $(shell git diff --name-only | grep -E '^src/.*\.py$$' | sed 's/src\//tests\//g; s/\.py$$/_test.py/'))
-	$(eval NEW_TEST_FILES := $(shell git ls-files --others --exclude-standard | grep -E '^tests/.*_test\.py$$'))
-	@if [ -n "$(CHANGED_FILES)" ]; then \
-		echo $(CHANGED_FILES) | xargs -n 1 poetry run pytest; \
-	fi
-	@if [ -n "$(NEW_TEST_FILES)" ]; then \
-		echo $(NEW_TEST_FILES) | xargs -n 1 poetry run pytest; \
-	fi
-
 check: ## Run static code checkers and linters
 	@printf "$(CYAN)Running static code analysis and license generation$(COFF)\n"
 	poetry run ruff check src tests
