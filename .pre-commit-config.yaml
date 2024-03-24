@@ -37,3 +37,14 @@ repos:
         always_run: true
         # Specify the stages you want this hook to run. For example, let's make it run on commit.
         stages: [commit]
+      - id: generate-leetcode-links-md
+        name: Generate LeetCode Links Markdown
+        entry: python scripts/generate_leetcode_links_md.py
+        language: system
+        # Run this script only when certain files change:
+        files: ^src/leetcode/.*\.py$
+        # This script modifies files, ensure it's clear it does so:
+        pass_filenames: false
+        always_run: true
+        # Adding 'stages: [commit]' so it runs on commit stage
+        stages: [commit]
