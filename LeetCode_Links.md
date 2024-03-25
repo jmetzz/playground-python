@@ -61,6 +61,7 @@
 - [Problem 387: First Unique Character In String](https://leetcode.com/problems/first-unique-character-in-a-sequence/)
 - [Problem 3: Longest Substring Without Repeating Chars](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
 - [Problem 412: Fizz Buzz](https://leetcode.com/problems/fizz-buzz/)
+- [Problem 442: Find All Duplicates In An Array](https://leetcode.com/problems/find-all-duplicates-in-an-array/)
 - [Problem 450: Delete Node Binary Search Tree](https://leetcode.com/problems/delete-node-in-a-bst/)
 - [Problem 451: Sort Characteres By Frequency](https://leetcode.com/problems/sort-characters-by-frequency/)
 - [Problem 452: Minimum Number Arrows To Burst Balloons](https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/)
