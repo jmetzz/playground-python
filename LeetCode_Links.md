@@ -50,6 +50,7 @@
 - [Problem 268: Missing Number](https://leetcode.com/problems/missing-number/)
 - [Problem 2709: Greatest Common Divisor Traversal](https://leetcode.com/problems/greatest-common-divisor-traversal/)
 - [Problem 2864: Maximum Odd Binary Number](https://leetcode.com/problems/maximum-odd-binary-number/)
+- [Problem 287: Find The Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/)
 - [Problem 295: Find Median From Data Stream](https://leetcode.com/problems/find-median-from-data-stream/)
 - [Problem 2966: Divide Array Into Arrays With Max Diff](https://leetcode.com/problems/divide-array-into-arrays-with-max-difference/)
 - [Problem 3005: Count Elements With Max Frequency](https://leetcode.com/problems/count-elements-with-maximum-frequency/)
