@@ -68,6 +68,46 @@ def build_digraph(
     return (graph, indegree) if calc_indegree else (graph, None)
 
 
+def calculate_indegree(graph: Graph) -> Dict[int, int]:
+    """
+    Calculate the in-degree for each vertex in a directed graph.
+
+    The in-degree of a vertex is the number of edges directed towards it. This function
+    traverses the given graph and calculates the in-degree for each vertex, ensuring
+    that even vertices with an in-degree of 0 are included in the result.
+
+    Args:
+        graph (Graph): A directed graph represented as a dictionary where each key is a
+                       vertex and its value is a set of vertices to which there are
+                       outgoing edges from the key vertex.
+
+    Returns:
+        Dict[int, int]: A dictionary where each key is a vertex in the graph and its value
+                        is the in-degree of that vertex. Vertices with no incoming edges
+                        are included in the dictionary with an in-degree of 0.
+
+    Example:
+        >>> graph = {1: {2, 3}, 2: {3}, 3: set()}
+        >>> calculate_indegree(graph)
+        {1: 0, 2: 1, 3: 2}
+
+        This indicates vertex 1 has an in-degree of 0 (no incoming edges), vertex 2 has
+        an in-degree of 1 (one edge directed towards it), and vertex 3 has an in-degree
+        of 2 (two edges directed towards it).
+
+    Note:
+        This function assumes the input graph is well-formed and does not check for
+        the existence of vertices not listed as keys in the graph dictionary. It is
+        expected that every vertex that can be reached from any vertex in the graph
+        is also a key in the `graph` dictionary.
+    """
+    in_degree = {vertex: 0 for vertex in graph}
+    for u in graph:
+        for v in graph[u]:
+            in_degree[v] += 1
+    return in_degree
+
+
 def build_weighted_ugraph(num_vertices: int, edges: List[Tuple[List[int], int]]) -> WeightedGraph:
     """
     Builds an undirected graph represented as an adjacency list.
@@ -91,6 +131,35 @@ def build_weighted_ugraph(num_vertices: int, edges: List[Tuple[List[int], int]])
         graph[src].add((neighbor, w))
         graph[neighbor].add((src, w))
     return graph
+
+
+def transpose_digraph(graph: Graph) -> Graph:
+    """
+    Transpose a directed graph.
+
+    The transposition of a graph involves reversing the direction of all its edges.
+    This function takes a directed graph represented as a dictionary, where each key
+    is a vertex and its value is a set of vertices representing the directed edges
+    from the key vertex to other vertices. It returns a new graph where the directions
+    of all edges have been reversed.
+
+    Args:
+        graph (Dict[int, Set[int]]): The original directed graph to be transposed,
+                                     represented as an adjacency list.
+
+    Returns:
+        Dict[int, Set[int]]: The transposed graph, also represented as an adjacency list.
+
+    Example:
+        >>> graph = {1: {2}, 2: {3}, 3: {1, 4}, 4: {5}, 5: {6}, 6: {4, 7}, 7: {8}, 8: set()}
+        >>> transpose_graph(graph)
+        {1: {3}, 2: {1}, 3: {2}, 4: {3, 6}, 5: {4}, 6: {5}, 7: {6}, 8: {7}, 1: set(), 2: set(), ...}
+    """
+    transposed = {v: set() for v in graph}
+    for vertex in graph:
+        for neighbor in graph[vertex]:
+            transposed[neighbor].add(vertex)
+    return transposed
 
 
 def plot_graph(graph: Dict[int, Set[int]]) -> None:

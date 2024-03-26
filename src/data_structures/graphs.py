@@ -3,7 +3,7 @@ from heapq import heappop, heappush
 from math import inf
 from typing import Any, Dict, List, Optional, Self, Set, Tuple, TypeAlias
 
-from data_structures.graph_utils import build_digraph, plot_digraph
+from data_structures.graph_utils import build_digraph, calculate_indegree, plot_digraph, transpose_digraph
 
 # Alias for an undirected graph
 Graph: TypeAlias = Dict[int, Set[int]]
@@ -441,8 +441,160 @@ def is_bipartite_bfs(graph: Graph) -> bool:
     return True
 
 
-def topological_order(digraph: Graph) -> List[int]:
-    raise NotImplementedError()
+def topological_order_recursive(digraph: Graph) -> List[int]:
+    """
+    This is the typical DFS for topological order,
+    in which nodes are added to the topological order in reverse post-order.
+
+    Essentially, a node is added to the order after all nodes reachable from it
+    have been visited.
+
+    It's important to note that topological sorting is only applicable to DAGs.
+    If a cycle is detected during DFS, it indicates that a topological order
+    does not exist for the graph.
+    Therefore, Directed Acyclic Graph (DAG) is a prerequisite for
+    topological sorting.
+
+    """
+    order = []
+    has_cycle = False
+    VISITED = set()
+
+    # Track Exploration State, from the moment a node is encountered
+    # until all its descendants have been fully explored
+    EXPLORING_COMPONENT = set()
+
+    def dfs_explore(node):
+        nonlocal has_cycle
+        # node not visited -> start dfs exploration of the component.
+        # explores as deeply as possible along each branch before backtracking
+        if node in EXPLORING_COMPONENT:
+            has_cycle = True
+            return
+
+        if node not in VISITED:
+            EXPLORING_COMPONENT.add(node)
+            # Not all nodes in a directed graph may have outgoing edges
+            # therefor, check for neighbor and use default [] is there is none.
+            for neighbor in digraph.get(node, []):
+                dfs_explore(neighbor)
+
+            # Once the recursive exploration from a node concludes (all nodes
+            # reachable from it have been explored), the node is removed from the
+            # VISITED_IN_CURRENT_COMPONENT set. It's now safe to say that
+            # there are no paths from this node back to itself through its descendants,
+            # as all paths have been explored.
+            EXPLORING_COMPONENT.remove(node)
+
+            # After fully exploring the node, it can be added to the
+            # result list (in reverse post-order) and marked as visited
+            # to prevent redundant explorations
+            VISITED.add(node)
+            order.append(node)
+
+    for node in digraph:
+        # outer loop to ensure all components in the digraph are explored
+        if node not in VISITED and not has_cycle:
+            dfs_explore(node)
+
+    if has_cycle:
+        return []  # Cannot topologically sort if there is a cycle
+
+    # reverse the list to return the the propor order
+    return order[::-1]
+
+
+def topological_order_recursive_2(digraph: Graph) -> List[int]:
+    """
+    This is the typical DFS for topological order,
+    in which nodes are added to the topological order in reverse post-order.
+
+    Essentially, a node is added to the order after all nodes reachable from it
+    have been visited.
+
+    It's important to note that topological sorting is only applicable to DAGs.
+    If a cycle is detected during DFS, it indicates that a topological order
+    does not exist for the graph.
+    Therefore, Directed Acyclic Graph (DAG) is a prerequisite for
+    topological sorting.
+
+    """
+    order = []
+    VISITED = set()
+    EXPLORING_COMPONENT = set()
+
+    def dfs_explore(node):
+        if node in EXPLORING_COMPONENT:
+            # cycle detected
+            return False
+
+        if node not in VISITED:
+            EXPLORING_COMPONENT.add(node)
+            for neighbor in digraph.get(node, []):
+                if not dfs_explore(neighbor):
+                    # cycle detected
+                    return False
+            EXPLORING_COMPONENT.remove(node)
+            VISITED.add(node)
+            order.append(node)
+        # successful exploration without finding a cycle
+        return True
+
+    for node in digraph:
+        if node not in VISITED:  # noqa: SIM102
+            if dfs_explore(node) is False:
+                # Cannot topologically sort if there is a cycle
+                return []
+
+    # reverse the list to return the the propor order
+    return order[::-1]
+
+
+def topological_order_iterative(digraph: Graph) -> List[int]:
+    """
+    A topological order only for di-graph with no cycles.
+
+    This approach leverages the concept of in-degree (the number of incoming edges to a node)
+    to find the starting points for the sorting and to determine when a node has no
+    remaining dependencies and can be added to the topological order.
+
+    It's iterative and avoids recursion, which can be advantageous for large graphs where
+    deep recursion might lead to stack overflow.
+
+    Cycle detection is implicit. If the graph contains a cycle, not all nodes
+    will be processed, indicated by the final top_order list not containing all
+    graph nodes.
+
+    Using a queue ensures that nodes are processed in a level-by-level manner,
+    similar to Breadth-First Search (BFS).
+    This means that nodes are processed roughly in the order they are discovered.
+    """
+    # calculate in-degree for each node
+    in_degree = calculate_indegree(digraph)
+
+    # Queue for nodes with no incoming edge.
+    # These nodes are starting points for the sorting,
+    # as they don't depend on any other nodes.
+    queue = deque([u for u in in_degree if in_degree[u] == 0])
+    order = []
+
+    while queue:
+        node = queue.popleft()
+        order.append(node)
+        # "fake Remove" the node from the di-graph
+        # by decreasing in-degree for all neighbors
+        for neighbor in digraph.get(node, []):
+            in_degree[neighbor] -= 1
+            if in_degree[neighbor] == 0:
+                # add to the queue all nodes that have no more dependencies
+                queue.append(neighbor)
+
+    if len(order) == len(digraph):
+        # Check if topological ordering was possible
+        return order
+    else:
+        # Cycle detected or graph is not a DAG
+        return []
 
 
 def has_cycle_recursive(digraph: Graph) -> bool:
@@ -520,11 +672,88 @@ def has_cycle_iterative(digraph: Graph) -> bool:
 
 
 def is_dag(digraph: Graph) -> bool:
-    return not has_cycle_recursive(digraph)
+    raise NotImplementedError()
 
 
 def get_any_cycle_path(digraph: Graph) -> List[int]:
     raise NotImplementedError()
+
+
+def kosaraju(graph: Graph) -> List[List[int]]:
+    """
+    Find all strongly connected components (SCCs) in a directed graph.
+
+    Kosaraju's algorithm identifies SCCs through two DFS passes, leveraging graph edge reversals. It
+    runs in linear time, O(V+E), where V and E are the number of vertices and edges, respectively.
+
+    The algorithm's steps are:
+
+    1. First Pass: Perform DFS on the original graph to determine the vertices' exploration order for
+    the second pass. Vertices are added to a stack as each DFS finishes, ensuring they're processed
+    in decreasing order of their finishing times in the next pass.
+
+    2. Second Pass: Conduct DFS on the transposed graph, exploring vertices in the order they were
+    added to the stack. Each DFS discovers all vertices reachable from a start vertex in the
+    transposed graph, identifying a SCC.
+
+    The key insight is that in a directed graph, if vertex u is reachable from vertex v, then in the
+    transposed graph, v is reachable from u. This property holds for all vertices within a SCC.
+
+    Why post-order DFS?
+    - First Pass: vertices are added to a stack in post-order upon completing their DFS exploration.
+    Vertices in sink SCCs, which have no exits leading to other SCCs, are among the last explored and
+    thus are placed late onto the stack. Consequently, during the second pass on the transposed graph,
+    these vertices are processed early. This characteristic ensures that the algorithm efficiently
+    identifies SCCs starting with those that are 'sinks' in the context of the graph's SCC structure.
+    - Second Pass: Vertices are grouped into components after ensuring all reachable vertices have been
+    visited, guaranteeing accurate SCC identification.
+
+    Why not act immediately after `visited.add(vertex)`?
+    - Adopting a pre-order traversal by placing the action right after marking a vertex as visited
+    disrupts the order for the second DFS pass. Kosaraju's algorithm relies on post-order traversal
+    for its efficiency and accuracy.
+
+    Args:
+        graph (Graph): The directed graph for finding SCCs, represented as an adjacency list.
+
+    Returns:
+        List[List[int]]: Lists of vertices, each representing a strongly connected component.
+    """
+    visited = set()
+    order = []  # Stack to store the vertices based on their finishing times in DFS
+    sccs = []  # To store the strongly connected components
+
+    def _dfs(graph: Graph, vertex: int, action: callable) -> None:
+        # Perform DFS and apply the action
+        # (e.g., fill order or collect SCC) to each visited vertex
+        visited.add(vertex)
+        for neighbor in graph.get(vertex, []):
+            if neighbor not in visited:
+                _dfs(graph, neighbor, action)
+        action(vertex)
+
+    # First DFS pass to fill order
+    #     The action for the first DFS: append vertex to the order stack
+    #     This fills the order stack with vertices in decreasing order
+    #     of their finishing times
+    for vertex in graph:
+        if vertex not in visited:
+            _dfs(graph, vertex, order.append)
+
+    transposed_graph = transpose_digraph(graph)
+    visited.clear()  # Reset visited for the second DFS pass
+
+    # Perform DFS on the transposed graph in the order determined above
+    #     Action for the second DFS: append vertex to current SCC.
+    #     Since we're working with the last component in sccs list,
+    #     this avoids passing the current_scc list around.
+    while order:
+        vertex = order.pop()
+        if vertex not in visited:
+            sccs.append([])  # Start a new SCC list for this component
+            _dfs(transposed_graph, vertex, lambda v: sccs[-1].append(v))
+
+    return sccs
 
 
 if __name__ == "__main__":

@@ -6,6 +6,7 @@ from data_structures.graphs import (
     has_path_bfs_recursive,
     is_bipartite_bfs,
     is_bipartite_dfs,
+    kosaraju,
     largest_component_iterative,
     largest_component_recursive,
     largest_component_size,
@@ -262,3 +263,21 @@ def test_lenght_shortest_path(graph, source, destination, expected):
 )
 def test_is_bipartite(func, input_graph, expected):
     assert func(input_graph) == expected
+
+
+@pytest.mark.parametrize(
+    "graph, expected",
+    [
+        ({1: {2}, 2: {3}, 3: {1}}, [[1, 3, 2]]),
+        ({1: {2}, 2: {1}, 3: {4}, 4: {3}}, [[1, 2], [3, 4]]),
+        ({1: {2}, 2: {3, 4}, 3: {1}, 4: {5}, 5: {6}, 6: {4}, 7: {6, 8}, 8: {}}, [[1, 3, 2], [4, 6, 5], [7], [8]]),
+        ({1: set()}, [[1]]),
+        ({1: {2}, 2: {3}, 3: {4}, 4: {}}, [[1], [2], [3], [4]]),
+    ],
+)
+def test_kosaraju(graph, expected):
+    result = kosaraju(graph)
+    # Convert both expected and result to sets of frozensets for comparison to avoid order issues
+    expected_set = {frozenset(component) for component in expected}
+    result_set = {frozenset(component) for component in result}
+    assert expected_set == result_set
