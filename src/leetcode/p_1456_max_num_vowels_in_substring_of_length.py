@@ -31,6 +31,7 @@ Constraints:
 s consists of lowercase English letters.
 1 <= k <= s.length
 """
+
 VOWELS = "aeiou"
 
 

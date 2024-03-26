@@ -9,6 +9,7 @@ reduce the variance within classes and maximize the variance between classes.
 
 Reference: https://en.wikipedia.org/wiki/Jenks_natural_breaks_optimization
 """
+
 import pandas as pd
 
 

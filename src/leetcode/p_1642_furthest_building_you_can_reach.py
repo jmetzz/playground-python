@@ -43,6 +43,7 @@ Constraints:
 0 <= ladders <= heights.length
 
 """
+
 import heapq
 from typing import List
 

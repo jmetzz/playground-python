@@ -19,6 +19,7 @@ Constraints:
 The number of nodes in the tree is in the range [1, 104].
 -231 <= Node.val <= 231 - 1
 """
+
 from collections import deque
 from math import inf
 from typing import Optional

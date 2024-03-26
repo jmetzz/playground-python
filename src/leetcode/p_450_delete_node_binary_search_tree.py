@@ -42,6 +42,7 @@ root is a valid binary search tree.
 
 Follow up: Could you solve it with time complexity O(height of tree)?
 """
+
 from typing import Optional
 
 from data_structures.trees import BinaryTreeNode as TreeNode

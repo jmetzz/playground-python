@@ -38,7 +38,6 @@ Constraints:
 
 """
 
-
 from data_structures.lists import SingleLinkNode as ListNode
 
 

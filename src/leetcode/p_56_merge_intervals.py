@@ -27,7 +27,6 @@ intervals[i].length == 2
 0 <= starti <= endi <= 104
 """
 
-
 from typing import List
 
 

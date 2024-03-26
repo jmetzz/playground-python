@@ -34,7 +34,6 @@ add_activity("user_1", 60)
 
 """
 
-
 import math
 from collections import Counter
 from typing import List, Literal

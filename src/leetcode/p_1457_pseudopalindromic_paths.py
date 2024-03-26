@@ -38,6 +38,7 @@ Constraints:
 The number of nodes in the tree is in the range [1, 105].
 1 <= Node.val <= 9
 """
+
 from typing import List
 
 from data_structures.trees import BinaryTreeNode

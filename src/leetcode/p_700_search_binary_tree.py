@@ -24,6 +24,7 @@ The number of nodes in the tree is in the range [1, 5000].
 root is a binary search tree.
 1 <= val <= 107
 """
+
 from typing import Optional
 
 from data_structures.trees import BinaryTreeNode as TreeNode

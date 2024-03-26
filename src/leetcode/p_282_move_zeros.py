@@ -22,6 +22,7 @@ Constraints:
 
 Follow up: Could you minimize the total number of operations done?
 """
+
 import random
 import timeit
 from typing import List

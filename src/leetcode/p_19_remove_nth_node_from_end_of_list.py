@@ -29,6 +29,7 @@ The number of nodes in the list is sz.
 
 Follow up: Could you do this in one pass?
 """
+
 from typing import Optional
 
 from data_structures.lists import SingleLinkNode

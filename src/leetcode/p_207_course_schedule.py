@@ -34,7 +34,6 @@ prerequisites[i].length == 2
 All the pairs prerequisites[i] are unique.
 """
 
-
 from collections import deque
 from typing import Dict, List, Tuple
 

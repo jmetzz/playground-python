@@ -48,6 +48,7 @@ There will not be any multiple flights between two cities.
 0 <= src, dst, k < n
 src != dst
 """
+
 from collections import defaultdict, deque
 from typing import List
 

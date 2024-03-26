@@ -33,7 +33,6 @@ n == grid.length == grid[i].length
 1 <= grid[i][j] <= 105
 """
 
-
 from collections import Counter
 from typing import List
 

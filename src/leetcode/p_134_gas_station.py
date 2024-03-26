@@ -46,7 +46,6 @@ n == gas.length == cost.length
 0 <= gas[i], cost[i] <= 104
 """
 
-
 from typing import List
 
 

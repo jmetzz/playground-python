@@ -40,6 +40,7 @@ Constraints:
 1 <= nums[i] <= 105
 
 """
+
 from typing import List
 
 from data_structures.graphs import UnionFind

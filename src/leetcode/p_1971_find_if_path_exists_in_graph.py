@@ -39,7 +39,6 @@ There are no duplicate edges.
 There are no self edges.
 """
 
-
 from typing import Dict, Set
 
 

@@ -55,6 +55,7 @@ meetings[i].length == 2
 0 <= starti < endi <= 5 * 105
 All the values of starti are unique.
 """
+
 from heapq import heapify, heappop, heappush
 from typing import List
 

@@ -30,7 +30,6 @@ nums[i] is either 0 or 1.
 
 """
 
-
 from collections import defaultdict
 from typing import List
 

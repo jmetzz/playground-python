@@ -44,7 +44,6 @@ If graph[u] contains v, then graph[v] contains u.
 
 """
 
-
 from collections import deque
 
 from data_structures.graphs import Graph

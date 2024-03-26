@@ -2,6 +2,7 @@
 This module is not actually comprised of unit tests,
 but rather a place to experiment with the code
 """
+
 from py_fundamentals.py_generators_example import fib_gen, fib_list
 
 

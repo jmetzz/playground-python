@@ -35,6 +35,7 @@ myQueue.pop(); // return 1, queue is [2]
 myQueue.empty(); // return false
 
 """
+
 from typing import Optional
 
 

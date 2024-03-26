@@ -5,6 +5,7 @@ The only actions allowed are:
 2. move right
 
 """
+
 from typing import Dict
 
 

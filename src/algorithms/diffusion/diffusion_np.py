@@ -16,7 +16,6 @@ equation and Chapter 7 of Numerical Methods for Complex Systems
 by S. V. Gurevich, for details.
 """
 
-
 import numpy as np
 from numpy import roll
 

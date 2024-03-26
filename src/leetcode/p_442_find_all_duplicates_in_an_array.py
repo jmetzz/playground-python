@@ -29,7 +29,6 @@ n == nums.length
 Each element in nums appears once or twice.
 """
 
-
 from typing import Counter, List
 
 

@@ -37,6 +37,7 @@ keeping track of it's index `maxIndex`. Scan through the array again.
 If we find some `x != m` with `m < 2*x`, we should return `-1`.
 Otherwise, we should return `maxIndex`.
 """
+
 from heapq import heapify
 from typing import List
 

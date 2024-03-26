@@ -13,6 +13,7 @@ These two functions are indeed lazily evaluated—we read the next
 line in the file, or generate new fake data, only when the next()
 function is called.
 """
+
 from datetime import datetime
 from itertools import count, filterfalse, groupby, islice
 from random import normalvariate, randint

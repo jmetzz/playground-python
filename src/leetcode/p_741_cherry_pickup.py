@@ -38,6 +38,7 @@ grid[i][j] is -1, 0, or 1.
 grid[0][0] != -1
 grid[n - 1][n - 1] != -1
 """
+
 from typing import List
 
 

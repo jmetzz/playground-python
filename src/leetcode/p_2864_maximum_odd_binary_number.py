@@ -33,6 +33,7 @@ s consists only of '0' and '1'.
 s contains at least one '1'.
 
 """
+
 from collections import Counter
 
 

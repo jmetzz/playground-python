@@ -1,4 +1,5 @@
 """Cython compiled Julia set generator"""
+
 import time
 
 import cythonfn  # as defined in setup.py

@@ -35,6 +35,7 @@ Constraints:
 0 <= k <= 1000
 
 """
+
 from typing import Dict
 
 MOD = 10**9 + 7

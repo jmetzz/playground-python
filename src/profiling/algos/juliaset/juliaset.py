@@ -1,4 +1,5 @@
 """Julia set generator without optional PIL-based image drawing"""
+
 import time
 
 # area of complex space to investigate

@@ -49,6 +49,7 @@ The number of nodes in the tree is in the range [1, 105].
 1 <= Node.val <= 106
 
 """
+
 from collections import deque
 from typing import Optional
 
