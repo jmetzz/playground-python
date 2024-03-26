@@ -42,6 +42,7 @@
 - [Problem 22: Generate Parentheses](https://leetcode.com/problems/generate-parentheses/)
 - [Problem 231: Power Of Two](https://leetcode.com/problems/power-of-two/)
 - [Problem 2352: Equal Row And Column Pairs](https://leetcode.com/problems/equal-row-and-column-pairs/)
+- [Problem 2360: Longest Cycle In A Graph](https://leetcode.com/problems/longest-cycle-in-a-graph/)
 - [Problem 238: Product Of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/)
 - [Problem 2390: Removing Stars From A String](https://leetcode.com/problems/removing-stars-from-a-string/)
 - [Problem 2402: Meeting Rooms 3](https://leetcode.com/problems/meeting-rooms-iii/)
