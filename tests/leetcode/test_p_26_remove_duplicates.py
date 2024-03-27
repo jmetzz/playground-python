@@ -1,5 +1,5 @@
 import pytest
-from leetcode.p_026_remove_duplicates import duplicates_remover
+from leetcode.p_26_remove_duplicates import duplicates_remover
 
 
 @pytest.mark.parametrize(
