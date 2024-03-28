@@ -398,6 +398,19 @@ class TrieSymbolTableDict:
     def matching_keys(self, value: str) -> Iterable[str]:
         raise NotImplementedError
 
+    def longest_common_prefix(
+        self,
+    ) -> str:
+        prefix = ""
+        node = self._root
+
+        while node and self.EOW_TOKEN not in node and len(node) == 1:
+            # get the first (and presumably only) key-value pair from the current node
+            letter, node = next(iter(node.keys()))
+            prefix += letter
+
+        return prefix
+
 
 class TrieSymbolTableBisect:
     def __init__(self):
