@@ -28,10 +28,10 @@ Computer Vision: Pattern matching algorithms can be adapted for use in image pro
 and computer vision, searching for visual patterns or features within images.
 """
 
-from ast import List
+from typing import List
 
 
-def compute_lps_array(needle: str) -> List[int]:
+def compute_lps_array(pattern: str) -> List[int]:
     """
     Computes the Longest Prefix Suffix (LPS) array used in KMP algorithm.
 
@@ -41,18 +41,32 @@ def compute_lps_array(needle: str) -> List[int]:
     The LPS array helps in pattern searching by telling us the longest matching prefix
     and suffix within a pattern. For every position i in the pattern, the LPS array
     stores the length of the longest prefix which is also a suffix for the substring
-    ending at i.
+    ending at i, except for the entire string.
+
 
     Let's consider the pattern "ABABACA" and construct its LPS array step by step:
-    Pattern: ABABACA
-    Step 1: For A (index 0), no proper prefix or suffix, so LPS[0] = 0.
+    Pattern ABABACA
+        > Remember, when matching the prefixes and suffixes, do not count the entire substring.
+
+    Step 1: For A (index 0), no proper prefix or suffix that is different
+            from the entire substring A, so LPS[0] = 0.
+            LPS[0] is always 0.
         A
         LPS: 0
     Step 2: For AB (index 1), no matching prefix and suffix, so LPS[1] = 0.
+            The first char A is != the last char B.
+            prefixes: A, AB
+            suffixese: B, AB
+            AB is equal the entire substring, and thus, is disregarded
+            prefix A is not equal to suffix B, thus, LPS[1] = 0
         A B
         LPS: 0 0
 
     Step 3: For ABA (index 2), A is both a prefix and suffix, so LPS[2] = 1.
+            prefixes: A, AB, ABA
+            suffixese: A, BA, ABA
+            ABA is equal the entire substring, and thus, is disregarded
+            prefix A is equal suffix A, thus, LPS[2] = 1
         A B A
         LPS: 0 0 1
 
@@ -74,6 +88,7 @@ def compute_lps_array(needle: str) -> List[int]:
 
     Final LPS Array: 0 0 1 2 3 0 1
 
+    Two good examples to understand the LPS algorith are: AAAXAAAX and AAACAAAA.
 
     Args:
         needle (str): The pattern string for which LPS array is computed.
@@ -81,29 +96,77 @@ def compute_lps_array(needle: str) -> List[int]:
     Returns:
         List[int]: The LPS array.
     """
-    lps = [0] * len(needle)
-    length = 0  # Length of the previous longest prefix suffix
+    lps = [0] * len(pattern)
+    prev_lps = 0  # Length of the previous longest prefix suffix
     i = 1  # the loop starts from 1 since the first character's LPS is always 0
-    while i < len(needle):
-        if needle[i] == needle[length]:
+    while i < len(pattern):
+        print(f"i: {i}, prev_lps: {prev_lps}, needle[i]: {pattern[i]}, needle[prev_lps]: {pattern[prev_lps]}")
+        if pattern[i] == pattern[prev_lps]:
             # Current characters match, increment length of the current LPS
-            length += 1
-            lps[i] = length
+            lps[i] = prev_lps + 1
+            prev_lps += 1
             i += 1
         else:
-            # Current characters don't match
-            # Thuse the current longest prefix (that is also a suffix)
-            # cannot be extended with the character at i
-            if length != 0:
-                # Fall back to the last "length" where there was a match
-                # This does not change the current index `i` in the pattern,
-                # but adjusts `length` to the last known matching prefix-suffix length
-                # Note: This essentially tries to find the next longest prefix that is also a suffix
-                length = lps[length - 1]
-            else:
-                # No matching prefix found that could be extended, so LPS is 0 for this character
+            if prev_lps == 0:
+                # No matching prefix found that could be extended,
+                # so LPS is 0 for this character
                 lps[i] = 0
-                i += 1
+                i += 1  # advance the pointer to check on the next character
+            else:
+                # Current characters don't match, meanign the current longest prefix
+                # (that is also a suffix) cannot be extended with the character at i.
+                # Therefore, fall back to the last "length" where there was a match.
+                # This does not change the current index `i` in the pattern,
+                # but adjusts `length` to the last known matching prefix-suffix length.
+                # Consequently, if in the next iteration needle[i] and needle[prev_lps]
+                # still don't match, we will fallback again. This is repeated util we
+                # either find a match or go back to start, essentially trying to find
+                # the next longest prefix that is also a suffix.
+                prev_lps = lps[prev_lps - 1]
+
+        print(f"\t>>> lps: {lps}")
+    return lps
+
+
+def compute_lps_array_2(pattern: str) -> List[int]:
+    lps = [0] * len(pattern)
+    prev_lps = 0
+    i = 1
+
+    while i < len(pattern):
+        if pattern[i] == pattern[prev_lps]:
+            prev_lps += 1
+            lps[i] = prev_lps
+            i += 1
+        elif prev_lps == 0:
+            lps[i] = 0
+            i += 1
+        else:
+            prev_lps = lps[prev_lps - 1]
+
+    return lps
+
+
+def compute_lps_array_3(pattern: str) -> List[int]:
+    # Longest Proper Prefix that is suffix array
+    lps = [0] * len(pattern)
+
+    prev_lps = 0
+    for i in range(1, len(pattern)):
+        # Phase 3: roll the prefix pointer back until match or
+        # beginning of pattern is reached
+        while prev_lps and pattern[i] != pattern[prev_lps]:
+            prev_lps = lps[prev_lps - 1]
+
+        # Phase 2: if match, record the LSP for the current `i`
+        # and move prefix pointer
+        if pattern[prev_lps] == pattern[i]:
+            prev_lps += 1
+            lps[i] = prev_lps
+
+        # Phase 1: is implicit here because of the for loop and
+        # conditions considered above
+
     return lps
 
 
