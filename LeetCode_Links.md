@@ -27,6 +27,7 @@
 - [Problem 1657: Determine If Two Strings Are Close](https://leetcode.com/problems/determine-if-two-strings-are-close/)
 - [Problem 1669: Merge In Between Linked Lists](https://leetcode.com/problems/merge-in-between-linked-lists/)
 - [Problem 1672: Richest Customer Wealth](https://leetcode.com/problems/richest-customer-wealth/)
+- [Problem 1679: Max Number Of K Sum Pairs](https://leetcode.com/problems/max-number-of-k-sum-pairs/)
 - [Problem 169: Majority Element](https://leetcode.com/problems/majority-element/)
 - [Problem 1768: Merge Strings Alternately](https://leetcode.com/problems/merge-strings-alternately/)
 - [Problem 1991: Find Middle Index In Array](https://leetcode.com/problems/find-the-middle-index-in-array/)
