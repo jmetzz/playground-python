@@ -21,6 +21,7 @@
 - [Problem 1463: Cherry Pickup 2 Robots](https://leetcode.com/problems/cherry-pickup-ii/)
 - [Problem 1480: Running Sum 1D Array](https://leetcode.com/problems/running-sum-of-1d-array/)
 - [Problem 1481: Least Num Unique After K Removals](https://leetcode.com/problems/least-number-of-unique-integers-after-k-removals/)
+- [Problem 1493: Longest Subarray After Deleting One Element](https://leetcode.com/problems/longest-subarray-of-1s-after-deleting-one-element/)
 - [Problem 14: Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/)
 - [Problem 151: Reverse Words In String](https://leetcode.com/problems/reverse-words-in-a-string/)
 - [Problem 1609: Even Odd Tree](https://leetcode.com/problems/even-odd-tree/)
