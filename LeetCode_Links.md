@@ -107,3 +107,4 @@
 - [Problem 931: Min Falling Path Sum](https://leetcode.com/problems/minimum-falling-path-sum/)
 - [Problem 948: Bag Of Tokens](https://leetcode.com/problems/bag-of-tokens/)
 - [Problem 977: Squares Of Sorted Array](https://leetcode.com/problems/squares-of-a-sorted-array/)
+- [Problem 992: Subarrays With K Diff Integers](https://leetcode.com/problems/subarrays-with-k-different-integers/)
