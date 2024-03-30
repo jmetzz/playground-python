@@ -9,6 +9,6 @@ test_cases = [
 
 
 @pytest.mark.parametrize("func", [])
-@pytest.mark.parametriz("input_arr, expected", test_cases)
+@pytest.mark.parametrize("input_arr, expected", test_cases)
 def test_odd_even_list(func, input_arr, expected):
     assert func(ListNode.from_array(input_arr)) == expected
