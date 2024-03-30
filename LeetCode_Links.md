@@ -39,6 +39,7 @@
 - [Problem 2092: Find All People With Secret](https://leetcode.com/problems/find-all-people-with-secret/)
 - [Problem 20: Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
 - [Problem 2108: Find First Palindromic String](https://leetcode.com/problems/find-first-palindromic-string-in-the-array/)
+- [Problem 2130: Maximum Twin Sum Of A Linked List](https://leetcode.com/problems/maximum-twin-sum-of-a-linked-list/)
 - [Problem 2149: Rearrange Array Elements By Sign](https://leetcode.com/problems/rearrange-array-elements-by-sign/)
 - [Problem 215: Krh Largest Element In Array](https://leetcode.com/problems/course-schedule/)
 - [Problem 226: Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/)
