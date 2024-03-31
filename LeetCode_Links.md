@@ -51,6 +51,7 @@
 - [Problem 2390: Removing Stars From A String](https://leetcode.com/problems/removing-stars-from-a-string/)
 - [Problem 2402: Meeting Rooms 3](https://leetcode.com/problems/meeting-rooms-iii/)
 - [Problem 242: Valid Anagram](https://leetcode.com/problems/valid-anagram/)
+- [Problem 2444: Count Subarrays With Fixed Bounds](https://leetcode.com/problems/count-subarrays-with-fixed-bounds/)
 - [Problem 2485: Find The Pivot Integer](https://leetcode.com/problems/find-the-pivot-integer/)
 - [Problem 2540: Minimum Common Value](https://leetcode.com/problems/minimum-common-value/)
 - [Problem 268: Missing Number](https://leetcode.com/problems/missing-number/)
