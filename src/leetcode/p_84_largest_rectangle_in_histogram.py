@@ -41,14 +41,16 @@ def largest_rectangle_area(heights: List[int]) -> int:
     for idx, h in enumerate(heights):
         start = idx
         while stack and stack[-1][0] > h:
-            prev_h, prev_start_idx = stack.pop()
-            max_area = max(max_area, prev_h * (idx - prev_start_idx))
-            start = prev_start_idx
-
+            prev_h, start = stack.pop()
+            candidate_area = prev_h * (idx - start)
+            if candidate_area > max_area:
+                max_area = candidate_area
         stack.append((h, start))
 
     while stack:
         h, idx = stack.pop()
-        max_area = max(max_area, h * (n - idx))
+        candidate_area = h * (n - idx)
+        if candidate_area > max_area:
+            max_area = candidate_area
 
     return max_area
