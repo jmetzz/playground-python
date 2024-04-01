@@ -85,6 +85,7 @@
 - [Problem 54: Spiral Matrix](https://leetcode.com/problems/spiral-matrix/)
 - [Problem 56: Merge Intervals](https://leetcode.com/problems/merge-intervals/)
 - [Problem 57: Insert Intervals](https://leetcode.com/problems/insert-interval/)
+- [Problem 58: Length Of Last Word](https://leetcode.com/problems/length-of-last-word/)
 - [Problem 629: K Inverse Pairs Array](https://leetcode.com/problems/k-inverse-pairs-array/)
 - [Problem 645: Set Mismatch](https://leetcode.com/problems/set-mismatch/)
 - [Problem 647: Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings/)
