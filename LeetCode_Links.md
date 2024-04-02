@@ -36,6 +36,7 @@
 - [Problem 199: Binary Tree Right Side View](https://leetcode.com/problems/binary-tree-right-side-view/)
 - [Problem 19: Remove Nth Node From End Of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)
 - [Problem 200: Number Of Islands](https://leetcode.com/problems/number-of-islands/)
+- [Problem 205: Isomorphic Strings](https://leetcode.com/problems/isomorphic-strings/)
 - [Problem 206: Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
 - [Problem 2092: Find All People With Secret](https://leetcode.com/problems/find-all-people-with-secret/)
 - [Problem 20: Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
