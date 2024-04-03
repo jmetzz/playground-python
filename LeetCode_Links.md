@@ -49,6 +49,7 @@
 - [Problem 22: Generate Parentheses](https://leetcode.com/problems/generate-parentheses/)
 - [Problem 2300: Successful Pairs Of Spells And Potions](https://leetcode.com/problems/successful-pairs-of-spells-and-potions/)
 - [Problem 231: Power Of Two](https://leetcode.com/problems/power-of-two/)
+- [Problem 2336: Smallest Number In Infinite Set](https://leetcode.com/problems/smallest-number-in-infinite-set/)
 - [Problem 2352: Equal Row And Column Pairs](https://leetcode.com/problems/equal-row-and-column-pairs/)
 - [Problem 2360: Longest Cycle In A Graph](https://leetcode.com/problems/longest-cycle-in-a-graph/)
 - [Problem 238: Product Of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/)
