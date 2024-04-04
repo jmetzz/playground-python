@@ -58,6 +58,7 @@
 - [Problem 2402: Meeting Rooms 3](https://leetcode.com/problems/meeting-rooms-iii/)
 - [Problem 242: Valid Anagram](https://leetcode.com/problems/valid-anagram/)
 - [Problem 2444: Count Subarrays With Fixed Bounds](https://leetcode.com/problems/count-subarrays-with-fixed-bounds/)
+- [Problem 2462: Total Cost To Hire K Workers](https://leetcode.com/problems/total-cost-to-hire-k-workers/)
 - [Problem 2485: Find The Pivot Integer](https://leetcode.com/problems/find-the-pivot-integer/)
 - [Problem 2540: Minimum Common Value](https://leetcode.com/problems/minimum-common-value/)
 - [Problem 2542: Maximum Subsequence Score](https://leetcode.com/problems/maximum-subsequence-score/)
