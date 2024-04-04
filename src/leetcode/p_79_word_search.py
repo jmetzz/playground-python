@@ -106,3 +106,38 @@ def exist_2(board: List[List[str]], word: str, debug: bool = False) -> bool:
             if dfs_explore_from(row, col, 0) is True:
                 return True
     return False
+
+
+def exist_3(board: List[List[str]], word: str, debug: bool = False) -> bool:
+    n = len(board)
+    m = len(board[0])
+
+    if len(word) > n * m:
+        return False
+
+    def dfs_explore_from(r, c, idx) -> bool:
+        if idx == len(word):
+            return True
+
+        if not (0 <= r < n and 0 <= c < m) or word[idx] != board[r][c]:
+            return False
+
+        curr_char = board[r][c]
+        board[r][c] = ""  # mark it as used
+        if (
+            dfs_explore_from(r, c + 1, idx + 1)  # right
+            or dfs_explore_from(r + 1, c, idx + 1)  # down
+            or dfs_explore_from(r, c - 1, idx + 1)  # left
+            or dfs_explore_from(r - 1, c, idx + 1)  # up
+        ):
+            board[r][c] = curr_char  # always reinstante the character to avoid side-effects
+            return True
+
+        board[r][c] = curr_char  # reinstante the character
+        return False
+
+    for row in range(n):
+        for col in range(m):
+            if dfs_explore_from(row, col, 0) is True:
+                return True
+    return False
