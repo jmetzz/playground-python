@@ -124,17 +124,15 @@ def exist_3(board: List[List[str]], word: str, debug: bool = False) -> bool:
 
         curr_char = board[r][c]
         board[r][c] = ""  # mark it as used
-        if (
+        # use short circuit to speed up the process
+        answer = (
             dfs_explore_from(r, c + 1, idx + 1)  # right
             or dfs_explore_from(r + 1, c, idx + 1)  # down
             or dfs_explore_from(r, c - 1, idx + 1)  # left
             or dfs_explore_from(r - 1, c, idx + 1)  # up
-        ):
-            board[r][c] = curr_char  # always reinstante the character to avoid side-effects
-            return True
-
-        board[r][c] = curr_char  # reinstante the character
-        return False
+        )
+        board[r][c] = curr_char  # always reinstante the character to avoid side-effects
+        return answer
 
     for row in range(n):
         for col in range(m):
