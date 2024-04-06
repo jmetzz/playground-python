@@ -11,6 +11,7 @@
 - [Problem 1171: Remove Zero Sum Consecutive Nodes From List](https://leetcode.com/problems/remove-zero-sum-consecutive-nodes-from-linked-list/)
 - [Problem 118: Pascal Triangle](https://leetcode.com/problems/pascals-triangle/)
 - [Problem 11: Container With Most Water](https://leetcode.com/problems/container-with-most-water/)
+- [Problem 1249: Min Remove To Make Valid Parentheses](https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/)
 - [Problem 125: Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)
 - [Problem 1342: Number Steps To Reduce To Zero](https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/)
 - [Problem 134: Gas Station](https://leetcode.com/problems/gas-station/)
