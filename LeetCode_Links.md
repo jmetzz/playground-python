@@ -106,6 +106,7 @@
 - [Problem 647: Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings/)
 - [Problem 649: Dota2 Senate](https://leetcode.com/problems/dota2-senate/)
 - [Problem 66: Plus One](https://leetcode.com/problems/plus-one/)
+- [Problem 678: Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string/)
 - [Problem 67: Add Binary](https://leetcode.com/problems/add-binary/)
 - [Problem 700: Search Binary Tree](https://leetcode.com/problems/search-in-a-binary-search-tree/)
 - [Problem 713: Subarray Product Less Than K](https://leetcode.com/problems/subarray-product-less-than-k/)
