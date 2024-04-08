@@ -14,10 +14,10 @@ repos:
     rev: v0.3.4
     hooks:
       - id: ruff
-        types_or: [ python, pyi ]
-        args: [ --fix ]
+        types_or: [python, pyi]
+        args: [--fix]
       - id: ruff-format
-        types_or: [ python, pyi, jupyter ]
+        types_or: [python, pyi, jupyter]
   - repo: local
     hooks:
       - id: pytest
