@@ -76,3 +76,5 @@ results/*.stats
 results/*.pkl
 results/*.dat
 results/*.txt
+
+resources/unversioned/
