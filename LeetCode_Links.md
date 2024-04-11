@@ -85,6 +85,7 @@
 - [Problem 383: Ransom Note](https://leetcode.com/problems/ransom-note/)
 - [Problem 387: First Unique Character In String](https://leetcode.com/problems/first-unique-character-in-a-sequence/)
 - [Problem 3: Longest Substring Without Repeating Chars](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
+- [Problem 402: Remove K Digits](https://leetcode.com/problems/remove-k-digits/)
 - [Problem 412: Fizz Buzz](https://leetcode.com/problems/fizz-buzz/)
 - [Problem 442: Find All Duplicates In An Array](https://leetcode.com/problems/find-all-duplicates-in-an-array/)
 - [Problem 450: Delete Node Binary Search Tree](https://leetcode.com/problems/delete-node-in-a-bst/)
