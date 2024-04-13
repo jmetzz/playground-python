@@ -15,4 +15,4 @@ from leetcode.p_605_can_place_flowers import can_place_flowers_naive, can_place_
     ],
 )
 def test_can_place_flowers(func, input_arr, n, expected):
-    assert func(input_arr, n) == expected
+    assert func(input_arr[:], n) == expected
