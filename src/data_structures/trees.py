@@ -33,6 +33,50 @@ class BinaryTreeNode:
             BinaryTreeNode.deserialize(arr, root * 2 + 2),
         )
 
+    def serialize(self) -> List[Optional[int]]:
+        """
+        Serializes the tree to an array representation using level-order traversal.
+        """
+        if not self:
+            return []
+
+        result = []
+        queue = deque([self])
+
+        while queue:
+            node = queue.popleft()
+            if node:
+                result.append(node.val)
+                queue.append(node.left)
+                queue.append(node.right)
+            else:
+                result.append(None)
+
+        # Remove trailing None values to minimize the array length
+        while result and result[-1] is None:
+            result.pop()
+
+        return result
+
+    def serialize_tree(self, prefix: str = "", is_left=True) -> str:
+        """Generate a string representation of a binary tree"""
+        # if node is None:
+        #     return "Null\n"
+        result = prefix
+        if prefix == "":
+            result += "── "
+        else:
+            result += "├── " if is_left else "└── "
+
+        result += str(self.val) + "\n"
+        if self.left is not None:
+            result += self.left.serialize(prefix + ("   " if not is_left or self.right is not None else "    "), True)
+
+        if self.right is not None:
+            result += self.right.serialize(prefix + ("   " if not is_left or self.left is not None else "    "), False)
+
+        return result
+
     @staticmethod
     def from_indices(indices: List[int]):
         size = max(indices) + 1
@@ -102,25 +146,6 @@ class BinaryTreeNode:
 
     def to_map(self) -> Dict[int, int]:
         raise NotImplementedError
-
-    def serialize(self, prefix: str = "", is_left=True) -> str:
-        """Generate a string representation of a binary tree"""
-        # if node is None:
-        #     return "Null\n"
-        result = prefix
-        if prefix == "":
-            result += "── "
-        else:
-            result += "├── " if is_left else "└── "
-
-        result += str(self.val) + "\n"
-        if self.left is not None:
-            result += self.left.serialize(prefix + ("   " if not is_left or self.right is not None else "    "), True)
-
-        if self.right is not None:
-            result += self.right.serialize(prefix + ("   " if not is_left or self.left is not None else "    "), False)
-
-        return result
 
     def invert(self):
         q = deque()

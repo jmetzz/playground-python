@@ -72,3 +72,9 @@ def test_binary_tree_invert_recursive():
     tree = BinaryTreeNode.deserialize(TREE_1_VALUES)
     actual = BinaryTreeNode.invert_recursive(tree).bfs()
     assert actual == expected
+
+
+def test_serialize():
+    serialized_tree = [1, 2, 3, None, None, 4, 5]
+    new_tree = BinaryTreeNode.deserialize(serialized_tree)
+    assert new_tree.serialize() == serialized_tree

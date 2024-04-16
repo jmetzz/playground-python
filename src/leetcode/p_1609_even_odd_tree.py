@@ -100,7 +100,7 @@ def run_for_tree(arr, show=False):
     print(">>>")
     print(is_even_odd_tree(tree))
     if show:
-        print(BinaryTreeNode.serialize(tree))
+        print(BinaryTreeNode.serialize_tree(tree))
     print("<<<")
     print()
 
