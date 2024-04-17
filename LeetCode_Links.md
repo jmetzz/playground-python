@@ -140,4 +140,5 @@
 - [Problem 948: Bag Of Tokens](https://leetcode.com/problems/bag-of-tokens/)
 - [Problem 950: Reveal Cards In Increasing Order](https://leetcode.com/problems/reveal-cards-in-increasing-order/)
 - [Problem 977: Squares Of Sorted Array](https://leetcode.com/problems/squares-of-a-sorted-array/)
+- [Problem 988: Smallest String Starting From Leaf](https://leetcode.com/problems/smallest-string-starting-from-leaf/)
 - [Problem 992: Subarrays With K Diff Integers](https://leetcode.com/problems/subarrays-with-k-different-integers/)
