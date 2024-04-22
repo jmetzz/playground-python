@@ -171,4 +171,5 @@ def find_farmland_iterative(land: List[List[int]]) -> List[List[int]]:
     return answer
 
 
-print(find_farmland_recursive_2([[1, 0, 0], [0, 1, 1], [0, 1, 1]]))
+if __name__ == "__main__":
+    print(find_farmland_recursive_2([[1, 0, 0], [0, 1, 1], [0, 1, 1]]))
