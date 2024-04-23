@@ -48,42 +48,96 @@ from typing import List
 
 
 def find_min_height_trees_dfs(n: int, edges: List[List[int]]) -> List[int]:
+    """
+    Finds all the minimum height trees (MHTs) in an undirected graph using depth-first search (DFS).
+
+    Note: This solution will hit Time Limit Exceeded on LeetCode for large graphs
+          due to its computational complexity.
+
+    This DFS-based solution attempts to find the height of the tree rooted at each node by exploring
+    each path to its deepest leaf, but it is not optimized for larger graphs.
+
+    Parameters:
+    - n (int): The number of nodes in the graph.
+    - edges (List[List[int]]): A list of undirected edges where each edge is represented by a list of two integers.
+
+    Returns:
+    - List[int]: A list of integers representing the root nodes of all the minimum height trees.
+
+    Example:
+    >>> find_min_height_trees_dfs(4, [[1, 0], [1, 2], [1, 3]])
+    [1]
+    """
+
     graph = defaultdict(list)
     for u, v in edges:
         graph[u].append(v)
         graph[v].append(u)
 
     def _dfs(root) -> int:
+        """
+        Helper function to perform DFS and find the maximum height starting from 'root'
+        """
         stack = [(root, 0)]
         visited = set()
-        max_h = 0
+        max_height = 0
         while stack:
-            node, curr_h = stack.pop()
+            node, current_height = stack.pop()
             if node not in visited:
                 visited.add(node)
                 for neighbor in graph[node]:
                     if neighbor not in visited:
-                        stack.append((neighbor, curr_h + 1))
-            max_h = max(max_h, curr_h)
-        return max_h
+                        stack.append((neighbor, current_height + 1))
+            max_height = max(max_height, current_height)
+        return max_height
 
-    max_heap = []
+    max_heights_heap = []
     for root in graph:
         h = _dfs(root)
-        if not max_heap or max_heap[0][0] < -h:
-            max_heap = [(-h, root)]
-        elif max_heap[0][0] == -h:
-            heappush(max_heap, (-h, root))
+        if not max_heights_heap or max_heights_heap[0][0] < -h:
+            max_heights_heap = [(-h, root)]
+        elif max_heights_heap[0][0] == -h:
+            heappush(max_heights_heap, (-h, root))
 
-    return [root for _, root in max_heap]
+    # Extract the root nodes from the heap that have the minimum height
+    return [root for _, root in max_heights_heap]
 
 
 def find_min_height_trees_removing_leaves(n: int, edges: List[List[int]]) -> List[int]:
+    """
+    Finds all the minimum height trees (MHTs) in an undirected graph by iteratively removing leaf nodes.
+
+    This method identifies the centroids of the graph by pruning leaf nodes until only one or two nodes are left,
+    which will be the root nodes of the trees with the minimum height.
+
+    - The function first constructs a graph as an adjacency list.
+    - Nodes with only one connected node (leaf nodes) are initially identified.
+    - The algorithm removes leaf nodes layer by layer until the remaining graph has only one or two nodes.
+    - This approach ensures that the remaining node(s) are the centroids of the graph, minimizing the height
+      when used as the root of the tree.
+
+    The solution handles edge cases such as a graph with only one node or no edges gracefully.
+
+    Parameters:
+    - n (int): The number of nodes in the graph.
+    - edges (List[List[int]]): A list of undirected edges where each edge is represented by a list of two integers.
+
+    Returns:
+    - List[int]: A list of integers representing the root nodes of all the minimum height trees. The list will
+      contain either one or two elements, depending on the structure of the tree.
+
+    Example:
+    >>> find_min_height_trees_removing_leaves(6, [[3, 0], [3, 1], [3, 2], [3, 4], [5, 4]])
+    [3, 4]
+    """
     if n == 1:
+        # Single node case, the only node is trivially the centroid.
         return [0]
     if not edges:
+        # No edges case, no trees can be formed.
         return []
 
+    # Build the graph as an adjacency list
     graph = defaultdict(list)
     for u, v in edges:
         graph[u].append(v)
@@ -91,6 +145,7 @@ def find_min_height_trees_removing_leaves(n: int, edges: List[List[int]]) -> Lis
 
     # leaves have indegree equals 1
     leaves = [leaf for leaf in graph if len(graph[leaf]) == 1]
+
     # prune the tree until we have either 1 or 2 nodes only in the graph
     remaining_nodes = n
     while remaining_nodes > 2:
