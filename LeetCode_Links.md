@@ -81,6 +81,7 @@
 - [Problem 295: Find Median From Data Stream](https://leetcode.com/problems/find-median-from-data-stream/)
 - [Problem 2966: Divide Array Into Arrays With Max Diff](https://leetcode.com/problems/divide-array-into-arrays-with-max-difference/)
 - [Problem 3005: Count Elements With Max Frequency](https://leetcode.com/problems/count-elements-with-maximum-frequency/)
+- [Problem 310: Minimum Height Trees](https://leetcode.com/problems/minimum-height-trees/)
 - [Problem 328: Odd Even Linked List](https://leetcode.com/problems/odd-even-linked-list/)
 - [Problem 334: Increasing Triplet Subsequence](https://leetcode.com/problems/increasing-triplet-subsequence/)
 - [Problem 344: Reverse String](https://leetcode.com/problems/reverse-string/)
