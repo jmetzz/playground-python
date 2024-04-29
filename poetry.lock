@@ -2386,6 +2386,24 @@ qa = ["flake8 (==5.0.4)", "mypy (==0.971)", "types-setuptools (==67.2.0.1)"]
 testing = ["docopt", "pytest"]
 
 [[package]]
+name = "patsy"
+version = "0.5.6"
+description = "A Python package for describing statistical models and for building design matrices."
+optional = false
+python-versions = "*"
+files = [
+    {file = "patsy-0.5.6-py2.py3-none-any.whl", hash = "sha256:19056886fd8fa71863fa32f0eb090267f21fb74be00f19f5c70b2e9d76c883c6"},
+    {file = "patsy-0.5.6.tar.gz", hash = "sha256:95c6d47a7222535f84bff7f63d7303f2e297747a598db89cf5c67f0c0c7d2cdb"},
+]
+
+[package.dependencies]
+numpy = ">=1.4"
+six = "*"
+
+[package.extras]
+test = ["pytest", "pytest-cov", "scipy"]
+
+[[package]]
 name = "perfplot"
 version = "0.10.2"
 description = "Performance plots for Python code snippets"
@@ -2618,6 +2636,57 @@ files = [
 [package.extras]
 dev = ["pre-commit", "tox"]
 testing = ["pytest", "pytest-benchmark"]
+
+[[package]]
+name = "pmdarima"
+version = "2.0.4"
+description = "Python's forecast::auto.arima equivalent"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "pmdarima-2.0.4-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:8e6c16672e0f122e63ab1d7282a362c762783264a07636bbc9d4ae3d58ac7605"},
+    {file = "pmdarima-2.0.4-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:c9a839a477100331c47aa8a841c198ecb0b3fab4aff958622d31fec86d2aea76"},
+    {file = "pmdarima-2.0.4-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:ccd9e2186ba1ef45006f6c88dc9ecd6121ddb8914114bebcfa0d42899b40ced7"},
+    {file = "pmdarima-2.0.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:165bdf787f5dafd5faab543d20524413b765d9cb6f020f0e1846551e7678414a"},
+    {file = "pmdarima-2.0.4-cp310-cp310-win_amd64.whl", hash = "sha256:cbde33812c37f441ba70d9e7b0479c758d56ad77a8dcbdead1fb8baad9aee806"},
+    {file = "pmdarima-2.0.4-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:8d961c99b445e53eadf6627c61bf800f403bd247b7ec2f62c6dfe8a0b1bcbf0b"},
+    {file = "pmdarima-2.0.4-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:78e815c51074411bbe8433a912af4cc8dac394d9330cfedf57dd5ce08efe4a65"},
+    {file = "pmdarima-2.0.4-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:8022484256492bc425f0053b3a0346ab0a877f0f668664be738fe07f6b423c08"},
+    {file = "pmdarima-2.0.4-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:46677b68efffde66aa1291799b39b91420961967fa2b6e041e26bb263782d38d"},
+    {file = "pmdarima-2.0.4-cp311-cp311-win_amd64.whl", hash = "sha256:bc594dd981bca5217b4448c96e82dbd60553b07263517a5cb0510b4bfe66ded1"},
+    {file = "pmdarima-2.0.4-cp312-cp312-macosx_10_9_x86_64.whl", hash = "sha256:62a4ff308fbb5074a66c0877ba6b472d0fc406cbc0b5a2dba7e8fa800c9dd8ca"},
+    {file = "pmdarima-2.0.4-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:7e215ec6130b917843d26e0698637f976e4a6cc9dbd521bf44547668d08f058a"},
+    {file = "pmdarima-2.0.4-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:3d837bc00266a234d9292914f19a67e04ca8361d9c309b70fc8f16c1ed863551"},
+    {file = "pmdarima-2.0.4-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:8790bff665a5ebaa36ddbbfd0e8ea51ad2e5809270dc74d462d5c2498b26220f"},
+    {file = "pmdarima-2.0.4-cp312-cp312-win_amd64.whl", hash = "sha256:a8bf7913bdbd0e286489b2111080a0f51f5d9d3ee5e05b7011a691207047ddcf"},
+    {file = "pmdarima-2.0.4-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:5bce63dca165948a2311eff0c200e57370829855fce6e7d3fe930497f2f9fc04"},
+    {file = "pmdarima-2.0.4-cp37-cp37m-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:4c1ed01cbb399d9cdbe3f12f2ef505a144826769ec3ad75f6075cadbe8447a13"},
+    {file = "pmdarima-2.0.4-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:73060d28ffabeae7374ab48ba7882b29ae6998de3e3e34f5484c64e0baefda0d"},
+    {file = "pmdarima-2.0.4-cp37-cp37m-win_amd64.whl", hash = "sha256:776e21e076393c6fe86895ffe71e6769c9b3fe0dffb92d6f6558657580cf0a42"},
+    {file = "pmdarima-2.0.4-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:ec865e8fb07378c470f3e41a77d6705875a674cefbe6c0185e9bc070e642da5c"},
+    {file = "pmdarima-2.0.4-cp38-cp38-macosx_11_0_arm64.whl", hash = "sha256:670ca1f93ed4f8239e7fbd7d1dd156108899e15e8fb0717b2b3fa605fa6ace35"},
+    {file = "pmdarima-2.0.4-cp38-cp38-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:ab1ee166f511d2497d6b357bf0cac84326efff25349eb777aea5b030ed6bf8bb"},
+    {file = "pmdarima-2.0.4-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:d9ead43510adfe3c0d4000e37427bfcf11ba6cc3b26091368a847c5da010e052"},
+    {file = "pmdarima-2.0.4-cp38-cp38-win_amd64.whl", hash = "sha256:c1213f3fa1e3ced9796f4092f9bd4be1881205f77bc2f5a1494695134a92000e"},
+    {file = "pmdarima-2.0.4-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:6e0e3c90e7a91b44599f08cd9c62880466860e76bd1b0ca2d2ff8e72834a1a7f"},
+    {file = "pmdarima-2.0.4-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:8fe612384e4989f010dacdefbff874231f5b7351dfb84bcbfe9ed8d718fc4115"},
+    {file = "pmdarima-2.0.4-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:db842d97905b171c867aae1a492b8c958ec1bae987c3ee41c561a06d99a19efd"},
+    {file = "pmdarima-2.0.4-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:a03936d681c720b0e44565d099de2619b762cb9d443f3043de9a78888aff6bb2"},
+    {file = "pmdarima-2.0.4-cp39-cp39-win_amd64.whl", hash = "sha256:13ba7061d4e9d48f21e1c393bfaa3d6b31f60a8c97ddbe8d455fa675c594f9e4"},
+    {file = "pmdarima-2.0.4.tar.gz", hash = "sha256:b87f9d9f5b7dc2ddbd053687c2264e26ac98fd4118e843c7e9bc3dd7343e5c1a"},
+]
+
+[package.dependencies]
+Cython = ">=0.29,<0.29.18 || >0.29.18,<0.29.31 || >0.29.31"
+joblib = ">=0.11"
+numpy = ">=1.21.2"
+packaging = ">=17.1"
+pandas = ">=0.19"
+scikit-learn = ">=0.22"
+scipy = ">=1.3.2"
+setuptools = ">=38.6.0,<50.0.0 || >50.0.0"
+statsmodels = ">=0.13.2"
+urllib3 = "*"
 
 [[package]]
 name = "pre-commit"
@@ -3643,6 +3712,48 @@ files = [
 ]
 
 [[package]]
+name = "scikit-learn"
+version = "1.4.2"
+description = "A set of python modules for machine learning and data mining"
+optional = false
+python-versions = ">=3.9"
+files = [
+    {file = "scikit-learn-1.4.2.tar.gz", hash = "sha256:daa1c471d95bad080c6e44b4946c9390a4842adc3082572c20e4f8884e39e959"},
+    {file = "scikit_learn-1.4.2-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:8539a41b3d6d1af82eb629f9c57f37428ff1481c1e34dddb3b9d7af8ede67ac5"},
+    {file = "scikit_learn-1.4.2-cp310-cp310-macosx_12_0_arm64.whl", hash = "sha256:68b8404841f944a4a1459b07198fa2edd41a82f189b44f3e1d55c104dbc2e40c"},
+    {file = "scikit_learn-1.4.2-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:81bf5d8bbe87643103334032dd82f7419bc8c8d02a763643a6b9a5c7288c5054"},
+    {file = "scikit_learn-1.4.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:36f0ea5d0f693cb247a073d21a4123bdf4172e470e6d163c12b74cbb1536cf38"},
+    {file = "scikit_learn-1.4.2-cp310-cp310-win_amd64.whl", hash = "sha256:87440e2e188c87db80ea4023440923dccbd56fbc2d557b18ced00fef79da0727"},
+    {file = "scikit_learn-1.4.2-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:45dee87ac5309bb82e3ea633955030df9bbcb8d2cdb30383c6cd483691c546cc"},
+    {file = "scikit_learn-1.4.2-cp311-cp311-macosx_12_0_arm64.whl", hash = "sha256:1d0b25d9c651fd050555aadd57431b53d4cf664e749069da77f3d52c5ad14b3b"},
+    {file = "scikit_learn-1.4.2-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:b0203c368058ab92efc6168a1507d388d41469c873e96ec220ca8e74079bf62e"},
+    {file = "scikit_learn-1.4.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:44c62f2b124848a28fd695db5bc4da019287abf390bfce602ddc8aa1ec186aae"},
+    {file = "scikit_learn-1.4.2-cp311-cp311-win_amd64.whl", hash = "sha256:5cd7b524115499b18b63f0c96f4224eb885564937a0b3477531b2b63ce331904"},
+    {file = "scikit_learn-1.4.2-cp312-cp312-macosx_10_9_x86_64.whl", hash = "sha256:90378e1747949f90c8f385898fff35d73193dfcaec3dd75d6b542f90c4e89755"},
+    {file = "scikit_learn-1.4.2-cp312-cp312-macosx_12_0_arm64.whl", hash = "sha256:ff4effe5a1d4e8fed260a83a163f7dbf4f6087b54528d8880bab1d1377bd78be"},
+    {file = "scikit_learn-1.4.2-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:671e2f0c3f2c15409dae4f282a3a619601fa824d2c820e5b608d9d775f91780c"},
+    {file = "scikit_learn-1.4.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:d36d0bc983336bbc1be22f9b686b50c964f593c8a9a913a792442af9bf4f5e68"},
+    {file = "scikit_learn-1.4.2-cp312-cp312-win_amd64.whl", hash = "sha256:d762070980c17ba3e9a4a1e043ba0518ce4c55152032f1af0ca6f39b376b5928"},
+    {file = "scikit_learn-1.4.2-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:d9993d5e78a8148b1d0fdf5b15ed92452af5581734129998c26f481c46586d68"},
+    {file = "scikit_learn-1.4.2-cp39-cp39-macosx_12_0_arm64.whl", hash = "sha256:426d258fddac674fdf33f3cb2d54d26f49406e2599dbf9a32b4d1696091d4256"},
+    {file = "scikit_learn-1.4.2-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:5460a1a5b043ae5ae4596b3126a4ec33ccba1b51e7ca2c5d36dac2169f62ab1d"},
+    {file = "scikit_learn-1.4.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:49d64ef6cb8c093d883e5a36c4766548d974898d378e395ba41a806d0e824db8"},
+    {file = "scikit_learn-1.4.2-cp39-cp39-win_amd64.whl", hash = "sha256:c97a50b05c194be9146d61fe87dbf8eac62b203d9e87a3ccc6ae9aed2dfaf361"},
+]
+
+[package.dependencies]
+joblib = ">=1.2.0"
+numpy = ">=1.19.5"
+scipy = ">=1.6.0"
+threadpoolctl = ">=2.0.0"
+
+[package.extras]
+benchmark = ["matplotlib (>=3.3.4)", "memory-profiler (>=0.57.0)", "pandas (>=1.1.5)"]
+docs = ["Pillow (>=7.1.2)", "matplotlib (>=3.3.4)", "memory-profiler (>=0.57.0)", "numpydoc (>=1.2.0)", "pandas (>=1.1.5)", "plotly (>=5.14.0)", "pooch (>=1.6.0)", "scikit-image (>=0.17.2)", "seaborn (>=0.9.0)", "sphinx (>=6.0.0)", "sphinx-copybutton (>=0.5.2)", "sphinx-gallery (>=0.15.0)", "sphinx-prompt (>=1.3.0)", "sphinxext-opengraph (>=0.4.2)"]
+examples = ["matplotlib (>=3.3.4)", "pandas (>=1.1.5)", "plotly (>=5.14.0)", "pooch (>=1.6.0)", "scikit-image (>=0.17.2)", "seaborn (>=0.9.0)"]
+tests = ["black (>=23.3.0)", "matplotlib (>=3.3.4)", "mypy (>=1.3)", "numpydoc (>=1.2.0)", "pandas (>=1.1.5)", "polars (>=0.19.12)", "pooch (>=1.6.0)", "pyamg (>=4.0.0)", "pyarrow (>=12.0.0)", "pytest (>=7.1.2)", "pytest-cov (>=2.9.0)", "ruff (>=0.0.272)", "scikit-image (>=0.17.2)"]
+
+[[package]]
 name = "scipy"
 version = "1.13.0"
 description = "Fundamental algorithms for scientific computing in Python"
@@ -3815,6 +3926,51 @@ pure-eval = "*"
 tests = ["cython", "littleutils", "pygments", "pytest", "typeguard"]
 
 [[package]]
+name = "statsmodels"
+version = "0.14.2"
+description = "Statistical computations and models for Python"
+optional = false
+python-versions = ">=3.9"
+files = [
+    {file = "statsmodels-0.14.2-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:df5d6f95c46f0341da6c79ee7617e025bf2b371e190a8e60af1ae9cabbdb7a97"},
+    {file = "statsmodels-0.14.2-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:a87ef21fadb445b650f327340dde703f13aec1540f3d497afb66324499dea97a"},
+    {file = "statsmodels-0.14.2-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:5827a12e3ede2b98a784476d61d6bec43011fedb64aa815f2098e0573bece257"},
+    {file = "statsmodels-0.14.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:10f2b7611a61adb7d596a6d239abdf1a4d5492b931b00d5ed23d32844d40e48e"},
+    {file = "statsmodels-0.14.2-cp310-cp310-musllinux_1_1_x86_64.whl", hash = "sha256:c254c66142f1167b4c7d031cf8db55294cc62ff3280e090fc45bd10a7f5fd029"},
+    {file = "statsmodels-0.14.2-cp310-cp310-win_amd64.whl", hash = "sha256:0e46e9d59293c1af4cc1f4e5248f17e7e7bc596bfce44d327c789ac27f09111b"},
+    {file = "statsmodels-0.14.2-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:50fcb633987779e795142f51ba49fb27648d46e8a1382b32ebe8e503aaabaa9e"},
+    {file = "statsmodels-0.14.2-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:876794068abfaeed41df71b7887000031ecf44fbfa6b50d53ccb12ebb4ab747a"},
+    {file = "statsmodels-0.14.2-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:7a91f6c4943de13e3ce2e20ee3b5d26d02bd42300616a421becd53756f5deb37"},
+    {file = "statsmodels-0.14.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:4864a1c4615c5ea5f2e3b078a75bdedc90dd9da210a37e0738e064b419eccee2"},
+    {file = "statsmodels-0.14.2-cp311-cp311-musllinux_1_1_x86_64.whl", hash = "sha256:afbd92410e0df06f3d8c4e7c0e2e71f63f4969531f280fb66059e2ecdb6e0415"},
+    {file = "statsmodels-0.14.2-cp311-cp311-win_amd64.whl", hash = "sha256:8e004cfad0e46ce73fe3f3812010c746f0d4cfd48e307b45c14e9e360f3d2510"},
+    {file = "statsmodels-0.14.2-cp312-cp312-macosx_10_9_x86_64.whl", hash = "sha256:eb0ba1ad3627705f5ae20af6b2982f500546d43892543b36c7bca3e2f87105e7"},
+    {file = "statsmodels-0.14.2-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:90fd2f0110b73fc3fa5a2f21c3ca99b0e22285cccf38e56b5b8fd8ce28791b0f"},
+    {file = "statsmodels-0.14.2-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:ac780ad9ff552773798829a0b9c46820b0faa10e6454891f5e49a845123758ab"},
+    {file = "statsmodels-0.14.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:55d1742778400ae67acb04b50a2c7f5804182f8a874bd09ca397d69ed159a751"},
+    {file = "statsmodels-0.14.2-cp312-cp312-musllinux_1_1_x86_64.whl", hash = "sha256:f870d14a587ea58a3b596aa994c2ed889cc051f9e450e887d2c83656fc6a64bf"},
+    {file = "statsmodels-0.14.2-cp312-cp312-win_amd64.whl", hash = "sha256:f450fcbae214aae66bd9d2b9af48e0f8ba1cb0e8596c6ebb34e6e3f0fec6542c"},
+    {file = "statsmodels-0.14.2-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:201c3d00929c4a67cda1fe05b098c8dcf1b1eeefa88e80a8f963a844801ed59f"},
+    {file = "statsmodels-0.14.2-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:9edefa4ce08e40bc1d67d2f79bc686ee5e238e801312b5a029ee7786448c389a"},
+    {file = "statsmodels-0.14.2-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:29c78a7601fdae1aa32104c5ebff2e0b72c26f33e870e2f94ab1bcfd927ece9b"},
+    {file = "statsmodels-0.14.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:f36494df7c03d63168fccee5038a62f469469ed6a4dd6eaeb9338abedcd0d5f5"},
+    {file = "statsmodels-0.14.2-cp39-cp39-win_amd64.whl", hash = "sha256:8875823bdd41806dc853333cc4e1b7ef9481bad2380a999e66ea42382cf2178d"},
+    {file = "statsmodels-0.14.2.tar.gz", hash = "sha256:890550147ad3a81cda24f0ba1a5c4021adc1601080bd00e191ae7cd6feecd6ad"},
+]
+
+[package.dependencies]
+numpy = ">=1.22.3"
+packaging = ">=21.3"
+pandas = ">=1.4,<2.1.0 || >2.1.0"
+patsy = ">=0.5.6"
+scipy = ">=1.8,<1.9.2 || >1.9.2"
+
+[package.extras]
+build = ["cython (>=0.29.33)"]
+develop = ["colorama", "cython (>=0.29.33)", "cython (>=3.0.10,<4)", "flake8", "isort", "joblib", "matplotlib (>=3)", "pytest (>=7.3.0,<8)", "pytest-cov", "pytest-randomly", "pytest-xdist", "pywinpty", "setuptools-scm[toml] (>=8.0,<9.0)"]
+docs = ["ipykernel", "jupyter-client", "matplotlib", "nbconvert", "nbformat", "numpydoc", "pandas-datareader", "sphinx"]
+
+[[package]]
 name = "tabulate"
 version = "0.9.0"
 description = "Pretty-print tabular data"
@@ -3838,6 +3994,26 @@ files = [
     {file = "tangled_up_in_unicode-0.1.0-py3-none-any.whl", hash = "sha256:a06dea9cf93dcda6a720c46bb86a41e84372e3123c7fd6bef9e66add1dd41019"},
     {file = "tangled_up_in_unicode-0.1.0.tar.gz", hash = "sha256:d07ffa62a4d9e9e0a92582f869ac3a2859456f5c9241580c7a5d9fcf2e6e6315"},
 ]
+
+[[package]]
+name = "tbats"
+version = "1.1.3"
+description = "BATS and TBATS for time series forecasting"
+optional = false
+python-versions = "*"
+files = [
+    {file = "tbats-1.1.3-py3-none-any.whl", hash = "sha256:aff37f39115583028dacbd87227bc2ac65e696ea25543ddcd78e334e1fbe8e3a"},
+    {file = "tbats-1.1.3.tar.gz", hash = "sha256:dccd0d4cd9e2fde30bf19a944ee957d2f865975846284f48ce673992c4f5d89e"},
+]
+
+[package.dependencies]
+numpy = "*"
+pmdarima = "*"
+scikit-learn = "*"
+scipy = "*"
+
+[package.extras]
+dev = ["pip-tools", "pytest", "rpy2"]
 
 [[package]]
 name = "termcolor"
@@ -3873,6 +4049,17 @@ tornado = ">=6.1.0"
 docs = ["myst-parser", "pydata-sphinx-theme", "sphinx"]
 test = ["pre-commit", "pytest (>=7.0)", "pytest-timeout"]
 typing = ["mypy (>=1.6,<2.0)", "traitlets (>=5.11.1)"]
+
+[[package]]
+name = "threadpoolctl"
+version = "3.4.0"
+description = "threadpoolctl"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "threadpoolctl-3.4.0-py3-none-any.whl", hash = "sha256:8f4c689a65b23e5ed825c8436a92b818aac005e0f3715f6a1664d7c7ee29d262"},
+    {file = "threadpoolctl-3.4.0.tar.gz", hash = "sha256:f11b491a03661d6dd7ef692dd422ab34185d982466c49c8f98c8f716b5c93196"},
+]
 
 [[package]]
 name = "tinycss2"
@@ -4138,4 +4325,4 @@ test = ["websockets"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "59062892eb6bc84214e3ff699dcb453f3c754837ac19d937aeb52d43a3c49e45"
+content-hash = "ab84919b496f6efc3fad48319aecc1759f477fb7e2089f17a4849d7b9ec85839"

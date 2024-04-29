@@ -3,8 +3,8 @@ import logging
 import pandas as pd
 
 
-def load_energy_data(filepath: str) -> pd.DataFrame:
-    df = pd.read_csv(filepath, skiprows=1, names=["DateTime", "Price", "Currency"])
+def load_energy_data(filepath: str, suffix: str) -> pd.DataFrame:
+    df = pd.read_csv(filepath + suffix, skiprows=1, names=["DateTime", "Price", "Currency"])
 
     # Split the 'DateTime' column into 'start_time' and 'end_time'
     datetime_splits = df["DateTime"].str.split(" - ", expand=True)
