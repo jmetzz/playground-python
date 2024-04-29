@@ -32,25 +32,6 @@ def test_hash_uniformity():
     assert len(unique_hashes) == len(hashes), "Hash functions should generate unique values for a single item"
 
 
-"""
-Testing SimpleCache class
-These tests focus on the core functionality of a simple in-memory cache.
-Additional considerations for a more robust implementation:
-    Concurrency: If your cache is expected to be used in a multi-threaded or multi-process environment,
-    consider adding tests to ensure it behaves correctly under concurrent access.
-
-    Eviction Policy: If your cache implementation includes an eviction policy
-    (e.g., least recently used (LRU)), write tests to verify that items are
-    evicted as expected when new items are added beyond the size limit.
-
-    Persistence: If the cache supports persistence
-    (saving and loading its state), tests should cover these scenarios to
-    ensure the cache can be accurately reconstructed from its saved state.
-
-
-"""
-
-
 def test_cache_set_get():
     cache = SimpleCache()
     cache.add("key1", "value1")
