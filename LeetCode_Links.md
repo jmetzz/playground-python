@@ -47,6 +47,7 @@
 - [Problem 1768: Merge Strings Alternately](https://leetcode.com/problems/merge-strings-alternately/)
 - [Problem 188: Best Time To Buy And Sell Stock Iv](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/)
 - [Problem 1910: Remove All Occurrences Substring](https://leetcode.com/problems/remove-all-occurrences-of-a-substring/)
+- [Problem 1915: Number Wonderful Substrings](https://leetcode.com/problems/number-of-wonderful-substrings/)
 - [Problem 1991: Find Middle Index In Array](https://leetcode.com/problems/find-the-middle-index-in-array/)
 - [Problem 1992: Find All Groups Of Farmland](https://leetcode.com/problems/find-all-groups-of-farmland/)
 - [Problem 199: Binary Tree Right Side View](https://leetcode.com/problems/binary-tree-right-side-view/)
