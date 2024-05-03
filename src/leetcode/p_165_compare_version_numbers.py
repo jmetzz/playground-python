@@ -51,6 +51,8 @@ All the given revisions in version1 and version2 can be stored in a 32-bit integ
 
 """
 
+from itertools import zip_longest
+
 
 def compare_version_1(version1: str, version2: str) -> int:
     revisions_1 = tuple(map(int, version1.split(".")))
@@ -82,4 +84,16 @@ def compare_version_2(version1: str, version2: str) -> int:
             return -1
         elif rev1 > rev2:
             return 1
+    return 0
+
+
+def compare_version_3(self, version1: str, version2: str) -> int:
+    for rev1, rev2 in zip_longest(version1.split("."), version2.split("."), fillvalue=0):
+        rev1, rev2 = int(rev1), int(rev2)
+
+        if rev1 < rev2:
+            return -1
+        elif rev1 > rev2:
+            return 1
+
     return 0
