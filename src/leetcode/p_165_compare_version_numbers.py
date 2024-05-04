@@ -87,7 +87,7 @@ def compare_version_2(version1: str, version2: str) -> int:
     return 0
 
 
-def compare_version_3(self, version1: str, version2: str) -> int:
+def compare_version_3(version1: str, version2: str) -> int:
     for rev1, rev2 in zip_longest(version1.split("."), version2.split("."), fillvalue=0):
         rev1, rev2 = int(rev1), int(rev2)
 
