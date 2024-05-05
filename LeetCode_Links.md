@@ -96,6 +96,7 @@
 - [Problem 2997: Min Num Operations To Make Array Xor Eq K](https://leetcode.com/problems/minimum-number-of-operations-to-make-array-xor-equal-to-k/)
 - [Problem 3005: Count Elements With Max Frequency](https://leetcode.com/problems/count-elements-with-maximum-frequency/)
 - [Problem 310: Minimum Height Trees](https://leetcode.com/problems/minimum-height-trees/)
+- [Problem 31: Next Permutation](https://leetcode.com/problems/next-permutation/)
 - [Problem 328: Odd Even Linked List](https://leetcode.com/problems/odd-even-linked-list/)
 - [Problem 334: Increasing Triplet Subsequence](https://leetcode.com/problems/increasing-triplet-subsequence/)
 - [Problem 344: Reverse String](https://leetcode.com/problems/reverse-string/)
