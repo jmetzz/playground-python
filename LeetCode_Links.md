@@ -72,6 +72,7 @@
 - [Problem 2352: Equal Row And Column Pairs](https://leetcode.com/problems/equal-row-and-column-pairs/)
 - [Problem 2360: Longest Cycle In A Graph](https://leetcode.com/problems/longest-cycle-in-a-graph/)
 - [Problem 2370: Longest Ideal Subsequence](https://leetcode.com/problems/longest-ideal-subsequence/)
+- [Problem 237: Delete Node In A Linked List](https://leetcode.com/problems/delete-node-in-a-linked-list/)
 - [Problem 238: Product Of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/)
 - [Problem 2390: Removing Stars From A String](https://leetcode.com/problems/removing-stars-from-a-string/)
 - [Problem 2402: Meeting Rooms 3](https://leetcode.com/problems/meeting-rooms-iii/)
