@@ -79,4 +79,4 @@ results/*.txt
 
 resources/unversioned/
 
-scratch_file*.py
+scratch*.py
