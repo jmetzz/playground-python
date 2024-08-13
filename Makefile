@@ -13,10 +13,6 @@ GRAY ?= \033[0;37m
 COFF ?= \033[0m
 
 
-##################
-#    Targets     #
-##################
-
 initialize:
 ifneq ($(wildcard .git),)
 	@printf "$(CYAN)>>> Repository already initialized.$(COFF)\n"
@@ -47,8 +43,13 @@ check: ## Run static code checkers and linters
 
 lint: ## Runs ruff formatter
 	@printf "$(CYAN)Auto-formatting with ruff$(COFF)\n"
-	poetry run ruff check src tests --fix
 	poetry run ruff format src tests notebooks
+	poetry run ruff check src tests --fix
+
+precommit: ## Runs all pre-commit hooks
+	@printf "$(CYAN)Running pre-commit hooks$(COFF)\n"
+	poetry run pre-commit run --all-files
+	@printf "All $(GREEN)done$(COFF)\n"
 
 license: ## Generated the licenses.md file based on the project's dependencies
 	@printf " >>> Generating $(CYAN)licenses.md$(COFF) file\n"
