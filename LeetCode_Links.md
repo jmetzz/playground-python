@@ -125,6 +125,7 @@
 - [Problem 525: Contiguous Array](https://leetcode.com/problems/contiguous-array/)
 - [Problem 543: Diameter Of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/)
 - [Problem 54: Spiral Matrix](https://leetcode.com/problems/spiral-matrix/)
+- [Problem 55: Jump Game](https://leetcode.com/problems/jump-game/)
 - [Problem 56: Merge Intervals](https://leetcode.com/problems/merge-intervals/)
 - [Problem 57: Insert Intervals](https://leetcode.com/problems/insert-interval/)
 - [Problem 58: Length Of Last Word](https://leetcode.com/problems/length-of-last-word/)
