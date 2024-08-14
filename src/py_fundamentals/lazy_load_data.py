@@ -69,9 +69,7 @@ def is_normal(data, threshold=1e-3):
     """Given one group of data, returns whether it follows the normal distribution"""
     _, values = zip(*data)
     _, p_value = normaltest(values)
-    if p_value < threshold:
-        return False
-    return True
+    return not p_value < threshold
 
 
 def filter_anomalous_groups(data):
