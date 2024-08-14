@@ -43,7 +43,7 @@
 | defusedxml                | 0.7.1          | Python Software Foundation License                  | Christian Heimes                                                                                                 |
 | distlib                   | 0.3.8          | Python Software Foundation License                  | Vinay Sajip                                                                                                      |
 | entrypoints               | 0.4            | MIT License                                         | Thomas Kluyver                                                                                                   |
-| environs                  | 10.3.0         | MIT License                                         | Steven Loria                                                                                                     |
+| environs                  | 11.0.0         | MIT License                                         | Steven Loria <sloria1@gmail.com>                                                                                 |
 | execnet                   | 2.1.1          | MIT License                                         | holger krekel and others                                                                                         |
 | executing                 | 2.0.1          | MIT License                                         | Alex Hall                                                                                                        |
 | fastjsonschema            | 2.20.0         | BSD License                                         | Michal Horejsek                                                                                                  |
@@ -88,7 +88,7 @@
 | jupyterlab_widgets        | 3.0.10         | BSD License                                         | Jupyter Development Team                                                                                         |
 | kiwisolver                | 1.4.5          | BSD License                                         | The Nucleic Development Team <sccolbert@gmail.com>                                                               |
 | line_profiler             | 4.1.3          | BSD License                                         | Robert Kern                                                                                                      |
-| llvmlite                  | 0.42.0         | BSD                                                 | UNKNOWN                                                                                                          |
+| llvmlite                  | 0.43.0         | BSD                                                 | UNKNOWN                                                                                                          |
 | makefun                   | 1.15.2         | BSD License                                         | Sylvain MARIE <sylvain.marie@se.com>                                                                             |
 | markdown-it-py            | 3.0.0          | MIT License                                         | Chris Sewell <chrisj_sewell@hotmail.com>                                                                         |
 | marshmallow               | 3.21.3         | MIT License                                         | Steven Loria <sloria1@gmail.com>                                                                                 |
@@ -110,9 +110,9 @@
 | nodeenv                   | 1.9.1          | BSD License                                         | Eugene Kalinin                                                                                                   |
 | notebook                  | 7.1.3          | BSD License                                         | Jupyter Development Team <jupyter@googlegroups.com>                                                              |
 | notebook_shim             | 0.2.4          | BSD License                                         | Jupyter Development Team <jupyter@googlegroups.com>                                                              |
-| numba                     | 0.59.1         | BSD License                                         | UNKNOWN                                                                                                          |
+| numba                     | 0.60.0         | BSD License                                         | UNKNOWN                                                                                                          |
 | numexpr                   | 2.10.1         | MIT License                                         | "David M. Cooke, Francesc Alted, and others" <blosc@blosc.org>                                                   |
-| numpy                     | 1.26.4         | BSD License                                         | Travis E. Oliphant et al.                                                                                        |
+| numpy                     | 2.0.1          | BSD License                                         | Travis E. Oliphant et al.                                                                                        |
 | opensearch-py             | 2.4.2          | Apache Software License                             | Aleksei Atavin, Denis Zalevskiy, Rushi Agrawal, Shephali Mittal                                                  |
 | orderedmultidict          | 1.0.1          | Freely Distributable                                | Ansgar Grunseid                                                                                                  |
 | overrides                 | 7.7.0          | Apache License, Version 2.0                         | Mikko Korpela                                                                                                    |
@@ -138,7 +138,7 @@
 | ptyprocess                | 0.7.0          | ISC License (ISCL)                                  | Thomas Kluyver                                                                                                   |
 | pure_eval                 | 0.2.3          | MIT License                                         | Alex Hall                                                                                                        |
 | py-spy                    | 0.3.14         | MIT License                                         | Ben Frederickson <github@benfrederickson.com>                                                                    |
-| pyarrow                   | 15.0.2         | Apache Software License                             | UNKNOWN                                                                                                          |
+| pyarrow                   | 17.0.0         | Apache Software License                             | UNKNOWN                                                                                                          |
 | pyasn1                    | 0.6.0          | BSD License                                         | Ilya Etingof                                                                                                     |
 | pyasn1_modules            | 0.4.0          | BSD License                                         | Ilya Etingof                                                                                                     |
 | pycparser                 | 2.22           | BSD License                                         | Eli Bendersky                                                                                                    |
@@ -171,6 +171,7 @@
 | scikit-learn              | 1.5.1          | BSD License                                         | UNKNOWN                                                                                                          |
 | scipy                     | 1.14.0         | BSD License                                         | UNKNOWN                                                                                                          |
 | seaborn                   | 0.13.2         | BSD License                                         | Michael Waskom <mwaskom@gmail.com>                                                                               |
+| shellingham               | 1.5.4          | ISC License (ISCL)                                  | Tzu-ping Chung                                                                                                   |
 | six                       | 1.16.0         | MIT License                                         | Benjamin Peterson                                                                                                |
 | snakeviz                  | 2.2.0          | BSD License                                         | Matt Davis <jiffyclub@gmail.com>                                                                                 |
 | sniffio                   | 1.3.1          | Apache Software License; MIT License                | "Nathaniel J. Smith" <njs@pobox.com>                                                                             |
@@ -190,7 +191,7 @@
 | tqdm                      | 4.66.5         | MIT License; Mozilla Public License 2.0 (MPL 2.0)   | UNKNOWN                                                                                                          |
 | traitlets                 | 5.14.3         | BSD License                                         | IPython Development Team <ipython-dev@python.org>                                                                |
 | twofish                   | 0.3.0          | BSD License                                         | Filippo Valsorda                                                                                                 |
-| typer                     | 0.9.4          | MIT License                                         | Sebastián Ramírez                                                                                                |
+| typer                     | 0.12.3         | MIT License                                         | Sebastián Ramírez <tiangolo@gmail.com>                                                                           |
 | types-python-dateutil     | 2.9.0.20240316 | Apache Software License                             | UNKNOWN                                                                                                          |
 | typing_extensions         | 4.12.2         | Python Software Foundation License                  | "Guido van Rossum, Jukka Lehtosalo, Łukasz Langa, Michael Lee" <levkivskyi@gmail.com>                            |
 | tzdata                    | 2024.1         | Apache Software License                             | Python Software Foundation                                                                                       |
