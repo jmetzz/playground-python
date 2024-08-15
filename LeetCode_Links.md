@@ -89,6 +89,7 @@
 - [Problem 26: Remove Duplicates](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
 - [Problem 2706: Buy Two Chocolates](https://leetcode.com/problems/buy-two-chocolates/)
 - [Problem 2709: Greatest Common Divisor Traversal](https://leetcode.com/problems/greatest-common-divisor-traversal/)
+- [Problem 274: H Index](https://leetcode.com/problems/h-index/)
 - [Problem 2864: Maximum Odd Binary Number](https://leetcode.com/problems/maximum-odd-binary-number/)
 - [Problem 287: Find The Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/)
 - [Problem 28: Needle In Haystack](https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/)
