@@ -86,9 +86,10 @@ def int_to_roman(num: int) -> str:
     answer = ""
     for decimal, roman_sym in _map:
         count = num // decimal
+        num = num % decimal
         if count:
+            # optimization to only accumulate if there is something to accumulate
             answer += roman_sym * count
-            num = num % decimal
     return answer
 
 
