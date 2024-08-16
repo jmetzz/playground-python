@@ -106,6 +106,7 @@
 - [Problem 345: Reverse Vowels Of String](https://leetcode.com/problems/reverse-vowels-of-a-string/)
 - [Problem 34: Find First And Last Position Of Elem Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
 - [Problem 374: Guess Number Higher Or Lower](https://leetcode.com/problems/guess-number-higher-or-lower/)
+- [Problem 380: Insert Delete Getrandom O1](https://leetcode.com/problems/insert-delete-getrandom-o1/)
 - [Problem 383: Ransom Note](https://leetcode.com/problems/ransom-note/)
 - [Problem 387: First Unique Character In String](https://leetcode.com/problems/first-unique-character-in-a-sequence/)
 - [Problem 3: Longest Substring Without Repeating Chars](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
