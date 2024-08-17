@@ -143,6 +143,7 @@
 - [Problem 66: Plus One](https://leetcode.com/problems/plus-one/)
 - [Problem 678: Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string/)
 - [Problem 67: Add Binary](https://leetcode.com/problems/add-binary/)
+- [Problem 6: Zigzag Convertion](https://leetcode.com/problems/zigzag-conversion/)
 - [Problem 700: Search Binary Tree](https://leetcode.com/problems/search-in-a-binary-search-tree/)
 - [Problem 713: Subarray Product Less Than K](https://leetcode.com/problems/subarray-product-less-than-k/)
 - [Problem 714: Best Time To Buy And Sell Stock With Transaction Fee](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/)
