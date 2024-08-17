@@ -4,6 +4,8 @@
 - [Problem 100: Same Tree](https://leetcode.com/problems/same-tree/)
 - [Problem 101: Symmetric Tree](https://leetcode.com/problems/symmetric-tree/)
 - [Problem 104: Max Depth Bin Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/)
+- [Problem 105: Construct Binary Tree From Preorder And Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)
+- [Problem 106: Construct Binary Tree From Inorder And Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/)
 - [Problem 1071: Greatest Common Divisor Of Strings](https://leetcode.com/problems/greatest-common-divisor-of-strings/)
 - [Problem 1074: Number Submatrices Sum To Target](https://leetcode.com/problems/number-of-submatrices-that-sum-to-target/)
 - [Problem 1137: Nth Tribonacci Number](https://leetcode.com/problems/n-th-tribonacci-number/)
