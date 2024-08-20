@@ -10,7 +10,7 @@ from data_structures.graphs import (
     largest_component_iterative,
     largest_component_recursive,
     largest_component_size,
-    shortest_path_lenght,
+    shortest_path_length,
     traversal_bfs,
     traversal_dfs_iterative,
     traversal_dfs_recursive,
@@ -250,7 +250,7 @@ def test_largest_component_iterative(graph, expected):
     ],
 )
 def test_lenght_shortest_path(graph, source, destination, expected):
-    assert shortest_path_lenght(graph, source, destination) == expected
+    assert shortest_path_length(graph, source, destination) == expected
 
 
 @pytest.mark.parametrize("func", [is_bipartite_dfs, is_bipartite_bfs])

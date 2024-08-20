@@ -299,7 +299,7 @@ def largest_component_iterative(graph: Graph) -> List[int]:
     return largest_component
 
 
-def shortest_path_lenght(graph: Graph, source: int, target: int) -> int:
+def shortest_path_length(graph: Graph, source: int, target: int) -> int:
     visited = set()
     queue = deque([(source, 1)])  # store the node and the path lenght from source
     while queue:
@@ -651,14 +651,14 @@ def has_cycle_iterative(digraph: Graph) -> bool:
     WHITE, GRAY, BLACK = 0, 1, 2  # Node states: unvisited, visiting, visited
     state = {node: WHITE for node in digraph}  # Initialize all nodes as unvisited
 
-    def _dfs_seach_cycle(node):
+    def _dfs_search_cycle(node):
         # every node in the same component should be GRAY,
         # which represent visiting
         state[node] = GRAY  # Mark node as being visited (in the current path)
         for neighbor in digraph.get(node, []):
             if state[neighbor] == GRAY:  # Back edge found, indicating a cycle
                 return True
-            if state[neighbor] == WHITE and _dfs_seach_cycle(neighbor):
+            if state[neighbor] == WHITE and _dfs_search_cycle(neighbor):
                 return True
         state[node] = BLACK  # Mark node as fully visited (exited the path)
         return False
@@ -666,7 +666,7 @@ def has_cycle_iterative(digraph: Graph) -> bool:
     for node in digraph:
         if state[node] == WHITE:  # noqa: SIM102
             # Unvisited node
-            if _dfs_seach_cycle(node):
+            if _dfs_search_cycle(node):
                 return True
     return False
 

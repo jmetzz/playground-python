@@ -38,7 +38,7 @@ repos:
         always_run: true
         # Specify the stages you want this hook to run. For example, let's make it run on commit.
         stages: [commit]
-      - id: generate-leetcode-links-md
+      - id: leetcode
         name: Generate LeetCode Links Markdown
         entry: python scripts/generate_leetcode_links_md.py
         language: system
