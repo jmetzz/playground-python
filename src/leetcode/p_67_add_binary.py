@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/add-binary/description/
+"""https://leetcode.com/problems/add-binary/description/
 
 67. Add Binary
 Easy
@@ -25,8 +24,7 @@ Each string does not contain leading zeros except for the zero itself.
 
 
 def add_binary(a: str, b: str) -> str:
-    """
-    Adds two binary numbers represented as strings and returns the sum as a binary string.
+    """Adds two binary numbers represented as strings and returns the sum as a binary string.
 
     The function iterates from the least significant bit to the most significant bit of each input string,
     adding corresponding bits along with any carry from the previous addition.
@@ -64,10 +62,12 @@ def add_binary(a: str, b: str) -> str:
     If the sum is 2, // 2 equals 1, indicating a carry. If the sum is 0 or 1, // 2 equals 0, indicating no carry.
 
     Args:
+    ----
         a (str): The first binary number as a string.
         b (str): The second binary number as a string.
 
     Returns:
+    -------
         str: The sum of the two binary numbers as a binary string.
 
 

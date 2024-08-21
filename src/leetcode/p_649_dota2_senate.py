@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/dota2-senate/description
+"""https://leetcode.com/problems/dota2-senate/description
 
 649. Dota2 Senate
 Medium
@@ -82,8 +81,7 @@ def predict_party_victory(senate: str) -> str:
 
 
 def predict_party_victory_double_deque(senate: str) -> str:
-    """
-    Rationale:
+    """Rationale:
 
     - Use two queues to keep the active senator's positions.
         Each senator has a position in the input list, which

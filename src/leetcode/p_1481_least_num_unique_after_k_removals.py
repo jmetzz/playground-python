@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/least-number-of-unique-integers-after-k-removals/description
+"""https://leetcode.com/problems/least-number-of-unique-integers-after-k-removals/description
 
 1481. Least Number of Unique Integers after K Removals
 Medium
@@ -80,8 +79,7 @@ class FindLeastNumOfUniqueAfterRemoval:
         return len(counts) - idx
 
     def solve_with_counter_and_counter(self, arr: List[int], k: int) -> int:
-        """
-        This one does not work properly yet
+        """This one does not work properly yet
         failed for this test case:
         [2,4,1,8,3,5,1,3], k=3 --> expected is 3
         """

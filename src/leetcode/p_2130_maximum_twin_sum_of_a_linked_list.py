@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/maximum-twin-sum-of-a-linked-list/description
+"""https://leetcode.com/problems/maximum-twin-sum-of-a-linked-list/description
 
 2130. Maximum Twin Sum of a Linked List
 Medium
@@ -52,8 +51,7 @@ from data_structures.lists import SingleLinkNode as ListNode
 
 
 def pair_sum_fast_slow(head: Optional[ListNode]) -> int:
-    """
-    Calculates the maximum twin sum in a linked list by using a stack
+    """Calculates the maximum twin sum in a linked list by using a stack
     to store values of the first half while traversing the list with two pointers.
 
     The first half of the values are pushed onto a stack as the 'slow' pointer advances.
@@ -61,12 +59,14 @@ def pair_sum_fast_slow(head: Optional[ListNode]) -> int:
     to the corresponding 'slow' pointer values, calculating the twin sums.
 
     Args:
+    ----
         head (Optional[ListNode]): The head of the linked list.
 
     Returns:
+    -------
         int: The maximum twin sum in the linked list.
-    """
 
+    """
     stack = []
     fast, slow = head, head
 
@@ -84,8 +84,7 @@ def pair_sum_fast_slow(head: Optional[ListNode]) -> int:
 
 
 def pair_sum_reverse_first_half(head: Optional[ListNode]) -> int:
-    """
-    Calculates the maximum twin sum in a linked list by first reversing the first half
+    """Calculates the maximum twin sum in a linked list by first reversing the first half
     of the list, then comparing each element of the reversed first half with its
     corresponding element in the second half.
 
@@ -93,10 +92,13 @@ def pair_sum_reverse_first_half(head: Optional[ListNode]) -> int:
     by comparing elements from the reversed first half and the non-reversed second half.
 
     Args:
+    ----
         head (Optional[ListNode]): The head of the linked list.
 
     Returns:
+    -------
         int: The maximum twin sum in the linked list.
+
     """
     slow, fast = head, head
     prev = None
@@ -117,8 +119,7 @@ def pair_sum_reverse_first_half(head: Optional[ListNode]) -> int:
 
 
 def pair_sum_reverse_second_half(head: Optional[ListNode]) -> int:
-    """
-    Calculates the maximum twin sum in a linked list by reversing the second half
+    """Calculates the maximum twin sum in a linked list by reversing the second half
     of the list and then comparing each element of the first half with its corresponding
     element in the reversed second half.
 
@@ -127,10 +128,13 @@ def pair_sum_reverse_second_half(head: Optional[ListNode]) -> int:
     and the reversed second half.
 
     Args:
+    ----
         head (Optional[ListNode]): The head of the linked list.
 
     Returns:
+    -------
         int: The maximum twin sum in the linked list.
+
     """
     slow, fast = head, head
     max_twin_sum = float("-inf")

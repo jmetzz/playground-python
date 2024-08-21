@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/isomorphic-strings/description/
+"""https://leetcode.com/problems/isomorphic-strings/description/
 205. Isomorphic Strings
 Easy
 Given two strings s and t, determine if they are isomorphic.
@@ -47,9 +46,8 @@ def is_isomorphic_two_dicts(s: str, t: str) -> bool:
             t_letter in reverse_map and reverse_map[t_letter] != s_letter
         ):
             return False
-        else:
-            s_map[s_letter] = t_letter
-            reverse_map[t_letter] = s_letter
+        s_map[s_letter] = t_letter
+        reverse_map[t_letter] = s_letter
 
     return True
 
@@ -60,13 +58,11 @@ def is_isomorphic_one_dict(s: str, t: str) -> bool:
         if s_letter in letters_map:
             if letters_map[s_letter] != t_letter:
                 return False
-            else:
-                continue
-        else:
-            if t_letter in letters_map.values():
-                return False
-            letters_map[s_letter] = t_letter
             continue
+        if t_letter in letters_map.values():
+            return False
+        letters_map[s_letter] = t_letter
+        continue
 
     return True
 
@@ -121,15 +117,17 @@ def is_isomorphic_magic(s: str, t: str, debug=False) -> bool:
         additional space for the sets created from `s`, `t`, and the zipped pairs.
 
     Args:
+    ----
         s (str): The first string.
         t (str): The second string, to be compared with s for isomorphism.
         debug (bool, optional): If True, prints the set of character pairings for debugging.
                                 Default is False.
 
     Returns:
+    -------
         bool: True if s and t are isomorphic; otherwise, False.
-    """
 
+    """
     pairing = set(zip(s, t))
 
     if debug:

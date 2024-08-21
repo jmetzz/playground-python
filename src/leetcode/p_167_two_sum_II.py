@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/
+"""https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/
 167. Two Sum II - Input Array Is Sorted
 Medium
 
@@ -78,7 +77,6 @@ def two_sum_twopointers(numbers: list[int], target: int) -> list[int]:
     Time Complexity O(n)
     Space Complexity O(1)
     """
-
     n = len(numbers)
     left, right = 0, n - 1
 
@@ -86,7 +84,7 @@ def two_sum_twopointers(numbers: list[int], target: int) -> list[int]:
         _sum = numbers[left] + numbers[right]
         if _sum == target:
             return [left + 1, right + 1]
-        elif _sum > target:
+        if _sum > target:
             # decrease the candidate sum
             right -= 1
         else:

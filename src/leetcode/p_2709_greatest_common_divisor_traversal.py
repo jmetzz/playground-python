@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/greatest-common-divisor-traversal/description
+"""https://leetcode.com/problems/greatest-common-divisor-traversal/description
 
 2709. Greatest Common Divisor Traversal
 Hard

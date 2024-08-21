@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/n-th-tribonacci-number/description
+"""https://leetcode.com/problems/n-th-tribonacci-number/description
 
 1137. N-th Tribonacci Number
 Easy
@@ -33,7 +32,7 @@ def tribonacci_recursive_memoization(n: int) -> int:
     def dfs(target: int, cache: Dict) -> int:
         if target == 0:
             return 0
-        elif target < 3:
+        if target < 3:
             return 1
         if target in cache:
             return cache[target]
@@ -48,7 +47,7 @@ def tribonacci_recursive_memoization(n: int) -> int:
 def tribonacci_dp_space_order_1_vars(n: int) -> int:
     if n == 0:
         return 0
-    elif n == 1 or n == 2:
+    if n == 1 or n == 2:
         return 1
 
     t_zero = 0
@@ -74,7 +73,7 @@ def tribonacci_dp_space_order_1_list(n: int) -> int:
 def tribonacci_dp_space_order_n(n: int) -> int:
     if n == 0:
         return 0
-    elif n == 1 or n == 2:
+    if n == 1 or n == 2:
         return 1
     dp = [-1 for _ in range(n + 1)]
     dp[0] = 0

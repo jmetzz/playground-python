@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/h-index/description/
+"""https://leetcode.com/problems/h-index/description/
 
 solution: https://www.youtube.com/watch?v=FvnTWDKT_ck
 

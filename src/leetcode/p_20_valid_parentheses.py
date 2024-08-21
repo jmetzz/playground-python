@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/valid-parentheses/description
+"""https://leetcode.com/problems/valid-parentheses/description
 
 20. Valid Parentheses
 Easy

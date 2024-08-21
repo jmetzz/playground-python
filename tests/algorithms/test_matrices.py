@@ -37,9 +37,7 @@ def test_transpose_two_by_two_matrix():
     )
 )
 def test_transpose_twice(matrix: List[List[int]]):
-    """
-    Test that transposing a square matrix twice returns the original matrix.
-    """
+    """Test that transposing a square matrix twice returns the original matrix."""
     # Ensure the matrix is square for the test
     assert len(matrix) == len(matrix[0]), "Matrix is not square"
     assert transpose(transpose(matrix)) == matrix, "Double transposition should return the original matrix"

@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/spiral-matrix/description/
+"""https://leetcode.com/problems/spiral-matrix/description/
 54. Spiral Matrix
 Medium
 
@@ -26,8 +25,7 @@ from typing import List
 
 
 def spiral_order(matrix: List[List[int]]) -> List[int]:
-    """
-    Iterate over the matrix in a spiral order: right, down, left, and up.
+    """Iterate over the matrix in a spiral order: right, down, left, and up.
     Stop Condition:
         The iteration continues until the boundaries cross each other,
         i.e., top > bottom or left > right.

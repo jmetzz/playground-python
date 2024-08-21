@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/removing-stars-from-a-string/description
+"""https://leetcode.com/problems/removing-stars-from-a-string/description
 
 2390. Removing Stars From a String
 Medium
@@ -13,6 +12,7 @@ Remove the closest non-star character to its left, as well as remove the star it
 Return the string after all stars have been removed.
 
 Note:
+----
 The input will be generated such that the operation is always possible.
 It can be shown that the resulting string will always be unique.
 
@@ -36,6 +36,7 @@ Constraints:
 1 <= s.length <= 105
 s consists of lowercase English letters and stars *.
 The operation above can be performed on s.
+
 """
 
 

@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/longest-ideal-subsequence/description
+"""https://leetcode.com/problems/longest-ideal-subsequence/description
 
 2370. Longest Ideal Subsequence
 Medium

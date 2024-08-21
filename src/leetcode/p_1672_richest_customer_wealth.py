@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/richest-customer-wealth/description/
+"""https://leetcode.com/problems/richest-customer-wealth/description/
 
 1672. Richest Customer Wealth
 Topics

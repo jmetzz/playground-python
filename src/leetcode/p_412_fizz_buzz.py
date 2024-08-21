@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/fizz-buzz/description/
+"""https://leetcode.com/problems/fizz-buzz/description/
 
 412. Fizz Buzz
 Easy

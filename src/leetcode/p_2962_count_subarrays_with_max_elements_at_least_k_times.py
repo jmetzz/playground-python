@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/count-subarrays-where-max-element-appears-at-least-k-times
+"""https://leetcode.com/problems/count-subarrays-where-max-element-appears-at-least-k-times
 
 2962. Count Subarrays Where Max Element Appears at Least K Times
 Medium
@@ -34,8 +33,7 @@ from typing import List
 
 
 def count_subarrays(nums: List[int], k: int) -> int:
-    """
-    Counts the number of subarrays in which the maximum element appears exactly k times.
+    """Counts the number of subarrays in which the maximum element appears exactly k times.
 
     This function works by sliding a window across the input list `nums`. For each new element
     added to the window, it checks if this element equals the maximum element of the entire list.
@@ -53,18 +51,21 @@ def count_subarrays(nums: List[int], k: int) -> int:
     k times within the window.
 
     Args:
+    ----
         nums (List[int]): The list of integers to process.
         k (int): The exact number of times the maximum element must appear in a subarray for it to be counted.
 
     Returns:
+    -------
         int: The count of subarrays meeting the specified condition.
 
     Example:
+    -------
         >>> count_subarrays([1, 4, 2, 4, 3, 4], 2)
         9
         This output means there are 9 subarrays where the maximum element (4 in this case) appears exactly 2 times.
-    """
 
+    """
     max_element = max(nums)
     counter, start, window_freq_of_max = 0, 0, 0
 

@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/find-the-duplicate-number/description
+"""https://leetcode.com/problems/find-the-duplicate-number/description
 
 287. Find the Duplicate Number
 Medium
@@ -95,8 +94,7 @@ def find_duplicate_dict_counter(nums: List[int]) -> int:
 
 
 def find_duplicate_subtract(nums: List[int]) -> int:
-    """
-    Finds the first duplicate number in the given list of integers by marking visited indices.
+    """Finds the first duplicate number in the given list of integers by marking visited indices.
     This version avoids modifying the original list by working on a copy, thereby removing side effects.
 
     The function iterates over the numbers, using their absolute values as indices. If the value at the indexed
@@ -104,13 +102,16 @@ def find_duplicate_subtract(nums: List[int]) -> int:
     number is a duplicate.
 
     Args:
+    ----
         nums (List[int]): A list of integers where each integer is between 1 and n, inclusive,
                           with at least one duplicate.
 
     Returns:
+    -------
         int: The first duplicate number found in the list. If no duplicate is found, returns -1.
 
     Examples:
+    --------
         >>> find_duplicate_subtract([3, 1, 3, 4, 2])
         3
         >>> find_duplicate_subtract([1, 3, 4, 2, 2])
@@ -119,7 +120,9 @@ def find_duplicate_subtract(nums: List[int]) -> int:
         -1
 
     Note:
+    ----
         This implementation does not modify the original input list, making it side-effect-free.
+
     """
     # Create a copy of nums to avoid modifying the original list
     nums_copy = nums[:]
@@ -161,17 +164,21 @@ def find_duplicate_fast_slow_pointers(nums: List[int]) -> int:
     which corresponds to the duplicate number.
 
     Args:
+    ----
         nums: A List of integers where each integer is between
         1 and n (inclusive) and one integer appears at least twice.
 
     Returns:
+    -------
         The duplicate integer found in the nums list.
 
     Examples:
+    --------
         >>> find_duplicate_fast_slow_pointers([1, 3, 4, 2, 2])
         2
         >>> find_duplicate_fast_slow_pointers([3, 1, 3, 4, 2])
         3
+
     """
     # Phase 1: advance fast and slow pointers until they reach the same element
     # Be mindful we need to start at nums[0] instead of 0,
@@ -196,8 +203,7 @@ def find_duplicate_fast_slow_pointers(nums: List[int]) -> int:
 
 
 def find_duplicate_bitwise(nums: List[int]) -> int:
-    """
-    Finds the first duplicate number in the given list of integers using bitwise operations.
+    """Finds the first duplicate number in the given list of integers using bitwise operations.
 
     This function iterates through the list of numbers, using a bitwise value set to
     keep track of which numbers have been seen. Each integer in the list is used to
@@ -209,19 +215,23 @@ def find_duplicate_bitwise(nums: List[int]) -> int:
     this is typically not a constraint unless dealing with extremely large numbers.
 
     Args:
+    ----
         nums (List[int]): A list of integers where each integer is between 1 and n (inclusive),
         with at least one duplicate.
 
     Returns:
+    -------
         int: The first duplicate number found in the list. If no duplicate is found, returns -1.
 
     Examples:
+    --------
         >>> find_duplicate_bitwise([3, 1, 3, 4, 2])
         3
         >>> find_duplicate_bitwise([1, 4, 4, 2, 4])
         4
         >>> find_duplicate_bitwise([1, 2, 3, 4, 5])
         -1
+
     """
     value_set = 0
     for value in nums:

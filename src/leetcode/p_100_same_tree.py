@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/same-tree/description/
+"""https://leetcode.com/problems/same-tree/description/
 
 100. Same Tree
 Easy
@@ -40,8 +39,7 @@ def is_same_tree(p: Optional[BinaryTreeNode], q: Optional[BinaryTreeNode]) -> bo
 
     if p is not None and q is not None and p.val == q.val:
         return is_same_tree(p.left, q.left) and is_same_tree(p.right, q.right)
-    else:
-        return False
+    return False
 
 
 if __name__ == "__main__":

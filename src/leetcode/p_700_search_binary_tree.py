@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/search-in-a-binary-search-tree/description
+"""https://leetcode.com/problems/search-in-a-binary-search-tree/description
 700. Search in a Binary Search Tree
 Easy
 
@@ -37,7 +36,7 @@ def search_bst(root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
             return None
         if node.val == val:
             return node
-        elif val < node.val:
+        if val < node.val:
             node = node.left
         else:
             node = node.right
@@ -48,7 +47,6 @@ def search_bst_recursive(root: Optional[TreeNode], val: int) -> Optional[TreeNod
         return None
     if root.val == val:
         return root
-    elif root.val < val:
+    if root.val < val:
         return search_bst_recursive(root.right, val)
-    else:
-        return search_bst_recursive(root.left, val)
+    return search_bst_recursive(root.left, val)

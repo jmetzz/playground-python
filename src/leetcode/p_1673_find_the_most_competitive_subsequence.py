@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/find-the-most-competitive-subsequence/description/
+"""https://leetcode.com/problems/find-the-most-competitive-subsequence/description/
 
 1673. Find the Most Competitive Subsequence
 Medium
@@ -36,8 +35,7 @@ from typing import List
 
 
 def most_competitive_1(nums: List[int], k: int) -> List[int]:
-    """
-    Given an array nums and a size k, find a subsequence of length k that is the lexicographically smallest.
+    """Given an array nums and a size k, find a subsequence of length k that is the lexicographically smallest.
 
     A subsequence is a sequence that can be derived from the array by deleting
     some or no elements without changing the order of the remaining elements.

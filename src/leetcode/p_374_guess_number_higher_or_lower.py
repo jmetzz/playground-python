@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/guess-number-higher-or-lower/description
+"""https://leetcode.com/problems/guess-number-higher-or-lower/description
 
 374. Guess Number Higher or Lower
 Easy
@@ -45,18 +44,17 @@ class GuessNumber:
         self._pick = pick
 
     def _guess(self, guess: int):
-        """
-        Returns:
-            -1: Your guess is higher than the number I picked (i.e. num > pick).
-            1: Your guess is lower than the number I picked (i.e. num < pick).
-            0: your guess is equal to the number I picked (i.e. num == pick).
+        """Returns
+        -1: Your guess is higher than the number I picked (i.e. num > pick).
+        1: Your guess is lower than the number I picked (i.e. num < pick).
+        0: your guess is equal to the number I picked (i.e. num == pick).
+
         """
         if guess == self._pick:
             return 0
-        elif guess > self._pick:
+        if guess > self._pick:
             return -1
-        else:
-            return 1
+        return 1
 
     def _bin_search(self, lo, hi):
         if lo > hi:

@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/description/
+"""https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/description/
 
 28. Find the Index of the First Occurrence in a String
 Easy
@@ -29,8 +28,7 @@ haystack and needle consist of only lowercase English characters.
 
 
 def str_in_str_bruteforce(haystack: str, needle: str) -> int:
-    """
-    Searches for the first occurrence of `needle` in `haystack` using a brute-force approach.
+    """Searches for the first occurrence of `needle` in `haystack` using a brute-force approach.
 
     The function iterates over `haystack`, comparing each substring of length equal to `needle`
     with `needle` itself. If a match is found, the function returns the starting index of the
@@ -38,10 +36,12 @@ def str_in_str_bruteforce(haystack: str, needle: str) -> int:
     is considered found at position 0.
 
     Args:
+    ----
         haystack (str): The string to search within.
         needle (str): The string to search for.
 
     Returns:
+    -------
         int: The index of the first character of the first occurrence of `needle` in `haystack`,
              or -1 if `needle` is not found.
 

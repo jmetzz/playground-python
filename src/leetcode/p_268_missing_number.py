@@ -1,6 +1,4 @@
-"""
-
-https://leetcode.com/problems/missing-number/
+"""https://leetcode.com/problems/missing-number/
 
 268. Missing Number
 Solved
@@ -63,9 +61,7 @@ def missing_number_solve_naive_loops(nums: List[int]) -> int:
 
 
 def missing_number_solve_xor(nums: List[int]) -> int:
-    """
-
-    XOR operations reminder:
+    """XOR operations reminder:
         0 XOR 5 = 5
         5 XOR 0 = 5
         5 XOR 5 = 0
@@ -93,8 +89,7 @@ def missing_number_solve_xor(nums: List[int]) -> int:
 
 
 def missing_number_solve_sum(nums: List[int]) -> int:
-    """
-    1. sum all the elements in the interval [0, n]
+    """1. sum all the elements in the interval [0, n]
         sum[0, n] = n * (n + 1) / 2
     2. sum all elements in nums
     3. take the difference

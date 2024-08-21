@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/jump-game/description
+"""https://leetcode.com/problems/jump-game/description
 
 55. Jump Game
 Medium
@@ -51,13 +50,12 @@ def can_jump_recursion(nums: list[int]) -> bool:
 
 
 def can_jump_loop(nums: list[int]) -> bool:
-    """use the distance traveling and gas fueling analogy"""
+    """Use the distance traveling and gas fueling analogy"""
     gas_in_tank = 0
     for gas in nums:
         if gas_in_tank < 0:
             return False
-        elif gas_in_tank < gas:
-            gas_in_tank = gas
+        gas_in_tank = max(gas_in_tank, gas)
 
         # discount the fuel to move to this position
         gas_in_tank -= 1

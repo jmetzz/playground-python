@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/binary-subarrays-with-sum/description
+"""https://leetcode.com/problems/binary-subarrays-with-sum/description
 
 930. Binary Subarrays With Sum
 Medium
@@ -35,8 +34,7 @@ from typing import List
 
 
 def num_subarrays_with_sum(nums: List[int], goal: int) -> int:
-    """
-    Calculates the number of contiguous subarrays that sum to a specific goal
+    """Calculates the number of contiguous subarrays that sum to a specific goal
 
     This function uses prefix sums technique with a hashmap to track
     the frequency of cumulative sums (prefix sums) encountered
@@ -54,17 +52,21 @@ def num_subarrays_with_sum(nums: List[int], goal: int) -> int:
       the current index sums to the goal.
 
     Args:
+    ----
         nums (List[int]): Binary array of 0s and 1s.
         goal (int): The target sum for the subarrays.
 
     Returns:
+    -------
         int: The total number of contiguous subarrays that sum to the goal.
 
     Examples:
+    --------
         >>> num_subarrays_with_sum([1, 0, 1, 0, 1], 2)
         4
         >>> num_subarrays_with_sum([0, 0, 0, 0, 0], 0)
         15
+
     """
     sum_freq = defaultdict(int)  # prefix sum -> frequency
     curr_sum = 0  # cumulative sum of elements encountered so far
@@ -86,8 +88,7 @@ def num_subarrays_with_sum(nums: List[int], goal: int) -> int:
 
 
 def num_subarrays_with_sum_sliding_window(nums: List[int], goal: int) -> int:
-    """
-    Calculates the number of contiguous subarrays that sum to a specific goal
+    """Calculates the number of contiguous subarrays that sum to a specific goal
 
     by utilizing a modified sliding window approach to count subarrays
     with sums at most a target, then adjusting the count for the exact target.
@@ -104,23 +105,27 @@ def num_subarrays_with_sum_sliding_window(nums: List[int], goal: int) -> int:
     - This effectively excludes subarrays whose sum exceeds the goal but includes those exactly equal.
 
     Args:
+    ----
         nums (List[int]): Binary array of 0s and 1s.
         goal (int): The exact sum to achieve with the subarrays.
 
     Returns:
+    -------
         int: The total number of contiguous subarrays that sum exactly to the goal.
 
     Examples:
+    --------
         >>> num_subarrays_with_sum_sliding_window([1, 0, 1, 0, 1], 2)
         4
         >>> num_subarrays_with_sum_sliding_window([0, 0, 0, 0, 0], 0)
         15
+
     """
 
     def at_most(target: int) -> int:
         """Count the number of subarrays with sum at most the given goal"""
         start, curr_sum, answer = 0, 0, 0
-        for end in range(0, len(nums)):
+        for end in range(len(nums)):
             curr_sum += nums[end]
             # shrink the window if necessary
             while start <= end and curr_sum > target:
@@ -137,8 +142,7 @@ def num_subarrays_with_sum_sliding_window(nums: List[int], goal: int) -> int:
 
 
 def num_subarrays_with_sum_one_pass_sliding_window(nums: List[int], goal: int) -> int:
-    """
-    Calculates the number of contiguous subarrays that sum to a specific goal
+    """Calculates the number of contiguous subarrays that sum to a specific goal
 
     This approaches builds on the previous and uses a one-pass sliding window iteration.
     This is achiebed by counting prefix zeros to efficiently account for additional
@@ -152,22 +156,26 @@ def num_subarrays_with_sum_one_pass_sliding_window(nums: List[int], goal: int) -
       adjusting the window to ensure the sum matches the goal, counting all valid configurations.
 
     Args:
+    ----
         nums (List[int]): Binary array of 0s and 1s.
         goal (int): The target sum for the subarrays.
 
     Returns:
+    -------
         int: The total number of contiguous subarrays summing to the goal,
             considering additional configurations provided by prefix zeros.
 
     Examples:
+    --------
         >>> num_subarrays_with_sum_one_pass_sliding_window([1, 0, 1, 0, 1], 2)
         4
         >>> num_subarrays_with_sum_one_pass_sliding_window([0, 0, 0, 0, 0], 0)
         15
+
     """
     start, curr_sum, prefix_zeros, answer = 0, 0, 0, 0
 
-    for end in range(0, len(nums)):
+    for end in range(len(nums)):
         curr_sum += nums[end]
         # shrink the window if necessary
         while start < end and (nums[start] == 0 or curr_sum > goal):

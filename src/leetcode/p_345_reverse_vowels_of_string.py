@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/reverse-vowels-of-a-string/description
+"""https://leetcode.com/problems/reverse-vowels-of-a-string/description
 345. Reverse Vowels of a String
 Easy
 

@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/cherry-pickup-ii/description/
+"""https://leetcode.com/problems/cherry-pickup-ii/description/
 
 1463. Cherry Pickup II
 Hard
@@ -60,8 +59,7 @@ def cherryPickup_two_robots_dfs(grid: List[List[int]]) -> int:
     delta = [0, -1, 1]
 
     def dfs(row: int, robot_1: int, robot_2: int) -> int:
-        """
-        the row is constant in each call, and the robot_* here represent
+        """The row is constant in each call, and the robot_* here represent
         the current column the respective robot is on
         """
         if row == rows:
@@ -101,8 +99,7 @@ def cherryPickup_two_robots_dfs_memoization(grid: List[List[int]]) -> int:
 
     @cache
     def dfs(row: int, robot_1: int, robot_2: int) -> int:
-        """
-        the row is constant in each call, and the robot_* here represent
+        """The row is constant in each call, and the robot_* here represent
         the current column the respective robot is on
         """
         if row == rows:

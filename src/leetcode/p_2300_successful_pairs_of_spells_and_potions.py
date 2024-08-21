@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/successful-pairs-of-spells-and-potions/description
+"""https://leetcode.com/problems/successful-pairs-of-spells-and-potions/description
 
 2300. Successful Pairs of Spells and Potions
 

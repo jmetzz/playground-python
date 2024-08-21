@@ -13,15 +13,16 @@ class BinaryTreeNode:
 
     @staticmethod
     def deserialize(arr: List[Optional[int]], root: int = 0):
-        """
-        Recursively constructs the tree based on the array representation,
+        """Recursively constructs the tree based on the array representation,
         handling None values to skip creating nodes for missing children.
 
         Args:
+        ----
             arr:
             root:
 
         Returns:
+        -------
 
         """
         if root >= len(arr) or arr[root] is None:
@@ -34,9 +35,7 @@ class BinaryTreeNode:
         )
 
     def serialize(self) -> List[Optional[int]]:
-        """
-        Serializes the tree to an array representation using level-order traversal.
-        """
+        """Serializes the tree to an array representation using level-order traversal."""
         if not self:
             return []
 
@@ -175,8 +174,7 @@ class BinaryTreeNode:
 
         if one is not None and other is not None and one.val == other.val:
             return cls.is_equal(one.left, other.left) and cls.is_equal(one.right, other.right)
-        else:
-            return False
+        return False
 
     def is_symetric(self) -> bool:
         return self.are_symmetric(self.left, self.right)
@@ -185,11 +183,10 @@ class BinaryTreeNode:
     def are_symmetric(cls, root1, root2) -> bool:
         if root1 is None and root2 is None:
             return True
-        elif (root1 is None) != (root2 is None) or root1.val != root2.val:
+        if (root1 is None) != (root2 is None) or root1.val != root2.val:
             return False
-        else:
-            # both root nodes are valid nodes
-            return cls.are_symmetric(root1.left, root2.right) and cls.are_symmetric(root1.right, root2.left)
+        # both root nodes are valid nodes
+        return cls.are_symmetric(root1.left, root2.right) and cls.are_symmetric(root1.right, root2.left)
 
 
 class TrieSymbolTableRecursive:
@@ -310,8 +307,7 @@ class TrieSymbolTableRecursive:
 
 
 class TrieSymbolTableDict:
-    """
-    ab bc be
+    """ab bc be
 
        /\
       a  b

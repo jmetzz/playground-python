@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/description/
+"""https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/description/
 
 456. Maximum Number of Vowels in a Substring of Given Length
 Medium

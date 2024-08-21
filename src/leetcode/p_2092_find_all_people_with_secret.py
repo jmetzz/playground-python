@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/find-all-people-with-secret/description
+"""https://leetcode.com/problems/find-all-people-with-secret/description
 
 2092. Find All People With Secret
 Hard

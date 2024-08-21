@@ -37,8 +37,7 @@ class DiffusionNumexpr:
 
     @classmethod
     def roll_add(cls, rollee, shift, axis, out):
-        """
-        Given a matrix, a rollee, and an output matrix, out, this function will
+        """Given a matrix, a rollee, and an output matrix, out, this function will
         perform the calculation:
 
             >>> out += np.roll(rollee, shift, axis=axis)
@@ -67,8 +66,7 @@ class DiffusionNumexpr:
 
     @classmethod
     def evolve(cls, grid, dt, next_grid, D=1):
-        """
-        This version uses the out parameter
+        """This version uses the out parameter
         of the evaluate function so that
         numexpr doesn’t allocate a new vector
         to which to return the result

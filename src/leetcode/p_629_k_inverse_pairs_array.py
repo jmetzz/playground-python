@@ -1,6 +1,4 @@
-"""
-https://leetcode.com/problems/k-inverse-pairs-array/description/
-
+"""https://leetcode.com/problems/k-inverse-pairs-array/description/
 
 629. K Inverse Pairs Array
 #Hard
@@ -43,9 +41,7 @@ MOD = 10**9 + 7
 
 class KInversePairsArray:
     def solve_memo(self, n: int, k: int, cache: Dict) -> int:
-        """
-        O(n^2 * k) time complexity :(
-        """
+        """O(n^2 * k) time complexity :("""
         if (n, k) in cache:
             return cache[(n, k)]
         if n == 0:
@@ -71,7 +67,7 @@ class KInversePairsArray:
         dp[0][0] = 1
 
         for row in range(1, n + 1):
-            for col in range(0, k + 1):
+            for col in range(k + 1):
                 for pairs_created in range(row):
                     if col - pairs_created >= 0:
                         dp[row][col] += dp[row - 1][col - pairs_created] % MOD
@@ -91,7 +87,7 @@ class KInversePairsArray:
 
         for row in range(1, n + 1):
             current = [0] * (k + 1)
-            for col in range(0, k + 1):
+            for col in range(k + 1):
                 for pairs_created in range(row):
                     if col - pairs_created >= 0:
                         current[col] += previous[col - pairs_created] % MOD
@@ -119,7 +115,7 @@ class KInversePairsArray:
             current = [0] * (k + 1)
             window_total = 0
             window_size = row  # we use window_size variable for clarity. We could use row as well
-            for col in range(0, k + 1):
+            for col in range(k + 1):
                 if col >= window_size:  # here is the trick with the window!
                     window_total -= previous[col - window_size]  # action: remove elements out of window
                 window_total = (window_total + previous[col]) % MOD  # action: look up <+ left>

@@ -1,6 +1,4 @@
-"""
-https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/description/
-
+"""https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/description/
 
 https://www.youtube.com/watch?v=ihj4IQGZ2zc
 

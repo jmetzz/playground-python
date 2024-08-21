@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/maximal-rectangle/description
+"""https://leetcode.com/problems/maximal-rectangle/description
 
 85. Maximal Rectangle
 Hard
@@ -69,16 +68,14 @@ def maximal_rectangle(matrix: List[List[str]]) -> int:
                 # to the current index.
                 prev_h, start = stack.pop()  # pop potential rectangle start idx
                 candidate_area = prev_h * (col - start)
-                if candidate_area > max_area:
-                    max_area = candidate_area
+                max_area = max(candidate_area, max_area)
 
             stack.append((heights[col], start))
 
         while stack:
             prev_h, start = stack.pop()  # pop potential rectangle start idx
             candidate_area = prev_h * (cols - start)
-            if candidate_area > max_area:
-                max_area = candidate_area
+            max_area = max(candidate_area, max_area)
     return max_area
 
 

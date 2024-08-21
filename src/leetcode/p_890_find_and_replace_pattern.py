@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/find-and-replace-pattern/description/
+"""https://leetcode.com/problems/find-and-replace-pattern/description/
 890. Find and Replace Pattern
 Medium
 

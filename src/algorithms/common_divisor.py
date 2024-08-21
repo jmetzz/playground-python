@@ -1,5 +1,4 @@
-"""
-The greatest common divisor (GCD) of two integers, also known as the greatest common factor (GCF) or
+"""The greatest common divisor (GCD) of two integers, also known as the greatest common factor (GCF) or
 highest common factor (HCF), is the largest positive integer that divides both numbers without leaving a remainder.
 It's a fundamental concept in number theory because it helps in simplifying fractions,
 computing least common multiples, and solving various mathematical problems.
@@ -81,7 +80,6 @@ def gcd_iterative(a: int, b: int, verbose: bool = False) -> int:
     and cryptographic algorithms.
 
     """
-
     while b != 0:
         if verbose:
             reminder = a % b

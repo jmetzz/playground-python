@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/ransom-note/description/
+"""https://leetcode.com/problems/ransom-note/description/
 383. Ransom Note
 Easy
 
@@ -58,7 +57,7 @@ def can_construct_3(ransom_note: str, magazine: str) -> bool:
         if ransom_note.count(ch) > magazine.count(ch):
             return False
 
-    # A note about the '# noqa: SIM110'
+    # A note about the '# '
     # this function could be simplified (in terms of readability) as
     # return all(ransom_note.count(ch) <= magazine.count(ch) for ch in set(ransom_note))
 

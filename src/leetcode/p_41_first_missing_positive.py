@@ -1,5 +1,4 @@
-"""
-41. First Missing Positive
+"""41. First Missing Positive
 Hard
 
 Given an unsorted integer array nums. Return the smallest positive integer that is not present in nums.
@@ -66,8 +65,7 @@ def first_missing_positive_set(nums: List[int]) -> int:
 
 
 def first_missing_positive_boolean_array(nums: List[int]) -> int:
-    """
-    Complexity Analysis
+    """Complexity Analysis
     Let n be the length of nums.
 
     Time complexity: O(n):
@@ -99,8 +97,7 @@ def first_missing_positive_boolean_array(nums: List[int]) -> int:
 
 
 def first_missing_positive_side_effect(nums: List[int]) -> int:
-    """
-    Time: O(n)
+    """Time: O(n)
     Space: O(1) since we modify the input array [Don't do this, ever!]
     """
     n = len(nums)
@@ -143,8 +140,7 @@ def first_missing_positive_side_effect(nums: List[int]) -> int:
 
 
 def first_missing_positive_cycle_sort(nums: List[int]) -> int:
-    """
-    https://en.wikipedia.org/wiki/Cycle_sort:
+    """https://en.wikipedia.org/wiki/Cycle_sort:
     sort a given sequence in a range from a to n by putting each element at
     the index that corresponds to its value.
     Since nums is a zero-indexed array, an element with the value x will be

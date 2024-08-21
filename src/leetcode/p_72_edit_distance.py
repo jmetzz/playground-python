@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/edit-distance/description
+"""https://leetcode.com/problems/edit-distance/description
 
 72. Edit Distance
 Medium
@@ -43,9 +42,7 @@ from math import inf
 
 
 def edit_distance(word1: str, word2: str) -> int:
-    """
-
-    given text1 = abcde and text2 = ace
+    """Given text1 = abcde and text2 = ace
     form a dp cache table as:
 
         dp = [    a  c  e
@@ -101,18 +98,17 @@ def edit_distance_recursive(word1: str, word2: str) -> int:
         if i == 0:
             # word1 is "" --> insert for all j characters, thus, j operations
             return j
-        elif j == 0:
+        if j == 0:
             # word2 is "" --> delete all i characters to match "", thus, i operations
             return i
-        elif word1[i - 1] == word2[j - 1]:
+        if word1[i - 1] == word2[j - 1]:
             # match case -> process sub-problems & no operations needed
             return helper(i - 1, j - 1)
-        else:
-            return 1 + min(
-                helper(i, j - 1),  # insert
-                helper(i - 1, j),  # delete
-                helper(i - 1, j - 1),  # replace
-            )
+        return 1 + min(
+            helper(i, j - 1),  # insert
+            helper(i - 1, j),  # delete
+            helper(i - 1, j - 1),  # replace
+        )
 
     return helper(m, n)
 

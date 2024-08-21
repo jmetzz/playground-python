@@ -1,6 +1,5 @@
 def as_url(sequence, true_length) -> str:
-    """
-    Replace all spaces in a string with '%20' symbols
+    """Replace all spaces in a string with '%20' symbols
 
     Assumptions:
     - using an array of characters so that we can make changes in place
@@ -8,14 +7,17 @@ def as_url(sequence, true_length) -> str:
     - you are given the true size of the string
 
     Args:
+    ----
         sequence: of characters
         true_length: reflects the true size of the sequence array,
         even the white spaces
 
     Returns:
+    -------
          a string with spaces replaced
 
     Example:
+    -------
         > as_url("John  Doe     ", 8)
         > John%20Doe%20
 

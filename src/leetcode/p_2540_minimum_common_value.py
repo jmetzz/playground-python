@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/minimum-common-value/description/
+"""https://leetcode.com/problems/minimum-common-value/description/
 2540. Minimum Common Value
 Easy
 

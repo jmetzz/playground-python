@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/minimum-falling-path-sum/
+"""https://leetcode.com/problems/minimum-falling-path-sum/
 
 Given an n x n array of integers matrix, return the minimum sum of any falling path through matrix.
 

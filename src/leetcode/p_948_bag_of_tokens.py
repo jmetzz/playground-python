@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/bag-of-tokens/description
+"""https://leetcode.com/problems/bag-of-tokens/description
 
 948. Bag of Tokens
 Medium

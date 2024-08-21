@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/trapping-rain-water/description
+"""https://leetcode.com/problems/trapping-rain-water/description
 42. Trapping Rain Water
 Hard
 
@@ -53,8 +52,7 @@ def trapped_water_volume_two_pointers(height: List[int]) -> int:
 
 
 def trapped_water_volume_monotonic_stack(heights: List[int]) -> int:
-    """
-    Use a stack to maintain a list of indices with bars where
+    """Use a stack to maintain a list of indices with bars where
     the next bars are smaller or equal in height
 
     """

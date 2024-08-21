@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/remove-nth-node-from-end-of-list/description
+"""https://leetcode.com/problems/remove-nth-node-from-end-of-list/description
 
 19. Remove Nth Node From End of List
 Medium
@@ -48,18 +47,16 @@ def remove_nth_from_end(head: Optional[SingleLinkNode], n: int) -> Optional[Sing
         new_head = head.next
         head.next = None  # clean up the connection to the list
         return new_head
-    else:
-        # stack[idx - 1] is the preceding node
-        stack[idx - 1].next = stack[idx].next
-        # clean up connection from the removed node.
-        stack[idx].next = None
-        # the head of the list stays the same
-        return head
+    # stack[idx - 1] is the preceding node
+    stack[idx - 1].next = stack[idx].next
+    # clean up connection from the removed node.
+    stack[idx].next = None
+    # the head of the list stays the same
+    return head
 
 
 def remove_nth_from_end_two_pointers(head: Optional[SingleLinkNode], n: int) -> Optional[SingleLinkNode]:
-    """
-    Use the two pointers and dummy node technique.
+    """Use the two pointers and dummy node technique.
 
     [1 ---> 2 ---> 3 ---> 4 ---> 5]
     n = 2, makes node 4 the target for removal
@@ -73,10 +70,12 @@ def remove_nth_from_end_two_pointers(head: Optional[SingleLinkNode], n: int) -> 
                             L ----------------- R
 
     Args:
+    ----
         head: the node at the first position
         n: 1 <= n <= size of the list
 
     Returns:
+    -------
         the head of the list
 
     """

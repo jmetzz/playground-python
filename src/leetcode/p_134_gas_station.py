@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/gas-station/description/
+"""https://leetcode.com/problems/gas-station/description/
 134. Gas Station
 Medium
 

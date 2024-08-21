@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/description
+"""https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/description
 
 80. Remove Duplicates from Sorted Array II
 Medium
@@ -61,8 +60,7 @@ nums is sorted in non-decreasing order.
 
 
 def remove_duplicates(nums: list[int]) -> int:
-    """
-    Removes duplicates from the sorted array such that each element appears at most twice.
+    """Removes duplicates from the sorted array such that each element appears at most twice.
     This function modifies the input array in place and returns the new length of the array.
 
     Approach:
@@ -81,16 +79,20 @@ def remove_duplicates(nums: list[int]) -> int:
           allowed count of two.
 
     Args:
+    ----
         nums (list[int]): A list of integers sorted in non-decreasing order.
 
     Returns:
+    -------
         int: The length of the modified array where each element appears at most twice.
 
     Example:
+    -------
         >>> nums = [0, 0, 1, 1, 1, 1, 2, 3, 3]
         >>> length = removeDuplicates(nums)
         >>> print(length)  # Output: 7
         >>> print(nums[:length])  # Output: [0, 0, 1, 1, 2, 3, 3]
+
     """
     # If the array has 2 or fewer elements, it's already valid; no modification needed.
     if len(nums) <= 2:

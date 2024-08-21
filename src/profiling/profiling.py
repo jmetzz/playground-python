@@ -23,8 +23,7 @@ MB_MODIFIER = 1024**2
 
 
 def timed(log_level=logging.DEBUG):
-    """
-    Decorate a function to time it and log it out
+    """Decorate a function to time it and log it out
 
     Usage:
         decorate the target function with `@timed()`.
@@ -49,8 +48,7 @@ def timed(log_level=logging.DEBUG):
 
 
 def timed_counter(log_level=logging.DEBUG):
-    """
-    Decorate a function to time it and log it using time.perf_counter.
+    """Decorate a function to time it and log it using time.perf_counter.
 
     Logs the value (in fractional seconds) of a performance counter.
     It does include time elapsed during sleep and is system-wide.
@@ -85,8 +83,7 @@ def timed_counter(log_level=logging.DEBUG):
 
 
 def mem_audited(log_level=logging.DEBUG):
-    """
-    Decorate a function to log memory usage information
+    """Decorate a function to log memory usage information
 
     Usage:
         decorate the target function with `@mem_audited()`.
@@ -167,8 +164,7 @@ class TracemallocWrapper:
 
     @staticmethod
     def take_snapshot_and_log_stats(filters: Optional[Iterable] = None, msg: str = ""):
-        """
-        Takes tracemalloc snapshot and prints statistics
+        """Takes tracemalloc snapshot and prints statistics
         :param filters: Filters to include/exclude python modules.
         :param msg: Extra massage/info to print.
         """
@@ -196,8 +192,7 @@ class TracemallocWrapper:
     def take_snapshot(
         filters: Optional[Iterable],
     ):
-        """
-        Takes snapshot.
+        """Takes snapshot.
         :param filters: Applies provided filters.
         :return: Current snapshot.
         """
@@ -217,8 +212,7 @@ class TracemallocWrapper:
         show_traceback=False,
     ):
         # pylint: disable=too-many-arguments
-        """
-        Prints difference between two snapshots.
+        """Prints difference between two snapshots.
         :param snapshot_1: First snapshot
         :param snapshot_2: Second snapshot
         :param key_type: Statistics key
@@ -235,8 +229,7 @@ class TracemallocWrapper:
 
     @staticmethod
     def log_object_traceback(obj):
-        """
-        Prints object traceback.
+        """Prints object traceback.
         :param obj: Object to trace.
         """
         obj_traceback = tracemalloc.get_object_traceback(obj)
@@ -287,8 +280,7 @@ class TracemallocWrapper:
     def log_traceback(
         traceback: Optional[tracemalloc.Traceback],
     ):
-        """
-        Print traceback frames.
+        """Print traceback frames.
         :param traceback: Traceback instance
         :return: Nothing
         """
@@ -330,8 +322,7 @@ class TracemallocWrapper:
 
     @staticmethod
     def log_summary():
-        """
-        tracemalloc memory overhead in kilobytes
+        """Tracemalloc memory overhead in kilobytes
         to store traces of memory blocks.
         """
         if not logger.isEnabledFor(logging.DEBUG):

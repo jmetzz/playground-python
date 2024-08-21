@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/smallest-string-starting-from-leaf/description/
+"""https://leetcode.com/problems/smallest-string-starting-from-leaf/description/
 
 988. Smallest String Starting From Leaf
 Medium

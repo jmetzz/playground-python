@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/count-good-nodes-in-binary-tree/description
+"""https://leetcode.com/problems/count-good-nodes-in-binary-tree/description
 1448. Count Good Nodes in Binary Tree
 Medium
 
@@ -44,8 +43,7 @@ def good_nodes(root: TreeNode) -> int:
             return 0
         if node.val >= path_max:
             return 1 + _dfs(node.left, node.val) + _dfs(node.right, node.val)
-        else:
-            return _dfs(node.left, path_max) + _dfs(node.right, path_max)
+        return _dfs(node.left, path_max) + _dfs(node.right, path_max)
 
     return _dfs(root, root.val)
 

@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/open-the-lock/description/
+"""https://leetcode.com/problems/open-the-lock/description/
 752. Open the Lock
 Medium
 

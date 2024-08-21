@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/reorder-list/description/
+"""https://leetcode.com/problems/reorder-list/description/
 
 143. Reorder List
 Medium
@@ -35,10 +34,7 @@ from data_structures.lists import SingleLinkNode as ListNode
 
 
 def reorder_list(head: Optional[ListNode]) -> None:
-    """
-    Do not return anything, modify head in-place instead.
-    """
-
+    """Do not return anything, modify head in-place instead."""
     if not head or not head.next or not head.next.next:
         # None, 1 or 2 elements only
         return
@@ -106,8 +102,7 @@ def reorder_list_fast_slow_pointers(head: Optional[ListNode]) -> None:
 
 
 def reorder_list_even_and_reversed_odd_indices(head: Optional[ListNode]) -> None:
-    """
-    You are given the head of a singly linked-list.
+    """You are given the head of a singly linked-list.
     The list can be represented as:
         L0 → L1 → … → Ln-1
 

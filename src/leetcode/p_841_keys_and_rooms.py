@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/keys-and-rooms/description
+"""https://leetcode.com/problems/keys-and-rooms/description
 
 841. Keys and Rooms
 Medium

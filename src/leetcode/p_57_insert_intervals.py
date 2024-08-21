@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/insert-interval/description/
+"""https://leetcode.com/problems/insert-interval/description/
 
 57. Insert Interval
 Medium

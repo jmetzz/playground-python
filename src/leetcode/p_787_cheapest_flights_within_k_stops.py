@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/cheapest-flights-within-k-stops/description
+"""https://leetcode.com/problems/cheapest-flights-within-k-stops/description
 
 787. Cheapest Flights Within K Stops
 Medium

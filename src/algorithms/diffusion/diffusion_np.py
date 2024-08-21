@@ -36,8 +36,7 @@ class DiffusionNumpy:
 
 
 class DiffusionNumpyInPlace:
-    """
-    This version optmizes the code even further by reducing the number
+    """This version optmizes the code even further by reducing the number
     of allocations necessary to solve the diffusion problem.
     """
 
@@ -61,8 +60,7 @@ class DiffusionNumpyInPlace:
 
 
 class DiffusionNumpyInPlaceLessAllocation:
-    """
-    This version optmizes the code even further by reducing the number of
+    """This version optmizes the code even further by reducing the number of
     allocations necessary to solve the diffusion problem.
     """
 
@@ -80,8 +78,7 @@ class DiffusionNumpyInPlaceLessAllocation:
 
     @classmethod
     def roll_add(cls, rollee, shift, axis, out):
-        """
-        Given a matrix, a rollee, and an output matrix, out, this function will
+        """Given a matrix, a rollee, and an output matrix, out, this function will
         perform the calculation:
 
             >>> out += np.roll(rollee, shift, axis=axis)

@@ -54,7 +54,7 @@ def least_interval_max_heap(tasks: List[str], n: int) -> int:
 
 
 def least_interval_max_heap_2(tasks: List[str], n: int) -> int:
-    """approach optimizes efficiency by prioritizing tasks
+    """Approach optimizes efficiency by prioritizing tasks
     based on their frequency, thereby reducing intervals and
     minimizing idle time for the scheduler.
 
@@ -85,8 +85,7 @@ def least_interval_max_heap_2(tasks: List[str], n: int) -> int:
 
 
 def least_interval_chunck_based(tasks: List[str], n: int) -> int:
-    """
-    Find the minimum number of intervals required to complete all tasks
+    """Find the minimum number of intervals required to complete all tasks
     while following the cooling time constraint.
 
     1. count the frequency of each task.

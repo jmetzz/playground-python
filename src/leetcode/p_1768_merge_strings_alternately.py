@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/merge-strings-alternately/description
+"""https://leetcode.com/problems/merge-strings-alternately/description
 
 1768. Merge Strings Alternately
 Easy

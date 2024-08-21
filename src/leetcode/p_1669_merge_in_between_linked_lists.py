@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/merge-in-between-linked-lists/description
+"""https://leetcode.com/problems/merge-in-between-linked-lists/description
 
 1669. Merge In Between Linked Lists
 Medium

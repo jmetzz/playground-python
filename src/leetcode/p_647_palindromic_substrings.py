@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/palindromic-substrings/description/
+"""https://leetcode.com/problems/palindromic-substrings/description/
 
 647. Palindromic Substrings
 Medium

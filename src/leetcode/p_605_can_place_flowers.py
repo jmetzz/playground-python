@@ -1,6 +1,4 @@
-"""
-https://leetcode.com/problems/can-place-flowers/description/
-
+"""https://leetcode.com/problems/can-place-flowers/description/
 
 605. Can Place Flowers
 Easy

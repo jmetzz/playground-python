@@ -1,6 +1,4 @@
-"""
-https://leetcode.com/problems/reverse-linked-list/description
-
+"""https://leetcode.com/problems/reverse-linked-list/description
 
 206. Reverse Linked List
 Solved
@@ -35,14 +33,16 @@ from data_structures.lists import SingleLinkNode as ListNode
 
 
 def reverse_list_with_stack(head: Optional[ListNode]) -> Optional[ListNode]:
-    """
-    Reverses a linked list using a stack data structure.
+    """Reverses a linked list using a stack data structure.
 
     Args:
+    ----
         head (Optional[ListNode]): The head of the linked list to be reversed.
 
     Returns:
+    -------
         Optional[ListNode]: The new head of the reversed linked list.
+
     """
     if not head:
         return None
@@ -64,8 +64,7 @@ def reverse_list_with_stack(head: Optional[ListNode]) -> Optional[ListNode]:
 
 
 def reverse_list_with_pointers(head: Optional[ListNode]) -> Optional[ListNode]:
-    """
-    Reverses a singly linked list using a pointer approach.
+    """Reverses a singly linked list using a pointer approach.
 
     The function iterates through the list, reversing the direction of the pointers as it goes.
     It keeps track of three nodes at a time: the previous node, the current node, and the next node.
@@ -75,10 +74,13 @@ def reverse_list_with_pointers(head: Optional[ListNode]) -> Optional[ListNode]:
     (now the last node of the original list) becomes the new head of the reversed list.
 
     Args:
+    ----
         head: The head node of the singly linked list to be reversed.
 
     Returns:
+    -------
         The new head node of the reversed linked list. If the input list is empty, returns None.
+
     """
     if not head:
         return None

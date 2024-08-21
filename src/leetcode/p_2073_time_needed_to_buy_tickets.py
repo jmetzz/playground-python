@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/time-needed-to-buy-tickets
+"""https://leetcode.com/problems/time-needed-to-buy-tickets
 
 2073. Time Needed to Buy Tickets
 Easy

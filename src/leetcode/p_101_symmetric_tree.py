@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/symmetric-tree/description/
+"""https://leetcode.com/problems/symmetric-tree/description/
 101. Symmetric Tree
 Easy
 
@@ -33,10 +32,9 @@ def is_symmetric_recursive(root: Optional[TreeNode]) -> bool:
     def _helper(root1, root2) -> bool:
         if root1 is None and root2 is None:
             return True
-        elif (root1 is None) != (root2 is None) or root1.val != root2.val:
+        if (root1 is None) != (root2 is None) or root1.val != root2.val:
             return False
-        else:
-            return _helper(root1.left, root2.right) and _helper(root1.right, root2.left)
+        return _helper(root1.left, root2.right) and _helper(root1.right, root2.left)
 
     if root is None:
         return True
@@ -44,10 +42,7 @@ def is_symmetric_recursive(root: Optional[TreeNode]) -> bool:
 
 
 def is_symmetric_iterative(root: Optional[TreeNode]) -> bool:
-    """
-
-    Note: missing nodes are not considered
-    """
+    """Note: missing nodes are not considered"""
     if root is None:
         return True
     q = [root.left, root.right]

@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/daily-temperatures/description/
+"""https://leetcode.com/problems/daily-temperatures/description/
 
 739. Daily Temperatures
 
@@ -36,8 +35,7 @@ from typing import List
 
 class DailyTemperatures:
     def solve_iterative(self, temperatures: List[int]) -> List[int]:
-        """
-        Correct solution, but not accepted.
+        """Correct solution, but not accepted.
         Leetcode time Limit exceeded; 35/48 testcases passed
         """
         n = len(temperatures)

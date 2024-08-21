@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/valid-anagram/description
+"""https://leetcode.com/problems/valid-anagram/description
 
 242. Valid Anagram
 Easy

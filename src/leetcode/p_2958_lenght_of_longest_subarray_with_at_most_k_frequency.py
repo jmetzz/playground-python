@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/length-of-longest-subarray-with-at-most-k-frequency/description
+"""https://leetcode.com/problems/length-of-longest-subarray-with-at-most-k-frequency/description
 
 2958. Length of Longest Subarray With at Most K Frequency
 Medium
@@ -60,6 +59,5 @@ def max_subarray_length(nums: List[int], k: int) -> int:
             lo += 1
 
         curr_len = hi - lo + 1
-        if curr_len > longest:
-            longest = curr_len
+        longest = max(curr_len, longest)
     return longest

@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/insert-delete-getrandom-o1/description
+"""https://leetcode.com/problems/insert-delete-getrandom-o1/description
 
 380. Insert Delete GetRandom O(1)
 Medium

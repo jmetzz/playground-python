@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/asteroid-collision/description
+"""https://leetcode.com/problems/asteroid-collision/description
 
 735. Asteroid Collision
 Medium
@@ -39,9 +38,7 @@ from typing import List
 
 
 def asteroid_collision(asteroids: List[int]) -> List[int]:
-    """
-
-    The key insight for this problem is:
+    """The key insight for this problem is:
         > The positions in the array represent their relative positions in space,
         > moving either to the left or right. All asteroids are considered to be moving simultaneously.
 

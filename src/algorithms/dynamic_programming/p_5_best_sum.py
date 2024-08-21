@@ -1,5 +1,4 @@
-"""
-Implement a function that takes in a target_sum and an
+"""Implement a function that takes in a target_sum and an
 array of numbers (v_i >= 0) as arguments.
 
 The function should return an array containing the
@@ -11,7 +10,7 @@ If there is no combination that adds up the target-sum,
 then return None.
 
 Examples:
-
+--------
     best_sum(7, [5, 3, 4, 7]) -> [7]
     best_sum(7, [2, 4]) -> None
     best_sum(8, [2, 3, 5]) -> [3, 5]

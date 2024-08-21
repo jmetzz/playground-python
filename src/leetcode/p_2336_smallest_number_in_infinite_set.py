@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/smallest-number-in-infinite-set/description
+"""https://leetcode.com/problems/smallest-number-in-infinite-set/description
 2336. Smallest Number in Infinite Set
 Medium
 
@@ -75,7 +74,8 @@ class SmallestInfiniteSet_Set_and_loop:
         """Iterate over the unavailable set
         to check what is the smallest value not yet
         in the set, which is the smalles values
-        available for the pop operation"""
+        available for the pop operation
+        """
         num = 1
         while num in self.unavailable:
             num += 1
@@ -86,7 +86,8 @@ class SmallestInfiniteSet_Set_and_loop:
     def addBack(self, num: int) -> None:
         """Remove num from the unavailable set,
         which represents adding it back into the
-        set of available numbers to be popped"""
+        set of available numbers to be popped
+        """
         # Use discard function to remove num from the set if it is present,
         # to avoid having to handle KeyError in case it is not present.
         # This exception is raised by the function remove in the element
@@ -126,10 +127,9 @@ class SmallestInfiniteSet_Set:
             min_val = min(self.added_back)
             self.added_back.remove(min_val)
             return min_val
-        else:
-            num = self.smalles_available
-            self.smalles_available += 1
-            return num
+        num = self.smalles_available
+        self.smalles_available += 1
+        return num
 
     def addBack(self, num: int) -> None:
         if num < self.smalles_available:

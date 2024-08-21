@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/diagonal-traverse/description/
+"""https://leetcode.com/problems/diagonal-traverse/description/
 
 498. Diagonal Traverse
 Medium

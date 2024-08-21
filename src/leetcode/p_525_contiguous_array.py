@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/contiguous-array/description
+"""https://leetcode.com/problems/contiguous-array/description
 
 525. Contiguous Array
 Medium
@@ -38,7 +37,7 @@ def find_max_length_brute_force(nums: List[int]) -> int:
     Space: O(1)
     """
     max_len = 0
-    for start in range(0, len(nums)):
+    for start in range(len(nums)):
         zeros, ones = 0, 0
         for end in range(start, len(nums)):
             if nums[end] == 0:
@@ -52,8 +51,7 @@ def find_max_length_brute_force(nums: List[int]) -> int:
 
 
 def find_max_length_hashmap(nums: List[int]) -> int:
-    """
-    Use a proxy counter variable (count_diff) to keep the relative number of
+    """Use a proxy counter variable (count_diff) to keep the relative number of
     ones and zeros encountered so far while traversing the array.
     Increment count_diff when a 1 is found, and decrement it when a 0 is found.
 

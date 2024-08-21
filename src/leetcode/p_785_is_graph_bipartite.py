@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/is-graph-bipartite/description/
+"""https://leetcode.com/problems/is-graph-bipartite/description/
 
 785. Is Graph Bipartite?
 Medium
@@ -55,8 +54,7 @@ def is_bipartite_dfs(graph: Graph) -> bool:
     """
 
     def _dfs_traverse(node, color):
-        """
-        traverse the graph, attempting to assign alternating colors
+        """Traverse the graph, attempting to assign alternating colors
         to neighboring vertices. If at any point it finds two adjacent
         vertices with the same color, it concludes the graph is not bipartite.
         """

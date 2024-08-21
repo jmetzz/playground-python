@@ -1,5 +1,4 @@
-"""
-5. Longest Palindromic Substring
+"""5. Longest Palindromic Substring
 Medium
 
 Given a string s, return the longest palindromic substring in s.
@@ -48,8 +47,7 @@ def longest_palindrome_heap_brute_force(s: str) -> str:
 
 
 def longest_palindrome_expanding_window(sequence: str) -> str:
-    """
-    To optimize the execution we can reuse a previously computed palindrome
+    """To optimize the execution we can reuse a previously computed palindrome
     to compute a larger palindrome.
     If “aba” is a palindrome, “XabaX” is also a palindrome.
     Also, if “XabaZ” is not a palindrome, the other characters added to left and right

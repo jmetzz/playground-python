@@ -1,5 +1,4 @@
-"""
-232. Implement Queue using Stacks
+"""232. Implement Queue using Stacks
 Easy
 
 Implement a first in first out (FIFO) queue using only two stacks.
@@ -12,6 +11,7 @@ Implement the MyQueue class:
 - boolean empty() Returns true if the queue is empty, false otherwise.
 
 Notes:
+-----
 You must use only standard operations of a stack, which means only push to top,
 peek/pop from top, size, and is empty operations are valid.
 Depending on your language, the stack may not be supported natively.
@@ -40,8 +40,7 @@ from typing import Optional
 
 
 class QueueUsingStacks:
-    """
-    Push - O(1) per operation,
+    """Push - O(1) per operation,
     Pop - Amortized O(1) per operation.
 
     Push:
@@ -54,9 +53,7 @@ class QueueUsingStacks:
         self._aux = []
 
     def push(self, x: int) -> None:
-        """
-        Time complexity : O(1). Appending an element to a stack is an O(1) operation.
-        """
+        """Time complexity : O(1). Appending an element to a stack is an O(1) operation."""
         self._stack.append(x)
 
     def pop(self) -> Optional[int]:
@@ -66,8 +63,7 @@ class QueueUsingStacks:
         return self._peek(True)
 
     def _peek(self, keep: bool) -> Optional[int]:
-        """
-        Pop and Peek operation only differs by the flag keep.
+        """Pop and Peek operation only differs by the flag keep.
         If keep is True, then perform peek operation
         If keep is False, perform pop operation.
 

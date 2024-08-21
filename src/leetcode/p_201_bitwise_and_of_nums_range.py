@@ -17,8 +17,7 @@ def range_bitwise_and__solve_bitwise(left: int, right: int) -> int:
 
 
 def range_bitwise_and__solve_kernighan(left: int, right: int) -> int:
-    """
-    The main idea behind this algorithm is that when we
+    """The main idea behind this algorithm is that when we
     subtract one from any number, it inverts all the bits
     after the rightmost set bit i.e. it turns 1 to 0 and 0 to 1.
 

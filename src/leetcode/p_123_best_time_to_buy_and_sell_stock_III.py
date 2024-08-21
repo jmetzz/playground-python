@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/
+"""https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/
 
 123. Best Time to Buy and Sell Stock III
 Hard
@@ -44,8 +43,7 @@ from typing import Dict, List, Tuple
 
 
 def max_profit_heap(prices: List[int]) -> int:
-    """
-    This function does not solve the problem!
+    """This function does not solve the problem!
 
     It only solves local sub-problems.
     """
@@ -97,8 +95,7 @@ def max_profit_heap(prices: List[int]) -> int:
 
 
 def max_profit_list_transactions(prices: List[int]) -> List[Tuple]:
-    """
-    This function does not solve the problem!
+    """This function does not solve the problem!
 
     It only solves local sub-problems.
     """
@@ -180,8 +177,7 @@ def max_profit_two_segments(prices: List[int]) -> List[Tuple]:
 
 
 def max_profit_two_segments_list_transactions(prices: List[int]) -> List[Tuple]:
-    """
-    To identify the days in which the transactions happen,
+    """To identify the days in which the transactions happen,
     we can extend the arrays to track days information.
 
     Instead of just tracking profits, also track the days on which the buy and sell happen.
@@ -190,7 +186,6 @@ def max_profit_two_segments_list_transactions(prices: List[int]) -> List[Tuple]:
 
 
     """
-
     if not prices:
         return 0
 
@@ -285,8 +280,7 @@ def max_profit_memoization(prices: List[int]) -> List[Tuple]:
 
 
 def max_profit_tabulation(prices: List[int]) -> List[Tuple]:
-    """
-    Time Complexity O(N)
+    """Time Complexity O(N)
     Space Complexity O(N)
     """
     n = len(prices)

@@ -1,6 +1,5 @@
 def one_away(firsts: str, second: str) -> bool:
-    """
-    Given two strings, write a function to check if they are one edit
+    """Given two strings, write a function to check if they are one edit
      (or zero edits) operation away.
 
      There are three types of edits that can be performed on strings:

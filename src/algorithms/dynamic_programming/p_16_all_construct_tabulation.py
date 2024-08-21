@@ -1,5 +1,4 @@
-"""
-Write a function that takes in a target string and an array of strings.
+"""Write a function that takes in a target string and an array of strings.
 
 The function should return a 2D array containing all the ways that target can be constructed
 by concatenating elements from the word_bank array. Each element of the 2D array should

@@ -22,8 +22,7 @@ def fetch_random_word(hint_size: int = 1) -> Tuple[str, str]:
 def guess(word: str, reveled: Set[str], ch: str) -> Tuple[Set[str], str]:
     if ch in word:
         return reveled.union(ch), "Good job!"
-    else:
-        return reveled, "Fail. Try again!"
+    return reveled, "Fail. Try again!"
 
 
 if __name__ == "__main__":

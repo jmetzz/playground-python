@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/find-the-pivot-integer/description
+"""https://leetcode.com/problems/find-the-pivot-integer/description
 2485. Find the Pivot Integer
 Easy
 
@@ -38,8 +37,7 @@ from math import sqrt
 
 
 def pivot_brute_force(n: int) -> int:
-    """
-    Finds a pivot element in the range [1, n]
+    """Finds a pivot element in the range [1, n]
 
     such that the sum of elements up to (and including) the pivot
     is equal to the sum of elements from the pivot to n.
@@ -51,14 +49,17 @@ def pivot_brute_force(n: int) -> int:
     equals the sum of elements on the right side, that pivot value is returned.
 
     Args:
+    ----
         n (int): The upper bound of the range within which to search for the pivot element.
         n should be a positive integer.
 
     Returns:
+    -------
         int: The pivot element for which the sum of elements on its left equals the
         sum of elements on its right. If no such element exists, returns -1.
 
     Examples:
+    --------
         >>> pivot_brute_force(5)
         -1
 
@@ -66,9 +67,11 @@ def pivot_brute_force(n: int) -> int:
         2
 
     Note:
+    ----
         This brute-force approach can be inefficient for large values of n
         due to the repetitive computation of sums on each iteration.
         It is primarily for demonstration or when n is known to be small.
+
     """
     # Iterate through possible pivot values
     for i in range(1, n + 1):
@@ -85,8 +88,7 @@ def pivot_brute_force(n: int) -> int:
 
 
 def pivot_prefix_sum(n: int) -> int:
-    """
-    Finds a pivot element in the range [1, n]
+    """Finds a pivot element in the range [1, n]
 
     such that the sum of elements on the left is equal to the sum of elements on the right.
     This function computes the total sum of integers from 1 to n using the formula
@@ -99,14 +101,17 @@ def pivot_prefix_sum(n: int) -> int:
     the function returns -1, indicating no such pivot exists.
 
     Args:
+    ----
         n (int): The upper bound of the range within which to search for the pivot element.
         n should be a positive integer.
 
     Returns:
+    -------
         int: The pivot element for which the sum of elements on its left is equal to
         the sum of elements on its right. If no such element exists, returns -1.
 
     Examples:
+    --------
         >>> pivot_prefix_sum(5)
         -1
 
@@ -126,8 +131,7 @@ def pivot_prefix_sum(n: int) -> int:
 
 
 def pivot_mathematical_solution(n: int) -> int:
-    """
-    Finds an integer x within the range [1, n]
+    """Finds an integer x within the range [1, n]
 
     such that the sum of integers from 1 to x equals the sum of integers from x to n.
     This function calculates x by solving the quadratic equation derived from
@@ -153,15 +157,18 @@ def pivot_mathematical_solution(n: int) -> int:
     than x is the pivot point. Otherwise, there is no pivot point for n.
 
     Args:
+    ----
         n (int): The upper bound of the range to search for the integer x.
         n should be a non-negative integer.
 
     Returns:
+    -------
         int: The integer x that satisfies the sum property.
         If no such integer x exists within the range [1, n]
         or the solution is not an integer, the function returns -1.
 
     Example:
+    -------
         >>> pivot_mathematical_solution(8)
         6
 
@@ -169,12 +176,14 @@ def pivot_mathematical_solution(n: int) -> int:
         -1
 
     Note:
+    ----
         This function uses a mathematical approach to identify the pivot point,
         relying on algebraic manipulation and solving a quadratic equation to
         find the potential value of x.
         The final result is checked to ensure it is a valid integer within
         the specified range.
         Note that rounding issues might happen.
+
     """
     """
 
@@ -185,8 +194,7 @@ def pivot_mathematical_solution(n: int) -> int:
 
 
 def pivot_bin_search(n: int) -> int:
-    """
-    Finds a pivot number within the range [1, n]
+    """Finds a pivot number within the range [1, n]
 
     whose square equals the sum of the sequence 1 to n.
 
@@ -199,14 +207,17 @@ def pivot_bin_search(n: int) -> int:
     If such a pivot does not exist, the function returns -1.
 
     Args:
+    ----
         n (int): The upper bound of the range to search for the pivot.
                  n should be a positive integer.
 
     Returns:
+    -------
         int: The pivot number whose square equals the sum of integers from 1 to n.
         Returns -1 if no such pivot exists.
 
     Example:
+    -------
         >>> pivot_bin_search(8)
         6
         Explanation: For n=8, the sum of integers from 1 to 8 is 36.
@@ -226,7 +237,6 @@ def pivot_bin_search(n: int) -> int:
         so the function returns -1.
 
     """
-
     # Initialize left and right pointers for binary search
     left, right = 1, n
 

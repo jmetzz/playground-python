@@ -232,7 +232,7 @@ def counting_sort(elements: List[int]) -> List[int]:
     # Example: [4, 2, 2, 8, 3, 3, 1]; max_idx = 8
     max_idx = 0
     size = len(elements)
-    for index in range(0, size):
+    for index in range(size):
         if elements[index] > elements[max_idx]:
             max_idx = index
 
@@ -241,7 +241,7 @@ def counting_sort(elements: List[int]) -> List[int]:
     # at it's respective index in the count array.
     # Example: [4, 2, 2, 8, 3, 3, 1] -> [0, 1, 2, 2, 1, 0, 0, 0, 1]
     count = [0] * (elements[max_idx] + 1)
-    for index in range(0, size):
+    for index in range(size):
         count[elements[index]] += 1
 
     # Store cumulative sum of the elements of the count array.
@@ -290,14 +290,14 @@ def counting_sort(elements: List[int]) -> List[int]:
     #    updated count [0, 1, 2, 5, 5, 6, 6, 6, 7]
 
     output = [0] * size
-    for index in range(0, size):
+    for index in range(size):
         e = elements[index]
         element_count = count[e]
         output[element_count - 1] = e
         count[e] -= 1
 
     # overwrite the input array
-    for i in range(0, size):
+    for i in range(size):
         elements[i] = output[i]
 
     return elements

@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/description/
+"""https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/description/
 
 34. Find First and Last Position of Element in Sorted Array
 Medium
@@ -83,7 +82,7 @@ def search_range_bin_search(nums: List[int], target: int) -> List[int]:
             mid = (lo + hi) // 2
             if nums[mid] == target and nums[mid - 1] < target:
                 return mid
-            elif nums[mid] < target:
+            if nums[mid] < target:
                 lo = mid + 1
             else:
                 hi = mid - 1
@@ -97,7 +96,7 @@ def search_range_bin_search(nums: List[int], target: int) -> List[int]:
             mid = (lo + hi) // 2
             if nums[mid] == target and nums[mid + 1] > target:
                 return mid
-            elif nums[mid] > target:
+            if nums[mid] > target:
                 hi = mid - 1
             else:
                 lo = mid + 1

@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/count-submatrices-with-all-ones/description/
+"""https://leetcode.com/problems/count-submatrices-with-all-ones/description/
 
 1504. Count Submatrices With All Ones
 Medium
@@ -51,8 +50,7 @@ from typing import List
 
 
 def num_submatrices_of_ones__brute_force(matrix: List[List[int]]) -> int:
-    """
-    Time: O(n^2 * m^2)
+    """Time: O(n^2 * m^2)
     Space: O(m * n)
 
     The idea:
@@ -110,8 +108,7 @@ def num_submatrices_of_ones__dp(matrix: List[List[int]]) -> int:
 
 
 def num_submatrices_of_ones__mono_stack(matrix: List[List[int]]) -> int:
-    """
-    Intuition:
+    """Intuition:
     stack the matrix row by row to build a "histogram model", where each
     element in column i, represents the sum of consecutive 1s in that column.
     For example:

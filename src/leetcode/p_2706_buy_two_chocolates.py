@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/buy-two-chocolates/description/
+"""https://leetcode.com/problems/buy-two-chocolates/description/
 
 2706. Buy Two Chocolates
 Easy

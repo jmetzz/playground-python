@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/reveal-cards-in-increasing-order/description
+"""https://leetcode.com/problems/reveal-cards-in-increasing-order/description
 
 950. Reveal Cards In Increasing Order
 Medium

@@ -94,9 +94,7 @@ class DBReader:
 
 
 def create_database(db_path: str, sql_data_path: str):
-    """
-    Create a SQLite database from an SQL file.
-    """
+    """Create a SQLite database from an SQL file."""
     # Connect to the SQLite database. This will create the database file if it does not exist.
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
@@ -174,4 +172,4 @@ def export_sqlite_db_to_sql(db_file, output_sql_file):
     command = f"sqlite3 {db_file} .dump > {output_sql_file}"
 
     # Execute the command
-    subprocess.run(command, shell=True)
+    subprocess.run(command, shell=True, check=False)

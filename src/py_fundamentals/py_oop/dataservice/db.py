@@ -115,6 +115,7 @@ def get_db_connection(connection_pool: pool.AbstractConnectionPool):
     will be closed in case of an error.
 
     Args:
+    ----
         connection_pool (AbstractConnectionPool): Connection pool to pull the
             connection from.
 
@@ -122,6 +123,7 @@ def get_db_connection(connection_pool: pool.AbstractConnectionPool):
 
     with get_db_connection(my_pool) as conn:
         ...
+
     """
     if connection_pool is None:
         raise RuntimeError("Connection pool is None")
@@ -174,13 +176,14 @@ default_connection_pool = None
 
 
 class DataAccess:
-    """
-    Class that encapsulates database access.
+    """Class that encapsulates database access.
 
     Args:
+    ----
         connection_pool (AbstractConnectionPool): Optional connection pool to
             be used. If none is supplied a new one will be created and set
             as the default to be reused on subsequent instantiations.
+
     """
 
     configuration: dict = None
@@ -262,24 +265,25 @@ class DataAccess:
         self.execute(sql_query, params)
 
     def read_sql_query(self, sql_query, params=None):
-        """
-        Run a query with optional parameters and recursive trying to overcome
+        """Run a query with optional parameters and recursive trying to overcome
         invalid connections.
 
         Args:
+        ----
             sql_query (str): sql query with optional parameters, interface
                 format pyformat %()s.
             params (list): Optional parameters to insert in query.
 
         Returns:
+        -------
             pd.DataFrame: query output.
+
         """
         with get_db_connection(self.connection_pool) as conn:
             return pd.read_sql_query(sql=sql_query, con=conn, params=params)
 
     def read_psql_with_copy_command(self, sql_query, params=None, *args, **kwargs):
-        """
-        Read and build a DF using the copy_expert psycopg2 command.
+        """Read and build a DF using the copy_expert psycopg2 command.
 
         Better suited for retrieving large data sets.
 
@@ -292,6 +296,7 @@ class DataAccess:
         temporary file.
 
         Args:
+        ----
             sql_query (str): The PostgreSQL query to be executed
             params (dict): Optional parameters of the query
             args: Any additional arguments to be passed on to pd.read_csv.
@@ -299,7 +304,9 @@ class DataAccess:
                 pd.read_csv. e.g. dtype = {...}
 
         Returns:
+        -------
             pd.DataFrame: Output of the query.
+
         """
         if params:
             sql_query = sql_query % params

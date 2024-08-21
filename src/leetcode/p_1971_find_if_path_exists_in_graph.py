@@ -1,5 +1,4 @@
-"""
-1971. Find if Path Exists in Graph
+"""1971. Find if Path Exists in Graph
 Easy
 
 There is a bi-directional graph with n vertices, where each vertex is labeled

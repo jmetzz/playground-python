@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/next-greater-element-ii/description/
+"""https://leetcode.com/problems/next-greater-element-ii/description/
 503. Next Greater Element II
 
 Medium
@@ -90,6 +89,7 @@ def next_greater_elements_2(nums: List[int]) -> List[int]:
     nums to fill in the remaining -1s in answer.
 
     Example:
+    -------
         After the first loop, the partial answer and the stack are:
         nums = [2, 1, 2, 4, 3]; answer = [4, 2, 4, -1, -1]; stack = [3, 4]
 
@@ -101,6 +101,7 @@ def next_greater_elements_2(nums: List[int]) -> List[int]:
 
         Final Answer is:
         answer = [4, 2, 4, -1, 4]
+
     """
     stack = []  # keep elements already seen
     answer = [-1] * len(nums)

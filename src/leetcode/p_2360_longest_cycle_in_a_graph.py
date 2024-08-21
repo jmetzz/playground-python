@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/longest-cycle-in-a-graph/description/
+"""https://leetcode.com/problems/longest-cycle-in-a-graph/description/
 
 2360. Longest Cycle in a Graph
 Hard
@@ -42,20 +41,22 @@ from data_structures.graph_utils import Graph, transpose_digraph
 
 
 def longest_cycle_set(edges: List[int]) -> int:
-    """
-    Finds the length of the longest cycle in a directed graph.
+    """Finds the length of the longest cycle in a directed graph.
 
     Args:
+    ----
         edges (List[int]): A list where the value at each index i represents the
                             successor of vertex i, or -1 if i has no successor.
 
     Returns:
+    -------
         int: The length of the longest cycle found in the graph. Returns -1 if no cycle is found.
 
     This implementation utilizes a set to track visited vertices, thereby avoiding the side-effect
     of modifying the original `edges` list. It iterates over each vertex, following the chain of
     successors to detect cycles and measure their lengths, updating the answer with the length of
     the longest cycle found.
+
     """
     answer = -1
     visited = set()  # Tracks visited vertices without modifying edges
@@ -76,20 +77,22 @@ def longest_cycle_set(edges: List[int]) -> int:
 
 
 def longest_cycle_boolean_arr(edges: List[int]) -> int:
-    """
-    Finds the length of the longest cycle in a directed graph.
+    """Finds the length of the longest cycle in a directed graph.
 
     Args:
+    ----
         edges (List[int]): A list where the value at each index i represents the
                             successor of vertex i, or -1 if i has no successor.
 
     Returns:
+    -------
         int: The length of the longest cycle found in the graph. Returns -1 if no cycle is found.
 
     This function uses a boolean array to track visited vertices, offering a slight performance
     advantage over a set for dense, integer-indexed graphs. It avoids modifying the original `edges`
     list by iterating over vertices, following their chain of successors to detect cycles, and
     calculating their lengths to find the longest cycle.
+
     """
     answer = -1
     visited = [False] * len(edges)  # Boolean array to track visited vertices
@@ -110,8 +113,7 @@ def longest_cycle_boolean_arr(edges: List[int]) -> int:
 
 
 def longest_cycle_side_effect(edges: List[int]) -> int:
-    """
-    Finds the length of the longest cycle in a directed graph
+    """Finds the length of the longest cycle in a directed graph
 
     where edges is a list such that edges[i] is the successor of vertex i,
     or -1 if i has no successor. This representation simplifies the graph to
@@ -119,10 +121,12 @@ def longest_cycle_side_effect(edges: List[int]) -> int:
     or matrix.
 
     Args:
+    ----
         edges (List[int]): A list where the value at each index i represents the
                             successor of vertex i, or -1 if i has no successor.
 
     Returns:
+    -------
         int: The length of the longest cycle found in the graph. Returns -1 if no cycle is found.
 
 
@@ -167,20 +171,21 @@ def longest_cycle_side_effect(edges: List[int]) -> int:
 
 
 def longest_cycle_kosaraju(edges: List[int]) -> int:
-    """
-    Finds the length of the longest cycle in a directed graph without modifying the input list.
+    """Finds the length of the longest cycle in a directed graph without modifying the input list.
 
     Args:
+    ----
         edges (List[int]): A list where the value at each index i represents the
                             successor of vertex i, or -1 if i has no successor.
 
     Returns:
+    -------
         int: The length of the longest cycle found in the graph. Returns -1 if no cycle is found.
 
     This function uses the Kosaraju's algorithm identifies SCCs through two DFS passes.
     It is a nice and elegant algorithm, but to slow for this problem.
-    """
 
+    """
     num_vertices = len(edges)
     graph = {vertex: set() for vertex in range(num_vertices)}
 
@@ -226,7 +231,6 @@ def longest_cycle_kosaraju(edges: List[int]) -> int:
         if vertex not in visited:
             count = 0
             _dfs(transposed_graph, vertex, increment_count)
-            if count > max_size:
-                max_size = count
+            max_size = max(count, max_size)
 
     return max_size if max_size > 1 else -1

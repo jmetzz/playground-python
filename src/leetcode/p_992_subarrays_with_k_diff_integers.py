@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/subarrays-with-k-different-integers/description
+"""https://leetcode.com/problems/subarrays-with-k-different-integers/description
 
 992. Subarrays with K Different Integers
 Hard
@@ -38,8 +37,7 @@ from typing import List
 
 
 def subarrays_with_k_distinct(nums: List[int], k: int) -> int:
-    """
-    One pass expand the shrink a sliding-window
+    """One pass expand the shrink a sliding-window
 
     The logic updates the sliding window accoding to the conditions:
         * expand: add the current num

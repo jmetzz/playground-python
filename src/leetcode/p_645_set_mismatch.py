@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/set-mismatch/
+"""https://leetcode.com/problems/set-mismatch/
 
 You have a set of integers s, which originally contains all the numbers from 1 to n. Unfortunately,
 due to some error, one of the numbers in s got duplicated to another number in the set,

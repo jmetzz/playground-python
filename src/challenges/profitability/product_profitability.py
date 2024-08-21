@@ -70,16 +70,16 @@ def build_response(highest_profit_product: Tuple, lowest_profit_product: Tuple, 
 
 
 def get_least_and_most_profitable_products(db_reader, products: List[int], back_period: int = 30) -> Dict:
-    """
-    Assuming the input are valid already.
+    """Assuming the input are valid already.
 
     Args:
+    ----
         products: list of products ids sold by companies
         period: the number of days to consider for the calculation
     Return:
         least and most profitable product
-    """
 
+    """
     sales = db_reader.list_sales(products, back_periods=back_period, period_unit="days")
     if not sales:
         # Consider raise a Error to bubble up the issue.

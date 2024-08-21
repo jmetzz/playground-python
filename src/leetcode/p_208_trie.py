@@ -1,5 +1,4 @@
-"""
-208. Implement Trie (Prefix Tree)
+"""208. Implement Trie (Prefix Tree)
 Medium
 
 A trie (pronounced as "try") or prefix tree is a tree data structure used to

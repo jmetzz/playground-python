@@ -1,5 +1,4 @@
-"""
-This module is not actually comprised of unit tests,
+"""This module is not actually comprised of unit tests,
 but rather a place to experiment with the code
 """
 

@@ -1,5 +1,4 @@
-"""
-1642. Furthest Building You Can Reach
+"""1642. Furthest Building You Can Reach
 Medium
 
 You are given an integer array heights representing the heights of buildings, some bricks, and some ladders.

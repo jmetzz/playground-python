@@ -1,5 +1,4 @@
-"""
-The task is to implement a class to perform a search on a data source while filtering the data by a given tag.
+"""The task is to implement a class to perform a search on a data source while filtering the data by a given tag.
 
 Sample data:
 { "items": [

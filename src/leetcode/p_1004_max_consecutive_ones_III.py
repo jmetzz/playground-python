@@ -1,5 +1,4 @@
-"""
-1004. Max Consecutive Ones III
+"""1004. Max Consecutive Ones III
 Medium
 
 Given a binary array nums and an integer k, return the maximum number of
@@ -43,7 +42,6 @@ def max_len_sequence_of_ones(nums: List[int], flip_budget: int) -> int:
     * Update the max number of consecutive 1s so far (take the max).
     * Continue this process until all elements in the array are processed
     """
-
     left, right = 0, 0
     max_ones = 0
     flipped = 0

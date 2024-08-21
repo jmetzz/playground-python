@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/even-odd-tree/description
+"""https://leetcode.com/problems/even-odd-tree/description
 
 1609. Even Odd Tree
 Medium
@@ -79,11 +78,8 @@ def is_even_odd_tree(root: Optional[BinaryTreeNode]) -> bool:
                 # in strictly INCREASING order (from left to right).
                 if node.val % 2 == 0 or (prev_value is not None and prev_value >= node.val):
                     return False
-            else:
-                # odd-indexed level: all nodes must have EVEN values
-                # in strictly DECREASING order (from left to right).
-                if node.val % 2 != 0 or (prev_value is not None and prev_value <= node.val):
-                    return False
+            elif node.val % 2 != 0 or (prev_value is not None and prev_value <= node.val):
+                return False
             prev_value = node.val
             # 2 >>>>
             if node.left:

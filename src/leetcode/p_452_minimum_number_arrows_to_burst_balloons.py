@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/description/
+"""https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/description/
 
 452. Minimum Number of Arrows to Burst Balloons
 

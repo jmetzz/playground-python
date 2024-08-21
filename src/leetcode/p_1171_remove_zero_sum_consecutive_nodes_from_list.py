@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/remove-zero-sum-consecutive-nodes-from-linked-list/
+"""https://leetcode.com/problems/remove-zero-sum-consecutive-nodes-from-linked-list/
 1171. Remove Zero Sum Consecutive Nodes from Linked List
 Medium
 
@@ -36,8 +35,7 @@ from data_structures.lists import SingleLinkNode as ListNode
 
 
 def remove_zero_sum_sublists(head: Optional[ListNode]) -> Optional[ListNode]:
-    """
-    Removes all contiguous sublists that sum up to zero from a given linked list.
+    """Removes all contiguous sublists that sum up to zero from a given linked list.
 
     This function iterates through the linked list, maintaining a running prefix sum.
     It utilizes a dictionary to track previously encountered sums and their corresponding nodes.
@@ -45,13 +43,16 @@ def remove_zero_sum_sublists(head: Optional[ListNode]) -> Optional[ListNode]:
     which is then removed. This process is repeated until the entire list is processed.
 
     Args:
+    ----
         head (Optional[ListNode]): The head of the input linked list.
 
     Returns:
+    -------
         Optional[ListNode]: The head of the modified linked list after removing
                             zero-sum sublists.
 
     Example:
+    -------
         Given the linked list 3 -> 4 -> -7 -> 5 -> -6 -> 6, it contains the sublists
         3 -> 4 -> -7 and 5 -> -6 -> 6, which sum up to zero. After removing these
         sublists, the modified list will be empty.
@@ -61,9 +62,11 @@ def remove_zero_sum_sublists(head: Optional[ListNode]) -> Optional[ListNode]:
         1 -> 3 -> 1.
 
     Note:
+    ----
         The input linked list may contain multiple, overlapping zero-sum sublists.
         This function ensures all such sublists are removed, and the remaining nodes
         are returned in their original order.
+
     """
     dummy = ListNode(next_node=head)
     sums_dict = {0: dummy}

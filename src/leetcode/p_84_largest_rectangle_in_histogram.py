@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/largest-rectangle-in-histogram/description/
+"""https://leetcode.com/problems/largest-rectangle-in-histogram/description/
 
 84. Largest Rectangle in Histogram
 Hard
@@ -43,14 +42,12 @@ def largest_rectangle_area(heights: List[int]) -> int:
         while stack and stack[-1][0] > h:
             prev_h, start = stack.pop()
             candidate_area = prev_h * (idx - start)
-            if candidate_area > max_area:
-                max_area = candidate_area
+            max_area = max(candidate_area, max_area)
         stack.append((h, start))
 
     while stack:
         h, idx = stack.pop()
         candidate_area = h * (n - idx)
-        if candidate_area > max_area:
-            max_area = candidate_area
+        max_area = max(candidate_area, max_area)
 
     return max_area

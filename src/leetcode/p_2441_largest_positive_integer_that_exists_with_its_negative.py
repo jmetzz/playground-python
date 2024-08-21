@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/largest-positive-integer-that-exists-with-its-negative/description
+"""https://leetcode.com/problems/largest-positive-integer-that-exists-with-its-negative/description
 2441. Largest Positive Integer That Exists With Its Negative
 
 Given an integer array nums that does not contain any zeros,
@@ -42,8 +41,7 @@ def find_max_k__set_intersection(nums: List[int]) -> int:
     intersec = set(nums) & negatives
     if intersec:
         return sorted(intersec, reverse=True)[0]
-    else:
-        return -1
+    return -1
 
 
 def find_max_k__set_removal(nums: List[int]) -> int:

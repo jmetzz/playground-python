@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/maximum-subsequence-score/description
+"""https://leetcode.com/problems/maximum-subsequence-score/description
 
 2542. Maximum Subsequence Score
 Medium

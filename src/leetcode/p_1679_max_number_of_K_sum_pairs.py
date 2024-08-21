@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/max-number-of-k-sum-pairs/description/
+"""https://leetcode.com/problems/max-number-of-k-sum-pairs/description/
 
 1679. Max Number of K-Sum Pairs
 Medium
@@ -40,8 +39,7 @@ from typing import List
 
 
 def max_operations_two_pointers(nums: List[int], k: int) -> int:
-    """
-    Iterate with two pointers: Use a while loop to iterate until left pointer is less than right pointer.
+    """Iterate with two pointers: Use a while loop to iterate until left pointer is less than right pointer.
 
     - If the sum of nums[left] and nums[right] is equal to the target k, we have found a pair,
     and thus increment the operation count and move both pointers towards the center
@@ -55,7 +53,6 @@ def max_operations_two_pointers(nums: List[int], k: int) -> int:
 
     Space complexity: O(n) due the the copy of the input array during sorting (This solution is not inplace).
     """
-
     if not nums:
         return 0
 

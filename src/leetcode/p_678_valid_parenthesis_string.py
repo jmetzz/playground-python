@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/valid-parenthesis-string/description
+"""https://leetcode.com/problems/valid-parenthesis-string/description
 
 678. Valid Parenthesis String
 Medium
@@ -38,9 +37,7 @@ s[i] is '(', ')' or '*'.
 
 
 def check_valid_string_recursive(s: str) -> bool:
-    """
-
-    The recursive approach will result in Time Limit Exceeded (TLE) issues due
+    """The recursive approach will result in Time Limit Exceeded (TLE) issues due
     to the exponential nature of possibilities (3^100 is a huge number).
     """
 
@@ -71,7 +68,6 @@ def check_valid_string_two_stacks(s: str) -> bool:
     The first stack keeps track of the indices of encountered open brackets,
     while the second stack is dedicated to storing the indices of asterisks.
     """
-
     left_p = []
     stars = []
     for idx, c in enumerate(s):

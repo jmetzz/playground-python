@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/number-of-wonderful-substrings/description
+"""https://leetcode.com/problems/number-of-wonderful-substrings/description
 
 1915. Number of Wonderful Substrings
 Medium
@@ -155,7 +154,7 @@ def wonderful_substrings(word: str) -> int:
             freq[mask] = 1
 
         # Loop through every possible letter that can appear an odd number of times in a substring
-        for odd_c in range(0, 10):
+        for odd_c in range(10):
             key = mask ^ (1 << odd_c)
             if key in freq:
                 answer += freq[key]

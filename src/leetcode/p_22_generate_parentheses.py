@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/generate-parentheses/description/
+"""https://leetcode.com/problems/generate-parentheses/description/
 22. Generate Parentheses
 Medium
 

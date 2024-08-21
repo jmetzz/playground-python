@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/merge-sorted-array/description/
+"""https://leetcode.com/problems/merge-sorted-array/description/
 88. Merge Sorted Array
 Easy
 
@@ -52,9 +51,7 @@ Follow up: Can you come up with an algorithm that runs in O(m + n) time?
 
 
 def merge_inplace(nums1: list[int], m: int, nums2: list[int], n: int) -> None:
-    """
-    Do not return anything, modify nums1 in-place instead.
-    """
+    """Do not return anything, modify nums1 in-place instead."""
     temp = []
     p1 = p2 = 0
     while p1 < m and p2 < n:
@@ -77,9 +74,7 @@ def merge_inplace(nums1: list[int], m: int, nums2: list[int], n: int) -> None:
 
 
 def merge_inplace_2(nums1: list[int], m: int, nums2: list[int], n: int) -> None:
-    """
-    Do not return anything, modify nums1 in-place instead.
-    """
+    """Do not return anything, modify nums1 in-place instead."""
     p1, p2 = m - 1, n - 1
     target_idx = m + n - 1
     while p2 >= 0:

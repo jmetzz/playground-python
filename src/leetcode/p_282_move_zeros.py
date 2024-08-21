@@ -1,5 +1,4 @@
-"""
-283. Move Zeroes
+"""283. Move Zeroes
 Easy
 
 Given an integer array nums, move all 0's to the end of it
@@ -29,8 +28,7 @@ from typing import List
 
 
 def move_zeroes_loops(nums: List[int]) -> None:
-    """
-    Moves all 0s to the end of the array while maintaining
+    """Moves all 0s to the end of the array while maintaining
     the relative order of the non-zero elements using two loops.
 
     This function iterates over the array, placing all non-zero elements at
@@ -43,6 +41,7 @@ def move_zeroes_loops(nums: List[int]) -> None:
     The second loop fills the rest of the array with zeros.
 
     Args:
+    ----
         nums (List[int]): The input array containing zero and non-zero integers.
 
     Modifies:
@@ -50,10 +49,12 @@ def move_zeroes_loops(nums: List[int]) -> None:
         while maintaining the order of non-zero elements.
 
     Examples:
+    --------
         >>> nums = [0, 1, 0, 3, 12]
         >>> move_zeroes_loops(nums)
         >>> nums
         [1, 3, 12, 0, 0]
+
     """
     next_spot = 0
     for num in nums:
@@ -66,8 +67,7 @@ def move_zeroes_loops(nums: List[int]) -> None:
 
 
 def move_zeroes_fast_slow(nums: List[int]) -> None:
-    """
-    Moves all 0s to the end of the array while maintaining
+    """Moves all 0s to the end of the array while maintaining
     the relative order of the non-zero elements
 
     This approach uses two pointers (`slow` and `fast`) to efficiently
@@ -80,6 +80,7 @@ def move_zeroes_fast_slow(nums: List[int]) -> None:
     their original order.
 
     Args:
+    ----
         nums (List[int]): The input array containing zero and non-zero integers.
 
     Modifies:
@@ -87,15 +88,18 @@ def move_zeroes_fast_slow(nums: List[int]) -> None:
         while preserving the order of non-zero elements.
 
     Examples:
+    --------
         >>> nums = [0, 1, 0, 3, 12]
         >>> move_zeroes_fast_slow(nums)
         >>> nums
         [1, 3, 12, 0, 0]
 
     Note:
+    ----
         This method is particularly efficient because it minimizes the number of
         operations and swaps only when necessary, making it an optimal choice
         for large arrays or arrays with few zeros.
+
     """
     n = len(nums)
     slow = 0

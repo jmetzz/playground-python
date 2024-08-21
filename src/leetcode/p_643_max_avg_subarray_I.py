@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/maximum-average-subarray-i/description
+"""https://leetcode.com/problems/maximum-average-subarray-i/description
 
 643. Maximum Average Subarray I
 Easy
@@ -40,8 +39,7 @@ def find_max_average_1(nums: List[int], k: int) -> float:
     for start in range(len(nums) - k):
         window_sum = window_sum - nums[start] + nums[start + k]
         curr_avg = window_sum / k
-        if curr_avg > max_avg:
-            max_avg = curr_avg
+        max_avg = max(curr_avg, max_avg)
     return max_avg
 
 
@@ -54,6 +52,5 @@ def find_max_average_2(nums: List[int], k: int) -> float:
         window_sum += nums[end]
         start += 1  # noqa: SIM113
         curr_avg = window_sum / k
-        if curr_avg > max_avg:
-            max_avg = curr_avg
+        max_avg = max(curr_avg, max_avg)
     return max_avg

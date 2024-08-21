@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/description
+"""https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/description
 
 106. Construct Binary Tree from Inorder and Postorder Traversal
 

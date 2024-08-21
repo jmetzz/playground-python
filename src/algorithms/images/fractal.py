@@ -6,18 +6,20 @@ import matplotlib.pyplot as plt
 
 
 def mandel(real, imag):
-    """
-    Compute a point in the Mandelbrot.
+    """Compute a point in the Mandelbrot.
 
     The logarithm of number of iterations needed to determine
     whether a complex point is in the Mandelbrot set.
 
     Args:
+    ----
         real: The real coordinate
         imag: the imaginary coordinate
 
     Returns:
+    -------
         An integer in the range 1-255
+
     """
     x = 0
     y = 0
@@ -42,15 +44,17 @@ def mandel(real, imag):
 
 
 def mandelbrot(size_x, size_y):
-    """
-    Make a Mandelbrot set image
+    """Make a Mandelbrot set image
 
     Args:
+    ----
         size_x: Image width
         size_y: Image height
 
     Returns:
+    -------
         A list of lists of integers in the range 0-255
+
     """
     return [[mandel((3.5 * x / size_x) - 2.5, (2.0 * y / size_y) - 1.0) for x in range(size_x)] for y in range(size_y)]
 

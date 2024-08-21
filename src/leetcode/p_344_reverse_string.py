@@ -1,6 +1,4 @@
-"""
-
-https://leetcode.com/problems/reverse-string/description/?envType=list&envId=p18vogoj
+"""https://leetcode.com/problems/reverse-string/description/?envType=list&envId=p18vogoj
 
 344. Reverse String
 Easy
@@ -27,9 +25,7 @@ from typing import List
 
 
 def reverse_inplace(sequence: List[str]) -> None:
-    """
-    Do not return anything, modify s in-place instead.
-    """
+    """Do not return anything, modify s in-place instead."""
     left, right = 0, len(sequence) - 1
     while left < right:
         sequence[left], sequence[right] = sequence[right], sequence[left]

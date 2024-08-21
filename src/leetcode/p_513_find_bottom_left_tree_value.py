@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/find-bottom-left-tree-value/description
+"""https://leetcode.com/problems/find-bottom-left-tree-value/description
 
 513. Find Bottom Left Tree Value
 Medium

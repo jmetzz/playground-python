@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/house-robber
+"""https://leetcode.com/problems/house-robber
 
 You are a professional robber planning to rob houses along a street. Each house has
 a certain amount of money stashed, the only constraint stopping you from robbing each of

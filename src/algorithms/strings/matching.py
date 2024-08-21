@@ -1,5 +1,4 @@
-"""
-These algorithms, while primarily discussed in the context of string matching,
+"""These algorithms, while primarily discussed in the context of string matching,
 are not limited to string matching only. They can be applied to a broader range
 of pattern matching problems, including but not limited to:
 
@@ -32,8 +31,7 @@ from typing import List
 
 
 def compute_lps_array(pattern: str) -> List[int]:
-    """
-    Computes the Longest Prefix Suffix (LPS) array used in KMP algorithm.
+    """Computes the Longest Prefix Suffix (LPS) array used in KMP algorithm.
 
     The LPS array stores important information about how the pattern
     matches agains itself.
@@ -91,10 +89,13 @@ def compute_lps_array(pattern: str) -> List[int]:
     Two good examples to understand the LPS algorith are: AAAXAAAX and AAACAAAA.
 
     Args:
+    ----
         needle (str): The pattern string for which LPS array is computed.
 
     Returns:
+    -------
         List[int]: The LPS array.
+
     """
     lps = [0] * len(pattern)
     prev_lps = 0  # Length of the previous longest prefix suffix
@@ -106,23 +107,22 @@ def compute_lps_array(pattern: str) -> List[int]:
             lps[i] = prev_lps + 1
             prev_lps += 1
             i += 1
+        elif prev_lps == 0:
+            # No matching prefix found that could be extended,
+            # so LPS is 0 for this character
+            lps[i] = 0
+            i += 1  # advance the pointer to check on the next character
         else:
-            if prev_lps == 0:
-                # No matching prefix found that could be extended,
-                # so LPS is 0 for this character
-                lps[i] = 0
-                i += 1  # advance the pointer to check on the next character
-            else:
-                # Current characters don't match, meanign the current longest prefix
-                # (that is also a suffix) cannot be extended with the character at i.
-                # Therefore, fall back to the last "length" where there was a match.
-                # This does not change the current index `i` in the pattern,
-                # but adjusts `length` to the last known matching prefix-suffix length.
-                # Consequently, if in the next iteration needle[i] and needle[prev_lps]
-                # still don't match, we will fallback again. This is repeated util we
-                # either find a match or go back to start, essentially trying to find
-                # the next longest prefix that is also a suffix.
-                prev_lps = lps[prev_lps - 1]
+            # Current characters don't match, meanign the current longest prefix
+            # (that is also a suffix) cannot be extended with the character at i.
+            # Therefore, fall back to the last "length" where there was a match.
+            # This does not change the current index `i` in the pattern,
+            # but adjusts `length` to the last known matching prefix-suffix length.
+            # Consequently, if in the next iteration needle[i] and needle[prev_lps]
+            # still don't match, we will fallback again. This is repeated util we
+            # either find a match or go back to start, essentially trying to find
+            # the next longest prefix that is also a suffix.
+            prev_lps = lps[prev_lps - 1]
 
         print(f"\t>>> lps: {lps}")
     return lps
@@ -171,8 +171,7 @@ def compute_lps_array_3(pattern: str) -> List[int]:
 
 
 def kmp_search(haystack: str, needle: str) -> int:
-    """
-    Searches for the needle in the haystack using the Knuth-Morris-Pratt algorithm.
+    """Searches for the needle in the haystack using the Knuth-Morris-Pratt algorithm.
 
     KMP is particularly efficient when:
     - The pattern has repeating subpatterns.
@@ -188,12 +187,15 @@ def kmp_search(haystack: str, needle: str) -> int:
     Good explanation: https://www.youtube.com/watch?v=JoF0Z7nVSrA
 
     Args:
+    ----
         haystack (str): The text string to search within.
         needle (str): The pattern string to search for.
 
     Returns:
+    -------
         int: The starting index of the first occurrence of needle in haystack,
              or -1 if needle is not present.
+
     """
     if not needle:
         return 0
@@ -206,7 +208,7 @@ def kmp_search(haystack: str, needle: str) -> int:
             j += 1
         if j == len(needle):
             return i - j
-        elif i < len(haystack) and needle[j] != haystack[i]:
+        if i < len(haystack) and needle[j] != haystack[i]:
             if j != 0:
                 # Use the LPS array to skip characters avoiding redundant comparisons.
                 # When a mismatch happens, the LPS array tells KMP how much of
@@ -219,19 +221,21 @@ def kmp_search(haystack: str, needle: str) -> int:
 
 
 def boyer_moore_search(haystack: str, needle: str) -> int:
-    """
-    Searches for the needle in the haystack using the Boyer-Moore algorithm.
+    """Searches for the needle in the haystack using the Boyer-Moore algorithm.
 
     This simplified version focuses on the Bad Character Rule to skip sections
     of the text, making it more efficient than brute-force for large texts.
 
     Args:
+    ----
         haystack (str): The text string to search within.
         needle (str): The pattern string to search for.
 
     Returns:
+    -------
         int: The starting index of the first occurrence of needle in haystack,
              or -1 if needle is not present.
+
     """
     if not needle:
         return 0
@@ -250,25 +254,26 @@ def boyer_moore_search(haystack: str, needle: str) -> int:
             j -= 1
         if j < 0:
             return shift
-        else:
-            shift += max(1, j - bad_char.get(haystack[shift + j], -1))
+        shift += max(1, j - bad_char.get(haystack[shift + j], -1))
     return -1
 
 
 def rabin_karp_search(haystack: str, needle: str) -> int:
-    """
-    Searches for the needle in the haystack using the Rabin-Karp algorithm.
+    """Searches for the needle in the haystack using the Rabin-Karp algorithm.
 
     The algorithm uses hashing to find the pattern in the text. It's particularly
     effective for multiple pattern search scenarios.
 
     Args:
+    ----
         haystack (str): The text string to search within.
         needle (str): The pattern string to search for.
 
     Returns:
+    -------
         int: The starting index of the first occurrence of needle in haystack,
              or -1 if needle is not present.
+
     """
     if not needle:
         return 0

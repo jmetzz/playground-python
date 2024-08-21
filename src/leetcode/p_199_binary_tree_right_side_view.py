@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/binary-tree-right-side-view/description
+"""https://leetcode.com/problems/binary-tree-right-side-view/description
 
 199. Binary Tree Right Side View
 Medium

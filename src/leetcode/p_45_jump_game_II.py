@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/jump-game-ii/description
+"""https://leetcode.com/problems/jump-game-ii/description
 
 45. Jump Game II
 Medium
@@ -54,6 +53,7 @@ def jump_greedy(nums: list[int]) -> int:
     index of the farthest element we can reach from that window.
 
     Example:
+    -------
     nums [2, 3, 1, 1, 4]
              [l  r] -> scope window from position zero,
                  one jump to reach any of the elements in the window

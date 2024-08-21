@@ -1,5 +1,4 @@
-"""
-2215. Find the Difference of Two Arrays
+"""2215. Find the Difference of Two Arrays
 Easy
 
 Given two 0-indexed integer arrays nums1 and nums2, return a list answer of size 2 where:

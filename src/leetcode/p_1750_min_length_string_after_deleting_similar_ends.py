@@ -2,7 +2,7 @@ def minimum_length_recursive(sequence: str) -> int:
     def helper(low, high):
         if low == high:
             return 1
-        elif low > high:
+        if low > high:
             return 0
         if sequence[low] != sequence[high]:
             return high - low + 1

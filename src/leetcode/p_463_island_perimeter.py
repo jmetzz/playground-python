@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/island-perimeter/description
+"""https://leetcode.com/problems/island-perimeter/description
 
 463. Island Perimeter
 Easy

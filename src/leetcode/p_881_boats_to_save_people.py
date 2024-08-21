@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/boats-to-save-people/description/
+"""https://leetcode.com/problems/boats-to-save-people/description/
 
 881. Boats to Save People
 Medium

@@ -1,5 +1,4 @@
-"""
-997. Find the Town Judge
+"""997. Find the Town Judge
 Easy
 
 In a town, there are n people labeled from 1 to n. There is a rumor that one of these people is secretly the town judge.
@@ -62,8 +61,7 @@ class FindTownJudge:
         return judge
 
     def solve_graph(self, n: int, trust: List[List[int]]) -> int:
-        """
-        1. Initialization: Initialize two vectors, in and out, to store the in-degree and out-degree of each person.
+        """1. Initialization: Initialize two vectors, in and out, to store the in-degree and out-degree of each person.
 
         2. Counting Trust Relationships: Iterate through each trust relationship, incrementing the out count
         for the truster and the in count for the trustee.

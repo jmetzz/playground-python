@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/description/
+"""https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/description/
 
 122. Best Time to Buy and Sell Stock II
 Medium
@@ -45,8 +44,7 @@ from typing import List
 
 
 def max_profit(prices: List[int]) -> int:
-    """
-        Calculate the maximum profit from a given list of stock prices,
+    """Calculate the maximum profit from a given list of stock prices,
 
         where each day allows for buying or selling the stock.
         The strategy is to buy on one day and sell on any subsequent day
@@ -80,15 +78,18 @@ def max_profit(prices: List[int]) -> int:
         we buy it on day 2 because we know we can make profit on the next day.
 
 
-        Parameters:
+    Parameters
+    ----------
         - prices (List[int]): A list of integers representing the stock prices on consecutive days.
 
-        Returns:
+    Returns:
+    -------
         - int: The maximum profit that can be achieved based on the given trading strategy.
 
-        Example:
+    Example:
         >>> max_profit([7, 1, 5, 3, 6, 4])
         7
+
     """
     profit = 0
     p = prices[0]

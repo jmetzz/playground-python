@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/minimum-height-trees/description
+"""https://leetcode.com/problems/minimum-height-trees/description
 
 310. Minimum Height Trees
 Medium
@@ -48,8 +47,7 @@ from typing import List
 
 
 def find_min_height_trees_dfs(n: int, edges: List[List[int]]) -> List[int]:
-    """
-    Finds all the minimum height trees (MHTs) in an undirected graph using depth-first search (DFS).
+    """Finds all the minimum height trees (MHTs) in an undirected graph using depth-first search (DFS).
 
     Note: This solution will hit Time Limit Exceeded on LeetCode for large graphs
           due to its computational complexity.
@@ -57,27 +55,27 @@ def find_min_height_trees_dfs(n: int, edges: List[List[int]]) -> List[int]:
     This DFS-based solution attempts to find the height of the tree rooted at each node by exploring
     each path to its deepest leaf, but it is not optimized for larger graphs.
 
-    Parameters:
+    Parameters
+    ----------
     - n (int): The number of nodes in the graph.
     - edges (List[List[int]]): A list of undirected edges where each edge is represented by a list of two integers.
 
     Returns:
+    -------
     - List[int]: A list of integers representing the root nodes of all the minimum height trees.
 
     Example:
     >>> find_min_height_trees_dfs(4, [[1, 0], [1, 2], [1, 3]])
     [1]
-    """
 
+    """
     graph = defaultdict(list)
     for u, v in edges:
         graph[u].append(v)
         graph[v].append(u)
 
     def _dfs(root) -> int:
-        """
-        Helper function to perform DFS and find the maximum height starting from 'root'
-        """
+        """Helper function to perform DFS and find the maximum height starting from 'root'"""
         stack = [(root, 0)]
         visited = set()
         max_height = 0
@@ -104,8 +102,7 @@ def find_min_height_trees_dfs(n: int, edges: List[List[int]]) -> List[int]:
 
 
 def find_min_height_trees_removing_leaves(n: int, edges: List[List[int]]) -> List[int]:
-    """
-    Finds all the minimum height trees (MHTs) in an undirected graph by iteratively removing leaf nodes.
+    """Finds all the minimum height trees (MHTs) in an undirected graph by iteratively removing leaf nodes.
 
     This method identifies the centroids of the graph by pruning leaf nodes until only one or two nodes are left,
     which will be the root nodes of the trees with the minimum height.
@@ -118,17 +115,20 @@ def find_min_height_trees_removing_leaves(n: int, edges: List[List[int]]) -> Lis
 
     The solution handles edge cases such as a graph with only one node or no edges gracefully.
 
-    Parameters:
+    Parameters
+    ----------
     - n (int): The number of nodes in the graph.
     - edges (List[List[int]]): A list of undirected edges where each edge is represented by a list of two integers.
 
     Returns:
+    -------
     - List[int]: A list of integers representing the root nodes of all the minimum height trees. The list will
       contain either one or two elements, depending on the structure of the tree.
 
     Example:
     >>> find_min_height_trees_removing_leaves(6, [[3, 0], [3, 1], [3, 2], [3, 4], [5, 4]])
     [3, 4]
+
     """
     if n == 1:
         # Single node case, the only node is trivially the centroid.

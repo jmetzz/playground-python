@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/subarray-product-less-than-k/description/
+"""https://leetcode.com/problems/subarray-product-less-than-k/description/
 
 713. Subarray Product Less Than K
 Medium
@@ -33,8 +32,7 @@ from typing import List
 
 
 def num_subarray_product_less_than_k(nums: List[int], k: int) -> int:
-    """
-    Calculates the number of contiguous subarrays where the product of all the elements in the
+    """Calculates the number of contiguous subarrays where the product of all the elements in the
     subarray is less than a given threshold k.
 
     This function uses a two-pointer technique to maintain a sliding window of elements. It expands
@@ -42,10 +40,12 @@ def num_subarray_product_less_than_k(nums: List[int], k: int) -> int:
     goal is to include as many contiguous subarrays as possible where their product is less than k.
 
     Args:
+    ----
         nums (List[int]): A list of positive integers representing the given array.
         k (int): The product threshold. The function counts subarrays whose product is less than this value.
 
     Returns:
+    -------
         int: The total number of contiguous subarrays satisfying the product condition.
 
     Approach:
@@ -62,10 +62,11 @@ def num_subarray_product_less_than_k(nums: List[int], k: int) -> int:
         - Sum these counts to find the total number of subarrays with a product less than 'k'.
 
     Note:
+    ----
         The function returns 0 if 'k' is less than or equal to 1, as the product of any non-empty
         subarray of positive integers is always 1 or more.
-    """
 
+    """
     if k <= 1:
         return 0
     window_prod = 1

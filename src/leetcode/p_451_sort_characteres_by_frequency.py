@@ -1,6 +1,4 @@
-"""
-https://leetcode.com/problems/sort-characters-by-frequency/description/
-
+"""https://leetcode.com/problems/sort-characters-by-frequency/description/
 
 451. Sort Characters By Frequency
 Medium
@@ -40,9 +38,7 @@ from heapq import heapify, heappop
 
 class FrequencySort:
     def solve_with_counter(self, sequence: str) -> str:
-        """
-        Beats 36.99% of users with Python3
-        """
+        """Beats 36.99% of users with Python3"""
         counter = Counter(sequence)
         answer = ""
         while counter:
@@ -52,9 +48,7 @@ class FrequencySort:
         return answer
 
     def solve_with_array(self, sequence: str) -> str:
-        """
-        Beats 53.32% of users with Python3
-        """
+        """Beats 53.32% of users with Python3"""
         counter = Counter(sequence)
 
         elements = sorted([(qtt, char) for char, qtt in counter.items()], reverse=True)

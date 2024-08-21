@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/first-unique-character-in-a-sequence/description/
+"""https://leetcode.com/problems/first-unique-character-in-a-sequence/description/
 387. First Unique Character in a sequence
 
 
@@ -43,9 +42,7 @@ def first_unique_char_1(sequence: str) -> int:
 
 
 def first_unique_char_2(sequence: str) -> int:
-    """
-    Find the index of the first non-repeating character in the given sequence
-    """
+    """Find the index of the first non-repeating character in the given sequence"""
     counter = Counter(sequence)
     min_heap = [(sequence.index(ch), ch) for ch, count in counter.items() if count == 1]
     if not min_heap:
@@ -56,10 +53,7 @@ def first_unique_char_2(sequence: str) -> int:
 
 
 def first_unique_char_3(sequence: str) -> int:
-    """
-    This solution will hit the "Time Limit Exceeded" in any coding platform.
-
-    """
+    """This solution will hit the "Time Limit Exceeded" in any coding platform."""
     for idx, e in enumerate(sequence):
         if sequence.count(e) == 1:
             return idx

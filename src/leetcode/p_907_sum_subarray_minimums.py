@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/sum-of-subarray-minimums
+"""https://leetcode.com/problems/sum-of-subarray-minimums
 
 Given an array of integers arr, find the sum of min(b),
 where b ranges over every (contiguous) subarray of arr.
@@ -87,9 +86,7 @@ class SumSubarrayMinsStackingA:
 
 
 class SumSubarrayMinsStackingB:
-    """
-    Explanation: https://youtu.be/aX1F2-DrBkQ?si=V3oBj-5eT6asMZ1w
-    """
+    """Explanation: https://youtu.be/aX1F2-DrBkQ?si=V3oBj-5eT6asMZ1w"""
 
     def solve(self, arr: List[int]) -> int:
         subtotal = 0

@@ -1,5 +1,4 @@
-"""
-https://www.youtube.com/watch?v=Ua0GhsJSlWM
+"""https://www.youtube.com/watch?v=Ua0GhsJSlWM
 
 https://leetcode.com/problems/longest-common-subsequence/description/
 
@@ -43,9 +42,7 @@ text1 and text2 consist of only lowercase English characters.
 
 class LongestCommonSubsequence:
     def solve(self, sequence1: str, sequence2: str) -> int:
-        """
-
-        O(n*m) time
+        """O(n*m) time
         O(n*m) space
 
         given text1 = abcde and text2 = ace

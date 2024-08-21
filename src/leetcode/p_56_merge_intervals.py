@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/merge-intervals/description/
+"""https://leetcode.com/problems/merge-intervals/description/
 56. Merge Intervals
 Medium
 

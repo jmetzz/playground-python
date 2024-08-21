@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/maximum-level-sum-of-a-binary-tree/description
+"""https://leetcode.com/problems/maximum-level-sum-of-a-binary-tree/description
 
 1161. Maximum Level Sum of a Binary Tree
 Medium
@@ -33,8 +32,7 @@ from data_structures.trees import BinaryTreeNode as TreeNode
 
 
 def max_level_sum_1(root: Optional[TreeNode]) -> int:
-    """
-    Finds the level of a binary tree with the maximum sum of values.
+    """Finds the level of a binary tree with the maximum sum of values.
 
     Traverses the tree in level order (breadth-first search) to
     compute the sum of values at each level,
@@ -42,13 +40,16 @@ def max_level_sum_1(root: Optional[TreeNode]) -> int:
     If the tree is empty, returns 0.
 
     Args:
+    ----
         root (Optional[TreeNode]): The root node of the binary tree.
 
     Returns:
+    -------
         int: The level (1-indexed) of the binary tree with the
         maximum sum of values. If the tree is empty, returns 0.
 
     Examples:
+    --------
         Given a binary tree:
 
             1
@@ -70,8 +71,8 @@ def max_level_sum_1(root: Optional[TreeNode]) -> int:
 
         The function would return 3, where the third level
         (with value -7) has the maximum sum of values.
-    """
 
+    """
     if not root:
         return 0
 
@@ -96,31 +97,33 @@ def max_level_sum_1(root: Optional[TreeNode]) -> int:
 
 
 def max_level_sum_2(root: Optional[TreeNode]) -> int:
-    """
-    Finds the level of a binary tree with the maximum sum of its node values.
+    """Finds the level of a binary tree with the maximum sum of its node values.
 
     This function traverses the tree in a breadth-first manner,
     calculating the sum of values at each level and then returns the
     level (1-indexed) with the maximum sum. If the tree is empty, it returns 0.
 
     Args:
+    ----
         root (Optional[TreeNode]): The root node of the binary tree.
 
     Returns:
+    -------
         int: The level of the tree with the maximum sum. If the tree is empty, returns 0.
 
     Example:
+    -------
         Given a binary tree:
             1
            / \
           2   3
-         / \   \
+         / \\   \
         4   5   8
                / \
               6   7
         max_level_sum(root) -> 4 (because the sum at level 4 is 6+7=13, which is the maximum).
-    """
 
+    """
     if not root:
         return 0
 

@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/meeting-rooms-iii/description
+"""https://leetcode.com/problems/meeting-rooms-iii/description
 
 2402. Meeting Rooms III
 Hard
@@ -62,8 +61,7 @@ from typing import List
 
 class MostBookedMeetingRoom3:
     def solve_sorting_and_counting(self, n: int, meetings: List[List[int]]) -> int:
-        """
-        Approach 1: Sorting and Counting
+        """Approach 1: Sorting and Counting
         Intuition
         To tackle this problem, we first observe that the meetings are allocated to rooms based on two primary rules.
         The first rule dictates that each meeting is assigned to the unused room with the lowest number.
@@ -101,7 +99,6 @@ class MostBookedMeetingRoom3:
         Finally, we identify the room that held the most meetings and, in the case of a tie,
         select the room with the lowest number.
         """
-
         next_available_start = [0] * n
         meetings_count = [0] * n
 
@@ -127,8 +124,7 @@ class MostBookedMeetingRoom3:
         return meetings_count.index(max(meetings_count))  # index of the first occurrence max in the list
 
     def solve_with_heap(self, n: int, meetings: List[List[int]]) -> int:
-        """
-        Approach 2: Sorting, Counting using Priority Queues
+        """Approach 2: Sorting, Counting using Priority Queues
         Intuition
         In the preceding solution, the iteration over all N rooms occurs within the nested loop,
         resulting in an overall time complexity of O(M⋅N) for the for loop.
@@ -181,7 +177,6 @@ class MostBookedMeetingRoom3:
         Finally, we identify the room that held the most meetings and, in the case of a tie, select the room with
         the lowest number.
         """
-
         # Priority queue containing tuples (time, room i) to keep next available time slot for room at index i
         busy_rooms = []
         available_rooms = list(range(n))

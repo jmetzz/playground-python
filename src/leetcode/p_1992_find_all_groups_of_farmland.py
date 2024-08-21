@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/find-all-groups-of-farmland/description
+"""https://leetcode.com/problems/find-all-groups-of-farmland/description
 
 1992. Find All Groups of Farmland
 Medium

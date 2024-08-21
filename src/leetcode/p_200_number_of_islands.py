@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/number-of-islands/description/
+"""https://leetcode.com/problems/number-of-islands/description/
 
 200. Number of Islands
 Medium
@@ -42,8 +41,7 @@ from typing import List
 
 
 def num_islands(grid: List[List[str]]) -> int:
-    """
-    Traverse without side-effects on the grid object.
+    """Traverse without side-effects on the grid object.
 
     If allowed to change the input grid, the visited is not necessary,
     since we can simulate it by chaning "land" to "water", ie, 1 -> 0.
@@ -174,8 +172,7 @@ def max_island_size(grid: List[List[str]]) -> int:
     for row in range(ROWS):
         for col in range(COLUMNS):
             curr_size = _traverse(row, col)
-            if curr_size > max_size:
-                max_size = curr_size
+            max_size = max(curr_size, max_size)
     return max_size
 
 

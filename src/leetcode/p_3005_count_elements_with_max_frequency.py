@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/count-elements-with-maximum-frequency/description/
+"""https://leetcode.com/problems/count-elements-with-maximum-frequency/description/
 3005. Count Elements With Maximum Frequency
 Easy
 

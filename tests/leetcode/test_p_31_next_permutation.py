@@ -13,10 +13,7 @@ def test_next_permutation(input_arr, expected):
 
 
 def next_permutation_review(nums: list[int]) -> None:
-    """
-    Do not return anything, modify nums in-place instead.
-    """
-
+    """Do not return anything, modify nums in-place instead."""
     # Observations:
     # 1. a decreasing subsequence (from left to right) cannot have a next lexicographical sorted permutation
     # 2. if an item interrupts the decreasing sequence, it is a pivot we can use to swap with

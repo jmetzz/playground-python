@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/next-permutation/description/
+"""https://leetcode.com/problems/next-permutation/description/
 
 31. Next Permutation
 Medium
@@ -44,9 +43,7 @@ Constraints:
 
 
 def next_permutation(nums: list[int], verbose: bool = False) -> None:
-    """
-    Do not return anything, modify nums in-place instead.
-    """
+    """Do not return anything, modify nums in-place instead."""
 
     def _reverse_in_place(start):
         i, j = start, n - 1

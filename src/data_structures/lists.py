@@ -8,15 +8,17 @@ class SingleLinkNode:
 
     @classmethod
     def from_array(cls, arr: List[Any]) -> Self:
-        """
-        Recursively creates a singly-linked list from an array of integers.
+        """Recursively creates a singly-linked list from an array of integers.
 
         Args:
+        ----
             arr (List[int]): The array of integers to create the list from.
             index (int): The current index in the array being processed.
 
         Returns:
+        -------
             ListNode: The head of the singly-linked list.
+
         """
         if not arr:
             return None
@@ -27,14 +29,16 @@ class SingleLinkNode:
 
     @staticmethod
     def _create_iterative(arr):
-        """
-        Creates a singly-linked list from an array of integers.
+        """Creates a singly-linked list from an array of integers.
 
         Args:
+        ----
             arr (List[int]): The array of integers to create the list from.
 
         Returns:
+        -------
             ListNode: The head of the singly-linked list.
+
         """
         head = None
         current = None

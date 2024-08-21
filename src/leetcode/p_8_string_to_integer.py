@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/sequence-to-integer-atoi/description/
+"""https://leetcode.com/problems/sequence-to-integer-atoi/description/
 
 8. sequence to Integer (atoi)
 Medium
@@ -23,6 +22,7 @@ and integers greater than 231 - 1 should be clamped to 231 - 1.
 Return the integer as the final result.
 
 Note:
+----
 Only the space character ' ' is considered a whitespace character.
 Do not ignore any characters other than the leading whitespace or the rest of the sequence after the digits.
 
@@ -70,6 +70,7 @@ Since 4193 is in the range [-231, 231 - 1], the final result is 4193.
 Constraints:
 0 <= s.length <= 200
 s consists of English letters (lower-case and upper-case), digits (0-9), ' ', '+', '-', and '.'.
+
 """
 
 

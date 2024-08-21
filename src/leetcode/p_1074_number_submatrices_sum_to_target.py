@@ -1,6 +1,4 @@
-"""
-
-https://leetcode.com/problems/number-of-submatrices-that-sum-to-target/description
+"""https://leetcode.com/problems/number-of-submatrices-that-sum-to-target/description
 
 1074. Number of Submatrices That Sum to Target
 #Hard
@@ -72,8 +70,7 @@ class NumSubmatricesSumTarget:
         return result
 
     def solve_hashmap(self, matrix: List[List[int]], target: int) -> int:
-        """
-        Time complexity: O(m*n^2)
+        """Time complexity: O(m*n^2)
         Space complexity: O(n)
         """
         num_rows, num_cols = len(matrix), len(matrix[0])

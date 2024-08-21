@@ -42,17 +42,19 @@ def custom_sort_string_3(order: str, s: str) -> str:
 
 
 def measure_perf(target_func: str, order: str, s: str, num_runs: int = 100) -> float:
-    """
-    Measures the performance of a custom sort function.
+    """Measures the performance of a custom sort function.
 
     Args:
+    ----
         func_name (str): The name of the function to measure.
         order (str): The 'order' argument to pass to the sorting function.
         s (str): The 's' (string) argument to pass to the sorting function.
         number (int, optional): The number of times to run the function. Defaults to 10000.
 
     Returns:
+    -------
         float: The average execution time in seconds.
+
     """
     # Prepare the namespace with the function and arguments to be accessible by timeit
     namespace = globals().copy()

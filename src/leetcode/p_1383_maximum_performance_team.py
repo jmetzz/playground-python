@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/maximum-performance-of-a-team/description/
+"""https://leetcode.com/problems/maximum-performance-of-a-team/description/
 1383. Maximum Performance of a Team
 Hard
 Topics: Array, Greedy, Sorting, Heap (Priority Queue)

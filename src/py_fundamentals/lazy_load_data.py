@@ -1,5 +1,4 @@
-"""
-From the book: High performance python, 2nd Ed.
+"""From the book: High performance python, 2nd Ed.
 
 Given a datafile of the form “timestamp, value,”
 find days whose values differ from normal distribution.
@@ -37,9 +36,7 @@ def read_fake_data():
 
 
 def groupby_day(iterable):
-    """
-    Outputs a generator that groups of data that occur in the same day.
-
+    """Outputs a generator that groups of data that occur in the same day.
 
     The limitation is that groups will be formed only for data that is sequential.
     So if we had the input A A A A B B A A and had groupby group by the letter,

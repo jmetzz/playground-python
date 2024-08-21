@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/remove-all-occurrences-of-a-substring/description/
+"""https://leetcode.com/problems/remove-all-occurrences-of-a-substring/description/
 
 1910. Remove All Occurrences of a Substring
 Medium
@@ -38,7 +37,7 @@ Constraints:
 
 1 <= s.length <= 1000
 1 <= part.length <= 1000
-s​​​​​​ and part consists of lowercase English letters.
+s\u200b\u200b\u200b\u200b\u200b\u200b and part consists of lowercase English letters.
 
 """
 

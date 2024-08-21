@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/increasing-triplet-subsequence/description/
+"""https://leetcode.com/problems/increasing-triplet-subsequence/description/
 
 334. Increasing Triplet Subsequence
 Medium
@@ -47,7 +46,9 @@ def increasing_triplet(nums: List[int]) -> bool:
 
     Caveat:
     *small* doesnt really mean the smalled element, but rather smaller than medium.
+
     Example:
+    -------
         Consider the input [20,100,10,12,5,13],
 
         i = 0, smaller = inf, medium = inf
@@ -68,6 +69,7 @@ def increasing_triplet(nums: List[int]) -> bool:
         i = 6, smaller 5, medium = 12
 
         Thus, return True
+
     """
     small, medium = float("inf"), float("inf")
     for e in nums:

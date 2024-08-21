@@ -207,7 +207,6 @@ def count_components_iterative(graph: Graph) -> int:
             if curr_node not in visited:
                 visited.add(curr_node)
                 stack.extend(graph[curr_node])
-        return
 
     visited = set()
     count = 0
@@ -251,8 +250,7 @@ def largest_component_size(graph: Graph) -> int:
     max_size = 0
     for node in graph:
         curr_size = _dfs_traverse_from(node)
-        if curr_size > max_size:
-            max_size = curr_size
+        max_size = max(curr_size, max_size)
     return max_size
 
 
@@ -390,8 +388,7 @@ def is_bipartite_dfs(graph: Graph) -> bool:
     """
 
     def _dfs_traverse(node, color):
-        """
-        traverse the graph, attempting to assign alternating colors
+        """Traverse the graph, attempting to assign alternating colors
         to neighboring vertices. If at any point it finds two adjacent
         vertices with the same color, it concludes the graph is not bipartite.
         """
@@ -442,8 +439,7 @@ def is_bipartite_bfs(graph: Graph) -> bool:
 
 
 def topological_order_recursive(digraph: Graph) -> List[int]:
-    """
-    This is the typical DFS for topological order,
+    """This is the typical DFS for topological order,
     in which nodes are added to the topological order in reverse post-order.
 
     Essentially, a node is added to the order after all nodes reachable from it
@@ -505,8 +501,7 @@ def topological_order_recursive(digraph: Graph) -> List[int]:
 
 
 def topological_order_recursive_2(digraph: Graph) -> List[int]:
-    """
-    This is the typical DFS for topological order,
+    """This is the typical DFS for topological order,
     in which nodes are added to the topological order in reverse post-order.
 
     Essentially, a node is added to the order after all nodes reachable from it
@@ -551,8 +546,7 @@ def topological_order_recursive_2(digraph: Graph) -> List[int]:
 
 
 def topological_order_iterative(digraph: Graph) -> List[int]:
-    """
-    A topological order only for di-graph with no cycles.
+    """A topological order only for di-graph with no cycles.
 
     This approach leverages the concept of in-degree (the number of incoming edges to a node)
     to find the starting points for the sorting and to determine when a node has no
@@ -592,9 +586,8 @@ def topological_order_iterative(digraph: Graph) -> List[int]:
     if len(order) == len(digraph):
         # Check if topological ordering was possible
         return order
-    else:
-        # Cycle detected or graph is not a DAG
-        return []
+    # Cycle detected or graph is not a DAG
+    return []
 
 
 def has_cycle_recursive(digraph: Graph) -> bool:
@@ -680,8 +673,7 @@ def get_any_cycle_path(digraph: Graph) -> List[int]:
 
 
 def kosaraju(graph: Graph) -> List[List[int]]:
-    """
-    Find all strongly connected components (SCCs) in a directed graph.
+    """Find all strongly connected components (SCCs) in a directed graph.
 
     Kosaraju's algorithm identifies SCCs through two DFS passes, leveraging graph edge reversals. It
     runs in linear time, O(V+E), where V and E are the number of vertices and edges, respectively.
@@ -714,10 +706,13 @@ def kosaraju(graph: Graph) -> List[List[int]]:
     for its efficiency and accuracy.
 
     Args:
+    ----
         graph (Graph): The directed graph for finding SCCs, represented as an adjacency list.
 
     Returns:
+    -------
         List[List[int]]: Lists of vertices, each representing a strongly connected component.
+
     """
     visited = set()
     order = []  # Stack to store the vertices based on their finishing times in DFS

@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/zigzag-conversion/description
+"""https://leetcode.com/problems/zigzag-conversion/description
 
 6. Zigzag Conversion
 Medium

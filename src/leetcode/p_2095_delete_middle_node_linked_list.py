@@ -27,10 +27,13 @@ def delete_middle(head: Optional[ListNode]) -> Optional[ListNode]:
                                     slow              fast
 
     Args:
+    ----
         head: the node at the first position
 
     Returns:
+    -------
         the head of the list
+
     """
     if not head or not head.next:
         return None

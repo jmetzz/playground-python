@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/maximum-nesting-depth-of-the-parentheses
+"""https://leetcode.com/problems/maximum-nesting-depth-of-the-parentheses
 
 1614. Maximum Nesting Depth of the Parentheses
 Easy
@@ -71,8 +70,7 @@ def max_depth_stack(expr: str) -> int:
         elif c == ")":
             stack.pop()
             curr_depth = len(stack) + 1
-            if curr_depth > max_depth:
-                max_depth = curr_depth
+            max_depth = max(curr_depth, max_depth)
     return max_depth
 
 
@@ -89,9 +87,7 @@ def max_depth_unrestricted(expr: str) -> int:
         elif c == ")":
             if not stack:
                 return 0  # invalid VPS
-            else:
-                stack.pop()
-                curr_depth = len(stack) + 1
-                if curr_depth > max_depth:
-                    max_depth = curr_depth
+            stack.pop()
+            curr_depth = len(stack) + 1
+            max_depth = max(curr_depth, max_depth)
     return max_depth if not stack else 0

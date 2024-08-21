@@ -1,5 +1,4 @@
-"""
-1043. Partition Array for Maximum Sum
+"""1043. Partition Array for Maximum Sum
 
 Given an integer array arr, partition the array into (contiguous)
 subarrays of length at most k. After partitioning,

@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/delete-node-in-a-bst/description
+"""https://leetcode.com/problems/delete-node-in-a-bst/description
 
 450. Delete Node in a BST
 Medium
@@ -56,28 +55,20 @@ def delete_node(root: Optional[TreeNode], key: int) -> Optional[TreeNode]:
         root.right = delete_node(root.right, key)
     elif key < root.val:
         root.left = delete_node(root.left, key)
+    elif not root.left:
+        return root.right
+    elif not root.right:
+        return root.left
     else:
-        # Found the target node.
-        # Remove it now. Deletion cases:
-        # a) target node has zero or 1 child
-        # b) target node has 2 children
-        #    replace target with the lowest val from the right subtree; OR
-        #    replace target with the highest val from the left subtree
-        #    then recursive delete the value from the subtree (either left of right)
-        if not root.left:
-            return root.right
-        elif not root.right:
-            return root.left
-        else:
-            # target has 2 children case
-            # find the min from the right subtree
-            curr = root.right
-            while curr.left:
-                curr = curr.left
-            root.val = curr.val  # replace the root value with the smallest in the
-            # recusivelly delete the smallest value from the rigth subtree,
-            # since we have just moved it to the current root
-            root.right = delete_node(root.right, curr.val)
+        # target has 2 children case
+        # find the min from the right subtree
+        curr = root.right
+        while curr.left:
+            curr = curr.left
+        root.val = curr.val  # replace the root value with the smallest in the
+        # recusivelly delete the smallest value from the rigth subtree,
+        # since we have just moved it to the current root
+        root.right = delete_node(root.right, curr.val)
     return root
 
 

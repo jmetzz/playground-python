@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/linked-list-cycle/description/
+"""https://leetcode.com/problems/linked-list-cycle/description/
 
 141. Linked List Cycle
 Easy
@@ -53,12 +52,14 @@ def has_cycle(head: Optional[SingleLinkNode]) -> bool:
         If these pointers meet at the same node then there is a loop. Otherwise, there is no loop.
 
     Args:
+    ----
         head: the first node of the list
 
     Returns:
+    -------
         True if there is a cycle in the list, False otherwise
-    """
 
+    """
     slow, fast = head, head
 
     while fast and fast.next:

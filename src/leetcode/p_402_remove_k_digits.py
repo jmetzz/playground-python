@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/remove-k-digits/description
+"""https://leetcode.com/problems/remove-k-digits/description
 
 402. Remove K Digits
 Medium
@@ -34,8 +33,7 @@ num does not have any leading zeros except for the zero itself.
 
 
 def remove_k_digits(num: str, k: int) -> str:
-    """
-    Prioritize smaller digits for the most significant places (leftmost positions),
+    """Prioritize smaller digits for the most significant places (leftmost positions),
     ensures that the resulting number is minimized.
 
     Use a stack (monotonic decreasing) to keep the relevant digits.

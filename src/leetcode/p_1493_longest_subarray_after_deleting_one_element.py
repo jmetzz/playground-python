@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/longest-subarray-of-1s-after-deleting-one-element/description
+"""https://leetcode.com/problems/longest-subarray-of-1s-after-deleting-one-element/description
 
 1493. Longest Subarray of 1's After Deleting One Element
 Medium
@@ -57,7 +56,6 @@ def longest_subarray_sliding_window(nums: List[int]) -> int:
         # In the end, the difference between the first and last index
         # would provide the array size minus 1, which is intended
         # as we need to delete one element.
-        if window_size > longest_window:
-            longest_window = window_size
+        longest_window = max(window_size, longest_window)
 
     return longest_window

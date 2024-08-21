@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/greatest-common-divisor-of-strings/description
+"""https://leetcode.com/problems/greatest-common-divisor-of-strings/description
 
 1071. Greatest Common Divisor of Strings
 Easy

@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/cherry-pickup/description/
+"""https://leetcode.com/problems/cherry-pickup/description/
 
 741. Cherry Pickup
 Hard

@@ -19,11 +19,10 @@ def list_actions_maximixing_profit_1(prices):
             actions[buy_day] = "buy"
             actions[idx] = "sell"
             buy_day = None  # Reset for potential new transaction
-        else:
-            if buy_day is not None:
-                actions[buy_day] = "buy"  # Confirm the buy if not yet confirmed
-                actions[idx - 1] = "sell"
-                buy_day = None
+        elif buy_day is not None:
+            actions[buy_day] = "buy"  # Confirm the buy if not yet confirmed
+            actions[idx - 1] = "sell"
+            buy_day = None
 
     return profit, actions
 

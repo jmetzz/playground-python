@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/determine-if-two-strings-are-close/description
+"""https://leetcode.com/problems/determine-if-two-strings-are-close/description
 
 1657. Determine if Two Strings Are Close
 Solved

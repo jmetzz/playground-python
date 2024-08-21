@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/length-of-last-word/description
+"""https://leetcode.com/problems/length-of-last-word/description
 
 58. Length of Last Word
 Easy
@@ -54,8 +53,7 @@ def length_of_last_word_cheating_2(text: str) -> int:
     words = text.split()
     if words:
         return len(words[-1])
-    else:
-        return 0
+    return 0
 
 
 def length_of_last_word(text: str) -> int:

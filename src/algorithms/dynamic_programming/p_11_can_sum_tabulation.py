@@ -1,5 +1,4 @@
-"""
-Write a function that takes in a target_sum and an array of numbers as argument.
+"""Write a function that takes in a target_sum and an array of numbers as argument.
 
 The function should return a boolean indication whether it is possible to generate
 the target_sum using numbers from the array.

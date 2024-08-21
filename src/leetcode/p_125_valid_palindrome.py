@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/valid-palindrome/description/
+"""https://leetcode.com/problems/valid-palindrome/description/
 
 125. Valid Palindrome
 Easy
@@ -35,7 +34,6 @@ s consists only of printable ASCII characters.
 
 def is_sentence_palindrome_1(sentence: str) -> bool:
     """The more didactic version for better understanding"""
-
     # Convert to lowercase and keep alphanumeric characters
     cleaned = "".join(c.lower() for c in sentence if c.isalnum())
 
@@ -51,7 +49,6 @@ def is_sentence_palindrome_1(sentence: str) -> bool:
 
 def is_sentence_palindrome_2(sentence: str) -> bool:
     """The more didactic version for better understanding"""
-
     # Convert to lowercase and keep alphanumeric characters
     cleaned = "".join(c.lower() for c in sentence if c.isalnum())
 

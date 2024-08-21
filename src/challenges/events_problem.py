@@ -1,7 +1,6 @@
 # ruff: disable-file
 
-"""
-We're building a small service for drawing bar charts of user activity over time.
+"""We're building a small service for drawing bar charts of user activity over time.
 There are two operations on that service:
 add_activity(user_id: str, activity_timestamp: int)
 barchart_heights(user_id: str,
@@ -18,7 +17,7 @@ for the user activity between from_timestamp and to_timestamp.
 Observe that bars can represent minutes, hours, or days.
 
 Example:
-
+-------
 add_activity("user_1", 10)
 add_activity("user_1", 12)
 add_activity("user_1", 17)

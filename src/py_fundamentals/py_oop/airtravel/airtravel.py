@@ -31,16 +31,19 @@ class Flight:
         """Parse a seat designator.
 
         Args:
+        ----
             seat: A seat designator such as '12C' or '21F'.
 
         Returns:
+        -------
             A tuple containing an integer and a string for row and seat.
+
         """
         row_numbers, seat_letters = self._aircraft.seating_plan()
 
         letter = seat[-1]
         if letter not in seat_letters:
-            raise ValueError(f"Invalid seat letter {letter}")  # noqa: B904
+            raise ValueError(f"Invalid seat letter {letter}")
 
         row_text = seat[:-1]
         try:
@@ -57,11 +60,14 @@ class Flight:
         """Allocate a seat to a passenger.
 
         Args:
+        ----
             seat: A seat designator such as '12C' or '21F'.
             passenger: The passenger name
 
         Raises:
+        ------
             ValueError: if the seat is unavailable
+
         """
         row, letter = self._parse_seat(seat)
 
@@ -74,9 +80,11 @@ class Flight:
         """Relocate a passenger to a different seat
 
         Args:
+        ----
             from_seat: The existing seat designator for
                        the passenger to be moved
             to_seat: The new seat designator
+
         """
         from_row, from_letter = self._parse_seat(from_seat)
         if self._seating[from_row][from_letter] is None:

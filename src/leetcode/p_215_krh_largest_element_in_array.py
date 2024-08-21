@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/course-schedule/description/
+"""https://leetcode.com/problems/course-schedule/description/
 
 215. Kth Largest Element in an Array
 Medium

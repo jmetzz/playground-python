@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/number-of-recent-calls/description/
+"""https://leetcode.com/problems/number-of-recent-calls/description/
 933. Number of Recent Calls
 
 Easy
@@ -45,34 +44,37 @@ from collections import deque
 
 
 class RecentCounter:
-    """
-    A class to count recent requests within a specified time frame.
+    """A class to count recent requests within a specified time frame.
 
     Attributes:
+    ----------
         _max_period (int): The maximum period, in milliseconds, to consider for recent requests.
         _q (collections.deque): A deque to store the timestamps of the recent requests.
 
     Methods:
+    -------
         ping(t): Adds a new request time and returns the number of recent requests.
+
     """
 
     def __init__(self, max_time_window: int = 3000):
-        """
-        Initializes the RecentCounter with an empty deque and sets the
+        """Initializes the RecentCounter with an empty deque and sets the
         maximum period in milliseconds. Default to 3000.
         """
         self._max_period = max_time_window
         self._q = deque()  # Initialize an empty deque to store timestamps
 
     def ping(self, t: int) -> int:
-        """
-        Records a new request time and returns the count of recent requests.
+        """Records a new request time and returns the count of recent requests.
 
         Args:
+        ----
             t (int): The timestamp of the new request, in milliseconds.
 
         Returns:
+        -------
             int: The number of requests within the time frame of t minus max_time_window_size
+
         """
         self._q.append(t)
         min_value = t - self._max_period

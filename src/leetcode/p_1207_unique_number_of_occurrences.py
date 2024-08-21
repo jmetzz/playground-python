@@ -1,5 +1,4 @@
-"""
-1207. Unique Number of Occurrences
+"""1207. Unique Number of Occurrences
 Easy
 
 Given an array of integers arr, return true if the number of occurrences of

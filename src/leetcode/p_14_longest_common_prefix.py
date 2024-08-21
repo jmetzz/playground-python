@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/longest-common-prefix/description/
+"""https://leetcode.com/problems/longest-common-prefix/description/
 
 14. Longest Common Prefix
 Easy
@@ -103,8 +102,7 @@ def longest_common_prefix__zip_vertical(strs: List[str]) -> str:
 
 
 def longest_common_prefix__first_and_last(strs: List[str]) -> str:
-    """
-    Comparing Only the First and Last Words
+    """Comparing Only the First and Last Words
 
     After sorting, the function takes the first and the last strings in the sorted list.
     This is based on the insight that if the first and last strings have a common prefix,
@@ -113,6 +111,7 @@ def longest_common_prefix__first_and_last(strs: List[str]) -> str:
     shared across the entire range from the first to the last string.
 
     Example:
+    -------
     >>> strs = ["flower", "flow", "flight"]
     >>> sorted(strs)
         ['flight', 'flow', 'flower']
@@ -139,8 +138,7 @@ def longest_common_prefix__first_and_last(strs: List[str]) -> str:
 
 
 def longest_common_prefix_trie(strs: List[str]) -> str:
-    """
-    Find the deepest path in the trie from the root, which satisfies the following conditions:
+    """Find the deepest path in the trie from the root, which satisfies the following conditions:
 
     - each node along the path must contain only one child element.
     Otherwise the found path will not be a common prefix among all strings.

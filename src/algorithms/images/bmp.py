@@ -2,10 +2,10 @@
 
 
 def write_grayscale(filename, pixels):
-    """
-    Creates and writes a grayscale BMP file
+    """Creates and writes a grayscale BMP file
 
     Args:
+    ----
         filename: The name of the BMP file to be created.
 
         pixels: A rectangular image stored as a sequence of rows.
@@ -13,7 +13,9 @@ def write_grayscale(filename, pixels):
             range 0-255.
 
     Raises:
+    ------
          OSError: if the file could't be written.
+
     """
     height = len(pixels)
     width = len(pixels[0])
@@ -78,19 +80,22 @@ def _bytes_to_int32(b):
 
 
 def dimensions(filename):
-    """
-    Determines the dimensions in pixels of a BMP image
+    """Determines the dimensions in pixels of a BMP image
 
     Args:
+    ----
         filename: The filename of a BMP file.
 
     Returns:
+    -------
         A tuple containing two integers with the width
         and height in pixels.
 
     Raises:
+    ------
         ValueError: If the file is not a BMP file.
         OSError: If there was a problem while reading the file.
+
     """
     with open(filename, "rb") as f:
         magic = f.read(2)

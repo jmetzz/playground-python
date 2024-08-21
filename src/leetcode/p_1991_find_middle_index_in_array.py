@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/find-the-middle-index-in-array/description/
+"""https://leetcode.com/problems/find-the-middle-index-in-array/description/
 
 1991. Find the Middle Index in Array
 Easy

@@ -1,6 +1,5 @@
 class StockSpanner:
-    """
-    A class that calculates the span of stock prices.
+    """A class that calculates the span of stock prices.
 
     The span of a stock's price today is defined as the maximum number of consecutive days
     (starting from today and going backward) for which the price of the stock was
@@ -25,20 +24,19 @@ class StockSpanner:
     new price based on the prices that came before it.
 
     Attributes:
+    ----------
         prices_stack (list of tuple): A stack used to store pairs of (price, span),
         where 'price' is the price of the stock and 'span' is the number of days
         the price has been less than or equal to the current price.
+
     """
 
     def __init__(self):
-        """
-        Initializes the StockSpanner with an empty prices stack.
-        """
+        """Initializes the StockSpanner with an empty prices stack."""
         self.prices_stack = []  # Stores pairs of (price, span)
 
     def next(self, price: int) -> int:
-        """
-        Processes the next price of the stock and returns its span.
+        """Processes the next price of the stock and returns its span.
 
         The function iteratively compares the current price with the prices in the stack.
         If the current price is greater or equal to the price at the top of the stack,
@@ -48,10 +46,13 @@ class StockSpanner:
         spans of prices that are less than or equal to the current price.
 
         Args:
+        ----
             price (int): The price of the stock for the current day.
 
         Returns:
+        -------
             int: The span of the stock's price for the current day.
+
         """
         span = 1  # Account for the current day
 

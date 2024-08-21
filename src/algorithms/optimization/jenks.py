@@ -1,5 +1,4 @@
-"""
-The Jenks optimization method, also called the Jenks natural breaks
+"""The Jenks optimization method, also called the Jenks natural breaks
 classification method, is a data clustering method designed to determine
 the best arrangement of values into different classes.
 This is done by seeking to minimize each class's average deviation

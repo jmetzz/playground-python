@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/description/
+"""https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/description/
 
 188. Best Time to Buy and Sell Stock IV
 Hard
@@ -45,13 +44,16 @@ def max_profit_with_k_transactions(prices: List[int], k: int) -> int:
     upward price movement.
 
     Args:
+    ----
         prices (List[int]): List of daily stock prices.
         k (int): Maximum number of allowable transactions.
 
     Returns:
+    -------
         int: Maximum profit achievable with up to k transactions.
 
     Example:
+    -------
         >>> max_profit_k_transactions([3, 5, 1, 4, 6], 3)
         7
 
@@ -144,12 +146,10 @@ def max_profit_with_k_transactions(prices: List[int], k: int) -> int:
 
 
 def list_transaction_maximizing_profit(prices: List[int], k: int) -> List[Tuple[int, int, int]]:
-    """
-    Transaction Tracking: Whenever a sell operation (that maximizes the profit) is considered,
+    """Transaction Tracking: Whenever a sell operation (that maximizes the profit) is considered,
     the associated transaction is recorded, including both the day of purchase and the day of sale,
     as well as the profit from that specific transaction.
     """
-
     n = len(prices)
     if n < 2 or k <= 0:
         return []
@@ -194,17 +194,19 @@ def list_transaction_maximizing_profit(prices: List[int], k: int) -> List[Tuple[
 
 
 def updated_transaction_list(prices, current_transaction, sell_day, dp) -> List[Tuple[int, int, int]]:
-    """
-    Update the transaction list with the optimal buy day for a given sell day.
+    """Update the transaction list with the optimal buy day for a given sell day.
 
     Args:
+    ----
         prices (List[int]): List of daily stock prices.
         t (int): Current transaction count.
         sell_day (int): Current day considered for selling.
         dp (List[List[Tuple[int, List[Tuple[int, int, int]]]]]): DP table storing max profits and transactions.
 
     Returns:
+    -------
         List[Tuple[int, int, int]]: Updated list of transactions including the optimal new transaction.
+
     """
     # Initialize with the previous day as the best day to buy
     # (this will change if a better day is found)

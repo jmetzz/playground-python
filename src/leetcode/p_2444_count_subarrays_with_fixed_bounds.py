@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/count-subarrays-with-fixed-bounds/description
+"""https://leetcode.com/problems/count-subarrays-with-fixed-bounds/description
 
 2444. Count Subarrays With Fixed Bounds
 Hard
@@ -37,8 +36,7 @@ from typing import List
 
 
 def count_subarrays(nums: List[int], min_k: int, max_k: int, debug=False) -> int:
-    """
-    To count the number of new valid subarrays that end at the current index,
+    """To count the number of new valid subarrays that end at the current index,
     we look at the distance between the current position and the position
     just after the last "bad" element. This tells us how many subarrays
     including the current element are valid.
@@ -51,6 +49,7 @@ def count_subarrays(nums: List[int], min_k: int, max_k: int, debug=False) -> int
         `min(lo_boundary, hi_boundary) - bad_element_idx`.
 
     Example:
+    -------
     For the given array [1, 2, 5, 2, 1, 7, 5] with min_k = 1 and max_k = 5,
 
     when we are at index 2 (idx = 2, num value = 5), the variables are as follows:
@@ -90,8 +89,8 @@ def count_subarrays(nums: List[int], min_k: int, max_k: int, debug=False) -> int
     If we were to calculate if anyways, it would result in negative number:
     min(lo_boundary, hi_boundary) - bad_element_idx = min(4, 2) - (5) = 2 - 5 = -3.
     which we would discard.
-    """
 
+    """
     total_counter = 0
     lo_boundary = hi_boundary = bad_element_idx = -1
     # bad_element_idx tracks the last occurrence (index) of an element
@@ -106,7 +105,7 @@ def count_subarrays(nums: List[int], min_k: int, max_k: int, debug=False) -> int
             print(f">>> Start: (lo: {lo_boundary}, hi: {hi_boundary}, bad: {bad_element_idx})")
         if num < min_k or num > max_k:
             if debug:
-                print(f"\tReset at nums[{idx}] = {nums[idx]}")
+                print(f"\tReset at nums[{idx}] = {num}")
             bad_element_idx = idx
         if num == min_k:
             lo_boundary = idx

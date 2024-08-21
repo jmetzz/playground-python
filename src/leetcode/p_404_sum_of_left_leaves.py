@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/sum-of-left-leaves/description/
+"""https://leetcode.com/problems/sum-of-left-leaves/description/
 
 404. Sum of Left Leaves
 Easy

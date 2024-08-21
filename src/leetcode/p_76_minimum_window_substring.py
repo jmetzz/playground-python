@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/minimum-window-substring/description
+"""https://leetcode.com/problems/minimum-window-substring/description
 
 76. Minimum Window Substring
 Hard

@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/invert-binary-tree/description/
+"""https://leetcode.com/problems/invert-binary-tree/description/
 
 226. Invert Binary Tree
 Easy

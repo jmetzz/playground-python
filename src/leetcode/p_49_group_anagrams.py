@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/group-anagrams/description/
+"""https://leetcode.com/problems/group-anagrams/description/
 
 49. Group Anagrams
 Medium

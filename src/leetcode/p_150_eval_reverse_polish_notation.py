@@ -1,5 +1,4 @@
-"""
-150. Evaluate Reverse Polish Notation
+"""150. Evaluate Reverse Polish Notation
 Medium
 You are given an array of strings tokens that represents an arithmetic expression
 in a Reverse Polish Notation.

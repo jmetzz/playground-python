@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/rotate-array/description
+"""https://leetcode.com/problems/rotate-array/description
 
 189. Rotate Array
 Medium
@@ -35,8 +34,7 @@ Could you do it in-place with O(1) extra space?
 
 
 def rotate_inplace_1(nums: list[int], k: int) -> None:
-    """
-    Do not return anything, modify nums in-place instead.
+    """Do not return anything, modify nums in-place instead.
 
     This implementation will hit Time Limit Exceeded.
     """
@@ -48,8 +46,7 @@ def rotate_inplace_1(nums: list[int], k: int) -> None:
 
 
 def rotate_inplace_2(nums: list[int], k: int) -> None:
-    """
-    Do not return anything, modify nums in-place instead.
+    """Do not return anything, modify nums in-place instead.
 
     Approach:
     1. calculate the effective rotation steps k by taking the modulus of k with
@@ -60,7 +57,6 @@ def rotate_inplace_2(nums: list[int], k: int) -> None:
     3. Reverse only the first k elements to bring them to their correct positions.
     4 Reverse the rest of the elements in the array.
     """
-
     k = k % len(nums)  # Ensure k is within the range [0, n)
 
     nums.reverse()

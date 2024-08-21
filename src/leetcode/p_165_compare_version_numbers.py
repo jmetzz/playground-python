@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/compare-version-numbers/description
+"""https://leetcode.com/problems/compare-version-numbers/description
 
 165. Compare Version Numbers
 Medium
@@ -67,7 +66,7 @@ def compare_version_1(version1: str, version2: str) -> int:
 
     if revisions_1 < revisions_2:
         return -1
-    elif revisions_1 > revisions_2:
+    if revisions_1 > revisions_2:
         return 1
     return 0
 
@@ -82,7 +81,7 @@ def compare_version_2(version1: str, version2: str) -> int:
 
         if rev1 < rev2:
             return -1
-        elif rev1 > rev2:
+        if rev1 > rev2:
             return 1
     return 0
 
@@ -93,7 +92,7 @@ def compare_version_3(version1: str, version2: str) -> int:
 
         if rev1 < rev2:
             return -1
-        elif rev1 > rev2:
+        if rev1 > rev2:
             return 1
 
     return 0

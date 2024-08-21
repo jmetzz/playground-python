@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/make-the-string-great/description
+"""https://leetcode.com/problems/make-the-string-great/description
 
 1544. Make The String Great
 Easy

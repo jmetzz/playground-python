@@ -1,5 +1,4 @@
-"""
-https://leetcode.com/problems/power-of-two/description
+"""https://leetcode.com/problems/power-of-two/description
 
 231. Power of Two
 Easy
@@ -53,8 +52,8 @@ def power_of_two__solve_mathematically(n: int) -> bool:
 
 
 def power_of_two__solve_bitwise(n: int) -> bool:
-    """
-    Examples
+    """Examples
+    --------
         3->0000 0011 --> False
         2->0000 0010 --> True
         4->0000 0100 --> True
@@ -73,6 +72,7 @@ def power_of_two__solve_bitwise(n: int) -> bool:
 
     Time Complexity : O(1)
     Space Complexity : O(1)
+
     """
     if n <= 0:
         return False
@@ -80,9 +80,7 @@ def power_of_two__solve_bitwise(n: int) -> bool:
 
 
 def power_of_two__solve_bitwise2(n: int) -> bool:
-    """
-    Mod by the largest exponent we can get (given the constraints)
+    """Mod by the largest exponent we can get (given the constraints)
     which is 2**30.
     """
-
     return n > 0 and ((1 << 30) % n) == 0

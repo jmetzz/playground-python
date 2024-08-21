@@ -3,8 +3,7 @@ from typing import List
 
 class Solution:
     def solve_memoization(self, nums: List[int]) -> List[int]:
-        """
-        Model the problem as "take or not" the element at index i.
+        """Model the problem as "take or not" the element at index i.
 
         answer[i] % answer[j] == 0 OR answer[j] % answer[i] == 0
         means that one number is a factor of the other.
