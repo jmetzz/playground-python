@@ -143,7 +143,7 @@ def has_path_bfs_recursive(graph: Graph, source: int, target: int) -> bool:
             return False
 
         visited.add(node)
-        for neighbor in graph[node]:  # noqa: SIM110
+        for neighbor in graph[node]:
             if _dfs(neighbor):
                 return True
 
@@ -400,7 +400,7 @@ def is_bipartite_dfs(graph: Graph) -> bool:
     color_map = {}
 
     for node in graph:
-        if node not in color_map:  # noqa: SIM102
+        if node not in color_map:
             # it's critical to ensure that the first node in each disconnected component
             # of the graph is explicitly assigned a starting color when the traversal begins.
             # Assume False as starting "color".
@@ -432,7 +432,7 @@ def is_bipartite_bfs(graph: Graph) -> bool:
         return True
 
     color_map = {}
-    for node in graph:  # noqa: SIM110
+    for node in graph:
         if node not in color_map and not _bfs_traverse(node):
             return False
     return True
@@ -536,7 +536,7 @@ def topological_order_recursive_2(digraph: Graph) -> List[int]:
         return True
 
     for node in digraph:
-        if node not in VISITED:  # noqa: SIM102
+        if node not in VISITED:
             if dfs_explore(node) is False:
                 # Cannot topologically sort if there is a cycle
                 return []
@@ -634,7 +634,7 @@ def has_cycle_recursive(digraph: Graph) -> bool:
 
     visited = set()
     for node in digraph:
-        if node not in visited:  # noqa: SIM102
+        if node not in visited:
             if _dfs(node, set()):
                 return True  # cycle detected
     return False
@@ -657,7 +657,7 @@ def has_cycle_iterative(digraph: Graph) -> bool:
         return False
 
     for node in digraph:
-        if state[node] == WHITE:  # noqa: SIM102
+        if state[node] == WHITE:
             # Unvisited node
             if _dfs_search_cycle(node):
                 return True

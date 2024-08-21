@@ -28,8 +28,7 @@ def products_profit(sales: List[List[int]]) -> Dict:
     for _, prod_id, unit_cost, unit_sales_price, quantity in sales:
         product_profit_registry[prod_id] += (unit_sales_price - unit_cost) * quantity
 
-    product_profit_registry = sorted(product_profit_registry.items(), key=lambda item: item[1])
-    return product_profit_registry
+    return sorted(product_profit_registry.items(), key=lambda item: item[1])
 
 
 def least_and_most_profitable_products(sales: List[List[int]]) -> Dict:

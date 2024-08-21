@@ -50,7 +50,7 @@ def find_max_average_2(nums: List[int], k: int) -> float:
     for end in range(k, len(nums)):
         window_sum -= nums[start]
         window_sum += nums[end]
-        start += 1  # noqa: SIM113
+        start += 1
         curr_avg = window_sum / k
         max_avg = max(curr_avg, max_avg)
     return max_avg

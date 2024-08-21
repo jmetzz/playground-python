@@ -11,7 +11,7 @@ def generate_data(factor):
     price_constants = [round((random.random() - 0.5) * 10, 2) for _ in range(10**factor)]
     units = [int(random.random() * 100) for _ in range(10**factor)]
 
-    data_df = pd.DataFrame(
+    return pd.DataFrame(
         data={
             "item_id": item_ids,
             "price": prices,
@@ -19,7 +19,6 @@ def generate_data(factor):
             "units": units,
         }
     )
-    return data_df
 
 
 def filter_data(data_df):
@@ -29,8 +28,7 @@ def filter_data(data_df):
             required_indexes.append(i)
 
     data_df = data_df.iloc[required_indexes]
-    data_df = data_df.reset_index(drop=True)
-    return data_df
+    return data_df.reset_index(drop=True)
 
 
 def process_data(data_df):
@@ -65,5 +63,4 @@ def run_algo(factor):
     data_df = generate_data(factor=factor)
     data_df = filter_data(data_df=data_df)
     data_df = process_data(data_df=data_df)
-    output = form_output(data_df=data_df)
-    return output
+    return form_output(data_df=data_df)

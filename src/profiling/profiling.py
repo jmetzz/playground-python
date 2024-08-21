@@ -199,8 +199,7 @@ class TracemallocWrapper:
         if not TRACEMALLOC_ENABLED:
             return None
         curr_snapshot = tracemalloc.take_snapshot()
-        curr_snapshot = TracemallocWrapper._filter_traces(curr_snapshot, filters)
-        return curr_snapshot
+        return TracemallocWrapper._filter_traces(curr_snapshot, filters)
 
     @staticmethod
     def log_snapshots_diff(

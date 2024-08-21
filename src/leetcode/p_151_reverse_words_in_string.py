@@ -70,8 +70,7 @@ def reverse_words_iterative(s: str) -> str:
         # found the word boundaries, copy to answer
         answer.append(s[left + 1 : right + 1])
 
-    answer = " ".join(answer)
-    return answer
+    return " ".join(answer)
 
 
 def reverse_words_iterative_2(s: str) -> str:

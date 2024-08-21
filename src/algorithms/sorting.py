@@ -311,23 +311,21 @@ def setup_data(num_items: int = 10, val_range: Tuple = None):
 
 def measure_partition_perf(array_size: int, num_runs: int, suffix: str = "1") -> float:
     # Measure performance of partition_1
-    time_taken = timeit.timeit(
+    return timeit.timeit(
         stmt=f"partition_{suffix}(elements[:], lo, hi)",  # Use a slice of elements to avoid modifying the original list
         setup=f"from __main__ import partition_{suffix}, setup_data; elements, lo, hi = setup_data({array_size})",
         globals=globals(),  # Provide the global namespace so timeit can access the functions and variables
         number=num_runs,
     )
-    return time_taken
 
 
 def measure_sorting_perf(func_name: str, array_size: int, num_runs: int, value_range: Tuple = None) -> float:
-    time_taken = timeit.timeit(
+    return timeit.timeit(
         stmt=f"{func_name}(elements[:])",  # Use a slice of elements to avoid modifying the original list
         setup=f"from __main__ import {func_name}, setup_data; elements = setup_data({array_size}, {value_range})",
         globals=globals(),  # Provide the global namespace so timeit can access the functions and variables
         number=num_runs,
     )
-    return time_taken
 
 
 if __name__ == "__main__":

@@ -52,7 +52,7 @@ def has_path_bfs_recursive(graph: Dict[int, Set[int]], source: int, target: int)
             return True
 
         visited.add(node)
-        for neighbor in graph[node]:  # noqa: SIM110
+        for neighbor in graph[node]:
             if _dfs(neighbor):
                 return True
         return False

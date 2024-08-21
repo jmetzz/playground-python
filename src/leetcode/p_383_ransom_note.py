@@ -53,7 +53,7 @@ def can_construct_2(ransom_note: str, magazine: str) -> bool:
 
 
 def can_construct_3(ransom_note: str, magazine: str) -> bool:
-    for ch in set(ransom_note):  # noqa: SIM110
+    for ch in set(ransom_note):
         if ransom_note.count(ch) > magazine.count(ch):
             return False
 

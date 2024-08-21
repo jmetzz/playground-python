@@ -64,8 +64,7 @@ def measure_perf(target_func: str, order: str, s: str, num_runs: int = 100) -> f
     stmt = f"{target_func}('{order}', '{s}')"
 
     # Measure the execution time
-    exec_time = timeit.timeit(stmt, globals=namespace, number=num_runs)
-    return exec_time
+    return timeit.timeit(stmt, globals=namespace, number=num_runs)
 
 
 if __name__ == "__main__":

@@ -47,7 +47,7 @@ def smallest_from_leaf_dfs(root: Optional[TreeNode]) -> str:
             return
 
         curr_str = chr(node.val + 97) + curr_str  # ord('a') == 97
-        if not node.left and not node.right:  # noqa: SIM102
+        if not node.left and not node.right:
             if not shortest_str or curr_str < shortest_str:
                 shortest_str = curr_str
         if node.left:

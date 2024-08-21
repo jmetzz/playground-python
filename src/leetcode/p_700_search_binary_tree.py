@@ -40,6 +40,7 @@ def search_bst(root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
             node = node.left
         else:
             node = node.right
+    return None
 
 
 def search_bst_recursive(root: Optional[TreeNode], val: int) -> Optional[TreeNode]:

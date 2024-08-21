@@ -114,6 +114,7 @@ def h_index_counting(citations: list[int]) -> int:
         counter += frequencies[idx]
         if counter >= idx:
             return idx
+    return -1
 
 
 if __name__ == "__main__":

@@ -51,7 +51,7 @@ def two_sum_brute_force(numbers: list[int], target: int) -> list[int]:
     Space Complexity O(1)
     """
     n = len(numbers)
-    for i in range(n):
+    for i in range(n):  # noqa: RET503
         for j in range(i + 1, n):
             if numbers[i] + numbers[j] == target:
                 return [i + 1, j + 1]
@@ -65,7 +65,7 @@ def two_sum_bisect(numbers: list[int], target: int) -> list[int]:
     if len(numbers) == 2:
         return [1, 2]
 
-    for i, e in enumerate(numbers):
+    for i, e in enumerate(numbers):  # noqa: RET503
         complement = target - e
         candidate_idx = bisect(numbers, complement)
         if candidate_idx <= len(numbers) and complement == numbers[candidate_idx - 1]:

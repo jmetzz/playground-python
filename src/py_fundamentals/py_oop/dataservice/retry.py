@@ -24,7 +24,7 @@ def retry(max_tries=3, delay=0, exceptions=()):
                         )
                         sleep(delay)
                     if attempt + 1 == max_tries:
-                        logger.error(
+                        logger.exception(
                             "(%d/%d) exceeded max tries [%s]",
                             attempt + 1,
                             max_tries,

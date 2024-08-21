@@ -316,5 +316,4 @@ class DataAccess:
             copy_sql = f"COPY ({sql_query}) TO STDOUT WITH CSV HEADER"
             cursor.copy_expert(copy_sql, temp_file)
             temp_file.seek(0)
-            df = pd.read_csv(temp_file, *args, **kwargs, float_precision="round_trip")
-        return df
+            return pd.read_csv(temp_file, *args, **kwargs, float_precision="round_trip")

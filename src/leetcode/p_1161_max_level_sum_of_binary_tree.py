@@ -139,5 +139,4 @@ def max_level_sum_2(root: Optional[TreeNode]) -> int:
                 q.append((child, level + 1))
 
     # Find the level with the maximum sum
-    max_level = max(level_sums, key=level_sums.get)
-    return max_level
+    return max(level_sums, key=level_sums.get)

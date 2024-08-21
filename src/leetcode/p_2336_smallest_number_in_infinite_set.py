@@ -48,7 +48,7 @@ class SmallestInfiniteSet_Naive:
         self.regitry = [True] * 1000
 
     def popSmallest(self) -> int:
-        for i, v in enumerate(self.regitry):
+        for i, v in enumerate(self.regitry):  # noqa: RET503
             if v:
                 self.regitry[i] = False
                 return i + 1

@@ -12,7 +12,7 @@ def generate_data(factor: int) -> pd.DataFrame:
     price_constants = [round((random.random() - 0.5) * 10, 2) for _ in range(10**factor)]
     units = [int(random.random() * 100) for _ in range(10**factor)]
 
-    data_df = pd.DataFrame(
+    return pd.DataFrame(
         data={
             "item_id": item_ids,
             "price": prices,
@@ -20,7 +20,6 @@ def generate_data(factor: int) -> pd.DataFrame:
             "units": units,
         }
     )
-    return data_df
 
 
 def trigger(factor: int) -> tuple:

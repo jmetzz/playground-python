@@ -66,7 +66,7 @@ def is_bipartite_dfs(graph: Graph) -> bool:
     color_map = {}
 
     for node in graph:
-        if node not in color_map:  # noqa: SIM102
+        if node not in color_map:
             # it's critical to ensure that the first node in each disconnected component
             # of the graph is explicitly assigned a starting color when the traversal begins.
             # Assume False as starting "color".
@@ -98,7 +98,7 @@ def is_bipartite_bfs(graph: Graph) -> bool:
         return True
 
     color_map = {}
-    for node in graph:  # noqa: SIM110
+    for node in graph:
         if node not in color_map and not _bfs_traverse(node):
             return False
     return True
