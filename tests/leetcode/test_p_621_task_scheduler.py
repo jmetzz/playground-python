@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_621_task_scheduler import (
     least_interval_chunck_based,
     least_interval_max_heap,

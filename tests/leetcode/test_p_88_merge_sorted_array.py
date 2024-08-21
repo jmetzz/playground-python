@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_88_merge_sorted_array import merge_inplace, merge_inplace_2
 
 test_cases = [

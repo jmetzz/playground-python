@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_605_can_place_flowers import can_place_flowers_naive, can_place_flowers_padding
 
 

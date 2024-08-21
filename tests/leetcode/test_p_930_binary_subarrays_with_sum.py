@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_930_binary_subarrays_with_sum import (
     num_subarrays_with_sum,
     num_subarrays_with_sum_one_pass_sliding_window,

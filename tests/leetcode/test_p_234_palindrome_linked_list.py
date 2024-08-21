@@ -1,6 +1,7 @@
 import pytest
-from data_structures.lists import SingleLinkNode as ListNode
 from hypothesis import given, settings, strategies
+
+from data_structures.lists import SingleLinkNode as ListNode
 from leetcode.p_234_palindrome_linked_list import is_palindrome_list
 
 

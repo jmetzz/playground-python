@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_2092_find_all_people_with_secret import FindAllPeopleWitSecret
 
 

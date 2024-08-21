@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_125_valid_palindrome import is_sentence_palindrome_1, is_sentence_palindrome_2, is_sentence_palindrome_3
 
 

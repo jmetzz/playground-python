@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_2462_total_cost_to_hire_k_workers import total_cost_one_heap, total_cost_two_heaps
 
 

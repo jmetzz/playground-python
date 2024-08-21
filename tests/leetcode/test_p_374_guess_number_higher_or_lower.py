@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_374_guess_number_higher_or_lower import GuessNumber
 
 test_cases = [(6, 10), (1, 1), (1, 2)]

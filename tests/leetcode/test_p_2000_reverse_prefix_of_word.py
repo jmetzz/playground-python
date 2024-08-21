@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_2000_reverse_prefix_of_word import reverse_prefix
 
 

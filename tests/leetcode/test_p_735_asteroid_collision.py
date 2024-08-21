@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_735_asteroid_collision import asteroid_collision, asteroid_collision_2
 
 

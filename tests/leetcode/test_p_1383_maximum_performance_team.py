@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_1383_maximum_performance_team import max_performance
 
 

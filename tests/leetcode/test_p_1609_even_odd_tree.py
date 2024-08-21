@@ -1,4 +1,5 @@
 import pytest
+
 from data_structures.trees import BinaryTreeNode
 from leetcode.p_1609_even_odd_tree import is_even_odd_tree
 

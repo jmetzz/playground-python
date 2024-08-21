@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_948_bag_of_tokens import bag_of_tokens_score
 
 

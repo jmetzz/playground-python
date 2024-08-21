@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_498_diagonal_traverse import (
     find_diagonal_natural_order,
     find_diagonal_order_simple,

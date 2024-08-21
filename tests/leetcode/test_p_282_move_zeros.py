@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_282_move_zeros import move_zeroes_fast_slow, move_zeroes_loops
 
 test_cases = [

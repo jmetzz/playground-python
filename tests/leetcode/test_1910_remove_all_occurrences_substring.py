@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_1910_remove_all_occurrences_substring import (
     remove_ccurrences_bool_flag,
     remove_ccurrences_bool_flag_2,

@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_2370_longest_ideal_subsequence import (
     longest_ideal_string_dp_recursive,
     longest_ideal_string_dp_space_optimized,

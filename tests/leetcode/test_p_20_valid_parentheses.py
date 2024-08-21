@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_20_valid_parentheses import is_valid_parenthesis
 
 

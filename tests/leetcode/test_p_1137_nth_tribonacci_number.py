@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_1137_nth_tribonacci_number import (
     tribonacci_dp_space_order_1_list,
     tribonacci_dp_space_order_1_vars,

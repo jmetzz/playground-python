@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_1239_maximum_length import MaxLengthStrWithUniqueChars
 
 

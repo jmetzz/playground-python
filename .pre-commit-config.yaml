@@ -11,12 +11,12 @@ repos:
       - id: check-yaml
         exclude: "not_rendered.yml|invalid-config.yaml"
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.3.4
+    rev: v0.6.1
     hooks:
-      - id: ruff
+      - id: ruff # Run the linter.
         types_or: [python, pyi]
         args: [--fix]
-      - id: ruff-format
+      - id: ruff-format # Run the formatter.
         types_or: [python, pyi, jupyter]
   - repo: local
     hooks:
@@ -28,7 +28,7 @@ repos:
         pass_filenames: false
         always_run: true
         stages: [push]
-      - id: generate-licenses
+      - id: licenses
         name: Generate licenses file
         entry: poetry run pip-licenses --with-authors -f markdown --output-file ./licenses.md
         language: system

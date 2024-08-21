@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_2144_minimum_cost_of_buying_candies_with_discount import minimum_cost_loop, minimum_cost_stack
 
 

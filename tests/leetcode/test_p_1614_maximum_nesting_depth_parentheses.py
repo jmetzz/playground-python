@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_1614_maximum_nesting_depth_parentheses import (
     max_depth_cheeting,
     max_depth_counting,

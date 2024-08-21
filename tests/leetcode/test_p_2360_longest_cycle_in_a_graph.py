@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_2360_longest_cycle_in_a_graph import (
     longest_cycle_boolean_arr,
     longest_cycle_kosaraju,

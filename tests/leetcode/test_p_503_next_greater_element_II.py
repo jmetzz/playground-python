@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_503_next_greater_element_II import next_greater_elements_1, next_greater_elements_2
 
 

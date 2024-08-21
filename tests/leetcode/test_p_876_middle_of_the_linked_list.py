@@ -1,4 +1,5 @@
 import pytest
+
 from data_structures.lists import SingleLinkNode
 from leetcode.p_876_middle_of_the_linked_list import middle_node, middle_node_two_pointers
 

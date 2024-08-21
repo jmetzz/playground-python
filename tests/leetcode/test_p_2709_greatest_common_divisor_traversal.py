@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_2709_greatest_common_divisor_traversal import GreatestCommonDivisor
 
 

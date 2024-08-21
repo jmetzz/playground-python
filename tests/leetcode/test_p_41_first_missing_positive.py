@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_41_first_missing_positive import (
     first_missing_positive_boolean_array,
     first_missing_positive_cycle_sort,

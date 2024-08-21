@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_1700_number_of_students_unable_to_eat_lunch import count_students_counter, count_students_queue
 
 

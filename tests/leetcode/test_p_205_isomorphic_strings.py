@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_205_isomorphic_strings import is_isomorphic_magic, is_isomorphic_one_dict, is_isomorphic_two_dicts
 
 test_cases = [

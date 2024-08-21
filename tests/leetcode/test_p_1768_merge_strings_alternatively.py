@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_1768_merge_strings_alternately import merge_alternately
 
 

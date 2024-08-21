@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_2542_maximum_subsequence_score import max_score
 
 

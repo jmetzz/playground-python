@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_85_maximal_rectangle import maximal_rectangle
 
 

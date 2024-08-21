@@ -1,6 +1,7 @@
 from typing import List
 
 import pytest
+
 from leetcode.p_49_group_anagrams import group_anagrams_solve, group_anagrams_solve_with_custom_signature
 
 

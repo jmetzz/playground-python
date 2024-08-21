@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_2966_divide_array_into_arrays_with_max_diff import (
     DivideArraysWithMaxDiff,
 )

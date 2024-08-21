@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_1071_greatest_common_divisor_of_strings import gcd_of_strings
 
 

@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_56_merge_intervals import merge_intervals, merge_intervals_2
 
 test_cases = [

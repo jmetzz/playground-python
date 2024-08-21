@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_231_power_of_two import (
     power_of_two__solve_bitwise,
     power_of_two__solve_bitwise2,

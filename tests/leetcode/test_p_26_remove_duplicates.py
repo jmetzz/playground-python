@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_26_remove_duplicates import duplicates_remover
 
 

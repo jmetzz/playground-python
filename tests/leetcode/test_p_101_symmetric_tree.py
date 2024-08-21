@@ -1,4 +1,5 @@
 import pytest
+
 from data_structures.trees import BinaryTreeNode as TreeNode
 from leetcode.p_101_symmetric_tree import is_symmetric_iterative, is_symmetric_recursive
 

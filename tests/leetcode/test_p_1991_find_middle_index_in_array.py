@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_1991_find_middle_index_in_array import find_middle_index
 
 

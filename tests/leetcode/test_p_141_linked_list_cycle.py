@@ -1,6 +1,7 @@
 from typing import List
 
 import pytest
+
 from data_structures.lists import SingleLinkNode
 from leetcode.p_141_linked_list_cycle import has_cycle
 

@@ -1,4 +1,5 @@
 import pytest
+
 from data_structures.trees import BinaryTreeNode as TreeNode
 from leetcode.p_623_add_one_row_to_tree import add_one_row, add_one_row_one_go
 

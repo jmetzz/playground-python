@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_334_increasing_triplet_subsequence import increasing_triplet
 
 

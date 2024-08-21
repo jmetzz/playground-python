@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_200_number_of_islands import (
     max_island_size,
     min_island_size,

@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_2300_successful_pairs_of_spells_and_potions import successful_pairs
 
 

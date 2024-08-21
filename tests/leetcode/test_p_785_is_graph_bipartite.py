@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_785_is_graph_bipartite import is_bipartite_bfs, is_bipartite_dfs
 
 GRAPH_BIPARTITE = {

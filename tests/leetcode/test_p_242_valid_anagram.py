@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_242_valid_anagram import (
     is_anagram_256array,
     is_anagram_builtin_count,

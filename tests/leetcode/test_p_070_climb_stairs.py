@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_070_climb_stairs import (
     climb_stairs_memoization,
     climb_stairs_space_optimization,

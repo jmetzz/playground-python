@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_2073_time_needed_to_buy_tickets import (
     time_required_to_buy_1,
     time_required_to_buy_2,

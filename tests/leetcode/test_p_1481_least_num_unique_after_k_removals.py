@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_1481_least_num_unique_after_k_removals import (
     FindLeastNumOfUniqueAfterRemoval,
 )

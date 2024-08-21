@@ -1,6 +1,7 @@
 from typing import Tuple
 
 import pytest
+
 from leetcode.p_629_k_inverse_pairs_array import KInversePairsArray
 
 

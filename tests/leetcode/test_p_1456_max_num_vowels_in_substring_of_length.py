@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_1456_max_num_vowels_in_substring_of_length import max_vowels
 
 

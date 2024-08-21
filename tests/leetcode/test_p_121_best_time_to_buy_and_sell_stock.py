@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_121_best_time_to_buy_and_sell_stock import max_profit_1, max_profit_2, max_profit_3
 
 

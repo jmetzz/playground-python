@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_198_house_robber import house_robber
 
 

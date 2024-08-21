@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_2706_buy_two_chocolates import buy_choco
 
 

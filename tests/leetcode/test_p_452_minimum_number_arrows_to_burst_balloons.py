@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_452_minimum_number_arrows_to_burst_balloons import find_min_arrow_shots, find_min_arrow_shots_2
 
 test_cases = [

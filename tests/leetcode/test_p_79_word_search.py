@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_79_word_search import exist_1, exist_2, exist_3
 
 grid_1 = [["A", "B", "C", "E"], ["S", "F", "C", "S"], ["A", "D", "E", "E"]]

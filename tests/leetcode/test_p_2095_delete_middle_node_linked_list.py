@@ -1,4 +1,5 @@
 import pytest
+
 from data_structures.lists import SingleLinkNode as ListNode
 from leetcode.p_2095_delete_middle_node_linked_list import delete_middle
 

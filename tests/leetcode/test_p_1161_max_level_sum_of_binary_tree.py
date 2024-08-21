@@ -1,4 +1,5 @@
 import pytest
+
 from data_structures.trees import BinaryTreeNode as TreeNode
 from leetcode.p_1161_max_level_sum_of_binary_tree import max_level_sum_1, max_level_sum_2
 

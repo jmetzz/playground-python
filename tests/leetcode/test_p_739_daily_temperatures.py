@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_739_daily_temperatures import DailyTemperatures
 
 

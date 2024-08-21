@@ -1,4 +1,5 @@
 import pytest
+
 from algorithms.dynamic_programming.p_1_fibonacci import (
     fib_sequence,
     fib_sequence_via_generator,

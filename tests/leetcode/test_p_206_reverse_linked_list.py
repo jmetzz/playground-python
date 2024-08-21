@@ -1,7 +1,8 @@
 import pytest
-from data_structures.lists import SingleLinkNode as ListNode
 from hypothesis import HealthCheck, given, settings
 from hypothesis import strategies as st
+
+from data_structures.lists import SingleLinkNode as ListNode
 from leetcode.p_206_reverse_linked_list import reverse_list_with_pointers, reverse_list_with_stack
 
 

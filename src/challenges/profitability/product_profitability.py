@@ -4,9 +4,10 @@ from pathlib import Path
 from typing import Dict, List, Tuple
 
 import more_itertools
+from environs import Env
+
 from challenges.profitability.data_access import DBReader
 from challenges.profitability.entities import Product
-from environs import Env
 
 env = Env()
 env.read_env()

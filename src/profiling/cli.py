@@ -17,8 +17,9 @@ from typing import Optional
 import pyinstrument
 import pyinstrument_flame
 import typer
-from algorithms.juliaset import calc_pure_python
 from cli_config import LOGGING_CONFIG, THIS_DIR
+
+from algorithms.juliaset import calc_pure_python
 
 app = typer.Typer()
 

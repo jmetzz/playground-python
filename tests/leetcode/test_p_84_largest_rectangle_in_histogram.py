@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_84_largest_rectangle_in_histogram import largest_rectangle_area
 
 

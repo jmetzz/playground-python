@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_2402_meeting_rooms_3 import MostBookedMeetingRoom3
 
 

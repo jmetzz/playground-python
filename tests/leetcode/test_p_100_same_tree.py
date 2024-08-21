@@ -1,4 +1,5 @@
 import pytest
+
 from data_structures.trees import BinaryTreeNode
 from leetcode.p_100_same_tree import is_same_tree
 

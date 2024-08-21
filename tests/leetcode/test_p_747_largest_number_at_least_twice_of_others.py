@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_747_largest_number_at_least_twice_of_others import dominant_index, dominant_index_heap
 
 

@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_2540_minimum_common_value import (
     get_common__with_bin_search,
     get_common__with_loop_and_set,

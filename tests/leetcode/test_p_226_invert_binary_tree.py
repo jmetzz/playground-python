@@ -1,4 +1,5 @@
 from conftest import TREE_1_VALUES
+
 from data_structures.trees import BinaryTreeNode
 from leetcode.p_226_invert_binary_tree import invert_tree
 

@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_1493_longest_subarray_after_deleting_one_element import longest_subarray_sliding_window
 
 

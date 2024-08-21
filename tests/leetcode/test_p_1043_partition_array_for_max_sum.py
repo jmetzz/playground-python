@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_1043_partition_array_for_max_sum import PartitionArrayForMaxSum
 
 

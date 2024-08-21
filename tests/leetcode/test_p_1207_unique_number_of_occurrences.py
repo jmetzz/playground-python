@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_1207_unique_number_of_occurrences import unique_occurrences_1, unique_occurrences_2
 
 

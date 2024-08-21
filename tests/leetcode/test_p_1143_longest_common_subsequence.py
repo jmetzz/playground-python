@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_1143_longest_common_subsequence import LongestCommonSubsequence
 
 

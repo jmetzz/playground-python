@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_443_string_compression import compress
 
 

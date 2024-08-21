@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_2352_equal_row_and_column_pairs import equal_pairs
 
 

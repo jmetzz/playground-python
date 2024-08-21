@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_31_next_permutation import next_permutation
 
 

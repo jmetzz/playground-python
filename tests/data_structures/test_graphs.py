@@ -1,4 +1,5 @@
 import pytest
+
 from data_structures.graphs import (
     count_components_iterative,
     count_components_recursive,

@@ -1,6 +1,7 @@
 from collections import Counter
 
 import pytest
+
 from leetcode.p_791_custom_sort_string import custom_sort_string_1, custom_sort_string_2, custom_sort_string_3
 
 # List of sorting functions to be tested

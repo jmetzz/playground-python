@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_1457_pseudopalindromic_paths import (
     BinaryTreeNode,
     PseudoPalindromicPaths_iterative,

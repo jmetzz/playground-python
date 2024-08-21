@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_169_majority_element import (
     majority_element_solve_boyer_moore_majority_alg,
     majority_element_solve_counter,

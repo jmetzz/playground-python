@@ -1,4 +1,5 @@
 import pytest
+
 from data_structures.lists import SingleLinkNode as ListNode
 from leetcode.p_143_reorder_list import (
     reorder_list,

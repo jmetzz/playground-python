@@ -1,6 +1,7 @@
 from typing import List
 
 import pytest
+
 from leetcode.p_643_max_avg_subarray_I import find_max_average_1, find_max_average_2
 
 

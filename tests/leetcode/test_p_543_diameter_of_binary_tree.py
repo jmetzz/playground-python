@@ -1,4 +1,5 @@
 import pytest
+
 from data_structures.trees import BinaryTreeNode
 from leetcode.p_543_diameter_of_binary_tree import (
     dfs_height,

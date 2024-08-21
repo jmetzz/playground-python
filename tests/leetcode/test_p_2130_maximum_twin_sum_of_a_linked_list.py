@@ -1,4 +1,5 @@
 import pytest
+
 from data_structures.lists import SingleLinkNode as ListNode
 from leetcode.p_2130_maximum_twin_sum_of_a_linked_list import (
     pair_sum_fast_slow,

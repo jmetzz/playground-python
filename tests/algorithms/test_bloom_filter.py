@@ -1,4 +1,5 @@
 import pytest
+
 from algorithms.bloom_filter import BloomFilter, SimpleCache
 
 pytestmark = pytest.mark.nondeterministic

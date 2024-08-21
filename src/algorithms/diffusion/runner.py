@@ -1,6 +1,7 @@
 from timeit import timeit
 
 import numpy as np
+
 from algorithms.diffusion.diffusion_np import (
     DiffusionNumpy,
     DiffusionNumpyInPlace,

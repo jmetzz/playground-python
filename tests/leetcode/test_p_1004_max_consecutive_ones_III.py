@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_1004_max_consecutive_ones_III import max_len_sequence_of_ones
 
 

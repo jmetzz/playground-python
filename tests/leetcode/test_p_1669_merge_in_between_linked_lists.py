@@ -1,4 +1,5 @@
 import pytest
+
 from data_structures.lists import SingleLinkNode
 from leetcode.p_1669_merge_in_between_linked_lists import merge_in_between
 

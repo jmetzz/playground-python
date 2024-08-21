@@ -4,6 +4,7 @@ from datetime import datetime, timedelta
 from typing import Any, List, Tuple
 
 import pandas as pd
+
 from challenges.profitability.entities import Product, Sales
 
 

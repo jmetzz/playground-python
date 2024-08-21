@@ -1,4 +1,5 @@
 import pytest
+
 from data_structures.graph_utils import build_digraph, build_ugraph, calculate_indegree, transpose_digraph
 
 

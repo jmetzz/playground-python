@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_2390_removing_stars_from_a_string import remove_stars
 
 

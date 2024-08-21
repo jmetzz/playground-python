@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_1544_make_the_string_great import make_good
 
 

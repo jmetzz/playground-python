@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_881_boats_to_save_people import num_rescue_boats, num_rescue_boats__inplace
 
 

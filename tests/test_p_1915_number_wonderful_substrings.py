@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_1915_number_wonderful_substrings import wonderful_substrings
 
 

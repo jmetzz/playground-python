@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_3_longest_substring_without_repeating_chars import (
     length_of_longest_substring__dynamic_sliding_window_1,
     length_of_longest_substring__dynamic_sliding_window_2,

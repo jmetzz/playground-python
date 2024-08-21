@@ -1,4 +1,5 @@
 import pytest
+
 from algorithms.dynamic_programming import p_3_can_sum as can_sum
 
 

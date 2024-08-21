@@ -1,4 +1,6 @@
 import pytest
+from hypothesis import given, settings, strategies
+
 from algorithms.sorting import (
     counting_sort,
     merge_sort,
@@ -8,7 +10,6 @@ from algorithms.sorting import (
     quick_sort_random_pivot,
     quick_sort_three_way,
 )
-from hypothesis import given, settings, strategies
 
 # List of sorting functions to be tested
 sorting_functions = [

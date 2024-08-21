@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_287_find_the_duplicate_number import (
     find_duplicate_bitwise,
     find_duplicate_bool_array,

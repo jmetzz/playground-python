@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_5_longest_palindromic_substring import (
     backtrack_palindrome,
     longest_palindrome_brute_force,

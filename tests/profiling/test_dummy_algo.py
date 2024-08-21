@@ -1,4 +1,5 @@
 import pandas as pd
+
 from profiling.algos.dummy_algo import (
     filter_data,
     form_output,

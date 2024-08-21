@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_997_find_the_town_judge import FindTownJudge
 
 

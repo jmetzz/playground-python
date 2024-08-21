@@ -1,4 +1,5 @@
 import pytest
+
 from data_structures.trees import BinaryTreeNode as TreeNode
 from leetcode.p_404_sum_of_left_leaves import sum_of_left_leaves
 

@@ -1,4 +1,5 @@
 import pytest
+
 from data_structures.lists import SingleLinkNode
 from leetcode.p_19_remove_nth_node_from_end_of_list import remove_nth_from_end, remove_nth_from_end_two_pointers
 

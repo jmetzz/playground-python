@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_118_pascal_triangle import generate_iterative, generate_iterative_padding, generate_recursive
 
 

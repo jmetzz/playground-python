@@ -1,4 +1,5 @@
 import pytest
+
 from data_structures.lists import SingleLinkNode as ListNode
 
 test_cases = [

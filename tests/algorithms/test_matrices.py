@@ -1,9 +1,10 @@
 from typing import List
 
 import pytest
-from algorithms.matrices import transpose
 from hypothesis import given
 from hypothesis.strategies import integers, lists
+
+from algorithms.matrices import transpose
 
 
 def test_transpose_square_matrix():

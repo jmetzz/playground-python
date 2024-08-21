@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_752_open_the_lock import open_lock_str, open_lock_tuple
 
 

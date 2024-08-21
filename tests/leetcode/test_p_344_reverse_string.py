@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_344_reverse_string import reverse_inplace
 
 

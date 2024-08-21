@@ -1,4 +1,5 @@
 import pytest
+
 from data_structures.trees import BinaryTreeNode as TreeNode
 from leetcode.p_988_smallest_string_starting_from_leaf import smallest_from_leaf_bfs, smallest_from_leaf_dfs
 

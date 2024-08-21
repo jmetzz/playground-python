@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_189_rotate_array import rotate_inplace_1, rotate_inplace_2
 
 

@@ -1,4 +1,5 @@
 import pytest
+
 from data_structures.trees import BinaryTreeNode as TreeNode
 from leetcode.p_129_sum_root_to_leaf_numbers import sum_root_to_leaf_path
 

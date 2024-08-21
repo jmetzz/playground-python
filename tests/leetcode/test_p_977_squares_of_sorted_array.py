@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_977_squares_of_sorted_array import (
     sorted_squares_expanding_window,
     sorted_squares_naive,

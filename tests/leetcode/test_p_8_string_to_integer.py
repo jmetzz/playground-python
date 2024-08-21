@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_8_string_to_integer import my_atoi
 
 

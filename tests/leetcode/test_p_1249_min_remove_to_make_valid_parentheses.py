@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_1249_min_remove_to_make_valid_parentheses import min_remove_to_make_valid
 
 

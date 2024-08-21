@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_1291_sequential_digits import SequentialDigits
 
 

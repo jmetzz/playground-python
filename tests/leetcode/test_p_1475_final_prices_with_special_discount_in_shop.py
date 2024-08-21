@@ -3,6 +3,7 @@
 # print(final_prices([10, 1, 1, 6]))  # [9,0,1,6]
 
 import pytest
+
 from leetcode.p_1475_final_prices_with_special_discount_in_shop import final_prices, final_prices_greedy
 
 

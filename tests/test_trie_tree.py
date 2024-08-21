@@ -1,4 +1,5 @@
 import pytest
+
 from data_structures.trees import TrieSymbolTableDict, TrieSymbolTableRecursive
 
 

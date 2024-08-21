@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_14_longest_common_prefix import (
     longest_common_prefix__brute_force,
     longest_common_prefix__first_and_last,

@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_576_out_of_boundary_paths import OutOfBoundaryPaths
 
 

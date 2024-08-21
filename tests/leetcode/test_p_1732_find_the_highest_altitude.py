@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_1732_find_the_highest_altitude import highest_altitude_1, highest_altitude_2
 
 

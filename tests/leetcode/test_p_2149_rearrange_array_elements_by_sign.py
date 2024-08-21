@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_2149_rearrange_array_elements_by_sign import RearrangeBySign
 
 

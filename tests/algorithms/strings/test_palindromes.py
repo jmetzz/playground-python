@@ -1,4 +1,5 @@
 import pytest
+
 from algorithms.strings.palindromes import (
     is_palindrome_1,
     is_palindrome_2,

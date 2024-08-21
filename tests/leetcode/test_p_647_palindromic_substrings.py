@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_647_palindromic_substrings import PalindromicSubstrings
 
 

@@ -1,5 +1,6 @@
 import pytest
 from conftest import HUGE_MATRIX
+
 from leetcode.p_931_min_falling_path_sum import (
     MinFallingPathSumViaDP,
     MinFallingPathSumViaRecursion,

@@ -4,6 +4,7 @@ from conftest import (
     TREE_1_VALUES,
     TREE_2_VALUES,
 )
+
 from data_structures.trees import BinaryTreeNode
 
 

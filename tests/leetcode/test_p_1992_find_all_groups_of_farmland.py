@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_1992_find_all_groups_of_farmland import (
     find_farmland_iterative,
     find_farmland_recursive_1,

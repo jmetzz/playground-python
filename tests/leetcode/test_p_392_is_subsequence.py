@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_392_is_subsequence import is_subsequence, is_subsequence_2
 
 

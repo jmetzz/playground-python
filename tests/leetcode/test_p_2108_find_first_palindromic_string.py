@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_2108_find_first_palindromic_string import FirstPalindrome
 
 

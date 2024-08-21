@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_1673_find_the_most_competitive_subsequence import most_competitive_1, most_competitive_2
 
 

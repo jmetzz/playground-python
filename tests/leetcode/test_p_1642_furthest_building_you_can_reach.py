@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_1642_furthest_building_you_can_reach import FurthestBuilding
 
 

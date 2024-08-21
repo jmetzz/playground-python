@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_58_length_of_last_word import (
     length_of_last_word,
     length_of_last_word_cheating_1,

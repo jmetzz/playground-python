@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_67_add_binary import add_binary, add_binary_cheeting
 
 

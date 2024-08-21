@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_394_decode_string import decode_string_nested, decode_string_non_nested
 
 

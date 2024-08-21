@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_57_insert_intervals import insert_interval, insert_interval_2, insert_interval_3
 
 test_cases = [

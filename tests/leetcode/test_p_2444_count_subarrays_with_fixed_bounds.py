@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_2444_count_subarrays_with_fixed_bounds import count_subarrays
 
 

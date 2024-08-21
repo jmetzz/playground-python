@@ -58,7 +58,7 @@
 | htmlmin                   | 0.1.12         | BSD License                                         | Dave Mankoff                                                                                                     |
 | httpcore                  | 1.0.5          | BSD License                                         | Tom Christie <tom@tomchristie.com>                                                                               |
 | httpx                     | 0.27.0         | BSD License                                         | Tom Christie <tom@tomchristie.com>                                                                               |
-| hypothesis                | 6.111.0        | Mozilla Public License 2.0 (MPL 2.0)                | David R. MacIver and Zac Hatfield-Dodds                                                                          |
+| hypothesis                | 6.111.1        | Mozilla Public License 2.0 (MPL 2.0)                | David R. MacIver and Zac Hatfield-Dodds                                                                          |
 | identify                  | 2.6.0          | MIT License                                         | Chris Kuehl                                                                                                      |
 | idna                      | 3.7            | BSD License                                         | Kim Davies <kim+pypi@gumleaf.org>                                                                                |
 | iniconfig                 | 2.0.0          | MIT License                                         | Ronny Pfannschmidt <opensource@ronnypfannschmidt.de>, Holger Krekel <holger.krekel@gmail.com>                    |
@@ -91,7 +91,7 @@
 | llvmlite                  | 0.43.0         | BSD                                                 | UNKNOWN                                                                                                          |
 | makefun                   | 1.15.2         | BSD License                                         | Sylvain MARIE <sylvain.marie@se.com>                                                                             |
 | markdown-it-py            | 3.0.0          | MIT License                                         | Chris Sewell <chrisj_sewell@hotmail.com>                                                                         |
-| marshmallow               | 3.21.3         | MIT License                                         | Steven Loria <sloria1@gmail.com>                                                                                 |
+| marshmallow               | 3.22.0         | MIT License                                         | Steven Loria <sloria1@gmail.com>                                                                                 |
 | matplotlib                | 3.9.2          | Python Software Foundation License                  | John D. Hunter, Michael Droettboom                                                                               |
 | matplotlib-inline         | 0.1.7          | BSD License                                         | IPython Development Team <ipython-dev@python.org>                                                                |
 | matplotx                  | 0.3.10         | MIT License                                         | Nico Schlömer <nico.schloemer@gmail.com>                                                                         |
@@ -157,7 +157,7 @@
 | python-dotenv             | 1.0.1          | BSD License                                         | Saurabh Kumar                                                                                                    |
 | python-json-logger        | 2.0.7          | BSD License                                         | Zakaria Zajac                                                                                                    |
 | pytz                      | 2024.1         | MIT License                                         | Stuart Bishop                                                                                                    |
-| pyzmq                     | 26.1.0         | BSD License                                         | Brian E. Granger, Min Ragan-Kelley                                                                               |
+| pyzmq                     | 26.1.1         | BSD License                                         | Brian E. Granger, Min Ragan-Kelley                                                                               |
 | referencing               | 0.35.1         | MIT License                                         | Julian Berman <Julian+referencing@GrayVines.com>                                                                 |
 | requests                  | 2.32.3         | Apache Software License                             | Kenneth Reitz                                                                                                    |
 | retrying                  | 1.3.4          | Apache Software License                             | Greg Roodt                                                                                                       |
@@ -166,10 +166,10 @@
 | rich                      | 13.7.1         | MIT License                                         | Will McGugan                                                                                                     |
 | rpds-py                   | 0.20.0         | MIT License                                         | Julian Berman <Julian+rpds@GrayVines.com>                                                                        |
 | ruamel.yaml               | 0.17.17        | MIT License                                         | Anthon van der Neut                                                                                              |
-| ruff                      | 0.2.2          | MIT License                                         | Charlie Marsh <charlie.r.marsh@gmail.com>                                                                        |
+| ruff                      | 0.6.1          | MIT License                                         | Charlie Marsh <charlie.r.marsh@gmail.com>                                                                        |
 | s3transfer                | 0.10.1         | Apache Software License                             | Amazon Web Services                                                                                              |
 | scikit-learn              | 1.5.1          | BSD License                                         | UNKNOWN                                                                                                          |
-| scipy                     | 1.14.0         | BSD License                                         | UNKNOWN                                                                                                          |
+| scipy                     | 1.14.1         | BSD License                                         | UNKNOWN                                                                                                          |
 | seaborn                   | 0.13.2         | BSD License                                         | Michael Waskom <mwaskom@gmail.com>                                                                               |
 | shellingham               | 1.5.4          | ISC License (ISCL)                                  | Tzu-ping Chung                                                                                                   |
 | six                       | 1.16.0         | MIT License                                         | Benjamin Peterson                                                                                                |
@@ -191,8 +191,8 @@
 | tqdm                      | 4.66.5         | MIT License; Mozilla Public License 2.0 (MPL 2.0)   | UNKNOWN                                                                                                          |
 | traitlets                 | 5.14.3         | BSD License                                         | IPython Development Team <ipython-dev@python.org>                                                                |
 | twofish                   | 0.3.0          | BSD License                                         | Filippo Valsorda                                                                                                 |
-| typer                     | 0.12.3         | MIT License                                         | Sebastián Ramírez <tiangolo@gmail.com>                                                                           |
-| types-python-dateutil     | 2.9.0.20240316 | Apache Software License                             | UNKNOWN                                                                                                          |
+| typer                     | 0.12.4         | MIT License                                         | =?utf-8?q?Sebasti=C3=A1n_Ram=C3=ADrez?= <tiangolo@gmail.com>                                                     |
+| types-python-dateutil     | 2.9.0.20240821 | Apache Software License                             | UNKNOWN                                                                                                          |
 | typing_extensions         | 4.12.2         | Python Software Foundation License                  | "Guido van Rossum, Jukka Lehtosalo, Łukasz Langa, Michael Lee" <levkivskyi@gmail.com>                            |
 | tzdata                    | 2024.1         | Apache Software License                             | Python Software Foundation                                                                                       |
 | tzlocal                   | 5.2            | MIT License                                         | Lennart Regebro <regebro@gmail.com>                                                                              |

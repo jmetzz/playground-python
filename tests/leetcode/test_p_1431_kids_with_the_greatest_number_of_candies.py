@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_1431_kids_with_the_greatest_number_of_candies import kids_with_candies
 
 

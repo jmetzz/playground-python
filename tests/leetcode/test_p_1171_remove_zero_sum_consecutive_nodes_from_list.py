@@ -1,4 +1,5 @@
 import pytest
+
 from data_structures.lists import SingleLinkNode as ListNode
 from leetcode.p_1171_remove_zero_sum_consecutive_nodes_from_list import remove_zero_sum_sublists
 

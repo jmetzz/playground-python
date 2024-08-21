@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_106_construct_binary_tree_from_inorder_and_postorder_traversal import build_tree, build_tree_with_helper
 
 
