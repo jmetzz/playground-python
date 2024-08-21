@@ -45,6 +45,7 @@
 - [Problem 1672: Richest Customer Wealth](https://leetcode.com/problems/richest-customer-wealth/)
 - [Problem 1673: Find The Most Competitive Subsequence](https://leetcode.com/problems/find-the-most-competitive-subsequence/)
 - [Problem 1679: Max Number Of K Sum Pairs](https://leetcode.com/problems/max-number-of-k-sum-pairs/)
+- [Problem 167: Two Sum Ii](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)
 - [Problem 169: Majority Element](https://leetcode.com/problems/majority-element/)
 - [Problem 1700: Number Of Students Unable To Eat Lunch](https://leetcode.com/problems/number-of-students-unable-to-eat-lunch/)
 - [Problem 1732: Find The Highest Altitude](https://leetcode.com/problems/find-the-highest-altitude/)
