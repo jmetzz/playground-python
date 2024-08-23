@@ -7,7 +7,6 @@
 - [Problem 12: Integer To Roman](https://leetcode.com/problems/integer-to-roman/)
 - [Problem 14: Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/)
 - [Problem 15: Three Sum](https://leetcode.com/problems/3sum)
-- [Problem 15: 3Sum](https://leetcode.com/problems/3sum)
 - [Problem 19: Remove Nth Node From End Of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)
 - [Problem 20: Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
 - [Problem 22: Generate Parentheses](https://leetcode.com/problems/generate-parentheses/)
