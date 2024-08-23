@@ -1,6 +1,6 @@
 import pytest
 
-from leetcode.p_15_3sum import three_sum_sorting, three_sum_speedup
+from leetcode.p_15_three_sum import three_sum_sorting, three_sum_speedup
 
 
 @pytest.mark.parametrize(
