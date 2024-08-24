@@ -14,6 +14,7 @@
 - [Problem 28: Needle In Haystack](https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/)
 - [Problem 31: Next Permutation](https://leetcode.com/problems/next-permutation/)
 - [Problem 34: Find First And Last Position Of Elem Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
+- [Problem 36: Valid Sudoku](https://leetcode.com/problems/valid-sudoku/)
 - [Problem 42: Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/)
 - [Problem 45: Jump Game Ii](https://leetcode.com/problems/jump-game-ii/)
 - [Problem 49: Group Anagrams](https://leetcode.com/problems/group-anagrams/)
