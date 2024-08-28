@@ -27,6 +27,7 @@
 - [Problem 67: Add Binary](https://leetcode.com/problems/add-binary/)
 - [Problem 70: Climb Stairs](https://leetcode.com/problems/climbing-stairs/)
 - [Problem 72: Edit Distance](https://leetcode.com/problems/edit-distance/)
+- [Problem 73: Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/)
 - [Problem 76: Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/)
 - [Problem 77: Combinations](https://leetcode.com/problems/combinations/)
 - [Problem 79: Word Search](https://leetcode.com/problems/word-search/)
