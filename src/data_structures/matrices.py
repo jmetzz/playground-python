@@ -68,6 +68,29 @@ def max_columns_width(matrix: list[list[int]]) -> list[int]:
     return [max(len(str(item)) for item in col) for col in zip(*matrix)]
 
 
+def count_active_neighbors(matrix: list[list[int]], row: int, col: int, active_val: int = 1):
+    rows = len(matrix)
+    cols = len(matrix[0])
+
+    neighbors = [
+        (-1, -1),  # top-left
+        (-1, 0),  # top
+        (-1, 1),  # top-right
+        (0, -1),  # left
+        (0, 1),  # right
+        (1, -1),  # bottom-left
+        (1, 0),  # bottom
+        (1, 1),  # bottom-right
+    ]
+
+    active_count = 0
+    for delta_row, delta_col in neighbors:
+        r, c = row + delta_row, col + delta_col
+        if 0 <= r < rows and 0 <= c < cols:
+            active_count += 1 if matrix[r][c] == active_val else 0
+    return active_count
+
+
 if __name__ == "__main__":
     print("-" * 5)
     print(serialize(None))

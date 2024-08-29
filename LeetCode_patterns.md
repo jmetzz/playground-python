@@ -4,20 +4,21 @@
 * find increasing/decreasing sequence breaker in an array/list
 * permutation and combination
 * prefix/suffix sums
-* two-pointers
-* sliding window
+* two-pointers 🤩
+  * sliding window
 * monotonic stack
-* heap
+* heap 🤩
 * circular list/arrays
 * binary search
 * (binary) tree traversal
 * depth/breadth first search
-* fast and slow pointers
+* fast and slow pointers 🤩
 * graph traversal
-* trie
+* trie 🤩
 * backtracking
 * divide & conquer
 * bit manipulation
+* simulation 🤢🥸
 * Dynamic programming 1D and 2D
 * Specific algos
   * Kadane
