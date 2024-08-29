@@ -33,7 +33,7 @@ A simple improvement uses O(m + n) space, but still not the best solution.
 Could you devise a constant space solution?
 """
 
-from data_structures.matrix import serialize
+from data_structures.matrices import serialize
 
 
 def set_zeroes_1(matrix: list[list[int]]) -> None:

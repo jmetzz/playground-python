@@ -4,7 +4,7 @@ import pytest
 from hypothesis import given
 from hypothesis.strategies import integers, lists
 
-from algorithms.matrices import transpose
+from data_structures.matrices import max_columns_width, serialize, transpose
 
 
 def test_transpose_square_matrix():
@@ -22,7 +22,7 @@ def test_transpose_empty_matrix():
 
 def test_transpose_non_square_matrix():
     with pytest.raises(ValueError) as exc_info:
-        transpose([[1, 2, 3], [4, 5, 6]])
+        transpose([[1, 2, 3], [4, 5, 6]], square=True)
     expected_msg = "Expect a quadratic matrix (n==n). Given 2x3"
     assert str(exc_info.value) == expected_msg, "Should raise ValueError for non-square matrices"
 
@@ -41,3 +41,41 @@ def test_transpose_twice(matrix: List[List[int]]):
     # Ensure the matrix is square for the test
     assert len(matrix) == len(matrix[0]), "Matrix is not square"
     assert transpose(transpose(matrix)) == matrix, "Double transposition should return the original matrix"
+
+
+@pytest.mark.parametrize(
+    "input_matrix, expected",
+    [
+        (None, []),
+        ([[]], []),
+        ([[1]], [1]),
+        ([[1, 2, 3]], [1, 1, 1]),
+        ([[1], [2], [3]], [1]),
+        ([[1, 2, 3], [4, 5, 6]], [1, 1, 1]),
+        ([[1, 2, 3], [4, 50, 6], [4, 5, 600]], [1, 2, 3]),
+    ],
+)
+def test_max_columns_width(input_matrix, expected):
+    assert max_columns_width(input_matrix) == expected
+
+
+@pytest.mark.parametrize(
+    "input_matrix, expected",
+    [
+        (None, ""),
+        ([[]], "|  |"),
+        ([[1]], "| 1 |"),
+        ([[1, 2, 3]], "| 1 | 2 | 3 |"),
+        ([[1], [2], [3]], "| 1 |\n| 2 |\n| 3 |"),
+        (
+            [[1, 2, 3], [4, 5, 6]],
+            "| 1 | 2 | 3 |\n| 4 | 5 | 6 |",
+        ),
+        (
+            [[1, 2, 3], [4, 50, 6], [4, 5, 600]],
+            "| 1 |  2 |   3 |\n| 4 | 50 |   6 |\n| 4 |  5 | 600 |",
+        ),
+    ],
+)
+def test_matrices_justified(input_matrix, expected):
+    assert serialize(input_matrix, justify=True) == expected
