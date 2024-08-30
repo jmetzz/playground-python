@@ -27,11 +27,14 @@ class UnionFind:
         return self.parent[x]
 
     def unite(self, a: int, b: int) -> None:
-        # Unite two nodes x and y, if they are not already united
+        # Find the parents of a and b.
         p_a = self.find(a)
         p_b = self.find(b)
+
+        # Unite the two nodes x and y, if they are not already united
         if p_a != p_b:
-            # Union by Rank Heuristic
+            # Union by Rank Heuristic:
+            # attach the smaller tree under the larger tree
             if self.rank[p_a] < self.rank[p_b]:
                 self.parent[p_a] = p_b
                 self.rank[p_b] += self.rank[p_a]

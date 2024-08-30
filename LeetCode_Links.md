@@ -45,6 +45,7 @@
 - [Problem 122: Best Time To Buy And Sell Stock Ii](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/)
 - [Problem 123: Best Time To Buy And Sell Stock Iii](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/)
 - [Problem 125: Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)
+- [Problem 128: Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/)
 - [Problem 129: Sum Root To Leaf Numbers](https://leetcode.com/problems/sum-root-to-leaf-numbers/)
 - [Problem 134: Gas Station](https://leetcode.com/problems/gas-station/)
 - [Problem 141: Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)

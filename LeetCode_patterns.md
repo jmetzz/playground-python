@@ -8,21 +8,23 @@
   * sliding window
 * monotonic stack
 * heap 🤩
-* circular list/arrays
-* binary search
-* (binary) tree traversal
-* depth/breadth first search
-* fast and slow pointers 🤩
-* graph traversal
-* trie 🤩
-* backtracking
-* divide & conquer
-* bit manipulation
-* simulation 🤢🥸
+* Circular list/arrays
+* Binary search
+* (binary) Tree traversal
+* Depth/breadth first search
+* Fast and slow pointers 🤩
+* Trie 🤩
+* Graph traversal
+* Union find (Disjoint Set Union - DSU)
+* Backtracking
+* Divide & conquer
+* Bit manipulation
+* Simulation 🤢🥸
 * Dynamic programming 1D and 2D
 * Specific algos
   * Kadane
   * Knut Moris Pat
   * Djikistra
   * A*
-  * 
+  * Kruskal's Minimum Spanning Tree
+ 
