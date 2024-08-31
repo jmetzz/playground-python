@@ -26,6 +26,7 @@
 - [Problem 66: Plus One](https://leetcode.com/problems/plus-one/)
 - [Problem 67: Add Binary](https://leetcode.com/problems/add-binary/)
 - [Problem 70: Climb Stairs](https://leetcode.com/problems/climbing-stairs/)
+- [Problem 71: Simplify Path](https://leetcode.com/problems/simplify-path/)
 - [Problem 72: Edit Distance](https://leetcode.com/problems/edit-distance/)
 - [Problem 73: Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/)
 - [Problem 76: Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/)
