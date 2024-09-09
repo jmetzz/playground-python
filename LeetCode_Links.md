@@ -50,6 +50,7 @@
 - [Problem 128: Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/)
 - [Problem 129: Sum Root To Leaf Numbers](https://leetcode.com/problems/sum-root-to-leaf-numbers/)
 - [Problem 134: Gas Station](https://leetcode.com/problems/gas-station/)
+- [Problem 138: Copy List With Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/)
 - [Problem 141: Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)
 - [Problem 143: Reorder List](https://leetcode.com/problems/reorder-list/)
 - [Problem 151: Reverse Words In String](https://leetcode.com/problems/reverse-words-in-a-string/)
