@@ -26,12 +26,13 @@ intervals[i].length == 2
 0 <= starti <= endi <= 104
 """
 
+import operator
 from typing import List
 
 
 def merge_intervals(intervals: List[List[int]]) -> List[List[int]]:
     if len(intervals) == 1:
-        return intervals[:]
+        return intervals.copy()
     answer = []
     for _, curr in enumerate(sorted(intervals)):
         if not answer or answer[-1][1] < curr[0]:
@@ -48,8 +49,8 @@ def merge_intervals(intervals: List[List[int]]) -> List[List[int]]:
 
 def merge_intervals_2(intervals: List[List[int]]) -> List[List[int]]:
     if len(intervals) == 1:
-        return intervals[:]
-    intervals.sort(key=lambda x: x[0])
+        return intervals.copy()
+    intervals.sort(key=operator.itemgetter(0))
     answer = []
     for _, curr in enumerate(intervals):
         if not answer or answer[-1][1] < curr[0]:
@@ -70,7 +71,7 @@ if __name__ == "__main__":
         ([[4, 5], [5, 9], [12, 15]]),  # 2 overlapping on the boundary
         ([[1, 5], [3, 9]]),  # 2 overlapping
         ([[1, 2], [3, 4], [5, 6], [8, 10], [12, 16]]),  # no overlap
-        ([[1, 2], [3, 6], [5, 6], [6, 9], [8, 10], [12, 16]]),  #  4 overlapping
+        ([[1, 2], [3, 6], [5, 6], [6, 9], [8, 10], [12, 16]]),  # 4 overlapping
     ]
 
     for intervals in test_cases:

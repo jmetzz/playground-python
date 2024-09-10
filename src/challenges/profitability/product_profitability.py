@@ -1,3 +1,4 @@
+import operator
 import pprint
 from collections import defaultdict
 from pathlib import Path
@@ -28,7 +29,7 @@ def products_profit(sales: List[List[int]]) -> Dict:
     for _, prod_id, unit_cost, unit_sales_price, quantity in sales:
         product_profit_registry[prod_id] += (unit_sales_price - unit_cost) * quantity
 
-    return sorted(product_profit_registry.items(), key=lambda item: item[1])
+    return sorted(product_profit_registry.items(), key=operator.itemgetter(1))
 
 
 def least_and_most_profitable_products(sales: List[List[int]]) -> Dict:
@@ -46,7 +47,7 @@ def least_and_most_profitable_products(sales: List[List[int]]) -> Dict:
     for _, prod_id, unit_cost, unit_sales_price, quantity in sales:
         product_profit_registry[prod_id] += (unit_sales_price - unit_cost) * quantity
 
-    product_profit_registry = sorted(product_profit_registry.items(), key=lambda item: item[1])
+    product_profit_registry = sorted(product_profit_registry.items(), key=operator.itemgetter(1))
     lowest_profit = product_profit_registry[0]
     highest_profit = product_profit_registry[-1]
 
@@ -89,7 +90,7 @@ def get_least_and_most_profitable_products(db_reader, products: List[int], back_
     product_profit_registry = defaultdict(int)
     for sale in sales:
         product_profit_registry[sale.product_id] += (sale.unit_sales_price - sale.unit_cost) * sale.quantity
-    product_profit_registry = sorted(product_profit_registry.items(), key=lambda item: item[1])  # List[(id, profit)]
+    product_profit_registry = sorted(product_profit_registry.items(), key=operator.itemgetter(1))  # List[(id, profit)]
 
     lowest_profit = product_profit_registry[0]
     highest_profit = product_profit_registry[-1]
@@ -105,7 +106,7 @@ def reduce_least_and_most_profitable_products(db_reader, sales: List[Product]):
         valuefunc=lambda x: (x.unit_sales_price - x.unit_cost) * x.quantity,
         reducefunc=sum,
     )
-    lowest_profit, highest_profit = more_itertools.minmax(sales_profits.items(), key=lambda x: x[1])
+    lowest_profit, highest_profit = more_itertools.minmax(sales_profits.items(), key=operator.itemgetter(1))
     # how to solve the ties with minmax approach above?
 
     products_details = {p.id: p for p in db_reader.product_detail([lowest_profit[0], highest_profit[0]])}
@@ -188,7 +189,7 @@ def solution(lines: List[str]):
 
     answer = []
     for company in companies:
-        products_profit = sorted(company_sales[company].items(), key=lambda item: item[1])
+        products_profit = sorted(company_sales[company].items(), key=operator.itemgetter(1))
         answer.append((company, products_profit[-1][0], products_profit[0][0]))
 
     return answer

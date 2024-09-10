@@ -39,7 +39,7 @@ from typing import List
 def equal_pairs(grid: List[List[int]]) -> int:
     # Convert each row to a tuple (to make it hashable)
     # and count the occurrences using a dictionary.
-    rows = Counter(tuple(row) for row in grid[:])
+    rows = Counter(tuple(row) for row in grid.copy())
 
     # repeat the process for the colums
     # The *grid unpacks the grid, effectively passing

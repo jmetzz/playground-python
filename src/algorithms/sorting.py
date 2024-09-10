@@ -330,16 +330,16 @@ def measure_sorting_perf(func_name: str, array_size: int, num_runs: int, value_r
 
 if __name__ == "__main__":
     data = [4, 2, 2, 8, 3, 3, -1]
-    print(merge_sort(data[:]))
-    print(quick_sort_lomuto(data[:]))
-    print(quick_sort_hoare(data[:]))
-    print(quick_sort_random_pivot(data[:]))
-    print(quick_sort_median_of_three(data[:]))
-    print(quick_sort_three_way(data[:]))
-    print(counting_sort(data[:]))
+    print(merge_sort(data.copy()))
+    print(quick_sort_lomuto(data.copy()))
+    print(quick_sort_hoare(data.copy()))
+    print(quick_sort_random_pivot(data.copy()))
+    print(quick_sort_median_of_three(data.copy()))
+    print(quick_sort_three_way(data.copy()))
+    print(counting_sort(data.copy()))
 
     print(setup_data())
-    print(">" * 10 + " Check prformance differences:")
+    print(">" * 10 + " Check performance differences:")
     num_elements = 100000
     num_exec = 100
 

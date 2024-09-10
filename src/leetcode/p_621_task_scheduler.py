@@ -1,4 +1,5 @@
 import heapq
+import operator
 from collections import Counter
 from typing import List
 
@@ -6,8 +7,8 @@ from typing import List
 def least_interval_explained(tasks: List[str], n: int) -> int:
     # ["A","A","A","B","B","B"], n = 2
     counter = Counter(tasks)
-    sorted_tasks = sorted(counter.items(), key=lambda item: item[1], reverse=True)
-    # sorte_tasks = [(A, 3), (B, 3)]
+    sorted_tasks = sorted(counter.items(), key=operator.itemgetter(1), reverse=True)
+    # sorted_tasks = [(A, 3), (B, 3)]
     heap = []
     for task, qtt in sorted_tasks:
         for i in range(qtt):
@@ -37,7 +38,7 @@ def least_interval_explained(tasks: List[str], n: int) -> int:
 
 def least_interval_max_heap(tasks: List[str], n: int) -> int:
     counter = Counter(tasks)
-    sorted_tasks = sorted(counter.items(), key=lambda item: item[1], reverse=True)
+    sorted_tasks = sorted(counter.items(), key=operator.itemgetter(1), reverse=True)
     heap = []
     for task, qtt in sorted_tasks:
         for intervals in range(qtt):

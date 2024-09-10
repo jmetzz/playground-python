@@ -125,7 +125,7 @@ def find_duplicate_subtract(nums: List[int]) -> int:
 
     """
     # Create a copy of nums to avoid modifying the original list
-    nums_copy = nums[:]
+    nums_copy = nums.copy()
     for i in range(len(nums_copy)):
         index = abs(nums_copy[i]) - 1
         if nums_copy[index] < 0:

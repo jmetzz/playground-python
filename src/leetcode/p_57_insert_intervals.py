@@ -49,7 +49,7 @@ def insert_interval(intervals: List[List[int]], new_interval: List[int]) -> List
         return intervals + [new_interval]
 
     answer = []
-    merged_interval = new_interval[:]
+    merged_interval = new_interval.copy()
     for i, interval in enumerate(intervals):
         if interval[1] < merged_interval[0]:
             # current interval ends before new_interval starts

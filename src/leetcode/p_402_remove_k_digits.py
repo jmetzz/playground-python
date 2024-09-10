@@ -55,4 +55,4 @@ def remove_k_digits(num: str, k: int) -> str:
     answer = "".join(stack).lstrip("0")
 
     # Handle edge case where result might be empty
-    return answer if answer else "0"
+    return answer or "0"

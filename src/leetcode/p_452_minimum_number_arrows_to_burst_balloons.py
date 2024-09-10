@@ -45,6 +45,7 @@ points[i].length == 2
 -231 <= xstart < xend <= 231 - 1
 """
 
+import operator
 from typing import List
 
 
@@ -68,7 +69,7 @@ def find_min_arrow_shots(points: List[List[int]]) -> int:
 
 
 def find_min_arrow_shots_2(points: List[List[int]]) -> int:
-    points.sort(key=lambda x: x[1])
+    points.sort(key=operator.itemgetter(1))
     hi_boundary = points[0][1]
     arrow_cnt = 0
 

@@ -1,6 +1,7 @@
 import random
 import sqlite3
 from datetime import datetime, timedelta
+from itertools import starmap
 from typing import Any, List, Tuple
 
 import pandas as pd
@@ -29,7 +30,7 @@ class DBReader:
         placeholders = ", ".join(["?"] * len(product_ids))
         query = f"SELECT * FROM product WHERE ID IN ({placeholders})"
         query_result = self.run_query(query, product_ids)
-        return [Product(*row) for row in query_result]
+        return list(starmap(Product, query_result))
 
     def list_sales_details(
         self,
@@ -90,7 +91,7 @@ class DBReader:
         ORDER BY s.sale_date;
         """
         query_result = self.run_query(query)
-        return [Sales(*row) for row in query_result]
+        return list(starmap(Sales, query_result))
 
 
 def create_database(db_path: str, sql_data_path: str):

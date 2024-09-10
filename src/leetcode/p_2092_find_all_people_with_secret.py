@@ -64,6 +64,7 @@ xi != yi
 """
 
 import heapq
+import operator
 from collections import defaultdict, deque
 from heapq import heappop, heappush
 from math import inf
@@ -176,7 +177,7 @@ class FindAllPeopleWitSecret:
 
     def solve_bfs_time_scale(self, n: int, meetings: List[List[int]], first_person: int) -> List[int]:
         # Sort meetings in increasing order of time
-        meetings.sort(key=lambda x: x[2])
+        meetings.sort(key=operator.itemgetter(2))
 
         # Group Meetings in increasing order of time
         same_time_meetings = defaultdict(list)
@@ -219,7 +220,7 @@ class FindAllPeopleWitSecret:
 
     def solve_union_find_reset(self, n: int, meetings: List[List[int]], first_person: int) -> List[int]:
         # Sort meetings in increasing order of time
-        meetings.sort(key=lambda x: x[2])
+        meetings.sort(key=operator.itemgetter(2))
 
         # Group Meetings in increasing order of time
         same_time_meetings = defaultdict(list)

@@ -164,8 +164,7 @@ def find_farmland_iterative(land: List[List[int]]) -> List[List[int]]:
             # change the value of the cell inplace to mark it as visited.
             # for example, land[i2][j2] = 2
             for v_row in range(r, botton_row + 1):
-                for v_col in range(c, right_col + 1):
-                    visited.add((v_row, v_col))
+                visited.update((v_row, v_col) for v_col in range(c, right_col + 1))
             answer.append([r, c, botton_row, right_col])
     return answer
 

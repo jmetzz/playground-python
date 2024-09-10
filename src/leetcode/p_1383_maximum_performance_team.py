@@ -50,12 +50,13 @@ who have higher efficiencies as well as high speeds.
 
 """
 
+import operator
 from heapq import heappop, heappush
 from typing import List
 
 
 def max_performance(speed: List[int], efficiency: List[int], k: int) -> int:
-    pairs = sorted(list(zip(speed, efficiency)), key=lambda pair: pair[1], reverse=True)
+    pairs = sorted(list(zip(speed, efficiency)), key=operator.itemgetter(1), reverse=True)
 
     team_speed_heap = []
     speed_running_sum = 0

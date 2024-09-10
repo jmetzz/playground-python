@@ -39,6 +39,7 @@ Otherwise, we should return `maxIndex`.
 
 """
 
+import operator
 from heapq import heapify
 from typing import List
 
@@ -63,7 +64,7 @@ def dominant_index_heap(nums: List[int]) -> int:
     h = [(-v, idx) for idx, v in enumerate(nums)]
     heapify(h)
     largest_v, largest_idx = h[0]
-    sec_largest_v, _ = min(h[1 : min(3, len(nums))], key=lambda x: x[0])
+    sec_largest_v, _ = min(h[1 : min(3, len(nums))], key=operator.itemgetter(0))
 
     if sec_largest_v * 2 < largest_v:
         return -1

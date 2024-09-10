@@ -128,6 +128,7 @@ ignore = []
 # Allow fix for all enabled rules (when `--fix`) is provided.
 fixable = ["ALL"]
 unfixable = []
+preview = false
 
 [tool.ruff.lint.extend-per-file-ignores]
 "tests/**/*.py" = [
