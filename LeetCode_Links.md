@@ -37,6 +37,7 @@
 - [Problem 84: Largest Rectangle In Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/)
 - [Problem 85: Maximal Rectangle](https://leetcode.com/problems/maximal-rectangle/)
 - [Problem 88: Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)
+- [Problem 92: Reverse Linked List Ii](https://leetcode.com/problems/reverse-linked-list-ii)
 - [Problem 100: Same Tree](https://leetcode.com/problems/same-tree/)
 - [Problem 101: Symmetric Tree](https://leetcode.com/problems/symmetric-tree/)
 - [Problem 104: Max Depth Bin Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/)
