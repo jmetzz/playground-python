@@ -34,6 +34,7 @@
 - [Problem 77: Combinations](https://leetcode.com/problems/combinations/)
 - [Problem 79: Word Search](https://leetcode.com/problems/word-search/)
 - [Problem 80: Remove Duplicates From Sorted Array Ii](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/)
+- [Problem 82: Remove Duplicates From Sorted List Ii](https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/)
 - [Problem 84: Largest Rectangle In Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/)
 - [Problem 85: Maximal Rectangle](https://leetcode.com/problems/maximal-rectangle/)
 - [Problem 88: Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)
