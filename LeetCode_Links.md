@@ -57,6 +57,7 @@
 - [Problem 138: Copy List With Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/)
 - [Problem 141: Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)
 - [Problem 143: Reorder List](https://leetcode.com/problems/reorder-list/)
+- [Problem 146: Lru Cache](https://leetcode.com/problems/lru-cache/)
 - [Problem 151: Reverse Words In String](https://leetcode.com/problems/reverse-words-in-a-string/)
 - [Problem 155: Min Stack](https://leetcode.com/problems/min-stack/)
 - [Problem 165: Compare Version Numbers](https://leetcode.com/problems/compare-version-numbers/)
