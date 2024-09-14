@@ -176,7 +176,7 @@ class BinaryTreeNode:
             return cls.is_equal(one.left, other.left) and cls.is_equal(one.right, other.right)
         return False
 
-    def is_symetric(self) -> bool:
+    def is_symmetric(self) -> bool:
         return self.are_symmetric(self.left, self.right)
 
     @classmethod
