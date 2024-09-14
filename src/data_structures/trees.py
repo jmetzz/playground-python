@@ -59,22 +59,25 @@ class BinaryTreeNode:
 
     def serialize_tree(self, prefix: str = "", is_left=True) -> str:
         """Generate a string representation of a binary tree"""
-        # if node is None:
-        #     return "Null\n"
-        result = prefix
-        if prefix == "":
-            result += "── "
-        else:
-            result += "├── " if is_left else "└── "
 
-        result += str(self.val) + "\n"
+        tree_str = prefix
+        if prefix == "":
+            tree_str += "── "
+        else:
+            tree_str += "├── " if is_left else "└── "
+
+        tree_str += str(self.val) + "\n"
         if self.left is not None:
-            result += self.left.serialize(prefix + ("   " if not is_left or self.right is not None else "    "), True)
+            tree_str += self.left.serialize_tree(
+                prefix + ("   " if not is_left or self.right is not None else "    "), True
+            )
 
         if self.right is not None:
-            result += self.right.serialize(prefix + ("   " if not is_left or self.left is not None else "    "), False)
+            tree_str += self.right.serialize_tree(
+                prefix + ("   " if not is_left or self.left is not None else "    "), False
+            )
 
-        return result
+        return tree_str
 
     @staticmethod
     def from_indices(indices: List[int]):
