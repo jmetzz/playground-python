@@ -191,6 +191,9 @@ class BinaryTreeNode:
         # both root nodes are valid nodes
         return cls.are_symmetric(root1.left, root2.right) and cls.are_symmetric(root1.right, root2.left)
 
+    def __str__(self):
+        return " -> ".join(self.inorder(r=self))
+
 
 class TrieSymbolTableRecursive:
     class TrieNode:
