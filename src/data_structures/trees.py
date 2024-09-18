@@ -12,7 +12,7 @@ class BinaryTreeNode:
         self.right = right
 
     @staticmethod
-    def deserialize(arr: List[Optional[int]], root: int = 0):
+    def deserialize(arr: list[int | None], root: int = 0) -> Self:
         """Recursively constructs the tree based on the array representation,
         handling None values to skip creating nodes for missing children.
 
@@ -34,7 +34,7 @@ class BinaryTreeNode:
             BinaryTreeNode.deserialize(arr, root * 2 + 2),
         )
 
-    def serialize(self) -> List[Optional[int]]:
+    def serialize(self) -> list[int | None]:
         """Serializes the tree to an array representation using level-order traversal."""
         if not self:
             return []
@@ -86,39 +86,99 @@ class BinaryTreeNode:
         arr[indices] = indices
         return BinaryTreeNode.deserialize(arr.tolist())
 
+    @classmethod
+    def from_array(cls, values: list[int]) -> Self:
+        """Function to construct a binary tree from a list (level-order)"""
+        if not values:
+            return None
+
+        root = cls(values[0])
+        queue = [root]
+        i = 1
+
+        while queue and i < len(values):
+            node = queue.pop(0)
+
+            if i < len(values) and values[i] is not None:
+                node.left = cls(values[i])
+                queue.append(node.left)
+            i += 1
+
+            if i < len(values) and values[i] is not None:
+                node.right = cls(values[i])
+                queue.append(node.right)
+            i += 1
+
+        return root
+
+    @classmethod
+    def find_node_by_value(cls, root: Self, val: int):
+        """Helper function to find the reference to a node by its value"""
+        if not root:
+            return None
+        if root.val == val:
+            return root
+
+        left_search = cls.find_node_by_value(root.left, val)
+        if left_search:
+            return left_search
+
+        return cls.find_node_by_value(root.right, val)
+
     @staticmethod
-    def from_map(mapping: Dict[int, int]):
+    def from_map(mapping: dict[int, int]):
         raise NotImplementedError
 
     @classmethod
-    def preorder(cls, r):
-        if not r:  # base case
+    def preorder(cls, root: Self) -> list[int]:
+        if not root:  # base case
             return None
 
         # traverse the subtrees
-        left = cls.preorder(r.left) or []
-        right = cls.preorder(r.right) or []
-        return [r.val] + left + right
+        left = cls.preorder(root.left) or []
+        right = cls.preorder(root.right) or []
+        return [root.val] + left + right
 
     @classmethod
-    def inorder(cls, r):
-        if not r:  # base case
+    def inorder(cls, root: Self) -> list[int]:
+        if not root:  # base case
             return None
         # traverse the subtrees
-        left = cls.inorder(r.left) or []
-        right = cls.inorder(r.right) or []
+        left = cls.inorder(root.left) or []
+        right = cls.inorder(root.right) or []
 
         # visit the current node and collect the elements in left, in appropriate order
-        return left + [r.val] + right
+        return left + [root.val] + right
 
     @classmethod
-    def postorder(cls, r):
-        if not r:
+    def postorder(cls, root: Self) -> list[int]:
+        if not root:
             return None
-        left = cls.postorder(r.left) or []
-        right = cls.postorder(r.right) or []
+        left = cls.postorder(root.left) or []
+        right = cls.postorder(root.right) or []
         # visit the node and collect its value
-        return left + right + [r.val]
+        return left + right + [root.val]
+
+    @staticmethod
+    def level_order(root: Self | None) -> list[list[int]]:
+        if not root:
+            return []
+
+        queue = deque([root])
+        answer = []
+
+        while queue:
+            level_size, level_values = len(queue), []
+            for _ in range(level_size):
+                curr = queue.popleft()
+                level_values.append(curr.val)
+                if curr.left:
+                    queue.append(curr.left)
+                if curr.right:
+                    queue.append(curr.right)
+            answer.append(level_values)
+
+        return answer
 
     def bfs_apply(self, func):
         q = deque()
@@ -192,7 +252,7 @@ class BinaryTreeNode:
         return cls.are_symmetric(root1.left, root2.right) and cls.are_symmetric(root1.right, root2.left)
 
     def __str__(self):
-        return " -> ".join(self.inorder(r=self))
+        return " -> ".join(self.inorder(root=self))
 
 
 class TrieSymbolTableRecursive:
