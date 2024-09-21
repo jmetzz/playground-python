@@ -254,6 +254,9 @@ class BinaryTreeNode:
     def __str__(self):
         return " -> ".join(self.inorder(root=self))
 
+    def __repr__(self):
+        return f"Node[{self.val}, {'/' if self.left else '.'}, {'\\' if self.right else '.'}]"
+
 
 class TrieSymbolTableRecursive:
     class TrieNode:
