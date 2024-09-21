@@ -78,6 +78,7 @@
 - [Problem 209: Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/)
 - [Problem 215: Krh Largest Element In Array](https://leetcode.com/problems/course-schedule/)
 - [Problem 226: Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/)
+- [Problem 230: Kth Smallest Element In A Bst](https://leetcode.com/problems/kth-smallest-element-in-a-bst/)
 - [Problem 231: Power Of Two](https://leetcode.com/problems/power-of-two/)
 - [Problem 234: Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list)
 - [Problem 235: Lowest Common Ancestor Of A Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/)
