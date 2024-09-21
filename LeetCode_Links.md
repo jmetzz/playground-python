@@ -41,6 +41,7 @@
 - [Problem 86: Partition List](https://leetcode.com/problems/partition-list/)
 - [Problem 88: Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)
 - [Problem 92: Reverse Linked List Ii](https://leetcode.com/problems/reverse-linked-list-ii)
+- [Problem 98: Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree)
 - [Problem 100: Same Tree](https://leetcode.com/problems/same-tree/)
 - [Problem 101: Symmetric Tree](https://leetcode.com/problems/symmetric-tree/)
 - [Problem 102: Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)
