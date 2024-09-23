@@ -32,16 +32,16 @@ numba = "^0.60.0"
 
 [tool.poetry.group.dev.dependencies]
 ipdb = "^0.13.13"
+hypothesis = "^6.98.18"
 pytest = "^7.4.4"
 pytest-cov = "^4.1.0"
 pytest-sugar = "^0.9.7"
+pytest-xdist = "^3.5.0"
 ruff = "^0.6.1"
 pre-commit = "^3.6.2"
 pipdeptree = "^2.14.0"
 pip-licenses = "^4.3.4"
 prettytable = "^3.10.0"
-pytest-xdist = "^3.5.0"
-hypothesis = "^6.98.18"
 
 [tool.poetry.group.notebook.dependencies]
 jupyterlab = "^4.2.5"
