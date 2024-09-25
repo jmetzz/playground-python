@@ -34,12 +34,10 @@ It is guaranteed that the list represents a number that does not have leading
 zeros.
 """
 
-from typing import Optional
-
 from data_structures.lists import SingleLinkNode as ListNode
 
 
-def add_two_numbers(l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+def add_two_numbers(l1: ListNode | None, l2: ListNode | None) -> ListNode | None:
     if not l1:
         return l2
     if not l2:
@@ -97,7 +95,7 @@ def add_two_numbers(l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[
     return head
 
 
-def add_two_numbers_2(l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+def add_two_numbers_2(l1: ListNode | None, l2: ListNode | None) -> ListNode | None:
     if not l1:
         return l2
     if not l2:
@@ -136,7 +134,7 @@ def add_two_numbers_2(l1: Optional[ListNode], l2: Optional[ListNode]) -> Optiona
     return dummy_head.next
 
 
-def add_two_numbers_3(l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+def add_two_numbers_3(l1: ListNode | None, l2: ListNode | None) -> ListNode | None:
     dummy_head = ListNode(None)
     tail = dummy_head
     p1, p2 = l1, l2  # using these to not change the input pointers

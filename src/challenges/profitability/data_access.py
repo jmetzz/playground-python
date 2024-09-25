@@ -2,7 +2,7 @@ import random
 import sqlite3
 from datetime import datetime, timedelta
 from itertools import starmap
-from typing import Any, List, Tuple
+from typing import Any
 
 import pandas as pd
 
@@ -13,7 +13,7 @@ class DBReader:
     def __init__(self, database_path):
         self._db_path = database_path
 
-    def run_query(self, query: str, params: Tuple = ()) -> List[Any]:
+    def run_query(self, query: str, params: tuple = ()) -> list[Any]:
         try:
             with sqlite3.connect(self._db_path) as conn:
                 cursor = conn.cursor()
@@ -26,7 +26,7 @@ class DBReader:
         with sqlite3.connect(self._db_path) as conn:
             return pd.read_sql_query(query, conn)
 
-    def product_detail(self, product_ids: List[int]) -> List[Product]:
+    def product_detail(self, product_ids: list[int]) -> list[Product]:
         placeholders = ", ".join(["?"] * len(product_ids))
         query = f"SELECT * FROM product WHERE ID IN ({placeholders})"
         query_result = self.run_query(query, product_ids)
@@ -34,7 +34,7 @@ class DBReader:
 
     def list_sales_details(
         self,
-        product_ids: List[int],
+        product_ids: list[int],
         ref_date: StopAsyncIteration = None,
         back_periods: int = 1,
         period_unit: str = "month",
@@ -67,11 +67,11 @@ class DBReader:
 
     def list_sales(
         self,
-        product_ids: List[int],
+        product_ids: list[int],
         ref_date: StopAsyncIteration = None,
         back_periods: int = 1,
         period_unit: str = "month",
-    ) -> List[Product]:
+    ) -> list[Product]:
         end_date = datetime.strptime(ref_date, "%Y-%m-%d") if ref_date else datetime.now()
         start_date = f"date('{end_date.strftime("%Y-%m-%d")}', '-{back_periods} {period_unit}')"
 

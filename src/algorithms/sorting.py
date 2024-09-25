@@ -2,10 +2,9 @@ import random
 import timeit
 from ast import Tuple
 from random import randint
-from typing import List
 
 
-def merge_sort(elements: List[int]) -> List[int]:
+def merge_sort(elements: list[int]) -> list[int]:
     def _merge_sort_recursive(lo, hi) -> None:
         if lo < hi:
             m = (lo + hi) // 2
@@ -48,7 +47,7 @@ def merge_sort(elements: List[int]) -> List[int]:
     return elements
 
 
-def quick_sort_lomuto(elements: List[int]) -> List[int]:
+def quick_sort_lomuto(elements: list[int]) -> list[int]:
     def _lomuto_recursive(lo, hi):
         if lo < hi:
             pivot = _lomuto_partition(elements, lo, hi)
@@ -61,7 +60,7 @@ def quick_sort_lomuto(elements: List[int]) -> List[int]:
     return elements
 
 
-def _lomuto_partition(elements: List[int], lo, hi) -> int:
+def _lomuto_partition(elements: list[int], lo, hi) -> int:
     pivot = elements[hi]
     # temporary pivot target idx
     swap_marker = lo
@@ -86,7 +85,7 @@ def _lomuto_partition(elements: List[int], lo, hi) -> int:
     return swap_marker
 
 
-def quick_sort_hoare(elements: List[int]) -> List[int]:
+def quick_sort_hoare(elements: list[int]) -> list[int]:
     def _hoare_partition(lo, hi):
         pivot = elements[lo]
         left = lo - 1
@@ -113,7 +112,7 @@ def quick_sort_hoare(elements: List[int]) -> List[int]:
     return elements
 
 
-def quick_sort_random_pivot(elements: List[int]) -> List[int]:
+def quick_sort_random_pivot(elements: list[int]) -> list[int]:
     def _random_pivot_partition(lo, hi) -> int:
         pivot_idx = random.randint(lo, hi)
         # Move pivot to end for simplicity
@@ -133,7 +132,7 @@ def quick_sort_random_pivot(elements: List[int]) -> List[int]:
     return elements
 
 
-def quick_sort_median_of_three(elements: List[int]) -> List[int]:
+def quick_sort_median_of_three(elements: list[int]) -> list[int]:
     def _recursive_call(lo: int, hi: int) -> None:
         if lo < hi:
             pivot_index = _median_of_three(lo, hi)
@@ -158,7 +157,7 @@ def quick_sort_median_of_three(elements: List[int]) -> List[int]:
     return elements
 
 
-def quick_sort_three_way(elements: List[int]) -> List[int]:
+def quick_sort_three_way(elements: list[int]) -> list[int]:
     """ "
     Three-Way Partitioning Quick Sort (aka Dutch National Flag Problem)
     is designed to efficiently handle arrays with many duplicate elements
@@ -196,7 +195,7 @@ def quick_sort_three_way(elements: List[int]) -> List[int]:
     return elements
 
 
-def counting_sort(elements: List[int]) -> List[int]:
+def counting_sort(elements: list[int]) -> list[int]:
     """Counting Sort is a non-comparison-based sorting algorithm
     This implementation of the algorithm works with non-negative elements only.
 

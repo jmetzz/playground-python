@@ -17,10 +17,8 @@ Constraints:
 1 <= n <= 8
 """
 
-from typing import List
 
-
-def generate_parenthesis_1(n: int) -> List[str]:
+def generate_parenthesis_1(n: int) -> list[str]:
     target_length = n * 2
 
     def _backtracking(target_size, diff, comb):
@@ -41,7 +39,7 @@ def generate_parenthesis_1(n: int) -> List[str]:
     return combinations
 
 
-def generate_parenthesis_2(n: int) -> List[str]:
+def generate_parenthesis_2(n: int) -> list[str]:
     combinations = []
     target_length = n * 2
 
@@ -58,7 +56,7 @@ def generate_parenthesis_2(n: int) -> List[str]:
     return combinations
 
 
-def generate_parenthesis_3(n: int) -> List[str]:
+def generate_parenthesis_3(n: int) -> list[str]:
     combinations = []
 
     def _backtracking(open_available: int, close_available: int, comb: str):

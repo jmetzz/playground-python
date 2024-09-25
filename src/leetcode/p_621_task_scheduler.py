@@ -1,10 +1,9 @@
 import heapq
 import operator
 from collections import Counter
-from typing import List
 
 
-def least_interval_explained(tasks: List[str], n: int) -> int:
+def least_interval_explained(tasks: list[str], n: int) -> int:
     # ["A","A","A","B","B","B"], n = 2
     counter = Counter(tasks)
     sorted_tasks = sorted(counter.items(), key=operator.itemgetter(1), reverse=True)
@@ -36,7 +35,7 @@ def least_interval_explained(tasks: List[str], n: int) -> int:
     return answer
 
 
-def least_interval_max_heap(tasks: List[str], n: int) -> int:
+def least_interval_max_heap(tasks: list[str], n: int) -> int:
     counter = Counter(tasks)
     sorted_tasks = sorted(counter.items(), key=operator.itemgetter(1), reverse=True)
     heap = []
@@ -54,7 +53,7 @@ def least_interval_max_heap(tasks: List[str], n: int) -> int:
     return intervals
 
 
-def least_interval_max_heap_2(tasks: List[str], n: int) -> int:
+def least_interval_max_heap_2(tasks: list[str], n: int) -> int:
     """Approach optimizes efficiency by prioritizing tasks
     based on their frequency, thereby reducing intervals and
     minimizing idle time for the scheduler.
@@ -85,7 +84,7 @@ def least_interval_max_heap_2(tasks: List[str], n: int) -> int:
     return total_time
 
 
-def least_interval_chunck_based(tasks: List[str], n: int) -> int:
+def least_interval_chunck_based(tasks: list[str], n: int) -> int:
     """Find the minimum number of intervals required to complete all tasks
     while following the cooling time constraint.
 

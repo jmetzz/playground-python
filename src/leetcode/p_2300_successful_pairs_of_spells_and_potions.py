@@ -45,10 +45,9 @@ m == potions.length
 
 import math
 from bisect import bisect_left
-from typing import List
 
 
-def successful_pairs(spells: List[int], potions: List[int], success: int) -> List[int]:
+def successful_pairs(spells: list[int], potions: list[int], success: int) -> list[int]:
     potions.sort()  # side-effect :(
     num_potions = len(potions)
     num_spells = len(spells)

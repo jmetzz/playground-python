@@ -1,4 +1,4 @@
-from typing import Any, List, Optional, Self
+from typing import Any, Self
 
 
 class SingleLinkNode:
@@ -7,7 +7,7 @@ class SingleLinkNode:
         self.next = next_node
 
     @classmethod
-    def from_array(cls, arr: List[Any]) -> Self:
+    def from_array(cls, arr: list[Any]) -> Self:
         """Recursively creates a singly-linked list from an array of integers.
 
         Args:
@@ -52,7 +52,7 @@ class SingleLinkNode:
         return head
 
     @classmethod
-    def deserialize(cls, arr: List[Any], size_threshold: int = 500) -> Optional[Self]:
+    def deserialize(cls, arr: list[Any], size_threshold: int = 500) -> Self | None:
         if not arr:
             return None
         if len(arr) > size_threshold:
@@ -62,7 +62,7 @@ class SingleLinkNode:
     def serialize(self) -> str:
         return str(self.as_array())
 
-    def as_array(self) -> List[Any]:
+    def as_array(self) -> list[Any]:
         arr = []
         visitor = self
         while visitor:

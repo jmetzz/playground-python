@@ -2,7 +2,6 @@ import contextlib
 import datetime
 import logging
 from contextlib import contextmanager
-from typing import Dict
 
 import config
 import pandas as pd
@@ -97,7 +96,7 @@ def get_db_connection():
         pool.put_conn(conn)
 
 
-def run_query(query: str, params: Dict = None) -> pd.DataFrame:
+def run_query(query: str, params: dict = None) -> pd.DataFrame:
     """Gets a connection from the pool and executes the query
     with the specified parameters.
 

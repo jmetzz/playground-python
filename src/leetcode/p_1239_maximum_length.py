@@ -45,11 +45,9 @@ Constraints:
 arr[i] contains only lowercase English letters.
 """
 
-from typing import List
-
 
 class MaxLengthStrWithUniqueChars:
-    def solve(self, arr: List[str]) -> int:
+    def solve(self, arr: list[str]) -> int:
         return self._back_track(self._clean_up(arr), "", 0, 0)
 
     def _back_track(self, arr, current, start, max_len):
@@ -59,7 +57,7 @@ class MaxLengthStrWithUniqueChars:
             max_len = max(max_len, self._back_track(arr, current + arr[i], i + 1, max_len))
         return max(max_len, len(current))
 
-    def _clean_up(self, arr: List) -> List:
+    def _clean_up(self, arr: list) -> list:
         return [v for v in arr if len(set(v)) == len(v)]
 
     def _invalid(self, current, new_string):
@@ -67,7 +65,7 @@ class MaxLengthStrWithUniqueChars:
 
 
 class MaxLengthStrWithUniqueChars_dfs:
-    def solve(self, arr: List[str]) -> int:
+    def solve(self, arr: list[str]) -> int:
         pass
 
     # def dfs(path, idx, result):

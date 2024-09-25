@@ -33,10 +33,8 @@ n = board[i].length
 board and word consists of only lowercase and uppercase English letters.
 """
 
-from typing import List
 
-
-def exist_1(board: List[List[str]], word: str, debug: bool = False) -> bool:
+def exist_1(board: list[list[str]], word: str, debug: bool = False) -> bool:
     n = len(board)
     m = len(board[0])
 
@@ -77,7 +75,7 @@ def exist_1(board: List[List[str]], word: str, debug: bool = False) -> bool:
     return False
 
 
-def exist_2(board: List[List[str]], word: str, debug: bool = False) -> bool:
+def exist_2(board: list[list[str]], word: str, debug: bool = False) -> bool:
     n = len(board)
     m = len(board[0])
 
@@ -107,7 +105,7 @@ def exist_2(board: List[List[str]], word: str, debug: bool = False) -> bool:
     return False
 
 
-def exist_3(board: List[List[str]], word: str, debug: bool = False) -> bool:
+def exist_3(board: list[list[str]], word: str, debug: bool = False) -> bool:
     n = len(board)
     m = len(board[0])
 

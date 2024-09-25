@@ -25,11 +25,10 @@ Constraints:
 """
 
 from collections import Counter
-from typing import List
 
 
 class SetMismatch:
-    def solve_with_setandsum(self, nums: List[int]) -> List[int]:
+    def solve_with_setandsum(self, nums: list[int]) -> list[int]:
         # find the double element
         temp_set = set()
         double = -1
@@ -47,7 +46,7 @@ class SetMismatch:
 
         return [double, missing]
 
-    def solve_with_setandsum_2(self, nums: List[int]) -> List[int]:
+    def solve_with_setandsum_2(self, nums: list[int]) -> list[int]:
         n = len(nums)
         # this assumes no duplicates and no missing numbers.
         expected_sum = int((n * (n + 1)) / 2)
@@ -58,7 +57,7 @@ class SetMismatch:
         double = actual_sum - unique_sum
         return [double, missing]
 
-    def solve_with_maps(self, nums: List[int]) -> List[int]:
+    def solve_with_maps(self, nums: list[int]) -> list[int]:
         # map mp to count the occurrences of numbers from 1 to n, which is the domain of this problem
         frequency = Counter(range(1, len(nums) + 1))
 
@@ -79,7 +78,7 @@ class SetMismatch:
 
         return [double, missing]
 
-    def solve_with_xor_ops(self, nums: List[int]) -> List[int]:
+    def solve_with_xor_ops(self, nums: list[int]) -> list[int]:
         # Calculate the XOR of all numbers from 1 to n (denoted as xorAll)
         # and the XOR of the array nums (denoted as xorArray).
         # Then, XOR the xorAll and xorArray to obtain xorResult.

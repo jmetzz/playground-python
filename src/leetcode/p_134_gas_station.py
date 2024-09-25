@@ -45,10 +45,8 @@ n == gas.length == cost.length
 0 <= gas[i], cost[i] <= 104
 """
 
-from typing import List
 
-
-def can_complete_circuit_all_possibilities(gas: List[int], cost: List[int]) -> int:
+def can_complete_circuit_all_possibilities(gas: list[int], cost: list[int]) -> int:
     num_stations = len(gas)
 
     def _can_traverse(start: int) -> bool:
@@ -70,7 +68,7 @@ def can_complete_circuit_all_possibilities(gas: List[int], cost: List[int]) -> i
     return -1
 
 
-def can_complete_circuit(gas: List[int], cost: List[int]) -> int:
+def can_complete_circuit(gas: list[int], cost: list[int]) -> int:
     # base case
     if sum(gas) < sum(cost):
         return -1

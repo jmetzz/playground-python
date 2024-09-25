@@ -46,10 +46,8 @@ Constraints:
 
 """
 
-from typing import List
 
-
-def find_middle_index(nums: List[int]) -> int:
+def find_middle_index(nums: list[int]) -> int:
     sum_left = 0
     total_sum = sum(nums)
     for pivot in range(len(nums)):

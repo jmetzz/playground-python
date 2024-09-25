@@ -23,11 +23,9 @@ n == matrix.length == matrix[i].length
 
 """
 
-from typing import List
-
 
 class MinFallingPathSumViaRecursion:
-    def solve(self, matrix: List[List[int]]) -> int:
+    def solve(self, matrix: list[list[int]]) -> int:
         n = len(matrix)
         costs = [0] * n
         for col in range(n):
@@ -53,7 +51,7 @@ class MinFallingPathSumViaRecursion:
 
 
 class MinFallingPathSumViaDP:
-    def solve(self, matrix: List[List[int]]) -> int:
+    def solve(self, matrix: list[list[int]]) -> int:
         n = len(matrix)
         # one line only, return the smaller element
         if n == 1:

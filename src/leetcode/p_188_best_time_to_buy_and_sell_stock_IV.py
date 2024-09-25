@@ -33,10 +33,8 @@ Constraints:
 0 <= prices[i] <= 1000
 """
 
-from typing import List, Tuple
 
-
-def max_profit_with_k_transactions(prices: List[int], k: int) -> int:
+def max_profit_with_k_transactions(prices: list[int], k: int) -> int:
     """Calculate the maximum profit that can be achieved from up to k stock transactions.
 
     This function is optimized to handle scenarios with a high number of transactions (k) by
@@ -145,7 +143,7 @@ def max_profit_with_k_transactions(prices: List[int], k: int) -> int:
     return dp[k][n - 1]
 
 
-def list_transaction_maximizing_profit(prices: List[int], k: int) -> List[Tuple[int, int, int]]:
+def list_transaction_maximizing_profit(prices: list[int], k: int) -> list[tuple[int, int, int]]:
     """Transaction Tracking: Whenever a sell operation (that maximizes the profit) is considered,
     the associated transaction is recorded, including both the day of purchase and the day of sale,
     as well as the profit from that specific transaction.
@@ -193,7 +191,7 @@ def list_transaction_maximizing_profit(prices: List[int], k: int) -> List[Tuple[
     return dp[k][n - 1][1]
 
 
-def updated_transaction_list(prices, current_transaction, sell_day, dp) -> List[Tuple[int, int, int]]:
+def updated_transaction_list(prices, current_transaction, sell_day, dp) -> list[tuple[int, int, int]]:
     """Update the transaction list with the optimal buy day for a given sell day.
 
     Args:
@@ -228,7 +226,7 @@ def updated_transaction_list(prices, current_transaction, sell_day, dp) -> List[
     return previous_transactions + [new_transaction]
 
 
-def aggregate_profit_from_transactions(transactions: List[Tuple[int, int, int]]) -> int:
+def aggregate_profit_from_transactions(transactions: list[tuple[int, int, int]]) -> int:
     return sum([profit for _, _, profit in transactions])
 
 

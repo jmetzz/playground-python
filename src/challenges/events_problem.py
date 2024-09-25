@@ -35,7 +35,7 @@ add_activity("user_1", 60)
 
 import math
 from collections import Counter
-from typing import List, Literal
+from typing import Literal
 
 DATABASE = {}  # {user_id: [ts1, ts2]}
 
@@ -56,7 +56,7 @@ def calc_offset(timestamp):
 
 def barchart_heights(
     user_id: str, from_timestamp: int, to_timestamp: int, frequency: Literal["minute" | "hour" | "day"]
-) -> List[int]:
+) -> list[int]:
     #     raise ValueError("Invalid frequency unit")
 
     time_delta = to_timestamp - from_timestamp

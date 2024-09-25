@@ -41,10 +41,9 @@ Otherwise, we should return `maxIndex`.
 
 import operator
 from heapq import heapify
-from typing import List
 
 
-def dominant_index(nums: List[int]) -> int:
+def dominant_index(nums: list[int]) -> int:
     max_idx = 0
     for idx in range(1, len(nums)):
         if nums[idx] > nums[max_idx]:
@@ -57,7 +56,7 @@ def dominant_index(nums: List[int]) -> int:
     return max_idx
 
 
-def dominant_index_heap(nums: List[int]) -> int:
+def dominant_index_heap(nums: list[int]) -> int:
     if len(nums) == 1:
         return 0
 

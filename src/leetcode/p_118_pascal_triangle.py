@@ -21,10 +21,8 @@ Constraints:
 1 <= numRows <= 30
 """
 
-from typing import List
 
-
-def generate_iterative(num_rows: int) -> List[List[int]]:
+def generate_iterative(num_rows: int) -> list[list[int]]:
     """Generates the first `num_rows` of Pascal's Triangle using an iterative approach.
 
     This function constructs each row of Pascal's Triangle one by one, starting from
@@ -56,7 +54,7 @@ def generate_iterative(num_rows: int) -> List[List[int]]:
     return triangle
 
 
-def generate_iterative_padding(num_rows: int) -> List[List[int]]:
+def generate_iterative_padding(num_rows: int) -> list[list[int]]:
     """Generate the first num_rows of Pascal's triangle using an iterative approach.
 
     This function builds each row of Pascal's triangle by leveraging a temporary list
@@ -94,7 +92,7 @@ def generate_iterative_padding(num_rows: int) -> List[List[int]]:
     return triangle
 
 
-def generate_recursive(num_rows: int, triangle=None) -> List[List[int]]:
+def generate_recursive(num_rows: int, triangle=None) -> list[list[int]]:
     """Generates the first `num_rows` of Pascal's Triangle using a recursive approach.
 
     This function employs recursion by building each row of Pascal's Triangle based on the previous row,

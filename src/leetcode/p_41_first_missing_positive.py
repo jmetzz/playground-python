@@ -44,10 +44,8 @@ Remember that O(2n) = O(n)
 
 """
 
-from typing import List
 
-
-def first_missing_positive_filter(nums: List[int]) -> int:
+def first_missing_positive_filter(nums: list[int]) -> int:
     positives = set([e for e in nums if e > 0])
     n = len(positives) + 1
     for e in range(1, n + 1):
@@ -56,7 +54,7 @@ def first_missing_positive_filter(nums: List[int]) -> int:
     return n + 1
 
 
-def first_missing_positive_set(nums: List[int]) -> int:
+def first_missing_positive_set(nums: list[int]) -> int:
     elements = set(nums)
     missing = 1
     while missing in elements:
@@ -64,7 +62,7 @@ def first_missing_positive_set(nums: List[int]) -> int:
     return missing
 
 
-def first_missing_positive_boolean_array(nums: List[int]) -> int:
+def first_missing_positive_boolean_array(nums: list[int]) -> int:
     """Complexity Analysis
     Let n be the length of nums.
 
@@ -96,7 +94,7 @@ def first_missing_positive_boolean_array(nums: List[int]) -> int:
     return n + 1
 
 
-def first_missing_positive_side_effect(nums: List[int]) -> int:
+def first_missing_positive_side_effect(nums: list[int]) -> int:
     """Time: O(n)
     Space: O(1) since we modify the input array [Don't do this, ever!]
     """
@@ -139,7 +137,7 @@ def first_missing_positive_side_effect(nums: List[int]) -> int:
     return n + 1
 
 
-def first_missing_positive_cycle_sort(nums: List[int]) -> int:
+def first_missing_positive_cycle_sort(nums: list[int]) -> int:
     """https://en.wikipedia.org/wiki/Cycle_sort:
     sort a given sequence in a range from a to n by putting each element at
     the index that corresponds to its value.

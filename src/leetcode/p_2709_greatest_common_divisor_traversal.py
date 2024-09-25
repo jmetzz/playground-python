@@ -40,13 +40,11 @@ Constraints:
 
 """
 
-from typing import List
-
 from data_structures.graphs import UnionFind
 
 
 class GreatestCommonDivisor:
-    def solve_prime_factorization(self, nums: List[int]) -> bool:
+    def solve_prime_factorization(self, nums: list[int]) -> bool:
         n = len(nums)
         ufind = UnionFind(n)
         factor_index = {}  # factor -> index of value with factor

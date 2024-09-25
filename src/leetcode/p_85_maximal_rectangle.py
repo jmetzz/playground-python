@@ -37,10 +37,8 @@ matrix[i][j] is '0' or '1'.
 
 """
 
-from typing import List
 
-
-def maximal_rectangle(matrix: List[List[str]]) -> int:
+def maximal_rectangle(matrix: list[list[str]]) -> int:
     rows, cols = len(matrix), len(matrix[0])
     max_area = 0
     stack = []  # mono stack to keep (heigh of 1s, start idx), a series of heights in non-decreasing order

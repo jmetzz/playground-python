@@ -25,11 +25,9 @@ Constraints:
 The answer is guaranteed to fit within a 32-bit integer, ie. answer <= 2^31 - 1.
 """
 
-from typing import Dict
-
 
 def tribonacci_recursive_memoization(n: int) -> int:
-    def dfs(target: int, cache: Dict) -> int:
+    def dfs(target: int, cache: dict) -> int:
         if target == 0:
             return 0
         if target < 3:

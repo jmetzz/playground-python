@@ -29,12 +29,10 @@ The number of nodes in the list is sz.
 Follow up: Could you do this in one pass?
 """
 
-from typing import Optional
-
 from data_structures.lists import SingleLinkNode
 
 
-def remove_nth_from_end(head: Optional[SingleLinkNode], n: int) -> Optional[SingleLinkNode]:
+def remove_nth_from_end(head: SingleLinkNode | None, n: int) -> SingleLinkNode | None:
     pointer = head
     stack = []
     while pointer:
@@ -55,7 +53,7 @@ def remove_nth_from_end(head: Optional[SingleLinkNode], n: int) -> Optional[Sing
     return head
 
 
-def remove_nth_from_end_two_pointers(head: Optional[SingleLinkNode], n: int) -> Optional[SingleLinkNode]:
+def remove_nth_from_end_two_pointers(head: SingleLinkNode | None, n: int) -> SingleLinkNode | None:
     """Use the two pointers and dummy node technique.
 
     [1 ---> 2 ---> 3 ---> 4 ---> 5]

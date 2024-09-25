@@ -43,10 +43,8 @@ n == accounts[i].length
 
 """
 
-from typing import List
 
-
-def maximum_wealth_double_loop(accounts: List[List[int]]) -> int:
+def maximum_wealth_double_loop(accounts: list[list[int]]) -> int:
     _curr_max = 0
     for i in range(len(accounts)):
         _customer_w = 0
@@ -56,7 +54,7 @@ def maximum_wealth_double_loop(accounts: List[List[int]]) -> int:
     return _curr_max
 
 
-def maximum_wealth_single_loop(accounts: List[List[int]]) -> int:
+def maximum_wealth_single_loop(accounts: list[list[int]]) -> int:
     _max = 0
     for person in accounts:
         _max = max(sum(person), _max)

@@ -56,11 +56,10 @@ All the values of starti are unique.
 """
 
 from heapq import heapify, heappop, heappush
-from typing import List
 
 
 class MostBookedMeetingRoom3:
-    def solve_sorting_and_counting(self, n: int, meetings: List[List[int]]) -> int:
+    def solve_sorting_and_counting(self, n: int, meetings: list[list[int]]) -> int:
         """Approach 1: Sorting and Counting
         Intuition
         To tackle this problem, we first observe that the meetings are allocated to rooms based on two primary rules.
@@ -123,7 +122,7 @@ class MostBookedMeetingRoom3:
                 meetings_count[earliest_room] += 1
         return meetings_count.index(max(meetings_count))  # index of the first occurrence max in the list
 
-    def solve_with_heap(self, n: int, meetings: List[List[int]]) -> int:
+    def solve_with_heap(self, n: int, meetings: list[list[int]]) -> int:
         """Approach 2: Sorting, Counting using Priority Queues
         Intuition
         In the preceding solution, the iteration over all N rooms occurs within the nested loop,

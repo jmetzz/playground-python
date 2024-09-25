@@ -20,10 +20,8 @@ Examples:
 
 """
 
-from typing import List, Optional
 
-
-def solve_tabulation(target: int, arr: List[int]) -> Optional[List[int]]:
+def solve_tabulation(target: int, arr: list[int]) -> list[int] | None:
     pass
 
 

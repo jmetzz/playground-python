@@ -21,10 +21,8 @@ n == matrix[i].length
 -100 <= matrix[i][j] <= 100
 """
 
-from typing import List
 
-
-def spiral_order(matrix: List[List[int]]) -> List[int]:
+def spiral_order(matrix: list[list[int]]) -> list[int]:
     """Iterate over the matrix in a spiral order: right, down, left, and up.
     Stop Condition:
         The iteration continues until the boundaries cross each other,

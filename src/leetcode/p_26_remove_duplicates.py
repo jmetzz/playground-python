@@ -53,10 +53,8 @@ Constraints:
 nums is sorted in non-decreasing order.
 """
 
-from typing import List
 
-
-def duplicates_remover(nums: List[int]) -> int:
+def duplicates_remover(nums: list[int]) -> int:
     n = len(nums)
     anchor = 0
     i = 1

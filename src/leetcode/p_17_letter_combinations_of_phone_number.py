@@ -1,5 +1,3 @@
-from typing import List
-
 CHARS_MAP = {
     "2": "abc",
     "3": "def",
@@ -12,7 +10,7 @@ CHARS_MAP = {
 }
 
 
-def letter_combinations_iterative(digits: str) -> List[str]:
+def letter_combinations_iterative(digits: str) -> list[str]:
     # initialization, if digits is empty, return []
     combinations = [""] if digits else []
     for d in digits:
@@ -20,7 +18,7 @@ def letter_combinations_iterative(digits: str) -> List[str]:
     return combinations
 
 
-def letter_combinations_backtracking(digits: str) -> List[str]:
+def letter_combinations_backtracking(digits: str) -> list[str]:
     size = len(digits)
     if size == 0:
         return []

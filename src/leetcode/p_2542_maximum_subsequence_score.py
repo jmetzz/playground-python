@@ -56,11 +56,10 @@ Explanation: https://youtu.be/ax1DKi5lJwk?si=cOFrq9_C8UbztDCC
 
 import operator
 from heapq import heappop, heappush
-from typing import List
 
 
-def max_score(nums1: List[int], nums2: List[int], k: int) -> int:
-    pairs = sorted(list(zip(nums1, nums2)), key=operator.itemgetter(1), reverse=True)
+def max_score(nums1: list[int], nums2: list[int], k: int) -> int:
+    pairs = sorted(list(zip(nums1, nums2, strict=False)), key=operator.itemgetter(1), reverse=True)
 
     context_heap = []
     nums1_running_sum, answer = 0, 0

@@ -1,7 +1,4 @@
-from typing import List
-
-
-def fib_list(num_items: List[int]) -> List[int]:
+def fib_list(num_items: list[int]) -> list[int]:
     """Examples to measure time and memory usage
     >>> %timeit fib_list()
     332 ms ± 13.1 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)

@@ -29,12 +29,10 @@ The given linked list will contain between 1 and 1000 nodes.
 Each node in the linked list has -1000 <= node.val <= 1000.
 """
 
-from typing import Optional
-
 from data_structures.lists import SingleLinkNode as ListNode
 
 
-def remove_zero_sum_sublists(head: Optional[ListNode]) -> Optional[ListNode]:
+def remove_zero_sum_sublists(head: ListNode | None) -> ListNode | None:
     """Removes all contiguous sublists that sum up to zero from a given linked list.
 
     This function iterates through the linked list, maintaining a running prefix sum.

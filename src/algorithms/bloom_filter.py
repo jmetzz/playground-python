@@ -1,4 +1,4 @@
-from typing import Any, List, Optional
+from typing import Any
 
 
 class BloomFilter:
@@ -28,7 +28,7 @@ class BloomFilter:
         hash_val = hash(item + str(seed))
         return hash_val % len(self._bit_array)
 
-    def _get_hashes(self, item) -> List[int]:
+    def _get_hashes(self, item) -> list[int]:
         return [self._hash(item, h) for h in range(self.hash_count)]
 
 
@@ -43,7 +43,7 @@ class SimpleCache:
         self.cache[key] = value
 
 
-def get_item_from_cache(key: str, cache_filter: BloomFilter, cache: SimpleCache) -> Optional[Any]:
+def get_item_from_cache(key: str, cache_filter: BloomFilter, cache: SimpleCache) -> Any | None:
     if not cache_filter.check(key):
         # Item definitely not in cache or dataset
         return None

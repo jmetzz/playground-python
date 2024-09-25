@@ -6,8 +6,6 @@ by concatenating elements from the word_bank array.
 You may reuse elements of the word_bank as many times as needed.
 """
 
-from typing import List
 
-
-def solve_tabulation(target: str, word_bank: List[str]) -> int:
+def solve_tabulation(target: str, word_bank: list[str]) -> int:
     pass

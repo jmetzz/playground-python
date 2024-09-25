@@ -29,10 +29,8 @@ Constraints:
 -109 <= nums[i] <= 109
 """
 
-from typing import List
 
-
-def next_greater_elements_1(nums: List[int]) -> List[int]:
+def next_greater_elements_1(nums: list[int]) -> list[int]:
     n = len(nums)
     answer = [-1] * n
 
@@ -45,7 +43,7 @@ def next_greater_elements_1(nums: List[int]) -> List[int]:
     return answer
 
 
-def next_greater_elements_2(nums: List[int]) -> List[int]:
+def next_greater_elements_2(nums: list[int]) -> list[int]:
     """Two loops and a decreasing monotonic stack to solve this problem.
 
     In order to properly handle the circular nature of the array we need to use

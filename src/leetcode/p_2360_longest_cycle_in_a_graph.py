@@ -35,12 +35,11 @@ n == edges.length
 edges[i] != i
 """
 
-from typing import List
+from data_structures.graph_utils import transpose_digraph
+from data_structures.graphs import Graph
 
-from data_structures.graph_utils import Graph, transpose_digraph
 
-
-def longest_cycle_set(edges: List[int]) -> int:
+def longest_cycle_set(edges: list[int]) -> int:
     """Finds the length of the longest cycle in a directed graph.
 
     Args:
@@ -76,7 +75,7 @@ def longest_cycle_set(edges: List[int]) -> int:
     return answer
 
 
-def longest_cycle_boolean_arr(edges: List[int]) -> int:
+def longest_cycle_boolean_arr(edges: list[int]) -> int:
     """Finds the length of the longest cycle in a directed graph.
 
     Args:
@@ -112,7 +111,7 @@ def longest_cycle_boolean_arr(edges: List[int]) -> int:
     return answer
 
 
-def longest_cycle_side_effect(edges: List[int]) -> int:
+def longest_cycle_side_effect(edges: list[int]) -> int:
     """Finds the length of the longest cycle in a directed graph
 
     where edges is a list such that edges[i] is the successor of vertex i,
@@ -170,7 +169,7 @@ def longest_cycle_side_effect(edges: List[int]) -> int:
     return answer
 
 
-def longest_cycle_kosaraju(edges: List[int]) -> int:
+def longest_cycle_kosaraju(edges: list[int]) -> int:
     """Finds the length of the longest cycle in a directed graph without modifying the input list.
 
     Args:

@@ -32,10 +32,8 @@ Follow up: Can you solve the problem in O(1) extra space complexity?
 (The output array does not count as extra space for space complexity analysis.)
 """
 
-from typing import List
 
-
-def product_except_self(nums: List[int]) -> List[int]:
+def product_except_self(nums: list[int]) -> list[int]:
     n = len(nums)
     answer = [1] * n
 

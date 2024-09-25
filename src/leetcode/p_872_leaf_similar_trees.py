@@ -1,9 +1,7 @@
-from typing import Optional
-
 from data_structures.trees import BinaryTreeNode as TreeNode
 
 
-def leaf_similar(root1: Optional[TreeNode], root2: Optional[TreeNode]) -> bool:
+def leaf_similar(root1: TreeNode | None, root2: TreeNode | None) -> bool:
     def _dfs(node, tree_id: int):
         if not node:
             return
@@ -21,7 +19,7 @@ def leaf_similar(root1: Optional[TreeNode], root2: Optional[TreeNode]) -> bool:
     return tree_leaves_map[1] == tree_leaves_map[2]
 
 
-def leaf_similar_list(root1: Optional[TreeNode], root2: Optional[TreeNode]) -> bool:
+def leaf_similar_list(root1: TreeNode | None, root2: TreeNode | None) -> bool:
     def _dfs_get_leaf(root):
         if not root:
             return []

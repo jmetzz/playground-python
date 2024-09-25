@@ -46,10 +46,8 @@ is equal to SUM(min(nums[j, .. idx])) where idx go from j to k. Expected solutio
 
 """
 
-from typing import List
 
-
-def num_submatrices_of_ones__brute_force(matrix: List[List[int]]) -> int:
+def num_submatrices_of_ones__brute_force(matrix: list[list[int]]) -> int:
     """Time: O(n^2 * m^2)
     Space: O(m * n)
 
@@ -77,7 +75,7 @@ def num_submatrices_of_ones__brute_force(matrix: List[List[int]]) -> int:
     raise NotImplementedError()
 
 
-def num_submatrices_of_ones__dp(matrix: List[List[int]]) -> int:
+def num_submatrices_of_ones__dp(matrix: list[list[int]]) -> int:
     counter = 0
     num_rows, num_cols = len(matrix), len(matrix[0])
     # Time complexity:
@@ -107,7 +105,7 @@ def num_submatrices_of_ones__dp(matrix: List[List[int]]) -> int:
     return counter
 
 
-def num_submatrices_of_ones__mono_stack(matrix: List[List[int]]) -> int:
+def num_submatrices_of_ones__mono_stack(matrix: list[list[int]]) -> int:
     """Intuition:
     stack the matrix row by row to build a "histogram model", where each
     element in column i, represents the sum of consecutive 1s in that column.
@@ -128,7 +126,7 @@ def num_submatrices_of_ones__mono_stack(matrix: List[List[int]]) -> int:
 
     """
 
-    def helper(hist: List[int]) -> int:
+    def helper(hist: list[int]) -> int:
         sums = [0] * len(hist)
         stack = []  # mono-stack of indices of non-decreasing height
 

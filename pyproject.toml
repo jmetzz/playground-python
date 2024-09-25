@@ -82,7 +82,7 @@ omit = ["*/__init__.py", ".mypy_cache", ".reports", ".git"]
 [tool.ruff]
 line-length = 120
 indent-width = 4
-target-version = "py38"
+target-version = "py312"
 extend-include = ["*.ipynb"]
 
 

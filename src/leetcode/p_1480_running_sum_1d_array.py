@@ -27,10 +27,8 @@ Constraints:
 -10^6 <= nums[i] <= 10^6
 """
 
-from typing import List
 
-
-def running_sum_1d(nums: List[int]) -> List[int]:
+def running_sum_1d(nums: list[int]) -> list[int]:
     answer = [0] * len(nums)
     curr_sum = 0
     for i, value in enumerate(nums):
@@ -39,7 +37,7 @@ def running_sum_1d(nums: List[int]) -> List[int]:
     return answer
 
 
-def running_sum_1d_2(nums: List[int]) -> List[int]:
+def running_sum_1d_2(nums: list[int]) -> list[int]:
     answer = [0] * len(nums)
     answer[0] = nums[0]
     for i in range(1, len(nums)):

@@ -68,13 +68,12 @@ import operator
 from collections import defaultdict, deque
 from heapq import heappop, heappush
 from math import inf
-from typing import List
 
 from data_structures.graphs import UnionFind
 
 
 class FindAllPeopleWitSecret:
-    def solve_bfs(self, n: int, meetings: List[List[int]], first_person: int) -> List[int]:
+    def solve_bfs(self, n: int, meetings: list[list[int]], first_person: int) -> list[int]:
         meeting_graph = defaultdict(list)
         for p1, p2, t in meetings:
             heapq.heappush(meeting_graph[p1], (t, p2))
@@ -96,7 +95,7 @@ class FindAllPeopleWitSecret:
 
         return [i for i in range(n) if earliest[i] != inf]
 
-    def solve_dfs(self, n: int, meetings: List[List[int]], first_person: int) -> List[int]:
+    def solve_dfs(self, n: int, meetings: list[list[int]], first_person: int) -> list[int]:
         meeting_graph = defaultdict(list)
         for p1, p2, t in meetings:
             heapq.heappush(meeting_graph[p1], (t, p2))
@@ -114,7 +113,7 @@ class FindAllPeopleWitSecret:
                     stack.append((p2, t))
         return [i for i in range(n) if earliest[i] != inf]
 
-    def solve_dfs_recursive(self, n: int, meetings: List[List[int]], first_person: int) -> List[int]:
+    def solve_dfs_recursive(self, n: int, meetings: list[list[int]], first_person: int) -> list[int]:
         # For every person, store the time and label of the person met.
         graph = defaultdict(list)
         for p1, p2, t in meetings:
@@ -144,7 +143,7 @@ class FindAllPeopleWitSecret:
         # we need to return indices of all visited people.
         return [i for i in range(n) if earliest[i] != inf]
 
-    def solve_earliest_inf_first(self, n: int, meetings: List[List[int]], first_person: int) -> List[int]:
+    def solve_earliest_inf_first(self, n: int, meetings: list[list[int]], first_person: int) -> list[int]:
         meeting_graph = defaultdict(list)
         for p1, p2, t in meetings:
             meeting_graph[p1].append((t, p2))
@@ -175,7 +174,7 @@ class FindAllPeopleWitSecret:
         # we need to return indices of all visited people.
         return [i for i in range(n) if visited[i]]
 
-    def solve_bfs_time_scale(self, n: int, meetings: List[List[int]], first_person: int) -> List[int]:
+    def solve_bfs_time_scale(self, n: int, meetings: list[list[int]], first_person: int) -> list[int]:
         # Sort meetings in increasing order of time
         meetings.sort(key=operator.itemgetter(2))
 
@@ -218,7 +217,7 @@ class FindAllPeopleWitSecret:
         # List of people who know the secret
         return [i for i in range(n) if knows_secret[i]]
 
-    def solve_union_find_reset(self, n: int, meetings: List[List[int]], first_person: int) -> List[int]:
+    def solve_union_find_reset(self, n: int, meetings: list[list[int]], first_person: int) -> list[int]:
         # Sort meetings in increasing order of time
         meetings.sort(key=operator.itemgetter(2))
 

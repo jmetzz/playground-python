@@ -39,10 +39,9 @@ Can you solve the problem in linear runtime complexity?
 """
 
 from collections import Counter, defaultdict
-from typing import List
 
 
-def find_duplicate_brute_force(nums: List[int]) -> int:
+def find_duplicate_brute_force(nums: list[int]) -> int:
     n = len(nums)
     for i in range(n):
         for j in range(i + 1, n):
@@ -51,7 +50,7 @@ def find_duplicate_brute_force(nums: List[int]) -> int:
     return -1
 
 
-def find_duplicate_sorting(nums: List[int]) -> int:
+def find_duplicate_sorting(nums: list[int]) -> int:
     sorted_nums = sorted(nums)
     for i in range(len(nums) - 1):
         if sorted_nums[i] == sorted_nums[i + 1]:
@@ -59,7 +58,7 @@ def find_duplicate_sorting(nums: List[int]) -> int:
     return -1
 
 
-def find_duplicate_bool_array(nums: List[int]) -> int:
+def find_duplicate_bool_array(nums: list[int]) -> int:
     n = len(nums)
     seen = [False] * (n + 1)
     for e in nums:
@@ -69,7 +68,7 @@ def find_duplicate_bool_array(nums: List[int]) -> int:
     return -1
 
 
-def find_duplicate_hashset(nums: List[int]) -> int:
+def find_duplicate_hashset(nums: list[int]) -> int:
     seen = set()
     for e in nums:
         if e in seen:
@@ -78,13 +77,13 @@ def find_duplicate_hashset(nums: List[int]) -> int:
     return -1
 
 
-def find_duplicate_builtin_counter(nums: List[int]) -> int:
+def find_duplicate_builtin_counter(nums: list[int]) -> int:
     counter = Counter(nums)
     answer = [e for e, count in counter.items() if count > 1]
     return answer[0] if len(answer) > 0 else -1
 
 
-def find_duplicate_dict_counter(nums: List[int]) -> int:
+def find_duplicate_dict_counter(nums: list[int]) -> int:
     counter = defaultdict(int)
     for e in nums:
         counter[e] += 1
@@ -93,7 +92,7 @@ def find_duplicate_dict_counter(nums: List[int]) -> int:
     return -1
 
 
-def find_duplicate_subtract(nums: List[int]) -> int:
+def find_duplicate_subtract(nums: list[int]) -> int:
     """Finds the first duplicate number in the given list of integers by marking visited indices.
     This version avoids modifying the original list by working on a copy, thereby removing side effects.
 
@@ -134,7 +133,7 @@ def find_duplicate_subtract(nums: List[int]) -> int:
     return -1
 
 
-def find_duplicate_fast_slow_pointers(nums: List[int]) -> int:
+def find_duplicate_fast_slow_pointers(nums: list[int]) -> int:
     """Finds the duplicate number in an array containing n + 1 integers
 
     where each integer is between 1 and n (inclusive).
@@ -202,7 +201,7 @@ def find_duplicate_fast_slow_pointers(nums: List[int]) -> int:
     return slow
 
 
-def find_duplicate_bitwise(nums: List[int]) -> int:
+def find_duplicate_bitwise(nums: list[int]) -> int:
     """Finds the first duplicate number in the given list of integers using bitwise operations.
 
     This function iterates through the list of numbers, using a bitwise value set to

@@ -153,7 +153,7 @@ def are_graphs_equal(node1: Node, node2: Node, visited) -> bool:
     visited.add(node1.val)
     if sorted([n.val for n in node1.neighbors]) != sorted([n.val for n in node2.neighbors]):
         return False
-    for nei1, nei2 in zip(node1.neighbors, node2.neighbors):
+    for nei1, nei2 in zip(node1.neighbors, node2.neighbors, strict=False):
         if nei1.val not in visited:
             if not are_graphs_equal(nei1, nei2, visited):
                 return False

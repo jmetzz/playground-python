@@ -54,7 +54,7 @@ def is_isomorphic_two_dicts(s: str, t: str) -> bool:
 
 def is_isomorphic_one_dict(s: str, t: str) -> bool:
     letters_map = defaultdict()
-    for s_letter, t_letter in zip(s, t):
+    for s_letter, t_letter in zip(s, t, strict=False):
         if s_letter in letters_map:
             if letters_map[s_letter] != t_letter:
                 return False
@@ -128,7 +128,7 @@ def is_isomorphic_magic(s: str, t: str, debug=False) -> bool:
         bool: True if s and t are isomorphic; otherwise, False.
 
     """
-    pairing = set(zip(s, t))
+    pairing = set(zip(s, t, strict=False))
 
     if debug:
         print(pairing)

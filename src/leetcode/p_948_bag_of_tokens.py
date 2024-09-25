@@ -47,10 +47,8 @@ Constraints:
 0 <= tokens[i], power < 104
 """
 
-from typing import List
 
-
-def bag_of_tokens_score(tokens: List[int], power: int) -> int:
+def bag_of_tokens_score(tokens: list[int], power: int) -> int:
     tokens.sort()
     score, low, high = 0, 0, len(tokens) - 1
     while low <= high:

@@ -34,10 +34,8 @@ Constraints:
 nums[i] is either 0 or 1.
 """
 
-from typing import List
 
-
-def longest_subarray_sliding_window(nums: List[int]) -> int:
+def longest_subarray_sliding_window(nums: list[int]) -> int:
     zero_counter, longest_window = 0, 0
     lo = 0
     for idx, num in enumerate(nums):

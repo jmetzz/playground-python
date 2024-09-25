@@ -85,12 +85,12 @@ test_cases_for_has_path = [
 
 
 @pytest.mark.parametrize("graph, source, target, expected", test_cases_for_has_path)
-def test_has_path_bfs_recursive_basec_cases(graph, source, target, expected):
+def test_has_path_bfs_recursive_base_cases(graph, source, target, expected):
     assert has_path_bfs_recursive(graph, source, target) == expected
 
 
 @pytest.mark.parametrize("graph, source, target, expected", test_cases_for_has_path)
-def test_has_path_bfs_iterative_basec_cases(graph, source, target, expected):
+def test_has_path_bfs_iterative_base_cases(graph, source, target, expected):
     assert has_path_bfs_iterative(graph, source, target) == expected
 
 

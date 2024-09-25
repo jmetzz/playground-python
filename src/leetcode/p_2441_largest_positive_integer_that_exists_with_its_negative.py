@@ -33,10 +33,8 @@ nums[i] != 0
 
 """
 
-from typing import List
 
-
-def find_max_k__set_intersection(nums: List[int]) -> int:
+def find_max_k__set_intersection(nums: list[int]) -> int:
     negatives = set([-e for e in nums if e < 0])
     intersec = set(nums) & negatives
     if intersec:
@@ -44,7 +42,7 @@ def find_max_k__set_intersection(nums: List[int]) -> int:
     return -1
 
 
-def find_max_k__set_removal(nums: List[int]) -> int:
+def find_max_k__set_removal(nums: list[int]) -> int:
     elements = set(nums)
     while elements:
         max_value = max(elements)

@@ -25,10 +25,9 @@ n == mat[i].length
 """
 
 from collections import defaultdict
-from typing import List
 
 
-def find_diagonal_natural_order(grid: List[List[int]]) -> List[int]:
+def find_diagonal_natural_order(grid: list[list[int]]) -> list[int]:
     if not grid or not grid[0]:
         return []
     n, m = len(grid), len(grid[0])
@@ -52,7 +51,7 @@ def find_diagonal_natural_order(grid: List[List[int]]) -> List[int]:
     return answer
 
 
-def find_diagonal_order_zigzag(grid: List[List[int]]) -> List[int]:
+def find_diagonal_order_zigzag(grid: list[list[int]]) -> list[int]:
     if not grid or not grid[0]:
         return []
     n, m = len(grid), len(grid[0])
@@ -86,7 +85,7 @@ def find_diagonal_order_zigzag(grid: List[List[int]]) -> List[int]:
     return answer
 
 
-def find_diagonal_order_simple(grid: List[List[int]]) -> List[int]:
+def find_diagonal_order_simple(grid: list[list[int]]) -> list[int]:
     """Sum of diagonal indices determines the diagonal
 
     The key here is to realize that the sum of indices of elements

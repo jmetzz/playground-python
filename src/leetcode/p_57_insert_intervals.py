@@ -34,10 +34,8 @@ newInterval.length == 2
 0 <= start <= end <= 105
 """
 
-from typing import List
 
-
-def insert_interval(intervals: List[List[int]], new_interval: List[int]) -> List[List[int]]:
+def insert_interval(intervals: list[list[int]], new_interval: list[int]) -> list[list[int]]:
     # base cases
     if not intervals:
         return [new_interval]
@@ -64,7 +62,7 @@ def insert_interval(intervals: List[List[int]], new_interval: List[int]) -> List
     return answer + [merged_interval]
 
 
-def insert_interval_2(intervals: List[List[int]], new_interval: List[int]) -> List[List[int]]:
+def insert_interval_2(intervals: list[list[int]], new_interval: list[int]) -> list[list[int]]:
     if not intervals:
         return [new_interval]
     left_elements = []
@@ -81,7 +79,7 @@ def insert_interval_2(intervals: List[List[int]], new_interval: List[int]) -> Li
     return left_elements + [merged_interval] + right_elements
 
 
-def insert_interval_3(intervals: List[List[int]], new_interval: List[int]) -> List[List[int]]:
+def insert_interval_3(intervals: list[list[int]], new_interval: list[int]) -> list[list[int]]:
     if not intervals:
         return [new_interval]
 

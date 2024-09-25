@@ -25,12 +25,10 @@ The number of nodes in the tree is in the range [0, 104].
 -100 <= Node.val <= 100
 """
 
-from typing import Optional
-
 from data_structures.trees import BinaryTreeNode as TreeNode
 
 
-def max_depth_forward_accumulation(root: Optional[TreeNode]) -> int:
+def max_depth_forward_accumulation(root: TreeNode | None) -> int:
     def _dfs(node, curr_depth):
         if not node:
             return 0
@@ -42,7 +40,7 @@ def max_depth_forward_accumulation(root: Optional[TreeNode]) -> int:
     return _dfs(root, 0)
 
 
-def max_depth_backtrack_accumulatin(root: Optional[TreeNode]) -> int:
+def max_depth_backtrack_accumulatin(root: TreeNode | None) -> int:
     def dfs_backtrack(node):
         if not node:
             return 0

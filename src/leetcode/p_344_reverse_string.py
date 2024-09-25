@@ -21,10 +21,8 @@ Constraints:
 s[i] is a printable ascii character.
 """
 
-from typing import List
 
-
-def reverse_inplace(sequence: List[str]) -> None:
+def reverse_inplace(sequence: list[str]) -> None:
     """Do not return anything, modify s in-place instead."""
     left, right = 0, len(sequence) - 1
     while left < right:

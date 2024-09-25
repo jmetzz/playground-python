@@ -46,10 +46,9 @@ n == tickets.length
 """
 
 from collections import deque
-from typing import List
 
 
-def time_required_to_buy_1(tickets: List[int], k: int) -> int:
+def time_required_to_buy_1(tickets: list[int], k: int) -> int:
     if tickets[k] == 1:
         return k + 1
 
@@ -70,7 +69,7 @@ def time_required_to_buy_1(tickets: List[int], k: int) -> int:
     return total_time
 
 
-def time_required_to_buy_2(tickets: List[int], k: int) -> int:
+def time_required_to_buy_2(tickets: list[int], k: int) -> int:
     if tickets[k] == 1:
         return k + 1
 
@@ -87,7 +86,7 @@ def time_required_to_buy_2(tickets: List[int], k: int) -> int:
     return total_time
 
 
-def time_required_to_buy_3(tickets: List[int], k: int) -> int:
+def time_required_to_buy_3(tickets: list[int], k: int) -> int:
     if tickets[k] == 1:
         return k + 1
 

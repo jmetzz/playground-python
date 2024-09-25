@@ -30,10 +30,9 @@ nums[i] is either 0 or 1.
 """
 
 from collections import defaultdict
-from typing import List
 
 
-def num_subarrays_with_sum(nums: List[int], goal: int) -> int:
+def num_subarrays_with_sum(nums: list[int], goal: int) -> int:
     """Calculates the number of contiguous subarrays that sum to a specific goal
 
     This function uses prefix sums technique with a hashmap to track
@@ -87,7 +86,7 @@ def num_subarrays_with_sum(nums: List[int], goal: int) -> int:
     return total_count
 
 
-def num_subarrays_with_sum_sliding_window(nums: List[int], goal: int) -> int:
+def num_subarrays_with_sum_sliding_window(nums: list[int], goal: int) -> int:
     """Calculates the number of contiguous subarrays that sum to a specific goal
 
     by utilizing a modified sliding window approach to count subarrays
@@ -141,7 +140,7 @@ def num_subarrays_with_sum_sliding_window(nums: List[int], goal: int) -> int:
     return at_most(goal) - at_most(goal - 1)
 
 
-def num_subarrays_with_sum_one_pass_sliding_window(nums: List[int], goal: int) -> int:
+def num_subarrays_with_sum_one_pass_sliding_window(nums: list[int], goal: int) -> int:
     """Calculates the number of contiguous subarrays that sum to a specific goal
 
     This approaches builds on the previous and uses a one-pass sliding window iteration.

@@ -54,10 +54,9 @@ All the values of deck are unique.
 """
 
 from collections import deque
-from typing import List
 
 
-def deck_revealed_increasing_two_pointers(deck: List[int]) -> List[int]:
+def deck_revealed_increasing_two_pointers(deck: list[int]) -> list[int]:
     n = len(deck)
     result = [0] * n
     skip = False
@@ -83,7 +82,7 @@ def deck_revealed_increasing_two_pointers(deck: List[int]) -> List[int]:
     return result
 
 
-def deck_revealed_increasing_queue(deck: List[int]) -> List[int]:
+def deck_revealed_increasing_queue(deck: list[int]) -> list[int]:
     deck.sort()
 
     n = len(deck)

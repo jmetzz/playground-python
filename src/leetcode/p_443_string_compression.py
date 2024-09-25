@@ -1,7 +1,4 @@
-from typing import List
-
-
-def compress(chars: List[str]) -> int:
+def compress(chars: list[str]) -> int:
     n = len(chars)
     right = 0
     left = 0

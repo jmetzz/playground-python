@@ -46,10 +46,9 @@ points[i].length == 2
 """
 
 import operator
-from typing import List
 
 
-def find_min_arrow_shots(points: List[List[int]]) -> int:
+def find_min_arrow_shots(points: list[list[int]]) -> int:
     intervals = sorted(points)
     target_interval = intervals[0]
     arrow_cnt = 0
@@ -68,7 +67,7 @@ def find_min_arrow_shots(points: List[List[int]]) -> int:
     return arrow_cnt + 1
 
 
-def find_min_arrow_shots_2(points: List[List[int]]) -> int:
+def find_min_arrow_shots_2(points: list[list[int]]) -> int:
     points.sort(key=operator.itemgetter(1))
     hi_boundary = points[0][1]
     arrow_cnt = 0

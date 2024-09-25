@@ -2,7 +2,6 @@ import operator
 import pprint
 from collections import defaultdict
 from pathlib import Path
-from typing import Dict, List, Tuple
 
 import more_itertools
 from environs import Env
@@ -14,7 +13,7 @@ env = Env()
 env.read_env()
 
 
-def products_profit(sales: List[List[int]]) -> Dict:
+def products_profit(sales: list[list[int]]) -> dict:
     """The most basic possible
 
     The input matrix of numbers and each column represents either ids or currency
@@ -32,7 +31,7 @@ def products_profit(sales: List[List[int]]) -> Dict:
     return sorted(product_profit_registry.items(), key=operator.itemgetter(1))
 
 
-def least_and_most_profitable_products(sales: List[List[int]]) -> Dict:
+def least_and_most_profitable_products(sales: list[list[int]]) -> dict:
     """The most basic possible
 
     The input matrix of numbers and each column represents either ids or currency
@@ -54,7 +53,7 @@ def least_and_most_profitable_products(sales: List[List[int]]) -> Dict:
     return build_response(highest_profit, lowest_profit)
 
 
-def build_response(highest_profit_product: Tuple, lowest_profit_product: Tuple, products_details: Dict = None) -> Dict:
+def build_response(highest_profit_product: tuple, lowest_profit_product: tuple, products_details: dict = None) -> dict:
     return {
         "most_profitable": {
             "prod_id": highest_profit_product[0],
@@ -69,7 +68,7 @@ def build_response(highest_profit_product: Tuple, lowest_profit_product: Tuple, 
     }
 
 
-def get_least_and_most_profitable_products(db_reader, products: List[int], back_period: int = 30) -> Dict:
+def get_least_and_most_profitable_products(db_reader, products: list[int], back_period: int = 30) -> dict:
     """Assuming the input are valid already.
 
     Args:
@@ -99,7 +98,7 @@ def get_least_and_most_profitable_products(db_reader, products: List[int], back_
     return build_response(highest_profit, lowest_profit, products_details)
 
 
-def reduce_least_and_most_profitable_products(db_reader, sales: List[Product]):
+def reduce_least_and_most_profitable_products(db_reader, sales: list[Product]):
     sales_profits = more_itertools.map_reduce(
         iterable=sales,
         keyfunc=lambda x: x.product_id,
@@ -113,7 +112,7 @@ def reduce_least_and_most_profitable_products(db_reader, sales: List[Product]):
     return build_response(highest_profit, lowest_profit, products_details)
 
 
-def df_get_least_and_most_profitable_products(db_reader, products: List[int], back_periods: int = 30) -> Dict:
+def df_get_least_and_most_profitable_products(db_reader, products: list[int], back_periods: int = 30) -> dict:
     sales_df = db_reader.list_sales_details(products, back_periods=back_periods, period_unit="days", as_df=True)
     if sales_df.empty:
         # Consider raise a Error to bubble up the issue.
@@ -139,7 +138,7 @@ def df_get_least_and_most_profitable_products(db_reader, products: List[int], ba
     )
 
 
-def get_least_and_most_profitable_products_per_geolocation(products: List[int], geo: str, period: int = 30) -> Dict:
+def get_least_and_most_profitable_products_per_geolocation(products: list[int], geo: str, period: int = 30) -> dict:
     raise NotImplementedError()
 
     lowest_profit = None
@@ -159,7 +158,7 @@ def get_least_and_most_profitable_products_per_geolocation(products: List[int], 
     }
 
 
-def get_least_and_most_profitable_products_per_provider(products: List[int], provider: str, period: int = 30) -> Dict:
+def get_least_and_most_profitable_products_per_provider(products: list[int], provider: str, period: int = 30) -> dict:
     raise NotImplementedError()
     lowest_profit = None
     highest_profit = None
@@ -178,7 +177,7 @@ def get_least_and_most_profitable_products_per_provider(products: List[int], pro
     }
 
 
-def solution(lines: List[str]):
+def solution(lines: list[str]):
     company_sales = {}  # company_id -> { prod_id : float}
     for line in lines:
         product_id, company_id, cost, revenue = line.split(",")

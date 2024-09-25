@@ -36,8 +36,6 @@ myQueue.empty(); // return false
 
 """
 
-from typing import Optional
-
 
 class QueueUsingStacks:
     """Push - O(1) per operation,
@@ -56,13 +54,13 @@ class QueueUsingStacks:
         """Time complexity : O(1). Appending an element to a stack is an O(1) operation."""
         self._stack.append(x)
 
-    def pop(self) -> Optional[int]:
+    def pop(self) -> int | None:
         return self._peek(keep=False)
 
-    def peek(self) -> Optional[int]:
+    def peek(self) -> int | None:
         return self._peek(True)
 
-    def _peek(self, keep: bool) -> Optional[int]:
+    def _peek(self, keep: bool) -> int | None:
         """Pop and Peek operation only differs by the flag keep.
         If keep is True, then perform peek operation
         If keep is False, perform pop operation.

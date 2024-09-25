@@ -40,10 +40,8 @@ Explanation:
 
 """
 
-from typing import List
 
-
-def house_robber(nums: List[int]) -> int:
+def house_robber(nums: list[int]) -> int:
     curr, prev = 0, 0
     for value in nums:
         temp = prev

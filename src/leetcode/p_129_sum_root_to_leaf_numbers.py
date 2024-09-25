@@ -43,12 +43,10 @@ The number of nodes in the tree is in the range [1, 1000].
 The depth of the tree will not exceed 10.
 """
 
-from typing import Optional
-
 from data_structures.trees import BinaryTreeNode as TreeNode
 
 
-def sum_root_to_leaf_path(root: Optional[TreeNode]) -> int:
+def sum_root_to_leaf_path(root: TreeNode | None) -> int:
     def _dfs(node, accumulator):
         if not node:
             return 0

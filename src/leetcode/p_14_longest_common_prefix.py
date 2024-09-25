@@ -25,10 +25,8 @@ Constraints:
 strs[i] consists of only lowercase English letters.
 """
 
-from typing import List
 
-
-def longest_common_prefix__brute_force(strs: List[str]) -> str:
+def longest_common_prefix__brute_force(strs: list[str]) -> str:
     if len(strs) == 0:
         return ""
 
@@ -41,7 +39,7 @@ def longest_common_prefix__brute_force(strs: List[str]) -> str:
     return prefix
 
 
-def longest_common_prefix__vertical_scannning(strs: List[str]) -> str:
+def longest_common_prefix__vertical_scannning(strs: list[str]) -> str:
     if not strs:
         return ""
     prefix = strs[0]
@@ -52,7 +50,7 @@ def longest_common_prefix__vertical_scannning(strs: List[str]) -> str:
     return prefix
 
 
-def longest_common_prefix__horizontal_scanning(strs: List[str]) -> str:
+def longest_common_prefix__horizontal_scanning(strs: list[str]) -> str:
     if len(strs) == 0:
         return ""
     prefix = strs[0]
@@ -65,7 +63,7 @@ def longest_common_prefix__horizontal_scanning(strs: List[str]) -> str:
     return prefix
 
 
-def longest_common_prefix__zip_vertical(strs: List[str]) -> str:
+def longest_common_prefix__zip_vertical(strs: list[str]) -> str:
     """A clever strategy to find the longest common prefix
     among an array of strings.
 
@@ -91,7 +89,7 @@ def longest_common_prefix__zip_vertical(strs: List[str]) -> str:
     when the shortest iterable is exhausted.
     """
     prefix = ""
-    for char_tuple in zip(*strs):
+    for char_tuple in zip(*strs, strict=False):
         if len(set(char_tuple)) == 1:
             # all chars are the same, then add it to the prefix
             prefix += char_tuple[0]
@@ -101,7 +99,7 @@ def longest_common_prefix__zip_vertical(strs: List[str]) -> str:
     return prefix
 
 
-def longest_common_prefix__first_and_last(strs: List[str]) -> str:
+def longest_common_prefix__first_and_last(strs: list[str]) -> str:
     """Comparing Only the First and Last Words
 
     After sorting, the function takes the first and the last strings in the sorted list.
@@ -137,7 +135,7 @@ def longest_common_prefix__first_and_last(strs: List[str]) -> str:
     return prefix
 
 
-def longest_common_prefix_trie(strs: List[str]) -> str:
+def longest_common_prefix_trie(strs: list[str]) -> str:
     """Find the deepest path in the trie from the root, which satisfies the following conditions:
 
     - each node along the path must contain only one child element.

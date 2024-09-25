@@ -28,10 +28,9 @@ Follow-up: Could you solve the problem in linear time and in O(1) space?
 import heapq
 import math
 from collections import Counter, defaultdict
-from typing import List, Optional
 
 
-def majority_element_solve_counter(nums: List[int]) -> Optional[int]:
+def majority_element_solve_counter(nums: list[int]) -> int | None:
     if not nums:
         return None
     n = len(nums)
@@ -53,7 +52,7 @@ def majority_element_solve_counter(nums: List[int]) -> Optional[int]:
     return most_frequent if strict else None
 
 
-def majority_element_solve_heap(nums: List[int]) -> Optional[int]:
+def majority_element_solve_heap(nums: list[int]) -> int | None:
     if not nums:
         return None
     if len(nums) == 1:
@@ -69,7 +68,7 @@ def majority_element_solve_heap(nums: List[int]) -> Optional[int]:
     return major[1] if major[0] < sec[0] else None
 
 
-def majority_element_solve_boyer_moore_majority_alg(nums: List[int]) -> Optional[int]:
+def majority_element_solve_boyer_moore_majority_alg(nums: list[int]) -> int | None:
     # if not nums:
     #     return None
 

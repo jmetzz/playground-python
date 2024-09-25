@@ -12,7 +12,6 @@ from cProfile import Profile
 from pathlib import Path
 from string import Template
 from tempfile import NamedTemporaryFile
-from typing import Optional
 
 import pyinstrument
 import pyinstrument_flame
@@ -155,7 +154,7 @@ def mem(
 
 
 @app.command()
-def timeit_cli(loops: Optional[int] = typer.Option(None, "--loops"), reps: int = typer.Option(1, "--reps")) -> None:
+def timeit_cli(loops: int | None = typer.Option(None, "--loops"), reps: int = typer.Option(1, "--reps")) -> None:
     """Utility function to calculate the time to run a code statement"""
     setup_code = Template(SETUP_TEMPLATE).substitute()
 

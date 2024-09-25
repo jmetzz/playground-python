@@ -35,12 +35,11 @@ The depth of the tree is in the range [1, 10**4].
 """
 
 from collections import deque
-from typing import Optional
 
 from data_structures.trees import BinaryTreeNode as TreeNode
 
 
-def add_one_row(root: Optional[TreeNode], val: int, depth: int) -> Optional[TreeNode]:
+def add_one_row(root: TreeNode | None, val: int, depth: int) -> TreeNode | None:
     if not root:
         return None
     if depth == 1:
@@ -67,7 +66,7 @@ def add_one_row(root: Optional[TreeNode], val: int, depth: int) -> Optional[Tree
     return root
 
 
-def add_one_row_one_go(root: Optional[TreeNode], val: int, depth: int) -> Optional[TreeNode]:
+def add_one_row_one_go(root: TreeNode | None, val: int, depth: int) -> TreeNode | None:
     if not root:
         return None
     if depth == 1:

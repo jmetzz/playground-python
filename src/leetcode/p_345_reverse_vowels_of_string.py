@@ -71,7 +71,7 @@ def reverse_vowels_2(sequence: str) -> str:
 
     chars.reverse()
     answer = list(sequence)
-    for i, ch in zip(indices, chars):
+    for i, ch in zip(indices, chars, strict=False):
         answer[i] = ch
     return "".join(answer)
 

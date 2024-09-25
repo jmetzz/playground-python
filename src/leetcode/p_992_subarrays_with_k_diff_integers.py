@@ -33,10 +33,9 @@ Constraints:
 """
 
 from collections import defaultdict
-from typing import List
 
 
-def subarrays_with_k_distinct(nums: List[int], k: int) -> int:
+def subarrays_with_k_distinct(nums: list[int], k: int) -> int:
     """One pass expand the shrink a sliding-window
 
     The logic updates the sliding window accoding to the conditions:

@@ -32,10 +32,8 @@ Constraints:
 
 """
 
-from typing import List
 
-
-def count_subarrays(nums: List[int], min_k: int, max_k: int, debug=False) -> int:
+def count_subarrays(nums: list[int], min_k: int, max_k: int, debug=False) -> int:
     """To count the number of new valid subarrays that end at the current index,
     we look at the distance between the current position and the position
     just after the last "bad" element. This tells us how many subarrays

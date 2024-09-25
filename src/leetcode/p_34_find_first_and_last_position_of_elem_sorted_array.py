@@ -32,10 +32,9 @@ nums is a non-decreasing array.
 """
 
 from bisect import bisect_left, bisect_right
-from typing import List
 
 
-def search_range_loop(nums: List[int], target: int) -> List[int]:
+def search_range_loop(nums: list[int], target: int) -> list[int]:
     if not nums or nums[0] > target or nums[-1] < target:
         return [-1, -1]
     for i in range(len(nums)):
@@ -47,7 +46,7 @@ def search_range_loop(nums: List[int], target: int) -> List[int]:
     return [-1, -1]
 
 
-def search_range_bisect(nums: List[int], target: int) -> List[int]:
+def search_range_bisect(nums: list[int], target: int) -> list[int]:
     if not nums or nums[0] > target or nums[-1] < target:
         return [-1, -1]
 
@@ -61,7 +60,7 @@ def search_range_bisect(nums: List[int], target: int) -> List[int]:
     return [left, right - 1]
 
 
-def search_range_find(nums: List[int], target: int) -> List[int]:
+def search_range_find(nums: list[int], target: int) -> list[int]:
     if not nums or nums[0] > target or nums[-1] < target:
         return [-1, -1]
     try:
@@ -73,7 +72,7 @@ def search_range_find(nums: List[int], target: int) -> List[int]:
     return [left, len(nums) - right - 1]
 
 
-def search_range_bin_search(nums: List[int], target: int) -> List[int]:
+def search_range_bin_search(nums: list[int], target: int) -> list[int]:
     def _find_left_index(lo, hi):
         if nums[lo] == target:
             # base case for arrays of len 1
@@ -109,7 +108,7 @@ def search_range_bin_search(nums: List[int], target: int) -> List[int]:
     return [left, right]
 
 
-def search_range_bin_search_2(nums: List[int], target: int) -> List[int]:
+def search_range_bin_search_2(nums: list[int], target: int) -> list[int]:
     def _bin_search(lo, hi, target):
         while lo < hi:
             mid = lo + (hi - lo) // 2

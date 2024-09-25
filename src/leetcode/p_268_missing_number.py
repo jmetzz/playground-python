@@ -40,16 +40,14 @@ All the numbers of nums are unique.
 Follow up: Could you implement a solution using only O(1) extra space complexity and O(n) runtime complexity?
 """
 
-from typing import List
 
-
-def missing_number_solve_set(nums: List[int]) -> int:
+def missing_number_solve_set(nums: list[int]) -> int:
     n = len(nums)
     diff = set(range(n + 1)) - set(nums)
     return diff.pop()
 
 
-def missing_number_solve_naive_loops(nums: List[int]) -> int:
+def missing_number_solve_naive_loops(nums: list[int]) -> int:
     n = len(nums)
     v = [-1] * (n + 1)
     for num in nums:
@@ -60,7 +58,7 @@ def missing_number_solve_naive_loops(nums: List[int]) -> int:
     return 0
 
 
-def missing_number_solve_xor(nums: List[int]) -> int:
+def missing_number_solve_xor(nums: list[int]) -> int:
     """XOR operations reminder:
         0 XOR 5 = 5
         5 XOR 0 = 5
@@ -88,7 +86,7 @@ def missing_number_solve_xor(nums: List[int]) -> int:
     return ans
 
 
-def missing_number_solve_sum(nums: List[int]) -> int:
+def missing_number_solve_sum(nums: list[int]) -> int:
     """1. sum all the elements in the interval [0, n]
         sum[0, n] = n * (n + 1) / 2
     2. sum all elements in nums
@@ -99,7 +97,7 @@ def missing_number_solve_sum(nums: List[int]) -> int:
     return expected_total - sum(nums)
 
 
-def missing_number_solve_sorting(nums: List[int]) -> int:
+def missing_number_solve_sorting(nums: list[int]) -> int:
     nums.sort()
     n = len(nums)
     if nums[0] != 0:

@@ -35,12 +35,11 @@ The number of nodes in the tree is in the range [1, 8500].
 """
 
 from collections import deque
-from typing import Optional
 
 from data_structures.trees import BinaryTreeNode as TreeNode
 
 
-def smallest_from_leaf_dfs(root: Optional[TreeNode]) -> str:
+def smallest_from_leaf_dfs(root: TreeNode | None) -> str:
     def dfs_helper(node, curr_str):
         nonlocal shortest_str
         if not node:
@@ -60,7 +59,7 @@ def smallest_from_leaf_dfs(root: Optional[TreeNode]) -> str:
     return shortest_str
 
 
-def smallest_from_leaf_bfs(root: Optional[TreeNode]) -> str:
+def smallest_from_leaf_bfs(root: TreeNode | None) -> str:
     smallest_string = ""
     node_queue = deque()
     a_offset = ord("a")

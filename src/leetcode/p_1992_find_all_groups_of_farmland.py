@@ -55,10 +55,8 @@ Groups of farmland are rectangular in shape.
 
 """
 
-from typing import List
 
-
-def find_farmland_recursive_1(land: List[List[int]]) -> List[List[int]]:
+def find_farmland_recursive_1(land: list[list[int]]) -> list[list[int]]:
     if not land:
         return []
 
@@ -96,7 +94,7 @@ def find_farmland_recursive_1(land: List[List[int]]) -> List[List[int]]:
     return answer
 
 
-def find_farmland_recursive_2(land: List[List[int]]) -> List[List[int]]:
+def find_farmland_recursive_2(land: list[list[int]]) -> list[list[int]]:
     if not land:
         return []
 
@@ -136,7 +134,7 @@ def find_farmland_recursive_2(land: List[List[int]]) -> List[List[int]]:
     return answer
 
 
-def find_farmland_iterative(land: List[List[int]]) -> List[List[int]]:
+def find_farmland_iterative(land: list[list[int]]) -> list[list[int]]:
     if not land:
         return []
 

@@ -44,7 +44,6 @@ tokens[i] is either an operator: "+", "-", "*", or "/", or an integer in the ran
 
 import math
 import operator
-from typing import List
 
 
 def _my_div(a, b):
@@ -57,7 +56,7 @@ def _my_div(a, b):
 OPERATIONS = {"+": operator.add, "-": operator.sub, "*": operator.mul, "/": _my_div}
 
 
-def eval_reverse_polish_notation(tokens: List[str]) -> int:
+def eval_reverse_polish_notation(tokens: list[str]) -> int:
     stack = []
     for token in tokens:
         if token in OPERATIONS:

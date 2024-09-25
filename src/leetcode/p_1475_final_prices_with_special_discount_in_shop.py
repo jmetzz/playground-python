@@ -45,10 +45,9 @@ Constraints:
 """
 
 from collections import defaultdict
-from typing import List
 
 
-def final_prices(prices: List[int]) -> List[int]:
+def final_prices(prices: list[int]) -> list[int]:
     discount_map = defaultdict(int)
     stack = []  # -> (price, index)
     n = len(prices)
@@ -62,7 +61,7 @@ def final_prices(prices: List[int]) -> List[int]:
     return [prices[i] - discount_map[i] for i in range(n)]
 
 
-def final_prices_greedy(prices: List[int]) -> List[int]:
+def final_prices_greedy(prices: list[int]) -> list[int]:
     n = len(prices)
     answer = [0] * n
     for i in range(n):

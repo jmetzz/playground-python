@@ -1,5 +1,3 @@
-from typing import List
-
 import pytest
 
 from leetcode.p_643_max_avg_subarray_I import find_max_average_1, find_max_average_2
@@ -18,5 +16,5 @@ from leetcode.p_643_max_avg_subarray_I import find_max_average_1, find_max_avera
         ([-1, -12, -5, -6, -50, -3], 4, -6),
     ],
 )
-def test_find_max_average(func, nums: List[int], k: int, expected: float):
+def test_find_max_average(func, nums: list[int], k: int, expected: float):
     assert func(nums, k) == pytest.approx(expected, abs=1e-5)

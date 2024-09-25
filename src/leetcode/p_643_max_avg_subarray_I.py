@@ -29,10 +29,8 @@ n == nums.length
 -104 <= nums[i] <= 10**4
 """
 
-from typing import List
 
-
-def find_max_average_1(nums: List[int], k: int) -> float:
+def find_max_average_1(nums: list[int], k: int) -> float:
     window_sum = sum(nums[:k])
     max_avg = window_sum / k
 
@@ -43,7 +41,7 @@ def find_max_average_1(nums: List[int], k: int) -> float:
     return max_avg
 
 
-def find_max_average_2(nums: List[int], k: int) -> float:
+def find_max_average_2(nums: list[int], k: int) -> float:
     window_sum = sum(nums[:k])
     max_avg = window_sum / k
     start = 0

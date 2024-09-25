@@ -36,11 +36,10 @@ Constraints:
 """
 
 from collections import defaultdict
-from typing import List
 
 
 class NumSubmatricesSumTarget:
-    def solve_2d_grid(self, matrix: List[List[int]], target: int) -> int:
+    def solve_2d_grid(self, matrix: list[list[int]], target: int) -> int:
         """This is not really trivial,
         but is the slow solution.
         """
@@ -69,7 +68,7 @@ class NumSubmatricesSumTarget:
                             result += 1
         return result
 
-    def solve_hashmap(self, matrix: List[List[int]], target: int) -> int:
+    def solve_hashmap(self, matrix: list[list[int]], target: int) -> int:
         """Time complexity: O(m*n^2)
         Space complexity: O(n)
         """

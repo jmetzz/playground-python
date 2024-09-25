@@ -34,10 +34,9 @@ All the pairs prerequisites[i] are unique.
 """
 
 from collections import deque
-from typing import Dict, List, Tuple
 
 
-def build_dependency_graph(num_items: int, dependency_list: List[List[int]]) -> Tuple[Dict, List]:
+def build_dependency_graph(num_items: int, dependency_list: list[list[int]]) -> tuple[dict, list]:
     graph = {course: [] for course in range(num_items)}
     indegree = [0] * num_items
     for course, dependency in dependency_list:
@@ -46,7 +45,7 @@ def build_dependency_graph(num_items: int, dependency_list: List[List[int]]) -> 
     return graph, indegree
 
 
-def topological_sort_dfs(graph: Dict[int, List]) -> List[int]:
+def topological_sort_dfs(graph: dict[int, list]) -> list[int]:
     _path_stack, _order = [], []
     _visited = set()
 
@@ -68,12 +67,12 @@ def topological_sort_dfs(graph: Dict[int, List]) -> List[int]:
     return _order[::-1]
 
 
-def can_finish_dfs_1(num_courses: int, prerequisites: List[List[int]]) -> bool:
+def can_finish_dfs_1(num_courses: int, prerequisites: list[list[int]]) -> bool:
     graph, _ = build_dependency_graph(num_courses, prerequisites)
     return len(topological_sort_dfs(graph)) == num_courses
 
 
-def can_finish_dfs_2(num_courses: int, prerequisites: List[List[int]]) -> bool:
+def can_finish_dfs_2(num_courses: int, prerequisites: list[list[int]]) -> bool:
     graph, _ = build_dependency_graph(num_courses, prerequisites)
     _path_stack = set()
     _visited = set()
@@ -98,7 +97,7 @@ def can_finish_dfs_2(num_courses: int, prerequisites: List[List[int]]) -> bool:
     return True
 
 
-def topological_sort_bfs(graph: Dict[int, List], in_degree: List[int]) -> List[int]:
+def topological_sort_bfs(graph: dict[int, list], in_degree: list[int]) -> list[int]:
     # remember: bfs uses a queue instead of stack
     # We start with nodes that have no pre-requisites.
     # Thus, add the que processing queue all vertices without dependencies
@@ -122,7 +121,7 @@ def topological_sort_bfs(graph: Dict[int, List], in_degree: List[int]) -> List[i
     return traverse_order
 
 
-def can_finish_bfs_1(num_courses: int, prerequisites: List[List[int]]) -> bool:
+def can_finish_bfs_1(num_courses: int, prerequisites: list[list[int]]) -> bool:
     # represent the problem as a graph, in which vertices are courses,
     # and the directed edges represent the dependency edge, ie,
     # the source vertex depends on the list of neighbors vertices.
@@ -135,7 +134,7 @@ def can_finish_bfs_1(num_courses: int, prerequisites: List[List[int]]) -> bool:
     return len(_order) == num_courses
 
 
-def can_finish_bfs_2(num_courses: int, prerequisites: List[List[int]]) -> bool:
+def can_finish_bfs_2(num_courses: int, prerequisites: list[list[int]]) -> bool:
     graph = {course: [] for course in range(num_courses)}
     for course, dependency in prerequisites:
         graph[dependency].append(course)

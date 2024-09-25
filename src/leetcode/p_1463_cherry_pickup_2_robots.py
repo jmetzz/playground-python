@@ -43,10 +43,9 @@ cols == grid[i].length
 """
 
 from functools import cache
-from typing import List
 
 
-def cherryPickup_two_robots_dfs(grid: List[List[int]]) -> int:
+def cherryPickup_two_robots_dfs(grid: list[list[int]]) -> int:
     rows = len(grid)
     if rows == 0:
         return 0
@@ -85,7 +84,7 @@ def cherryPickup_two_robots_dfs(grid: List[List[int]]) -> int:
     return dfs(row=0, robot_1=0, robot_2=cols - 1)
 
 
-def cherryPickup_two_robots_dfs_memoization(grid: List[List[int]]) -> int:
+def cherryPickup_two_robots_dfs_memoization(grid: list[list[int]]) -> int:
     rows = len(grid)
     if rows == 0:
         return 0

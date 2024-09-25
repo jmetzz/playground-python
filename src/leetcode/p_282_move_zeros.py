@@ -24,10 +24,9 @@ Follow up: Could you minimize the total number of operations done?
 
 import random
 import timeit
-from typing import List
 
 
-def move_zeroes_loops(nums: List[int]) -> None:
+def move_zeroes_loops(nums: list[int]) -> None:
     """Moves all 0s to the end of the array while maintaining
     the relative order of the non-zero elements using two loops.
 
@@ -66,7 +65,7 @@ def move_zeroes_loops(nums: List[int]) -> None:
         next_spot += 1
 
 
-def move_zeroes_fast_slow(nums: List[int]) -> None:
+def move_zeroes_fast_slow(nums: list[int]) -> None:
     """Moves all 0s to the end of the array while maintaining
     the relative order of the non-zero elements
 

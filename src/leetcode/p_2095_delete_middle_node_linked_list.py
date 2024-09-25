@@ -1,9 +1,7 @@
-from typing import Optional
-
 from data_structures.lists import SingleLinkNode as ListNode
 
 
-def delete_middle(head: Optional[ListNode]) -> Optional[ListNode]:
+def delete_middle(head: ListNode | None) -> ListNode | None:
     """Fast and slow pointers + dummy node
 
     Use two pointers and dummy node technique.

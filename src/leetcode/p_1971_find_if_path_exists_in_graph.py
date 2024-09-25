@@ -38,10 +38,8 @@ There are no duplicate edges.
 There are no self edges.
 """
 
-from typing import Dict, Set
 
-
-def has_path_bfs_recursive(graph: Dict[int, Set[int]], source: int, target: int) -> bool:
+def has_path_bfs_recursive(graph: dict[int, set[int]], source: int, target: int) -> bool:
     visited = set()
 
     def _dfs(node):
@@ -60,7 +58,7 @@ def has_path_bfs_recursive(graph: Dict[int, Set[int]], source: int, target: int)
     return _dfs(source)
 
 
-def has_path_bfs_iterative(graph: Dict[int, Set[int]], source: int, target: int) -> bool:
+def has_path_bfs_iterative(graph: dict[int, set[int]], source: int, target: int) -> bool:
     visited = set()
     stack = []
     stack.append(source)

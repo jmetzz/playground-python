@@ -40,8 +40,6 @@ word and prefix consist only of lowercase English letters.
 At most 3 * 104 calls in total will be made to insert, search, and startsWith.
 """
 
-from typing import Dict
-
 
 class Trie:
     EOW_TOKEN = "#"
@@ -62,7 +60,7 @@ class Trie:
         # added to the data structure
         node[self.EOW_TOKEN] = None
 
-    def search(self, key: str) -> Dict[str, Dict]:
+    def search(self, key: str) -> dict[str, dict]:
         node = self._root
         for letter in key:
             if letter not in node:

@@ -41,11 +41,10 @@ nums consists of equal number of positive and negative integers.
 """
 
 from collections import deque
-from typing import List
 
 
 class RearrangeBySign:
-    def solve_with_zip(self, nums: List[int]) -> List[int]:
+    def solve_with_zip(self, nums: list[int]) -> list[int]:
         positives = []
         negatives = []
         for value in nums:
@@ -55,11 +54,11 @@ class RearrangeBySign:
                 positives.append(value)
 
         answer = []
-        for pair in zip(positives, negatives):
+        for pair in zip(positives, negatives, strict=False):
             answer.extend(pair)
         return answer
 
-    def solve_with_arrays(self, nums: List[int]) -> List[int]:
+    def solve_with_arrays(self, nums: list[int]) -> list[int]:
         positives = []
         negatives = []
         for value in nums:
@@ -76,7 +75,7 @@ class RearrangeBySign:
             index += 2
         return answer
 
-    def solve_with_side_effect(self, nums: List[int]) -> List[int]:
+    def solve_with_side_effect(self, nums: list[int]) -> list[int]:
         positives = []
         negatives = []
         for value in nums:
@@ -93,7 +92,7 @@ class RearrangeBySign:
 
         return nums
 
-    def solve_with_deque(self, nums: List[int]) -> List[int]:
+    def solve_with_deque(self, nums: list[int]) -> list[int]:
         positives = deque()
         negatives = deque()
         for value in nums:

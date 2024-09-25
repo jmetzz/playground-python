@@ -43,10 +43,9 @@ Constraints:
 """
 
 from collections import defaultdict
-from typing import List
 
 
-def max_subarray_length(nums: List[int], k: int) -> int:
+def max_subarray_length(nums: list[int], k: int) -> int:
     longest = 0
     freq_map = defaultdict(int)
     lo = 0

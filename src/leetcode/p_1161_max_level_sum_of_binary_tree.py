@@ -26,12 +26,11 @@ The number of nodes in the tree is in the range [1, 104].
 """
 
 from collections import deque
-from typing import Optional
 
 from data_structures.trees import BinaryTreeNode as TreeNode
 
 
-def max_level_sum_1(root: Optional[TreeNode]) -> int:
+def max_level_sum_1(root: TreeNode | None) -> int:
     """Finds the level of a binary tree with the maximum sum of values.
 
     Traverses the tree in level order (breadth-first search) to
@@ -96,7 +95,7 @@ def max_level_sum_1(root: Optional[TreeNode]) -> int:
     return max_level
 
 
-def max_level_sum_2(root: Optional[TreeNode]) -> int:
+def max_level_sum_2(root: TreeNode | None) -> int:
     """Finds the level of a binary tree with the maximum sum of its node values.
 
     This function traverses the tree in a breadth-first manner,

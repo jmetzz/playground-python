@@ -27,10 +27,9 @@ intervals[i].length == 2
 """
 
 import operator
-from typing import List
 
 
-def merge_intervals(intervals: List[List[int]]) -> List[List[int]]:
+def merge_intervals(intervals: list[list[int]]) -> list[list[int]]:
     if len(intervals) == 1:
         return intervals.copy()
     answer = []
@@ -47,7 +46,7 @@ def merge_intervals(intervals: List[List[int]]) -> List[List[int]]:
     return answer
 
 
-def merge_intervals_2(intervals: List[List[int]]) -> List[List[int]]:
+def merge_intervals_2(intervals: list[list[int]]) -> list[list[int]]:
     if len(intervals) == 1:
         return intervals.copy()
     intervals.sort(key=operator.itemgetter(0))

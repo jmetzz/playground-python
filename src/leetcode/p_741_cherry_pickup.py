@@ -38,11 +38,9 @@ grid[0][0] != -1
 grid[n - 1][n - 1] != -1
 """
 
-from typing import List
-
 
 class CherryPickup:
-    def solve(self, grid: List[List[int]]) -> int:
+    def solve(self, grid: list[list[int]]) -> int:
         pass
 
 

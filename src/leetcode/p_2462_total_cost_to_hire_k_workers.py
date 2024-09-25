@@ -64,10 +64,9 @@ Constraints:
 """
 
 from heapq import heapify, heappop, heappush
-from typing import List
 
 
-def total_cost_one_heap(costs: List[int], k: int, candidates: int) -> int:
+def total_cost_one_heap(costs: list[int], k: int, candidates: int) -> int:
     n = len(costs)
     left, right = 0, n
 
@@ -109,7 +108,7 @@ def total_cost_one_heap(costs: List[int], k: int, candidates: int) -> int:
     return hiring_cost
 
 
-def total_cost_two_heaps(costs: List[int], k: int, candidates: int) -> int:
+def total_cost_two_heaps(costs: list[int], k: int, candidates: int) -> int:
     head_workers = costs[:candidates]
     tail_workers = costs[max(candidates, len(costs) - candidates) :]
     heapify(head_workers)

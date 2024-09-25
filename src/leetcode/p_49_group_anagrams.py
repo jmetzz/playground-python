@@ -29,10 +29,9 @@ strs[i] consists of lowercase English letters
 """
 
 from collections import Counter, defaultdict
-from typing import List
 
 
-def group_anagrams_solve(sequences: List[str]) -> List[List[str]]:
+def group_anagrams_solve(sequences: list[str]) -> list[list[str]]:
     anagrams_map = defaultdict(list)
     for word in sequences:
         key = "".join(sorted(word))
@@ -40,7 +39,7 @@ def group_anagrams_solve(sequences: List[str]) -> List[List[str]]:
     return list(anagrams_map.values())
 
 
-def group_anagrams_solve_with_custom_signature(sequences: List[str]) -> List[List[str]]:
+def group_anagrams_solve_with_custom_signature(sequences: list[str]) -> list[list[str]]:
     anagrams_map = defaultdict(list)
     for word in sequences:
         key = _create_signature(word)

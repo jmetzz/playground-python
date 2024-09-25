@@ -29,13 +29,12 @@ Constraints:
 """
 
 from itertools import combinations
-from typing import List
 
 
-def combine(n: int, k: int) -> List[List[int]]:
+def combine(n: int, k: int) -> list[list[int]]:
     answer = []
 
-    def backtrack(start: int, comb: List[int]):
+    def backtrack(start: int, comb: list[int]):
         if len(comb) == k:
             answer.append(comb)
             return
@@ -47,7 +46,7 @@ def combine(n: int, k: int) -> List[List[int]]:
     return answer
 
 
-def combine_itertools(n: int, k: int) -> List[List[int]]:
+def combine_itertools(n: int, k: int) -> list[list[int]]:
     return list(combinations(range(1, n + 1), k))
 
 

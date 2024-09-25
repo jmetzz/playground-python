@@ -44,11 +44,10 @@ Constraints:
 """
 
 import heapq
-from typing import List
 
 
 class FurthestBuilding:
-    def solve(self, heights: List[int], bricks: int, ladders: int) -> int:
+    def solve(self, heights: list[int], bricks: int, ladders: int) -> int:
         n = len(heights)
         prio_q = []  # max heap to store bricks used at each step
         idx = 0

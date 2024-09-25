@@ -34,9 +34,7 @@ Constraints:
 1 <= money <= 100
 """
 
-from typing import List
 
-
-def buy_choco(prices: List[int], money: int) -> int:
+def buy_choco(prices: list[int], money: int) -> int:
     cost = sum(sorted(prices)[:2])
     return money if cost > money else money - cost

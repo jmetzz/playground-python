@@ -40,10 +40,9 @@ All the values of rooms[i] are unique.
 """
 
 from collections import deque
-from typing import List
 
 
-def can_visit_all_rooms_bfs(rooms: List[List[int]]) -> bool:
+def can_visit_all_rooms_bfs(rooms: list[list[int]]) -> bool:
     queue = deque([0])
     visited = set()
     while queue:

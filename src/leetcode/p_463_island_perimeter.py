@@ -41,10 +41,8 @@ There is exactly one island in grid.
 
 """
 
-from typing import List
 
-
-def island_perimeter_iterative(grid: List[List[int]]) -> int:
+def island_perimeter_iterative(grid: list[list[int]]) -> int:
     if not grid:
         return 0
     edges = 0

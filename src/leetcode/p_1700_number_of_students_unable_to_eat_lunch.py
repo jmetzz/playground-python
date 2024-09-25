@@ -50,11 +50,10 @@ sandwiches[i] is 0 or 1.
 students[i] is 0 or 1.
 """
 
-from collections import deque
-from typing import Counter, List
+from collections import Counter, deque
 
 
-def count_students_queue(students: List[int], sandwiches: List[int]) -> int:
+def count_students_queue(students: list[int], sandwiches: list[int]) -> int:
     q = deque(students)
     for s in sandwiches:
         i = 0
@@ -68,7 +67,7 @@ def count_students_queue(students: List[int], sandwiches: List[int]) -> int:
     return len(q)
 
 
-def count_students_counter(students: List[int], sandwiches: List[int]) -> int:
+def count_students_counter(students: list[int], sandwiches: list[int]) -> int:
     student_pref = Counter(students)
     for i, s in enumerate(sandwiches):
         if student_pref[s] == 0:

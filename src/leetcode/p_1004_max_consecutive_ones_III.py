@@ -24,10 +24,8 @@ nums[i] is either 0 or 1.
 0 <= k <= nums.length
 """
 
-from typing import List
 
-
-def max_len_sequence_of_ones(nums: List[int], flip_budget: int) -> int:
+def max_len_sequence_of_ones(nums: list[int], flip_budget: int) -> int:
     """Two pointer sliding window solution.
 
     Rationale:

@@ -2,7 +2,7 @@ import logging
 from contextlib import contextmanager
 from tempfile import TemporaryFile
 from threading import Semaphore
-from typing import Any, Dict, Optional
+from typing import Any
 
 import pandas as pd
 from psycopg2 import (
@@ -232,7 +232,7 @@ class DataAccess:
         self.connection_pool.closeall()
         self.connection_pool = make_conn_pool(**self.configuration)
 
-    def _execute_sql_query(self, sql_query: str, params: Dict[str, Any], return_all: Optional[bool] = None):
+    def _execute_sql_query(self, sql_query: str, params: dict[str, Any], return_all: bool | None = None):
         with get_db_connection(self.connection_pool) as conn, conn.cursor() as cursor:
             cursor.execute(sql_query, params or {})
             if return_all is not None:

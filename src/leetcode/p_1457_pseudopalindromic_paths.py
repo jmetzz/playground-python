@@ -38,8 +38,6 @@ The number of nodes in the tree is in the range [1, 105].
 1 <= Node.val <= 9
 """
 
-from typing import List
-
 from data_structures.trees import BinaryTreeNode
 
 
@@ -76,7 +74,7 @@ class PseudoPalindromicPaths_recursive:
         return self._count_solutions(node.left, path) + self._count_solutions(node.right, path)
 
 
-def df_traverse(node: BinaryTreeNode) -> List:
+def df_traverse(node: BinaryTreeNode) -> list:
     return [node.val] + df_traverse(node.left) + df_traverse(node.right) if node else []
 
 

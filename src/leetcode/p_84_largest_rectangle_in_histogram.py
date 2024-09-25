@@ -27,10 +27,8 @@ Constraints:
 
 """
 
-from typing import List
 
-
-def largest_rectangle_area(heights: List[int]) -> int:
+def largest_rectangle_area(heights: list[int]) -> int:
     # use a monotonic increasing stack. If the element to add
     # to the stack would decrease top value, we need to remove
     # values until we can add the new element

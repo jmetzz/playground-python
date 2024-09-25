@@ -1,8 +1,5 @@
-from typing import List, Tuple
-
-
-def max_profit_unlimited_transactions_recursive(prices: List[float]) -> float:
-    def _recurse(price_rates: List[float], start, end):
+def max_profit_unlimited_transactions_recursive(prices: list[float]) -> float:
+    def _recurse(price_rates: list[float], start, end):
         if end <= start:
             return 0
         profit = 0
@@ -25,7 +22,7 @@ def max_profit_unlimited_transactions_recursive(prices: List[float]) -> float:
     return _recurse(prices, 0, len(prices) - 1)
 
 
-def max_profit_unlimited_transactions_1(prices: List[float]) -> float:
+def max_profit_unlimited_transactions_1(prices: list[float]) -> float:
     # accumulate the profit on upward trend from one timestamp to the next
     profit = 0
     price = prices[0]
@@ -38,14 +35,14 @@ def max_profit_unlimited_transactions_1(prices: List[float]) -> float:
     return profit
 
 
-def max_profit_unlimited_transactions_2(prices: List[int]) -> int:
+def max_profit_unlimited_transactions_2(prices: list[int]) -> int:
     n = len(prices)
     if n < 2:  # no transaction is possible
         return 0
     return sum(max(prices[i] - prices[i - 1], 0) for i in range(1, n))
 
 
-def max_profit_with_k_transactions(prices: List[int], k: int) -> int:
+def max_profit_with_k_transactions(prices: list[int], k: int) -> int:
     n = len(prices)
     if n < 2 or k <= 0:
         # no transaction is possible
@@ -73,7 +70,7 @@ def max_profit_with_k_transactions(prices: List[int], k: int) -> int:
     return dp[k][n - 1]
 
 
-def list_transaction_maximizing_profit(prices: List[int], k: int) -> List[Tuple[int, int, int]]:
+def list_transaction_maximizing_profit(prices: list[int], k: int) -> list[tuple[int, int, int]]:
     n = len(prices)
     if n < 2 or k <= 0:
         return []
@@ -117,7 +114,7 @@ def list_transaction_maximizing_profit(prices: List[int], k: int) -> List[Tuple[
     return dp[k][n - 1][1]
 
 
-def updated_transaction_list(prices, current_transaction, sell_day, dp) -> List[Tuple[int, int, int]]:
+def updated_transaction_list(prices, current_transaction, sell_day, dp) -> list[tuple[int, int, int]]:
     # Initialize with the previous day as the best day to buy
     # (this will change if a better day is found)
     best_buy_day = sell_day - 1

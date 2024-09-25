@@ -31,10 +31,8 @@ n == height.length
 0 <= height[i] <= 104
 """
 
-from typing import List
 
-
-def max_area(height: List[int]) -> int:
+def max_area(height: list[int]) -> int:
     """Two pointers solution
 
     This approach starts from the widest container

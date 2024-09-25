@@ -33,10 +33,9 @@ n == grid.length == grid[i].length
 """
 
 from collections import Counter
-from typing import List
 
 
-def equal_pairs(grid: List[List[int]]) -> int:
+def equal_pairs(grid: list[list[int]]) -> int:
     # Convert each row to a tuple (to make it hashable)
     # and count the occurrences using a dictionary.
     rows = Counter(tuple(row) for row in grid.copy())
@@ -48,7 +47,7 @@ def equal_pairs(grid: List[List[int]]) -> int:
     # groups them into a tuple (the first column),
     # then the second items (the second column), and so on,
     # effectively transposing the rows and columns.
-    cols = Counter(zip(*grid))
+    cols = Counter(zip(*grid, strict=False))
 
     # now we can count the number of matches between rows and cols
     count = 0

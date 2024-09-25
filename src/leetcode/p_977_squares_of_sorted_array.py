@@ -28,14 +28,13 @@ could you find an O(n) solution using a different approach?
 """
 
 from bisect import bisect
-from typing import List
 
 
-def sorted_squares_naive(nums: List[int]) -> List[int]:
+def sorted_squares_naive(nums: list[int]) -> list[int]:
     return sorted([e * e for e in nums])
 
 
-def sorted_squares_expanding_window(nums: List[int]) -> List[int]:
+def sorted_squares_expanding_window(nums: list[int]) -> list[int]:
     n = len(nums)
     answer = []
     # all(elem <= x for elem in a[lo : ip]) is true for the left slice and
@@ -59,7 +58,7 @@ def sorted_squares_expanding_window(nums: List[int]) -> List[int]:
     return answer
 
 
-def sorted_squares_shrinking_window(nums: List[int]) -> List[int]:
+def sorted_squares_shrinking_window(nums: list[int]) -> list[int]:
     answer = [0] * len(nums)
     left, right = 0, len(nums) - 1
     # iterate backward (right to left) identifying the largest squared value

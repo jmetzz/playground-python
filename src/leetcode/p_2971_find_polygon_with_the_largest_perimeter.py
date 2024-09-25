@@ -1,9 +1,8 @@
 from heapq import heappop, heappush
-from typing import List
 
 
 class FindPolygonWithLargestPerimeter:
-    def solve_with_loop(self, nums: List[int]) -> int:
+    def solve_with_loop(self, nums: list[int]) -> int:
         nums.sort()
         n = len(nums)
         perimeter = sorted(nums)
@@ -16,7 +15,7 @@ class FindPolygonWithLargestPerimeter:
 
         return -1
 
-    def solve_with_heap(self, nums: List[int]) -> int:
+    def solve_with_heap(self, nums: list[int]) -> int:
         perimeter = sorted(nums)
         heap = [1]
         for i in range(1, len(nums)):
@@ -25,7 +24,7 @@ class FindPolygonWithLargestPerimeter:
                 heappush(heap, -perimeter[i])  # max heap
         return -heappop(heap)
 
-    def solve_reversed(self, nums: List[int]) -> int:
+    def solve_reversed(self, nums: list[int]) -> int:
         nums.sort()
         perimeter = sum(nums)
         for index in range(len(nums) - 1, 1, -1):

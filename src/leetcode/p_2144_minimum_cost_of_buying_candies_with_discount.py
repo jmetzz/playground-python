@@ -52,10 +52,8 @@ Hint 2: How can we generalize this approach to maximize the costs of the candies
 Hint 3: Can “sorting” the array help us find the minimum cost?
 """
 
-from typing import List
 
-
-def minimum_cost_stack(cost: List[int]) -> int:
+def minimum_cost_stack(cost: list[int]) -> int:
     if len(cost) <= 2:
         return sum(cost)
 
@@ -70,7 +68,7 @@ def minimum_cost_stack(cost: List[int]) -> int:
     return total_cost
 
 
-def minimum_cost_loop(cost: List[int]) -> int:
+def minimum_cost_loop(cost: list[int]) -> int:
     n = len(cost)
     if n <= 2:
         return sum(cost)

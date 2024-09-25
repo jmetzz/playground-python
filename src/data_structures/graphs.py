@@ -1,15 +1,16 @@
 from collections import deque
 from heapq import heappop, heappush
 from math import inf
-from typing import Any, Dict, List, Optional, Self, Set, Tuple, TypeAlias
+from typing import Any, Self
 
 from data_structures.graph_utils import build_digraph, calculate_indegree, plot_digraph, transpose_digraph
 
 # Alias for an undirected graph
-Graph: TypeAlias = Dict[int, Set[int]]
+Graph = dict[int, set[int]]
+
 
 # Alias for a directed graph
-WeightedGraph: TypeAlias = Dict[int, Set[Tuple[int, int]]]
+WeightedGraph = dict[int, set[tuple[int, int]]]
 
 
 class UnionFind:
@@ -67,7 +68,7 @@ class MultiLinkNode:
             self.neighbors.remove(other)
 
 
-def dfs(node: MultiLinkNode, target: Any, visited: Set[MultiLinkNode]) -> bool:
+def dfs(node: MultiLinkNode, target: Any, visited: set[MultiLinkNode]) -> bool:
     if node is None:
         return False
 
@@ -83,7 +84,7 @@ def dfs(node: MultiLinkNode, target: Any, visited: Set[MultiLinkNode]) -> bool:
     return False
 
 
-def traversal_dfs_iterative(graph: Graph, source: int) -> List[int]:
+def traversal_dfs_iterative(graph: Graph, source: int) -> list[int]:
     stack = []
     visited = set()
     stack.append(source)
@@ -99,7 +100,7 @@ def traversal_dfs_iterative(graph: Graph, source: int) -> List[int]:
     return traversal
 
 
-def traversal_dfs_recursive(graph: Graph, source: int) -> List[int]:
+def traversal_dfs_recursive(graph: Graph, source: int) -> list[int]:
     traversal = []
     visited = set()
 
@@ -116,7 +117,7 @@ def traversal_dfs_recursive(graph: Graph, source: int) -> List[int]:
     return traversal
 
 
-def traversal_bfs(graph: Graph, source: int) -> List[int]:
+def traversal_bfs(graph: Graph, source: int) -> list[int]:
     traversal = []
     visited = set()
 
@@ -173,7 +174,7 @@ def has_path_bfs_iterative(graph: Graph, source: int, target: int) -> bool:
     return False
 
 
-def path_undirected(graph: Graph, source: int, target: int) -> Optional[List[int]]:
+def path_undirected(graph: Graph, source: int, target: int) -> list[int] | None:
     """Traverse from source to target collecting all nodes along the way
 
     To correctly find a path (if one exists) from the source to the target,
@@ -181,7 +182,7 @@ def path_undirected(graph: Graph, source: int, target: int) -> Optional[List[int
     the actual path from the source to the target is done while backtracking.
     """
 
-    def _dfs(node, current_path) -> List[int]:
+    def _dfs(node, current_path) -> list[int]:
         if node == target:
             return current_path + [node]
         if node in visited:
@@ -257,7 +258,7 @@ def largest_component_size(graph: Graph) -> int:
     return max_size
 
 
-def largest_component_recursive(graph: Graph) -> List[int]:
+def largest_component_recursive(graph: Graph) -> list[int]:
     def _dfs_traverse_from(node):
         if node in visited:
             return []
@@ -277,7 +278,7 @@ def largest_component_recursive(graph: Graph) -> List[int]:
     return largest_component
 
 
-def largest_component_iterative(graph: Graph) -> List[int]:
+def largest_component_iterative(graph: Graph) -> list[int]:
     visited = set()
     largest_component = []
 
@@ -314,7 +315,7 @@ def shortest_path_length(graph: Graph, source: int, target: int) -> int:
     return 0
 
 
-def shortest_path(graph: Graph, source: int, target: int) -> Optional[Tuple[List[int], int]]:
+def shortest_path(graph: Graph, source: int, target: int) -> tuple[list[int], int] | None:
     visited = set([source])
     parent = {source: None}  # Track the parent of each node for path reconstruction
 
@@ -441,7 +442,7 @@ def is_bipartite_bfs(graph: Graph) -> bool:
     return True
 
 
-def topological_order_recursive(digraph: Graph) -> List[int]:
+def topological_order_recursive(digraph: Graph) -> list[int]:
     """This is the typical DFS for topological order,
     in which nodes are added to the topological order in reverse post-order.
 
@@ -503,7 +504,7 @@ def topological_order_recursive(digraph: Graph) -> List[int]:
     return order[::-1]
 
 
-def topological_order_recursive_2(digraph: Graph) -> List[int]:
+def topological_order_recursive_2(digraph: Graph) -> list[int]:
     """This is the typical DFS for topological order,
     in which nodes are added to the topological order in reverse post-order.
 
@@ -548,7 +549,7 @@ def topological_order_recursive_2(digraph: Graph) -> List[int]:
     return order[::-1]
 
 
-def topological_order_iterative(digraph: Graph) -> List[int]:
+def topological_order_iterative(digraph: Graph) -> list[int]:
     """A topological order only for di-graph with no cycles.
 
     This approach leverages the concept of in-degree (the number of incoming edges to a node)
@@ -671,11 +672,11 @@ def is_dag(digraph: Graph) -> bool:
     raise NotImplementedError()
 
 
-def get_any_cycle_path(digraph: Graph) -> List[int]:
+def get_any_cycle_path(digraph: Graph) -> list[int]:
     raise NotImplementedError()
 
 
-def kosaraju(graph: Graph) -> List[List[int]]:
+def kosaraju(graph: Graph) -> list[list[int]]:
     """Find all strongly connected components (SCCs) in a directed graph.
 
     Kosaraju's algorithm identifies SCCs through two DFS passes, leveraging graph edge reversals. It

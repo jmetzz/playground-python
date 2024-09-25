@@ -33,15 +33,14 @@ Iterate through the hash map and check if there is a repeated value.
 """
 
 from collections import Counter
-from typing import List
 
 
-def unique_occurrences_1(arr: List[int]) -> bool:
+def unique_occurrences_1(arr: list[int]) -> bool:
     counter = Counter(arr)
     return len(counter.keys()) == len(set(counter.values()))
 
 
-def unique_occurrences_2(arr: List[int]) -> bool:
+def unique_occurrences_2(arr: list[int]) -> bool:
     elements_counter = Counter(arr)
     frequencies = set()
     for cnt in elements_counter.values():

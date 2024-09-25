@@ -23,12 +23,10 @@ The number of nodes in the list is in the range [1, 100].
 
 """
 
-from typing import Optional
-
 from data_structures.lists import SingleLinkNode
 
 
-def middle_node(head: Optional[SingleLinkNode]) -> Optional[SingleLinkNode]:
+def middle_node(head: SingleLinkNode | None) -> SingleLinkNode | None:
     if not head:
         return None
     stack = []
@@ -40,7 +38,7 @@ def middle_node(head: Optional[SingleLinkNode]) -> Optional[SingleLinkNode]:
     return stack[mid]
 
 
-def middle_node_two_pointers(head: Optional[SingleLinkNode]) -> Optional[SingleLinkNode]:
+def middle_node_two_pointers(head: SingleLinkNode | None) -> SingleLinkNode | None:
     if not head:
         return None
 

@@ -39,10 +39,9 @@ Constraints:
 """
 
 from heapq import heappop, heappush
-from typing import Dict, List, Tuple
 
 
-def max_profit_heap(prices: List[int]) -> int:
+def max_profit_heap(prices: list[int]) -> int:
     """This function does not solve the problem!
 
     It only solves local sub-problems.
@@ -94,7 +93,7 @@ def max_profit_heap(prices: List[int]) -> int:
     return -total_profit
 
 
-def max_profit_list_transactions(prices: List[int]) -> List[Tuple]:
+def max_profit_list_transactions(prices: list[int]) -> list[tuple]:
     """This function does not solve the problem!
 
     It only solves local sub-problems.
@@ -148,7 +147,7 @@ def max_profit_list_transactions(prices: List[int]) -> List[Tuple]:
     return answer
 
 
-def max_profit_two_segments(prices: List[int]) -> List[Tuple]:
+def max_profit_two_segments(prices: list[int]) -> list[tuple]:
     """Max profit with at most two transactions"""
     if not prices:
         return 0
@@ -176,7 +175,7 @@ def max_profit_two_segments(prices: List[int]) -> List[Tuple]:
     return answer
 
 
-def max_profit_two_segments_list_transactions(prices: List[int]) -> List[Tuple]:
+def max_profit_two_segments_list_transactions(prices: list[int]) -> list[tuple]:
     """To identify the days in which the transactions happen,
     we can extend the arrays to track days information.
 
@@ -228,7 +227,7 @@ def max_profit_two_segments_list_transactions(prices: List[int]) -> List[Tuple]:
     return max_profit, transactions
 
 
-def max_profit_recursive(prices: List[int]) -> List[Tuple]:
+def max_profit_recursive(prices: list[int]) -> list[tuple]:
     """ """
 
     def dfs(index: int, can_buy: bool, transactions_allowance: int):
@@ -253,8 +252,8 @@ def max_profit_recursive(prices: List[int]) -> List[Tuple]:
     return dfs(index=0, can_buy=True, transactions_allowance=2)
 
 
-def max_profit_memoization(prices: List[int]) -> List[Tuple]:
-    def dfs(index: int, can_buy: bool, transactions_allowance: int, cache: Dict):
+def max_profit_memoization(prices: list[int]) -> list[tuple]:
+    def dfs(index: int, can_buy: bool, transactions_allowance: int, cache: dict):
         if index == n:
             return 0
         if transactions_allowance == 0:
@@ -279,7 +278,7 @@ def max_profit_memoization(prices: List[int]) -> List[Tuple]:
     return dfs(index=0, can_buy=True, transactions_allowance=2, cache={})
 
 
-def max_profit_tabulation(prices: List[int]) -> List[Tuple]:
+def max_profit_tabulation(prices: list[int]) -> list[tuple]:
     """Time Complexity O(N)
     Space Complexity O(N)
     """
@@ -305,7 +304,7 @@ def max_profit_tabulation(prices: List[int]) -> List[Tuple]:
     return dp[0][1][2]
 
 
-def max_profit_space_optmized(prices: List[int]) -> List[Tuple]:
+def max_profit_space_optmized(prices: list[int]) -> list[tuple]:
     n = len(prices)
 
     # 2 possible actions, and 2 possible transactions

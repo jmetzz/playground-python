@@ -20,10 +20,8 @@ cols == grid[i].length
 0 <= grid[i][j] <= 100
 """
 
-from typing import List
 
-
-def cherryPickup_one_robot(grid: List[List[int]]) -> int:
+def cherryPickup_one_robot(grid: list[list[int]]) -> int:
     rows, cols = len(grid), len(grid[0])
     dp = [[0] * cols for i in range(rows)]
     dp[0] = grid[0]

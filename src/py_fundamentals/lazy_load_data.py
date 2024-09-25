@@ -64,7 +64,7 @@ def groupby_window(data, window_size=3600):
 
 def is_normal(data, threshold=1e-3):
     """Given one group of data, returns whether it follows the normal distribution"""
-    _, values = zip(*data)
+    _, values = zip(*data, strict=False)
     _, p_value = normaltest(values)
     return not p_value < threshold
 

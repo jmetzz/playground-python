@@ -42,9 +42,7 @@ n == candies.length
 1 <= extraCandies <= 50
 """
 
-from typing import List
 
-
-def kids_with_candies(candies: List[int], extraCandies: int) -> List[bool]:
+def kids_with_candies(candies: list[int], extraCandies: int) -> list[bool]:
     max_starting_candies = max(candies)
     return [curr_candies + extraCandies >= max_starting_candies for curr_candies in candies]

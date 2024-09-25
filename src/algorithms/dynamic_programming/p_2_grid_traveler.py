@@ -5,8 +5,6 @@ The only actions allowed are:
 
 """
 
-from typing import Dict
-
 
 def solve_recursive(m: int, n: int) -> int:
     # base
@@ -19,7 +17,7 @@ def solve_recursive(m: int, n: int) -> int:
     return solve_recursive(m - 1, n) + solve_recursive(m, n - 1)
 
 
-def solve_memoization(m: int, n: int, cache: Dict) -> int:
+def solve_memoization(m: int, n: int, cache: dict) -> int:
     # cache check
     key = (m, n)
     if key in cache:

@@ -1,6 +1,7 @@
 import bisect
 from collections import deque
-from typing import Any, Dict, Iterable, List, Optional, Self
+from collections.abc import Iterable
+from typing import Any, Self
 
 import numpy as np
 
@@ -80,7 +81,7 @@ class BinaryTreeNode:
         return tree_str
 
     @staticmethod
-    def from_indices(indices: List[int]):
+    def from_indices(indices: list[int]):
         size = max(indices) + 1
         arr = np.full(size, None)
         arr[indices] = indices
@@ -206,7 +207,7 @@ class BinaryTreeNode:
             q.append(curr_node.right)
         return elements
 
-    def to_map(self) -> Dict[int, int]:
+    def to_map(self) -> dict[int, int]:
         raise NotImplementedError
 
     def invert(self):
@@ -260,7 +261,7 @@ class BinaryTreeNode:
 
 class TrieSymbolTableRecursive:
     class TrieNode:
-        def __init__(self, val: Any = None, next_node: List[Optional[Self]] = None):
+        def __init__(self, val: Any = None, next_node: list[Self | None] = None):
             self.val = val
             self.next = next_node
 
@@ -332,7 +333,7 @@ class TrieSymbolTableRecursive:
         self._collect(start_node, prefix, queue, first_only=True)  # all keys from this node onwards
         return len(queue) > 0
 
-    def _collect(self, node: TrieNode, prefix: str, accumulating_queue: List[str], first_only: bool = False):
+    def _collect(self, node: TrieNode, prefix: str, accumulating_queue: list[str], first_only: bool = False):
         if node is None:
             return
         if node.val:
@@ -349,7 +350,7 @@ class TrieSymbolTableRecursive:
     def delete(self, key: str) -> None:
         self._root = self._del(self._root, key, 0)
 
-    def _del(self, node: TrieNode, key: str, curr_idx: int) -> Optional[TrieNode]:
+    def _del(self, node: TrieNode, key: str, curr_idx: int) -> TrieNode | None:
         if node is None or curr_idx > len(key):
             # here we should log a warning message
             # saying the client is trying to remove a non-existing node
@@ -413,12 +414,12 @@ class TrieSymbolTableDict:
         node[self.EOW_TOKEN] = None
         self._size += 1
 
-    def get(self, key: str) -> Dict[str, Dict]:
+    def get(self, key: str) -> dict[str, dict]:
         node = self._get_subtree(self._root, key)
         return node if node and self.EOW_TOKEN in node else None
 
     @classmethod
-    def _get_subtree(cls, node, key: str) -> Dict[str, Dict]:
+    def _get_subtree(cls, node, key: str) -> dict[str, dict]:
         for letter in key:
             if letter not in node:
                 return None

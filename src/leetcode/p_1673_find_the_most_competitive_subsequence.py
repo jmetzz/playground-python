@@ -31,10 +31,8 @@ Constraints:
 1 <= k <= nums.length
 """
 
-from typing import List
 
-
-def most_competitive_1(nums: List[int], k: int) -> List[int]:
+def most_competitive_1(nums: list[int], k: int) -> list[int]:
     """Given an array nums and a size k, find a subsequence of length k that is the lexicographically smallest.
 
     A subsequence is a sequence that can be derived from the array by deleting

@@ -41,10 +41,8 @@ All integers in nums1 and nums2 are unique.
 All the integers of nums1 also appear in nums2.
 """
 
-from typing import List
 
-
-def next_greater_element(nums1: List[int], nums2: List[int]) -> List[int]:
+def next_greater_element(nums1: list[int], nums2: list[int]) -> list[int]:
     stack = []
     next_greater_map = {}  # map from x to next greater element of x
     answer = [-1] * len(nums1)

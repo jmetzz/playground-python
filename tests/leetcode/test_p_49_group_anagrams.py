@@ -1,5 +1,3 @@
-from typing import List
-
 import pytest
 
 from leetcode.p_49_group_anagrams import group_anagrams_solve, group_anagrams_solve_with_custom_signature
@@ -16,7 +14,7 @@ from leetcode.p_49_group_anagrams import group_anagrams_solve, group_anagrams_so
         ),
     ],
 )
-def test_group_anagrams(test_input: List[str], expected: List[List[str]]):
+def test_group_anagrams(test_input: list[str], expected: list[list[str]]):
     for e in expected:
         e.sort()
 
@@ -37,7 +35,7 @@ def test_group_anagrams(test_input: List[str], expected: List[List[str]]):
         ),
     ],
 )
-def test_group_anagrams_with_custom_signature(test_input: List[str], expected: List[List[str]]):
+def test_group_anagrams_with_custom_signature(test_input: list[str], expected: list[list[str]]):
     for e in expected:
         e.sort()
 

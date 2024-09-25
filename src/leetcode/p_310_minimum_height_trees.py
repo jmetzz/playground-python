@@ -43,10 +43,9 @@ The given input is guaranteed to be a tree and there will be no repeated edges.
 
 from collections import defaultdict
 from heapq import heappush
-from typing import List
 
 
-def find_min_height_trees_dfs(n: int, edges: List[List[int]]) -> List[int]:
+def find_min_height_trees_dfs(n: int, edges: list[list[int]]) -> list[int]:
     """Finds all the minimum height trees (MHTs) in an undirected graph using depth-first search (DFS).
 
     Note: This solution will hit Time Limit Exceeded on LeetCode for large graphs
@@ -101,7 +100,7 @@ def find_min_height_trees_dfs(n: int, edges: List[List[int]]) -> List[int]:
     return [root for _, root in max_heights_heap]
 
 
-def find_min_height_trees_removing_leaves(n: int, edges: List[List[int]]) -> List[int]:
+def find_min_height_trees_removing_leaves(n: int, edges: list[list[int]]) -> list[int]:
     """Finds all the minimum height trees (MHTs) in an undirected graph by iteratively removing leaf nodes.
 
     This method identifies the centroids of the graph by pruning leaf nodes until only one or two nodes are left,

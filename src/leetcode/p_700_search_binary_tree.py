@@ -24,12 +24,10 @@ root is a binary search tree.
 1 <= val <= 107
 """
 
-from typing import Optional
-
 from data_structures.trees import BinaryTreeNode as TreeNode
 
 
-def search_bst(root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
+def search_bst(root: TreeNode | None, val: int) -> TreeNode | None:
     node = root
     while node:
         if not node:
@@ -43,7 +41,7 @@ def search_bst(root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
     return None
 
 
-def search_bst_recursive(root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
+def search_bst_recursive(root: TreeNode | None, val: int) -> TreeNode | None:
     if root is None:
         return None
     if root.val == val:

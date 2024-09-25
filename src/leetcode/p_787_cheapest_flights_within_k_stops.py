@@ -49,11 +49,10 @@ src != dst
 """
 
 from collections import defaultdict, deque
-from typing import List
 
 
 class CheapestFlights:
-    def solve(self, n: int, flights: List[List[int]], src: int, dst: int, k: int) -> int:
+    def solve(self, n: int, flights: list[list[int]], src: int, dst: int, k: int) -> int:
         adjacent = defaultdict(list)
         for f in flights:
             adjacent[f[0]].append((f[1], f[2]))  # append destination and associated cost

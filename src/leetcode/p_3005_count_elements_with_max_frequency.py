@@ -31,10 +31,8 @@ Constraints:
 
 """
 
-from typing import List
 
-
-def max_frequency_elements_double_loop(nums: List[int]) -> int:
+def max_frequency_elements_double_loop(nums: list[int]) -> int:
     # since 1 <= nums[i] <= 100, we need [0, 100] indices
     # position zero will be ignored later
     histogram = [0] * 101
@@ -49,7 +47,7 @@ def max_frequency_elements_double_loop(nums: List[int]) -> int:
     return answer
 
 
-def max_frequency_elements_single_loop(nums: List[int]) -> int:
+def max_frequency_elements_single_loop(nums: list[int]) -> int:
     # since 1 <= nums[i] <= 100, we need [0, 100] indices
     # position zero will be ignored later
     histogram = [0] * 101

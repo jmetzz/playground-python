@@ -36,12 +36,10 @@ pos is -1 or a valid index in the linked-list.
 Follow up: Can you solve it using O(1) (i.e. constant) memory?
 """
 
-from typing import Optional
-
 from data_structures.lists import SingleLinkNode
 
 
-def has_cycle(head: Optional[SingleLinkNode]) -> bool:
+def has_cycle(head: SingleLinkNode | None) -> bool:
     """Implements the Floyd’s Cycle-Finding Algorithm
 
     This method is also known as the "fast-slow approach" or  "tortoise and the hare algorithm".

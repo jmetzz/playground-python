@@ -42,18 +42,16 @@ Constraints:
 0 <= k <= 106
 """
 
-from typing import List
 
-
-def min_operations(nums: List[int], k: int) -> int:
+def min_operations(nums: list[int], k: int) -> int:
     nums_xor = 0
     for n in nums:
         nums_xor ^= n
 
-    return bin(nums_xor ^ k).count("1")
+    return (nums_xor ^ k).bit_count()
 
 
-def min_perations_iterative(nums: List[int], k: int) -> int:
+def min_perations_iterative(nums: list[int], k: int) -> int:
     nums_xor = 0
     # XOR of all integers in the array.
     for n in nums:

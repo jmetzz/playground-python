@@ -31,10 +31,8 @@ Constraints:
 0 <= prices[i] <= 10**4
 """
 
-from typing import List
 
-
-def max_profit_1(prices: List[int]) -> int:
+def max_profit_1(prices: list[int]) -> int:
     stack = []  # mono decreasing stack to keep the lowest price on top of the stack
     profit = 0
     for p in prices:
@@ -46,7 +44,7 @@ def max_profit_1(prices: List[int]) -> int:
     return profit
 
 
-def max_profit_2(prices: List[int]) -> int:
+def max_profit_2(prices: list[int]) -> int:
     profit = 0
     buy_value = prices[0]
     for value in prices[1:]:
@@ -57,7 +55,7 @@ def max_profit_2(prices: List[int]) -> int:
     return profit
 
 
-def max_profit_3(prices: List[int]) -> int:
+def max_profit_3(prices: list[int]) -> int:
     profit = 0
     buy_value = prices[0]
     for value in prices[1:]:

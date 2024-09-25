@@ -34,10 +34,8 @@ Constraints:
 asteroids[i] != 0
 """
 
-from typing import List
 
-
-def asteroid_collision(asteroids: List[int]) -> List[int]:
+def asteroid_collision(asteroids: list[int]) -> list[int]:
     """The key insight for this problem is:
         > The positions in the array represent their relative positions in space,
         > moving either to the left or right. All asteroids are considered to be moving simultaneously.
@@ -72,7 +70,7 @@ def asteroid_collision(asteroids: List[int]) -> List[int]:
     return stack
 
 
-def asteroid_collision_2(asteroids: List[int]) -> List[int]:
+def asteroid_collision_2(asteroids: list[int]) -> list[int]:
     stack = []
     for a in asteroids:
         while stack and a < 0 and stack[-1] > 0:

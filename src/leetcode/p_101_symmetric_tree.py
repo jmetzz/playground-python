@@ -23,12 +23,10 @@ The number of nodes in the tree is in the range [1, 1000].
 Follow up: Could you solve it both recursively and iteratively?
 """
 
-from typing import Optional
-
 from data_structures.trees import BinaryTreeNode as TreeNode
 
 
-def is_symmetric_recursive(root: Optional[TreeNode]) -> bool:
+def is_symmetric_recursive(root: TreeNode | None) -> bool:
     def _helper(root1, root2) -> bool:
         if root1 is None and root2 is None:
             return True
@@ -41,7 +39,7 @@ def is_symmetric_recursive(root: Optional[TreeNode]) -> bool:
     return _helper(root.left, root.right)
 
 
-def is_symmetric_iterative(root: Optional[TreeNode]) -> bool:
+def is_symmetric_iterative(root: TreeNode | None) -> bool:
     """Note: missing nodes are not considered"""
     if root is None:
         return True

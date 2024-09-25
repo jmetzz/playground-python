@@ -29,12 +29,10 @@ The number of nodes in the linked list is in the range [0, 104].
 -106 <= Node.val <= 106
 """
 
-from typing import Optional
-
 from data_structures.lists import SingleLinkNode as ListNode
 
 
-def odd_even_list_flag_flipping(head: Optional[ListNode]) -> Optional[ListNode]:
+def odd_even_list_flag_flipping(head: ListNode | None) -> ListNode | None:
     if not head or not head.next:
         return head
 
@@ -59,7 +57,7 @@ def odd_even_list_flag_flipping(head: Optional[ListNode]) -> Optional[ListNode]:
     return head
 
 
-def odd_even_list_skipping_two(head: Optional[ListNode]) -> Optional[ListNode]:
+def odd_even_list_skipping_two(head: ListNode | None) -> ListNode | None:
     if not head or not head.next:
         return head
     odd = head

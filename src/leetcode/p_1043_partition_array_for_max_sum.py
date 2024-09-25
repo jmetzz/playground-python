@@ -109,11 +109,9 @@ maximum number of active function calls which will be N,
 one for each index. Hence, the space complexity will equal O(N).
 """
 
-from typing import List
-
 
 class PartitionArrayForMaxSum:
-    def solve_dfs(self, arr: List[int], k: int) -> int:
+    def solve_dfs(self, arr: list[int], k: int) -> int:
         def _dfs(start_idx: int) -> int:
             if start_idx >= len(arr):
                 # base case -- which is made redundant because of the
@@ -131,7 +129,7 @@ class PartitionArrayForMaxSum:
 
         return _dfs(0)
 
-    def solve_dfs_dict_memo(self, arr: List[int], k: int) -> int:
+    def solve_dfs_dict_memo(self, arr: list[int], k: int) -> int:
         cache = {}
 
         def _dfs(start_idx: int) -> int:
@@ -155,7 +153,7 @@ class PartitionArrayForMaxSum:
 
         return _dfs(0)
 
-    def solve_dfs_list_memo(self, arr: List[int], k: int) -> int:
+    def solve_dfs_list_memo(self, arr: list[int], k: int) -> int:
         table = [-1] * len(arr)  # -1 indicates the answer is not calculated yet
 
         def _dfs(start_idx: int) -> int:
@@ -179,7 +177,7 @@ class PartitionArrayForMaxSum:
 
         return _dfs(0)
 
-    def solve_tabulation_top_down(self, arr: List[int], k: int) -> int:
+    def solve_tabulation_top_down(self, arr: list[int], k: int) -> int:
         n = len(arr)
         dp = [0] * n
         dp[0] = 0  # base case
@@ -197,7 +195,7 @@ class PartitionArrayForMaxSum:
             dp[i] = max_value_at_i
         return dp[-1]
 
-    def solve_tabulation_top_down_circular_list(self, arr: List[int], k: int) -> int:
+    def solve_tabulation_top_down_circular_list(self, arr: list[int], k: int) -> int:
         n = len(arr)
         dp = [0] * k
         dp[0] = arr[0]  # base case

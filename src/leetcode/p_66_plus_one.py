@@ -39,10 +39,8 @@ Constraints:
 digits does not contain any leading 0's.
 """
 
-from typing import List
 
-
-def plus_one(digits: List[int]) -> List[int]:
+def plus_one(digits: list[int]) -> list[int]:
     answer = [0] * len(digits)
     reminder = 1
     for i in range(len(digits) - 1, -1, -1):
@@ -52,7 +50,7 @@ def plus_one(digits: List[int]) -> List[int]:
     return answer if reminder == 0 else [1] + answer
 
 
-def plus_one_early_stop(digits: List[int]) -> List[int]:
+def plus_one_early_stop(digits: list[int]) -> list[int]:
     answer = [0] * len(digits)
 
     for i in range(len(digits) - 1, -1, -1):
@@ -65,7 +63,7 @@ def plus_one_early_stop(digits: List[int]) -> List[int]:
     return [1] + answer
 
 
-def plus_one_early_stop_inplace(digits: List[int]) -> List[int]:
+def plus_one_early_stop_inplace(digits: list[int]) -> list[int]:
     """Change the input array and return a reference to it."""
     for i in range(len(digits) - 1, -1, -1):
         if digits[i] == 9:

@@ -24,10 +24,9 @@ nums[i] is either 0 or 1.
 """
 
 from collections import defaultdict
-from typing import List
 
 
-def find_max_length_brute_force(nums: List[int]) -> int:
+def find_max_length_brute_force(nums: list[int]) -> int:
     """ "
     We consider every possible subarray and count the number
     of zeros and ones in each subarray. Then, find out the maximum
@@ -50,7 +49,7 @@ def find_max_length_brute_force(nums: List[int]) -> int:
     return max_len
 
 
-def find_max_length_hashmap(nums: List[int]) -> int:
+def find_max_length_hashmap(nums: list[int]) -> int:
     """Use a proxy counter variable (count_diff) to keep the relative number of
     ones and zeros encountered so far while traversing the array.
     Increment count_diff when a 1 is found, and decrement it when a 0 is found.
@@ -108,7 +107,7 @@ def find_max_length_hashmap(nums: List[int]) -> int:
     return max_length
 
 
-def findMaxLength(nums: List[int]) -> int:
+def findMaxLength(nums: list[int]) -> int:
     ans = curr = 0
     counts = defaultdict(int)
     counts[0] = -1

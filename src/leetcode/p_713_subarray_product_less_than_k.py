@@ -28,10 +28,8 @@ Constraints:
 0 <= k <= 106
 """
 
-from typing import List
 
-
-def num_subarray_product_less_than_k(nums: List[int], k: int) -> int:
+def num_subarray_product_less_than_k(nums: list[int], k: int) -> int:
     """Calculates the number of contiguous subarrays where the product of all the elements in the
     subarray is less than a given threshold k.
 
@@ -87,7 +85,7 @@ def num_subarray_product_less_than_k(nums: List[int], k: int) -> int:
     return counter
 
 
-def num_subarray_product_less_than_k__double_loop(nums: List[int], k: int) -> int:
+def num_subarray_product_less_than_k__double_loop(nums: list[int], k: int) -> int:
     if k < 2:
         return 0
 

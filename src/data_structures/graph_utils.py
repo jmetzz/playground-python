@@ -1,17 +1,10 @@
 import random
-from typing import Dict, List, Optional, Set, Tuple, TypeAlias
 
 import matplotlib.pyplot as plt
 import networkx as nx
 
-# Alias for an undirected graph
-Graph: TypeAlias = Dict[int, Set[int]]
 
-# Alias for a directed graph
-WeightedGraph: TypeAlias = Dict[int, Set[Tuple[int, int]]]
-
-
-def build_ugraph(num_vertices: int, edges: List[List[int]]) -> Graph:
+def build_ugraph(num_vertices: int, edges: list[list[int]]) -> dict[int, set[int]]:
     """Builds an undirected graph represented as an adjacency list.
 
     Args:
@@ -39,8 +32,8 @@ def build_ugraph(num_vertices: int, edges: List[List[int]]) -> Graph:
 
 
 def build_digraph(
-    num_vertices: int, edges: List[List[int]], calc_indegree: bool = False
-) -> Tuple[Graph, Optional[Dict[int, int]]]:
+    num_vertices: int, edges: list[list[int]], calc_indegree: bool = False
+) -> tuple[dict[int, set[int]], dict[int, int] | None]:
     """Builds a directed graph represented as an adjacency list,
     with the option to calculate indegrees.
 
@@ -74,7 +67,7 @@ def build_digraph(
     return (graph, indegree) if calc_indegree else (graph, None)
 
 
-def calculate_indegree(graph: Graph) -> Dict[int, int]:
+def calculate_indegree(graph: dict[int, set[int]]) -> dict[int, int]:
     """Calculate the in-degree for each vertex in a directed graph.
 
     The in-degree of a vertex is the number of edges directed towards it. This function
@@ -118,7 +111,7 @@ def calculate_indegree(graph: Graph) -> Dict[int, int]:
     return in_degree
 
 
-def build_weighted_ugraph(num_vertices: int, edges: List[Tuple[List[int], int]]) -> WeightedGraph:
+def build_weighted_ugraph(num_vertices: int, edges: list[tuple[list[int], int]]) -> dict[int, set[tuple[int, int]]]:
     """Builds an undirected graph represented as an adjacency list.
 
     Args:
@@ -146,7 +139,7 @@ def build_weighted_ugraph(num_vertices: int, edges: List[Tuple[List[int], int]])
     return graph
 
 
-def transpose_digraph(graph: Graph) -> Graph:
+def transpose_digraph(graph: dict[int, set[int]]) -> dict[int, set[int]]:
     """Transpose a directed graph.
 
     The transposition of a graph involves reversing the direction of all its edges.
@@ -178,7 +171,7 @@ def transpose_digraph(graph: Graph) -> Graph:
     return transposed
 
 
-def plot_graph(graph: Dict[int, Set[int]]) -> None:
+def plot_graph(graph: dict[int, set[int]]) -> None:
     """Visualizes the given graph
 
     Each key is a node and its value is a set of connected nodes.
@@ -212,7 +205,7 @@ def plot_graph(graph: Dict[int, Set[int]]) -> None:
     plt.show()
 
 
-def plot_digraph(graph: Dict[int, Set[Tuple[int, int]]]) -> None:
+def plot_digraph(graph: dict[int, set[tuple[int, int]]]) -> None:
     """Visualizes the given directed graph.
 
     Args:
@@ -245,7 +238,7 @@ def plot_digraph(graph: Dict[int, Set[Tuple[int, int]]]) -> None:
     plt.show()
 
 
-def generate_graph_with_one_odd_cycle(num_nodes: int, cycle_length: int) -> Graph:
+def generate_graph_with_one_odd_cycle(num_nodes: int, cycle_length: int) -> dict[int, set[int]]:
     if not (cycle_length < num_nodes and cycle_length % 2 == 1):
         raise ValueError("Cycle length should be odd and less than total nodes.")
 
@@ -264,21 +257,23 @@ def generate_graph_with_one_odd_cycle(num_nodes: int, cycle_length: int) -> Grap
     return build_ugraph(num_nodes, edges)
 
 
-def generate_graph_with_components(num_nodes: int, num_components: int, include_cycle: bool = False) -> Graph:
+def generate_graph_with_components(
+    num_nodes: int, num_components: int, include_cycle: bool = False
+) -> dict[int, set[int]]:
     assert num_components <= num_nodes, "Number of components cannot exceed the number of nodes."
 
-    def create_tree(nodes: List[int]) -> List[Tuple[int, int]]:
+    def create_tree(nodes: list[int]) -> list[tuple[int, int]]:
         edges = []
         for i in range(1, len(nodes)):
             edges.append((nodes[i], nodes[random.randint(0, i - 1)]))  # Connect to a random previous node
         return edges
 
-    def add_cycle_to_component(edges: List[Tuple[int, int]], nodes: List[int]) -> None:
+    def add_cycle_to_component(edges: list[tuple[int, int]], nodes: list[int]) -> None:
         cycle_nodes = random.sample(nodes, random.randint(3, min(len(nodes), 5)))  # Create a small cycle, 3-5 nodes
         for i in range(len(cycle_nodes)):
             edges.append((cycle_nodes[i], cycle_nodes[(i + 1) % len(cycle_nodes)]))
 
-    graph: Dict[int, Set[int]] = {i: set() for i in range(num_nodes)}
+    graph: dict[int, set[int]] = {i: set() for i in range(num_nodes)}
     nodes_per_component = [
         num_nodes // num_components + (1 if x < num_nodes % num_components else 0) for x in range(num_components)
     ]

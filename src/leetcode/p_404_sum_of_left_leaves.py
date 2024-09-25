@@ -27,12 +27,10 @@ The number of nodes in the tree is in the range [1, 1000].
 
 """
 
-from typing import Optional
-
 from data_structures.trees import BinaryTreeNode as TreeNode
 
 
-def sum_of_left_leaves(root: Optional[TreeNode]) -> int:
+def sum_of_left_leaves(root: TreeNode | None) -> int:
     if not root:
         return 0
 

@@ -4,10 +4,10 @@ import linecache
 import logging
 import os
 import tracemalloc
+from collections.abc import Iterable
 from datetime import datetime
 from functools import wraps
 from time import perf_counter
-from typing import Iterable, List, Optional
 
 import psutil
 from environs import Env
@@ -163,7 +163,7 @@ class TracemallocWrapper:
     """Profiles memory allocation"""
 
     @staticmethod
-    def take_snapshot_and_log_stats(filters: Optional[Iterable] = None, msg: str = ""):
+    def take_snapshot_and_log_stats(filters: Iterable | None = None, msg: str = ""):
         """Takes tracemalloc snapshot and prints statistics
         :param filters: Filters to include/exclude python modules.
         :param msg: Extra massage/info to print.
@@ -190,7 +190,7 @@ class TracemallocWrapper:
 
     @staticmethod
     def take_snapshot(
-        filters: Optional[Iterable],
+        filters: Iterable | None,
     ):
         """Takes snapshot.
         :param filters: Applies provided filters.
@@ -241,7 +241,7 @@ class TracemallocWrapper:
 
     @staticmethod
     def _display_top_stats(
-        top_stats: List[tracemalloc.Statistic],
+        top_stats: list[tracemalloc.Statistic],
         limit=10,
         show_line=False,
         show_traceback=False,
@@ -277,7 +277,7 @@ class TracemallocWrapper:
 
     @staticmethod
     def log_traceback(
-        traceback: Optional[tracemalloc.Traceback],
+        traceback: tracemalloc.Traceback | None,
     ):
         """Print traceback frames.
         :param traceback: Traceback instance

@@ -55,10 +55,9 @@ We can think of this problem as a shortest path problem on a graph:
 """
 
 from collections import deque
-from typing import List
 
 
-def open_lock_str(deadends: List[str], target: str) -> int:
+def open_lock_str(deadends: list[str], target: str) -> int:
     def append_new_whell_combinations(comb):
         for whell in range(4):
             next_comb = list(comb)
@@ -97,7 +96,7 @@ def open_lock_str(deadends: List[str], target: str) -> int:
     return -1
 
 
-def open_lock_tuple(deadends: List[str], target: str) -> int:
+def open_lock_tuple(deadends: list[str], target: str) -> int:
     target = tuple(map(int, target))
     start_comb = (0, 0, 0, 0)
 

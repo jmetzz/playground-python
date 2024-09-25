@@ -40,11 +40,10 @@ ai != bi
 """
 
 from collections import defaultdict
-from typing import List
 
 
 class FindTownJudge:
-    def solve(self, n: int, trust: List[List[int]]) -> int:
+    def solve(self, n: int, trust: list[list[int]]) -> int:
         if len(trust) == 0:
             return 1 if n == 1 else -1
 
@@ -59,7 +58,7 @@ class FindTownJudge:
 
         return candidate if candidate not in trusting and trusted[candidate] == n - 1 else -1
 
-    def solve_graph(self, n: int, trust: List[List[int]]) -> int:
+    def solve_graph(self, n: int, trust: list[list[int]]) -> int:
         """1. Initialization: Initialize two vectors, in and out, to store the in-degree and out-degree of each person.
 
         2. Counting Trust Relationships: Iterate through each trust relationship, incrementing the out count

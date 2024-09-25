@@ -31,10 +31,8 @@ n == gain.length
 
 """
 
-from typing import List
 
-
-def highest_altitude_1(gain: List[int]) -> int:
+def highest_altitude_1(gain: list[int]) -> int:
     """Use prefix sum to accumulate the altitudes
     while iterating over the gain array.
     """
@@ -46,7 +44,7 @@ def highest_altitude_1(gain: List[int]) -> int:
     return highest
 
 
-def highest_altitude_2(gain: List[int]) -> int:
+def highest_altitude_2(gain: list[int]) -> int:
     altitudes = [0]
     for g in gain:
         altitudes.append(altitudes[-1] + g)

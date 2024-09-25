@@ -27,12 +27,10 @@ The number of nodes in the list is the range [0, 5000].
 Follow up: A linked list can be reversed either iteratively or recursively. Could you implement both?
 """
 
-from typing import Optional
-
 from data_structures.lists import SingleLinkNode as ListNode
 
 
-def reverse_list_with_stack(head: Optional[ListNode]) -> Optional[ListNode]:
+def reverse_list_with_stack(head: ListNode | None) -> ListNode | None:
     """Reverses a linked list using a stack data structure.
 
     Args:
@@ -63,7 +61,7 @@ def reverse_list_with_stack(head: Optional[ListNode]) -> Optional[ListNode]:
     return new_head
 
 
-def reverse_list_with_pointers(head: Optional[ListNode]) -> Optional[ListNode]:
+def reverse_list_with_pointers(head: ListNode | None) -> ListNode | None:
     """Reverses a singly linked list using a pointer approach.
 
     The function iterates through the list, reversing the direction of the pointers as it goes.

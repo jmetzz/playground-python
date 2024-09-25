@@ -35,10 +35,9 @@ Constraints:
 """
 
 from collections import Counter
-from typing import List
 
 
-def max_operations_two_pointers(nums: List[int], k: int) -> int:
+def max_operations_two_pointers(nums: list[int], k: int) -> int:
     """Iterate with two pointers: Use a while loop to iterate until left pointer is less than right pointer.
 
     - If the sum of nums[left] and nums[right] is equal to the target k, we have found a pair,
@@ -71,7 +70,7 @@ def max_operations_two_pointers(nums: List[int], k: int) -> int:
     return op_counter
 
 
-def max_operations_counter(nums: List[int], k: int) -> int:
+def max_operations_counter(nums: list[int], k: int) -> int:
     if not nums:
         return 0
 

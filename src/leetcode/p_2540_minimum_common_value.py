@@ -27,10 +27,9 @@ Both nums1 and nums2 are sorted in non-decreasing order.
 """
 
 import bisect
-from typing import List
 
 
-def get_common__with_set_intersection(nums1: List[int], nums2: List[int]) -> int:
+def get_common__with_set_intersection(nums1: list[int], nums2: list[int]) -> int:
     """This approach uses set intersection and sorting"""
     intersection = sorted(set(nums1) & set(nums2))
     if intersection:
@@ -38,7 +37,7 @@ def get_common__with_set_intersection(nums1: List[int], nums2: List[int]) -> int
     return -1
 
 
-def get_common__with_loop_and_set(nums1: List[int], nums2: List[int]) -> int:
+def get_common__with_loop_and_set(nums1: list[int], nums2: list[int]) -> int:
     """This approach searches for elements from the shorter array in the longer array set of elements"""
     shorter, longer = nums1, nums2
     if len(longer) < len(shorter):
@@ -50,7 +49,7 @@ def get_common__with_loop_and_set(nums1: List[int], nums2: List[int]) -> int:
     return -1
 
 
-def get_common__with_bin_search(nums1: List[int], nums2: List[int]) -> int:
+def get_common__with_bin_search(nums1: list[int], nums2: list[int]) -> int:
     """This approache use binary search"""
     shorter, longer = nums1, nums2
     if len(longer) < len(shorter):
@@ -63,7 +62,7 @@ def get_common__with_bin_search(nums1: List[int], nums2: List[int]) -> int:
     return -1
 
 
-def get_common__with_two_pointers(nums1: List[int], nums2: List[int]) -> int:
+def get_common__with_two_pointers(nums1: list[int], nums2: list[int]) -> int:
     """This approach uses two pointers"""
     i, j = 0, 0
     while i < len(nums1) and j < len(nums2):

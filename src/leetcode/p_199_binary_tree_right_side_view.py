@@ -27,12 +27,11 @@ The number of nodes in the tree is in the range [0, 100].
 
 from ast import List
 from collections import deque
-from typing import Optional
 
 from data_structures.trees import BinaryTreeNode as TreeNode
 
 
-def right_side_view(root: Optional[TreeNode]) -> List[int]:
+def right_side_view(root: TreeNode | None) -> List[int]:
     if not root:
         return []
     right_side = [root.val]

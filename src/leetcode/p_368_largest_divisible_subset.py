@@ -1,8 +1,5 @@
-from typing import List
-
-
 class Solution:
-    def solve_memoization(self, nums: List[int]) -> List[int]:
+    def solve_memoization(self, nums: list[int]) -> list[int]:
         """Model the problem as "take or not" the element at index i.
 
         answer[i] % answer[j] == 0 OR answer[j] % answer[i] == 0
@@ -14,7 +11,7 @@ class Solution:
         cache = {}  # (idx, previous) -> List
         nums.sort()  # sort in place to save space. Side effect is bad!
 
-        def dfs(idx, previous) -> List[int]:
+        def dfs(idx, previous) -> list[int]:
             if idx == len(nums):
                 return []
 
@@ -35,14 +32,14 @@ class Solution:
 
         return dfs(0, 1)
 
-    def solve_memoization_optimized(self, nums: List[int]) -> List[int]:
+    def solve_memoization_optimized(self, nums: list[int]) -> list[int]:
         nums.sort()  # sort in place to save space. Side effect is bad!
         n = len(nums)
 
         # cache[i] = longest subset starting at i, and including nums[i]
         cache = {}
 
-        def dfs(idx) -> List[int]:
+        def dfs(idx) -> list[int]:
             if idx == n:
                 return []
 
@@ -66,7 +63,7 @@ class Solution:
 
         return answer
 
-    def solve_dp_bottom_up(self, nums: List[int]) -> List[int]:
+    def solve_dp_bottom_up(self, nums: list[int]) -> list[int]:
         nums.sort()  # sort in place to save space. Side effect is bad!
         n = len(nums)
         dp = [[e] for e in nums]

@@ -15,10 +15,8 @@ Example:
 
 """
 
-from typing import Dict, List, Optional
 
-
-def solve_recursive(target: int, arr: List[int]) -> Optional[List[int]]:
+def solve_recursive(target: int, arr: list[int]) -> list[int] | None:
     """Solution using brute force recursion
 
     O(n^m * m) time
@@ -36,7 +34,7 @@ def solve_recursive(target: int, arr: List[int]) -> Optional[List[int]]:
     return None
 
 
-def solve_memoization(target: int, arr: List[int], cache: Dict[int, List[int]]) -> Optional[List[int]]:
+def solve_memoization(target: int, arr: list[int], cache: dict[int, list[int]]) -> list[int] | None:
     """Solution using memoization
 
     O(n * m^2) time

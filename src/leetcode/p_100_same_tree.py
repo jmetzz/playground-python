@@ -28,12 +28,10 @@ The number of nodes in both trees is in the range [0, 100].
 
 """
 
-from typing import Optional
-
 from data_structures.trees import BinaryTreeNode
 
 
-def is_same_tree(p: Optional[BinaryTreeNode], q: Optional[BinaryTreeNode]) -> bool:
+def is_same_tree(p: BinaryTreeNode | None, q: BinaryTreeNode | None) -> bool:
     if p is None and q is None:
         return True
 

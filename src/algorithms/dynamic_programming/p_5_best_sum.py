@@ -20,10 +20,8 @@ Examples:
 
 """
 
-from typing import List, Optional
 
-
-def solve_recursive(target: int, arr: List[int]) -> Optional[List[int]]:
+def solve_recursive(target: int, arr: list[int]) -> list[int] | None:
     """Solution using brute force recursion
     Exhaustive search exploring the full recursion tree
 
@@ -45,7 +43,7 @@ def solve_recursive(target: int, arr: List[int]) -> Optional[List[int]]:
     return curr_best
 
 
-def solve_memoization(target: int, arr: List[int], cache) -> Optional[List[int]]:
+def solve_memoization(target: int, arr: list[int], cache) -> list[int] | None:
     """Solution using brute force recursion
     Exhaustive search exploring the full recursion tree
 

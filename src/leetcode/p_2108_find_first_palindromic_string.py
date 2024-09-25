@@ -32,11 +32,9 @@ Constraints:
 words[i] consists only of lowercase English letters.
 """
 
-from typing import List
-
 
 class FirstPalindrome:
-    def solve(self, words: List[str]) -> str:
+    def solve(self, words: list[str]) -> str:
         for word in words:
             if word == word[::-1]:
                 return word

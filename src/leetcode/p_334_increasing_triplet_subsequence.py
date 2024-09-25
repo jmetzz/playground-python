@@ -32,10 +32,8 @@ Constraints:
 Follow up: Could you implement a solution that runs in O(n) time complexity and O(1) space complexity?
 """
 
-from typing import List
 
-
-def increasing_triplet(nums: List[int]) -> bool:
+def increasing_triplet(nums: list[int]) -> bool:
     """ "
     Use two variables, small and medium, to keep track of the two smallest elements encountered so far.
 

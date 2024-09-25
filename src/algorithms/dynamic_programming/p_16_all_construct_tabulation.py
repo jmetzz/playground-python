@@ -7,8 +7,6 @@ represent one combination that constructs the target.
 You may reuse elements of the word_bank as many times as needed.
 """
 
-from typing import List
 
-
-def solve_tabulation(target: str, word_bank: List[str]) -> List[List[str]]:
+def solve_tabulation(target: str, word_bank: list[str]) -> list[list[str]]:
     pass

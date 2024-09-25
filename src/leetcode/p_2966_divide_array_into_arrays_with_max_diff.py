@@ -36,11 +36,9 @@ n is a multiple of 3.
 1 <= k <= 10^5
 """
 
-from typing import List
-
 
 class DivideArraysWithMaxDiff:
-    def solve_backward(self, nums: List[int], k: int) -> List[List[int]]:
+    def solve_backward(self, nums: list[int], k: int) -> list[list[int]]:
         size = len(nums)
         if size % 3 != 0:
             return []
@@ -68,7 +66,7 @@ class DivideArraysWithMaxDiff:
             i -= 3
         return answer
 
-    def solve_forward(self, nums: List[int], k: int) -> List[List[int]]:
+    def solve_forward(self, nums: list[int], k: int) -> list[list[int]]:
         size = len(nums)
         if size % 3 != 0:
             return []

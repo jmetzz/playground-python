@@ -27,10 +27,8 @@ n == height.length
 0 <= height[i] <= 105
 """
 
-from typing import List
 
-
-def trapped_water_volume_two_pointers(height: List[int]) -> int:
+def trapped_water_volume_two_pointers(height: list[int]) -> int:
     n = len(height)
     if n == 0:
         return 0
@@ -51,7 +49,7 @@ def trapped_water_volume_two_pointers(height: List[int]) -> int:
     return total_volume
 
 
-def trapped_water_volume_monotonic_stack(heights: List[int]) -> int:
+def trapped_water_volume_monotonic_stack(heights: list[int]) -> int:
     """Use a stack to maintain a list of indices with bars where
     the next bars are smaller or equal in height
 

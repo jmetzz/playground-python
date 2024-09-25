@@ -1,5 +1,4 @@
 import math
-from typing import List
 
 
 def is_prime(x):
@@ -13,7 +12,7 @@ def check_prime(number):
     return all(not (number / i).is_integer() for i in range(2, int(sqrt_number) + 1))
 
 
-def prime_factors(n: int) -> List[int]:
+def prime_factors(n: int) -> list[int]:
     factors = []
     # Check for divisibility by 2
     while n % 2 == 0:

@@ -28,15 +28,15 @@ n == nums.length
 Each element in nums appears once or twice.
 """
 
-from typing import Counter, List
+from collections import Counter
 
 
-def find_duplicates(nums: List[int]) -> List[int]:
+def find_duplicates(nums: list[int]) -> list[int]:
     counter = Counter(nums)
     return [e for e, qtt in counter.items() if qtt > 1]
 
 
-def find_duplicates_space_optimized(nums: List[int]) -> List[int]:
+def find_duplicates_space_optimized(nums: list[int]) -> list[int]:
     """To solve this problem in O(n) time and constant extra space,
     take advantage of the constraints:
       * all integers in the array are in the range [1, n]

@@ -21,14 +21,13 @@ The number of nodes in the tree is in the range [1, 104].
 
 from collections import deque
 from math import inf
-from typing import Optional
 
 from conftest import TREE_0, TREE_1, TREE_2, TREE_3, TREE_4, TREE_5, TREE_6
 
 from data_structures.trees import BinaryTreeNode
 
 
-def find_bottom_left_value_iterative(root: Optional[BinaryTreeNode]) -> int:
+def find_bottom_left_value_iterative(root: BinaryTreeNode | None) -> int:
     q = deque()
     q.append(root)
     answer = inf
@@ -46,7 +45,7 @@ def find_bottom_left_value_iterative(root: Optional[BinaryTreeNode]) -> int:
     return answer
 
 
-def find_bottom_left_value_recursive(root: Optional[BinaryTreeNode]) -> Optional[int]:
+def find_bottom_left_value_recursive(root: BinaryTreeNode | None) -> int | None:
     depth = [-1]
     answer = [None]
 

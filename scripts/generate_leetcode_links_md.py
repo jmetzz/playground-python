@@ -2,7 +2,6 @@ import json
 import logging
 import re
 from pathlib import Path
-from typing import List, Tuple
 
 # Compile the regular expression once and use it globally
 leetcode_url_pattern = re.compile(r"https://leetcode\.\w+/problems/[\w-]+/?")
@@ -10,7 +9,7 @@ leetcode_url_pattern = re.compile(r"https://leetcode\.\w+/problems/[\w-]+/?")
 LOGGER = logging.getLogger()
 
 
-def extract_leetcode_links(file_path: Path) -> Tuple[str, str, int]:
+def extract_leetcode_links(file_path: Path) -> tuple[str, str, int]:
     """
     Extracts the first LeetCode URL from the initial docstring of a Python file and
     generates a tuple containing the URL and a descriptive name based on the file naming
@@ -42,7 +41,7 @@ def extract_leetcode_links(file_path: Path) -> Tuple[str, str, int]:
     return (None, None, -1)  # Return empty if no URL is found
 
 
-def scan_directory_for_links(directory: Path) -> List[Tuple[str, str, int]]:
+def scan_directory_for_links(directory: Path) -> list[tuple[str, str, int]]:
     """
     Scans a directory recursively for Python files, extracting the first LeetCode URL
     from their initial docstrings, along with generating a descriptive name based on the
@@ -67,7 +66,7 @@ def scan_directory_for_links(directory: Path) -> List[Tuple[str, str, int]]:
     return links, missing_links
 
 
-def write_links_to_markdown(links: List[Tuple[str, str, int]], output_file: Path) -> None:
+def write_links_to_markdown(links: list[tuple[str, str, int]], output_file: Path) -> None:
     """
     Writes a list of LeetCode URLs and their descriptive names to a Markdown file,
     formatted as a list.

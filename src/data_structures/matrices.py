@@ -1,7 +1,4 @@
-from typing import List
-
-
-def transpose(matrix: List[List[int]], square: bool = False) -> List[List[int]]:
+def transpose(matrix: list[list[int]], square: bool = False) -> list[list[int]]:
     """Transposes a 2D matrix (flips a matrix over its diagonal).
 
     The function takes a square matrix as input and returns its transpose.
@@ -44,17 +41,19 @@ def transpose(matrix: List[List[int]], square: bool = False) -> List[List[int]]:
         if len(matrix[0]) != n:
             raise ValueError(f"Expect a quadratic matrix (n==n). Given {n}x{len(matrix[0])}")
 
-    return list(map(list, zip(*matrix)))
+    return list(map(list, zip(*matrix, strict=False)))
 
 
 def serialize(matrix: list[list[int]], justify: bool = True) -> str:
     if not matrix:
         return ""
     if justify:
-        col_widths = [max(len(str(item)) for item in col) for col in zip(*matrix)]
+        col_widths = [max(len(str(item)) for item in col) for col in zip(*matrix, strict=False)]
         rows = []
         for row in matrix:
-            formatted_row = " | ".join(f"{str(item).rjust(width)}" for item, width in zip(row, col_widths))
+            formatted_row = " | ".join(
+                f"{str(item).rjust(width)}" for item, width in zip(row, col_widths, strict=False)
+            )
             rows.append(f"| {formatted_row} |")
     else:
         rows = [" ".join(map(str, row)) for row in matrix]
@@ -65,7 +64,7 @@ def serialize(matrix: list[list[int]], justify: bool = True) -> str:
 def max_columns_width(matrix: list[list[int]]) -> list[int]:
     if not matrix or matrix == []:
         return []
-    return [max(len(str(item)) for item in col) for col in zip(*matrix)]
+    return [max(len(str(item)) for item in col) for col in zip(*matrix, strict=False)]
 
 
 def count_active_neighbors(matrix: list[list[int]], row: int, col: int, active_val: int = 1):

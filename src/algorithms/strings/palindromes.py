@@ -1,7 +1,4 @@
-from typing import Dict
-
-
-def is_palindrome_with_stack(sequence: str, cache: Dict[str, bool]) -> bool:
+def is_palindrome_with_stack(sequence: str, cache: dict[str, bool]) -> bool:
     if sequence in cache:
         return cache[sequence]
 

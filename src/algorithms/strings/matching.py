@@ -27,10 +27,8 @@ Computer Vision: Pattern matching algorithms can be adapted for use in image pro
 and computer vision, searching for visual patterns or features within images.
 """
 
-from typing import List
 
-
-def compute_lps_array(pattern: str) -> List[int]:
+def compute_lps_array(pattern: str) -> list[int]:
     """Computes the Longest Prefix Suffix (LPS) array used in KMP algorithm.
 
     The LPS array stores important information about how the pattern
@@ -128,7 +126,7 @@ def compute_lps_array(pattern: str) -> List[int]:
     return lps
 
 
-def compute_lps_array_2(pattern: str) -> List[int]:
+def compute_lps_array_2(pattern: str) -> list[int]:
     lps = [0] * len(pattern)
     prev_lps = 0
     i = 1
@@ -147,7 +145,7 @@ def compute_lps_array_2(pattern: str) -> List[int]:
     return lps
 
 
-def compute_lps_array_3(pattern: str) -> List[int]:
+def compute_lps_array_3(pattern: str) -> list[int]:
     # Longest Proper Prefix that is suffix array
     lps = [0] * len(pattern)
 

@@ -8,10 +8,8 @@ You may use an element of the array as many times as needed.
 You may assume that all input numbers are non-negative.
 """
 
-from typing import Dict, List
 
-
-def solve_recursive(target: int, arr: List[int]) -> bool:
+def solve_recursive(target: int, arr: list[int]) -> bool:
     """Solution using brute force recursion
 
     O(n^m) time
@@ -28,7 +26,7 @@ def solve_recursive(target: int, arr: List[int]) -> bool:
     return False
 
 
-def solve_memoization(target: int, arr: List[int], cache: Dict[int, bool]) -> bool:
+def solve_memoization(target: int, arr: list[int], cache: dict[int, bool]) -> bool:
     """Solution using memoization
 
     O(m * n) time

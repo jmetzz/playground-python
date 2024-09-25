@@ -27,10 +27,8 @@ Constraints:
 1 <= n <= 104
 """
 
-from typing import List
 
-
-def fizz_buzz_iterative(n: int) -> List[str]:
+def fizz_buzz_iterative(n: int) -> list[str]:
     answer = []
     for v in range(1, n + 1):
         fb = ""
@@ -44,7 +42,7 @@ def fizz_buzz_iterative(n: int) -> List[str]:
     return answer
 
 
-def fizz_buzz_iterative_2(n: int) -> List[str]:
+def fizz_buzz_iterative_2(n: int) -> list[str]:
     answer = []
     for v in range(1, n + 1):
         fb = ""
@@ -56,7 +54,7 @@ def fizz_buzz_iterative_2(n: int) -> List[str]:
     return answer
 
 
-def fizz_buzz_ifelse(n: int) -> List[str]:
+def fizz_buzz_ifelse(n: int) -> list[str]:
     answer = []
     for i in range(1, n + 1):
         if i % 15 == 0:
@@ -70,7 +68,7 @@ def fizz_buzz_ifelse(n: int) -> List[str]:
     return answer
 
 
-def fizz_buzz_pattern_matching(n: int) -> List[str]:
+def fizz_buzz_pattern_matching(n: int) -> list[str]:
     answer = []
     for v in range(1, n + 1):
         match (v % 3, v % 5):

@@ -20,7 +20,6 @@ If there is not item, StopIteration should be raised.
 
 import json
 from pathlib import Path
-from typing import Dict, List
 
 SAMPLE_DATA_1 = {
     "items": [
@@ -41,7 +40,7 @@ SAMPLE_DATA_2 = {
 
 
 class SearchByTag:
-    def __init__(self, data: List[Dict], query_tag):
+    def __init__(self, data: list[dict], query_tag):
         self._items = data
         self.query = query_tag
 

@@ -1,5 +1,4 @@
 import random
-from typing import Set, Tuple
 
 WORDS = [
     "stopping",
@@ -8,7 +7,7 @@ WORDS = [
 ]
 
 
-def fetch_random_word(hint_size: int = 1) -> Tuple[str, str]:
+def fetch_random_word(hint_size: int = 1) -> tuple[str, str]:
     word = random.choice(WORDS)
     keep_chars = random.sample(word, hint_size)
     hint = str(word)
@@ -19,7 +18,7 @@ def fetch_random_word(hint_size: int = 1) -> Tuple[str, str]:
     return word, hint
 
 
-def guess(word: str, reveled: Set[str], ch: str) -> Tuple[Set[str], str]:
+def guess(word: str, reveled: set[str], ch: str) -> tuple[set[str], str]:
     if ch in word:
         return reveled.union(ch), "Good job!"
     return reveled, "Fail. Try again!"

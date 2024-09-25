@@ -28,12 +28,11 @@ The number of nodes in the list is in the range [1, 5 * 104].
 """
 
 from collections import deque
-from typing import Optional
 
 from data_structures.lists import SingleLinkNode as ListNode
 
 
-def reorder_list(head: Optional[ListNode]) -> None:
+def reorder_list(head: ListNode | None) -> None:
     """Do not return anything, modify head in-place instead."""
     if not head or not head.next or not head.next.next:
         # None, 1 or 2 elements only
@@ -65,7 +64,7 @@ def reorder_list(head: Optional[ListNode]) -> None:
         queue[-1].next = None  # Ensure the last node points to None
 
 
-def reorder_list_fast_slow_pointers(head: Optional[ListNode]) -> None:
+def reorder_list_fast_slow_pointers(head: ListNode | None) -> None:
     if not head or not head.next:
         return
 
@@ -101,7 +100,7 @@ def reorder_list_fast_slow_pointers(head: Optional[ListNode]) -> None:
         first, second = temp1, temp2
 
 
-def reorder_list_even_and_reversed_odd_indices(head: Optional[ListNode]) -> None:
+def reorder_list_even_and_reversed_odd_indices(head: ListNode | None) -> None:
     """You are given the head of a singly linked-list.
     The list can be represented as:
         L0 → L1 → … → Ln-1

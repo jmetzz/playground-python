@@ -34,10 +34,8 @@ Constraints:
 1 <= people[i] <= limit <= 3 * 10**4
 """
 
-from typing import List
 
-
-def num_rescue_boats__inplace(people: List[int], limit: int) -> int:
+def num_rescue_boats__inplace(people: list[int], limit: int) -> int:
     people.sort()
     boats, lo, hi = 0, 0, len(people) - 1
     while lo <= hi:
@@ -49,7 +47,7 @@ def num_rescue_boats__inplace(people: List[int], limit: int) -> int:
     return boats
 
 
-def num_rescue_boats(people: List[int], limit: int) -> int:
+def num_rescue_boats(people: list[int], limit: int) -> int:
     weights = sorted(people)
     boats, lo, hi = 0, 0, len(weights) - 1
     while lo <= hi:

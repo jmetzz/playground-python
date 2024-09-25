@@ -42,12 +42,10 @@ root is a valid binary search tree.
 Follow up: Could you solve it with time complexity O(height of tree)?
 """
 
-from typing import Optional
-
 from data_structures.trees import BinaryTreeNode as TreeNode
 
 
-def delete_node(root: Optional[TreeNode], key: int) -> Optional[TreeNode]:
+def delete_node(root: TreeNode | None, key: int) -> TreeNode | None:
     if not root:
         return root
     # 1) search the target node

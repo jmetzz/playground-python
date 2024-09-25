@@ -28,11 +28,10 @@ Constraints:
 
 import heapq
 from collections import Counter
-from typing import List
 
 
 class FindLeastNumOfUniqueAfterRemoval:
-    def solve_with_heap(self, arr: List[int], k: int) -> int:
+    def solve_with_heap(self, arr: list[int], k: int) -> int:
         counter = Counter(arr)
         heap = [(count, e) for e, count in counter.items()]
         heapq.heapify(heap)
@@ -49,7 +48,7 @@ class FindLeastNumOfUniqueAfterRemoval:
         unique_elements = {e for _, e in heap}
         return len(unique_elements)
 
-    def solve_with_array(self, arr: List[int], k: int) -> int:
+    def solve_with_array(self, arr: list[int], k: int) -> int:
         counter = Counter(arr)
         temp = sorted([(count, e) for e, count in counter.items()])
         idx = 0
@@ -64,7 +63,7 @@ class FindLeastNumOfUniqueAfterRemoval:
             idx += 1
         return len(temp) - idx
 
-    def solve_with_one_loop(self, arr: List[int], k: int) -> int:
+    def solve_with_one_loop(self, arr: list[int], k: int) -> int:
         counter = Counter(arr)
         counts = sorted([count for count in counter.values()])
         idx = 0
@@ -78,7 +77,7 @@ class FindLeastNumOfUniqueAfterRemoval:
             idx += 1
         return len(counts) - idx
 
-    def solve_with_counter_and_counter(self, arr: List[int], k: int) -> int:
+    def solve_with_counter_and_counter(self, arr: list[int], k: int) -> int:
         """This one does not work properly yet
         failed for this test case:
         [2,4,1,8,3,5,1,3], k=3 --> expected is 3
@@ -102,7 +101,7 @@ class FindLeastNumOfUniqueAfterRemoval:
         remaining_elements = len(counter) - idx
         return remaining_elements + residual
 
-    def solve_ffreitas(self, arr: List[int], k: int) -> int:
+    def solve_ffreitas(self, arr: list[int], k: int) -> int:
         k_count = k
         c = Counter(arr)
         cnt, remaining = Counter(c.values()), len(c)

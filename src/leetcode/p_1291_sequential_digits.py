@@ -1,8 +1,5 @@
-from typing import List
-
-
 class SequentialDigits:
-    def solve(self, low: int, high: int) -> List[int]:
+    def solve(self, low: int, high: int) -> list[int]:
         digits = "123456789"
         n = len(digits)
         max_len = len(str(high))

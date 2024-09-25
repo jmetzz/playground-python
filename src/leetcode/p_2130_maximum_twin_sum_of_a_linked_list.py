@@ -45,12 +45,10 @@ The number of nodes in the list is an even integer in the range [2, 105].
 1 <= Node.val <= 105
 """
 
-from typing import Optional
-
 from data_structures.lists import SingleLinkNode as ListNode
 
 
-def pair_sum_fast_slow(head: Optional[ListNode]) -> int:
+def pair_sum_fast_slow(head: ListNode | None) -> int:
     """Calculates the maximum twin sum in a linked list by using a stack
     to store values of the first half while traversing the list with two pointers.
 
@@ -83,7 +81,7 @@ def pair_sum_fast_slow(head: Optional[ListNode]) -> int:
     return max_twin_sum
 
 
-def pair_sum_reverse_first_half(head: Optional[ListNode]) -> int:
+def pair_sum_reverse_first_half(head: ListNode | None) -> int:
     """Calculates the maximum twin sum in a linked list by first reversing the first half
     of the list, then comparing each element of the reversed first half with its
     corresponding element in the second half.
@@ -118,7 +116,7 @@ def pair_sum_reverse_first_half(head: Optional[ListNode]) -> int:
     return max_twin_sum
 
 
-def pair_sum_reverse_second_half(head: Optional[ListNode]) -> int:
+def pair_sum_reverse_second_half(head: ListNode | None) -> int:
     """Calculates the maximum twin sum in a linked list by reversing the second half
     of the list and then comparing each element of the first half with its corresponding
     element in the reversed second half.

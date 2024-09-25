@@ -1,5 +1,3 @@
-from typing import Dict, List, Tuple
-
 import pandas as pd
 
 
@@ -27,7 +25,7 @@ def list_actions_maximixing_profit_1(prices):
     return profit, actions
 
 
-def list_actions_maximixing_profit_2(prices: List[int]) -> Tuple[int, List[str]]:
+def list_actions_maximixing_profit_2(prices: list[int]) -> tuple[int, list[str]]:
     n = len(prices)
     if n < 2:
         return 0, ["skip" for _ in prices]  # No transactions possible
@@ -57,7 +55,7 @@ def list_actions_maximixing_profit_2(prices: List[int]) -> Tuple[int, List[str]]
     return profit, actions
 
 
-def max_profit_explicit_actions(prices: List[int]) -> Tuple[int, List[str]]:
+def max_profit_explicit_actions(prices: list[int]) -> tuple[int, list[str]]:
     n = len(prices)
     if n < 2:
         return 0, ["skip" for _ in prices]  # No transactions possible
@@ -112,7 +110,7 @@ def max_profit_explicit_actions_pandas(df: pd.DataFrame, group: bool = True) -> 
     return df
 
 
-def calculate_profit_from_transaction_log(prices: List[int], transactions: List[str]) -> float:
+def calculate_profit_from_transaction_log(prices: list[int], transactions: list[str]) -> float:
     profit = 0
     first_buy = None
     for i, action in enumerate(transactions):
@@ -125,7 +123,7 @@ def calculate_profit_from_transaction_log(prices: List[int], transactions: List[
     return profit
 
 
-def calculate_daily_trading_strategy(prices_df: pd.DataFrame, append: bool = False) -> Dict:
+def calculate_daily_trading_strategy(prices_df: pd.DataFrame, append: bool = False) -> dict:
     results = {}
     for day, group in prices_df.groupby(prices_df["start_time"].dt.date):
         prices = group["Price"].tolist()

@@ -50,7 +50,7 @@ Constraints:
 At most 2 * 10^5 calls will be made to get and put.
 """
 
-from typing import OrderedDict
+from collections import OrderedDict
 
 
 class Node:

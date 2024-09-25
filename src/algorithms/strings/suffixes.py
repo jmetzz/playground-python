@@ -1,4 +1,4 @@
-from typing import Any, List
+from typing import Any
 
 
 class Alphabet:
@@ -146,10 +146,10 @@ class SuffixArray:
     https://web.stanford.edu/class/cs97si/suffix-array.pdf
     """
 
-    def __init__(self, alphabet: List[Any], mark="$"):
+    def __init__(self, alphabet: list[Any], mark="$"):
         self.alphabet = [mark] + alphabet
         self.alphabet_size = len(self.alphabet)
-        self.alphabet_index = dict(zip(self.alphabet, range(len(self.alphabet))))
+        self.alphabet_index = dict(zip(self.alphabet, range(len(self.alphabet)), strict=False))
 
     def build(self, text: str):
         """Builds the suffix array from the input string.
@@ -169,7 +169,7 @@ class SuffixArray:
             shift_length *= 2
         return order
 
-    def counting_sort_characters(self, text: str) -> List[int]:
+    def counting_sort_characters(self, text: str) -> list[int]:
         """Uses counting sort to sort the characters in the input text.
 
         Complexity time: (|text| + |alphabet|)
@@ -196,7 +196,7 @@ class SuffixArray:
         return order
 
     @staticmethod
-    def compute_character_classes(text: str, order: List[int]) -> List[int]:
+    def compute_character_classes(text: str, order: list[int]) -> list[int]:
         """This algorithm run with complexity time: O(|text|)
         :param text:
         :param order:
@@ -214,7 +214,7 @@ class SuffixArray:
         return classes
 
     @staticmethod
-    def stable_sort_cyclic_shifts(text: str, shift_length, order: List[int], classes: List[int]) -> List[int]:
+    def stable_sort_cyclic_shifts(text: str, shift_length, order: list[int], classes: list[int]) -> list[int]:
         """Uses counting sort to stable sort the cyclic shifts with the given length.
 
         O(|text|) time complexity
@@ -244,7 +244,7 @@ class SuffixArray:
         return new_order
 
     @staticmethod
-    def update_classes(new_order: List[int], classes: List[int], shift_length: int) -> List[int]:
+    def update_classes(new_order: list[int], classes: list[int], shift_length: int) -> list[int]:
         """Complexity time is linear.
 
         :param new_order:

@@ -30,10 +30,8 @@ There are no two adjacent flowers in flowerbed.
 0 <= n <= flowerbed.length
 """
 
-from typing import List
 
-
-def can_place_flowers_naive(flowerbed: List[int], n: int) -> bool:
+def can_place_flowers_naive(flowerbed: list[int], n: int) -> bool:
     size = len(flowerbed)
     planted = 0
     for i, v in enumerate(flowerbed):
@@ -49,7 +47,7 @@ def can_place_flowers_naive(flowerbed: List[int], n: int) -> bool:
     return planted >= n
 
 
-def can_place_flowers_padding(flowerbed: List[int], n: int) -> bool:
+def can_place_flowers_padding(flowerbed: list[int], n: int) -> bool:
     bed = [0] + flowerbed + [0]
     for i in range(1, len(flowerbed) + 1):
         if bed[i - 1] == bed[i] == bed[i + 1] == 0:

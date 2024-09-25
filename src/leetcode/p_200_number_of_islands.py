@@ -37,10 +37,9 @@ grid[i][j] is '0' or '1'.
 """
 
 from math import inf
-from typing import List
 
 
-def num_islands(grid: List[List[str]]) -> int:
+def num_islands(grid: list[list[str]]) -> int:
     """Traverse without side-effects on the grid object.
 
     If allowed to change the input grid, the visited is not necessary,
@@ -81,7 +80,7 @@ def num_islands(grid: List[List[str]]) -> int:
     return count
 
 
-def size_of_islands(grid: List[List[str]]) -> List[int]:
+def size_of_islands(grid: list[list[str]]) -> list[int]:
     ROWS = len(grid)
     COLUMNS = len(grid[0])
     visited = set()
@@ -113,7 +112,7 @@ def size_of_islands(grid: List[List[str]]) -> List[int]:
     return sorted(islands_size)
 
 
-def min_island_size(grid: List[List[str]]) -> int:
+def min_island_size(grid: list[list[str]]) -> int:
     ROWS = len(grid)
     COLUMNS = len(grid[0])
     visited = set()
@@ -145,7 +144,7 @@ def min_island_size(grid: List[List[str]]) -> int:
     return min_size if min_size != inf else 0
 
 
-def max_island_size(grid: List[List[str]]) -> int:
+def max_island_size(grid: list[list[str]]) -> int:
     ROWS = len(grid)
     COLUMNS = len(grid[0])
     visited = set()

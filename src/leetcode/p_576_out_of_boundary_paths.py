@@ -1,6 +1,3 @@
-from typing import Dict
-
-
 class OutOfBoundaryPaths:
     def solve_recursive(
         self,
@@ -32,7 +29,7 @@ class OutOfBoundaryPaths:
         max_moves: int,
         start_row: int,
         start_col: int,
-        cache: Dict,
+        cache: dict,
     ) -> int:
         if (start_row, start_col, max_moves) in cache:
             return cache[(start_row, start_col, max_moves)]

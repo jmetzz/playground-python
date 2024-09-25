@@ -1,5 +1,3 @@
-from typing import List
-
 import pytest
 from hypothesis import given
 from hypothesis.strategies import integers, lists
@@ -36,7 +34,7 @@ def test_transpose_two_by_two_matrix():
         lambda n: lists(lists(integers(), min_size=n, max_size=n), min_size=n, max_size=n)
     )
 )
-def test_transpose_twice(matrix: List[List[int]]):
+def test_transpose_twice(matrix: list[list[int]]):
     """Test that transposing a square matrix twice returns the original matrix."""
     # Ensure the matrix is square for the test
     assert len(matrix) == len(matrix[0]), "Matrix is not square"

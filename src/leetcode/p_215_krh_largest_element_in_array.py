@@ -25,10 +25,9 @@ Constraints:
 """
 
 from heapq import heapify, heappop
-from typing import List
 
 
-def find_kth_largest_heap(nums: List[int], k: int) -> int:
+def find_kth_largest_heap(nums: list[int], k: int) -> int:
     arr = [-e for e in nums]
     heapify(arr)
     for _ in range(k - 1):
@@ -36,7 +35,7 @@ def find_kth_largest_heap(nums: List[int], k: int) -> int:
     return -arr[0]
 
 
-def find_kth_largest_counting(nums: List[int], k: int) -> int:
+def find_kth_largest_counting(nums: list[int], k: int) -> int:
     min_val, max_val = min(nums), max(nums)
     counter = [0] * (max_val - min_val + 1)
     for num in nums:

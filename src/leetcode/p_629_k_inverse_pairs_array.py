@@ -34,13 +34,11 @@ Constraints:
 
 """
 
-from typing import Dict
-
 MOD = 10**9 + 7
 
 
 class KInversePairsArray:
-    def solve_memo(self, n: int, k: int, cache: Dict) -> int:
+    def solve_memo(self, n: int, k: int, cache: dict) -> int:
         """O(n^2 * k) time complexity :("""
         if (n, k) in cache:
             return cache[(n, k)]

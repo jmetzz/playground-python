@@ -40,10 +40,8 @@ Constraints:
 0 <= prices[i] <= 10**4
 """
 
-from typing import List
 
-
-def max_profit(prices: List[int]) -> int:
+def max_profit(prices: list[int]) -> int:
     """Calculate the maximum profit from a given list of stock prices,
 
         where each day allows for buying or selling the stock.

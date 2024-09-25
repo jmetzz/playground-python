@@ -24,13 +24,11 @@ Constraints:
 1 <= arr[i] <= 3 * 104
 """
 
-from typing import List
-
 
 class SumSubarrayMinsNaive:
     """O(n^2)"""
 
-    def solve(self, arr: List[int]) -> int:
+    def solve(self, arr: list[int]) -> int:
         n = len(arr)
         size = n - 1
         subtotal = min(arr)
@@ -47,7 +45,7 @@ class SumSubarrayMinsNaive:
 
 
 class SumSubarrayMinsStackingA:
-    def solve(self, arr: List[int]) -> int:
+    def solve(self, arr: list[int]) -> int:
         n = len(arr)
         # These arrays will hold for each element
         # the index of the previous smaller element (left) and
@@ -88,7 +86,7 @@ class SumSubarrayMinsStackingA:
 class SumSubarrayMinsStackingB:
     """Explanation: https://youtu.be/aX1F2-DrBkQ?si=V3oBj-5eT6asMZ1w"""
 
-    def solve(self, arr: List[int]) -> int:
+    def solve(self, arr: list[int]) -> int:
         subtotal = 0
         stack = []  # (index, value)
         # first phase: iterate over the input array

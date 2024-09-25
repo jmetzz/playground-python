@@ -2,8 +2,6 @@
 with initial conditions F(0) = 0 and F(1) = 1.
 """
 
-from typing import Dict, List
-
 
 def solve_recursive(n: int) -> int:
     """Classic recursive implementation of fibonacci sequence.
@@ -17,7 +15,7 @@ def solve_recursive(n: int) -> int:
     return solve_recursive(n - 1) + solve_recursive(n - 2)
 
 
-def solve_memoization(n: int, cache: Dict[int, int]) -> int:
+def solve_memoization(n: int, cache: dict[int, int]) -> int:
     """Classic recursive implementation of fibonacci sequence.
 
     Time and space complexity are O(2^n).
@@ -32,7 +30,7 @@ def solve_memoization(n: int, cache: Dict[int, int]) -> int:
     return solution
 
 
-def fib_sequence(n: int) -> List[int]:
+def fib_sequence(n: int) -> list[int]:
     """Generate the entire fibonacci sequence from 1 to n."""
     memo = {0: 0}
     _ = solve_memoization(n, memo)

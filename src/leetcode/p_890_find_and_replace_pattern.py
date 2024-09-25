@@ -33,12 +33,10 @@ words[i].length == pattern.length
 pattern and words[i] are lowercase English letters.
 """
 
-from typing import List
 
-
-def find_and_replace_pattern(words: List[str], pattern: str) -> List[str]:
+def find_and_replace_pattern(words: list[str], pattern: str) -> list[str]:
     def _are_isomorphic(word1, word2) -> bool:
-        pairing = set(zip(word1, word2))
+        pairing = set(zip(word1, word2, strict=False))
         return len(pairing) == len(set(word1)) == len(set(word2))
 
     return [w for w in words if _are_isomorphic(w, pattern)]

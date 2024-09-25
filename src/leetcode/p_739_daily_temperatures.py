@@ -30,11 +30,9 @@ Constraints:
 30 <= temperatures[i] <= 100
 """
 
-from typing import List
-
 
 class DailyTemperatures:
-    def solve_iterative(self, temperatures: List[int]) -> List[int]:
+    def solve_iterative(self, temperatures: list[int]) -> list[int]:
         """Correct solution, but not accepted.
         Leetcode time Limit exceeded; 35/48 testcases passed
         """
@@ -50,7 +48,7 @@ class DailyTemperatures:
             i += 1
         return days_until_warmer
 
-    def solve_stack(self, temperatures: List[int]) -> List[int]:
+    def solve_stack(self, temperatures: list[int]) -> list[int]:
         n = len(temperatures)
         days_until_warmer = [0] * n
         stack = []  # keep the indices of the elements in temperature array

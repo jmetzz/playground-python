@@ -29,10 +29,8 @@ Constraints:
 1 <= k <= 105
 """
 
-from typing import List
 
-
-def count_subarrays(nums: List[int], k: int) -> int:
+def count_subarrays(nums: list[int], k: int) -> int:
     """Counts the number of subarrays in which the maximum element appears exactly k times.
 
     This function works by sliding a window across the input list `nums`. For each new element
