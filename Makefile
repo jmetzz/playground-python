@@ -2,15 +2,25 @@
 .EXPORT_ALL_VARIABLES:
 SHELL := /bin/bash -euo pipefail
 
-BLACK ?= \033[0;30m
-RED ?= \033[0;31m
-GREEN ?= \033[0;32m
-YELLOW ?= \033[0;33m
-BLUE ?= \033[0;34m
-PURPLE ?= \033[0;35m
-CYAN ?= \033[0;36m
-GRAY ?= \033[0;37m
-COFF ?= \033[0m
+# BLACK ?= \033[0;30m
+# RED ?= \033[0;31m
+# GREEN ?= \033[0;32m
+# YELLOW ?= \033[0;33m
+# BLUE ?= \033[0;34m
+# PURPLE ?= \033[0;35m
+# CYAN ?= \033[0;36m
+# GRAY ?= \033[0;37m
+# COFF ?= \033[0m
+BLACK  := $(shell tput setaf 0)
+RED    := $(shell tput setaf 1)
+GREEN  := $(shell tput setaf 2)
+YELLOW := $(shell tput setaf 3)
+BLUE   := $(shell tput setaf 4)
+PURPLE := $(shell tput setaf 5)
+CYAN   := $(shell tput setaf 6)
+WHITE  := $(shell tput setaf 7)
+COFF   := $(shell tput sgr0)
+
 
 
 initialize:
