@@ -9,7 +9,7 @@ version = "0.0.101"
 [tool.poetry.dependencies]
 python = "^3.12"
 ipython = "^8.26.0"
-pip = "^24.2.0"
+pip = "^26.0.0"
 numpy = "^2.0.1"
 pandas = "^2.2.2"
 pandas-profiling = "*"
